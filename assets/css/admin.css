@@ -1,0 +1,625 @@
+/**
+ * Nebula Forge Elementor Addons - Admin Styles
+ *
+ * @package NebulaForgeAddon
+ * @since   0.2.0
+ */
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+:root {
+    --nf-primary: #667eea;
+    --nf-primary-dark: #5a67d8;
+    --nf-secondary: #764ba2;
+    --nf-gradient: linear-gradient(135deg, var(--nf-primary) 0%, var(--nf-secondary) 100%);
+    --nf-success: #10b981;
+    --nf-success-bg: #d1fae5;
+    --nf-text: #1f2937;
+    --nf-text-light: #6b7280;
+    --nf-border: #e5e7eb;
+    --nf-bg: #f9fafb;
+    --nf-white: #ffffff;
+    --nf-radius: 12px;
+    --nf-radius-sm: 8px;
+    --nf-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --nf-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --nf-transition: 0.2s ease;
+}
+
+/* ==========================================================================
+   Base Layout
+   ========================================================================== */
+
+.nf-admin-wrap {
+    max-width: 1200px;
+    margin: 20px 20px 20px 0;
+}
+
+.nf-admin-content {
+    margin-top: 30px;
+}
+
+.nf-admin-row {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+}
+
+@media (max-width: 1200px) {
+    .nf-admin-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.nf-admin-header {
+    background: var(--nf-gradient);
+    padding: 40px;
+    border-radius: var(--nf-radius);
+    color: var(--nf-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.nf-admin-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.nf-admin-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: 20%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.nf-admin-header__content {
+    position: relative;
+    z-index: 1;
+}
+
+.nf-admin-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--nf-white);
+    line-height: 1.2;
+}
+
+.nf-admin-header__version {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.nf-admin-header__tagline {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.nf-card {
+    background: var(--nf-white);
+    border: 1px solid var(--nf-border);
+    border-radius: var(--nf-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.nf-card:last-child {
+    margin-bottom: 0;
+}
+
+.nf-card__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--nf-text);
+}
+
+.nf-card__title .dashicons {
+    color: var(--nf-primary);
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+}
+
+.nf-card--highlight {
+    background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+    border-color: #e9d5ff;
+}
+
+/* ==========================================================================
+   Widget List (Welcome Page)
+   ========================================================================== */
+
+.nf-widget-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nf-widget-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--nf-bg);
+    border-radius: var(--nf-radius-sm);
+    transition: transform var(--nf-transition), box-shadow var(--nf-transition);
+}
+
+.nf-widget-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--nf-shadow);
+}
+
+.nf-widget-item__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--nf-gradient);
+    border-radius: var(--nf-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nf-widget-item__icon span {
+    font-size: 20px;
+    color: var(--nf-white);
+}
+
+.nf-widget-item__content h3 {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--nf-text);
+}
+
+.nf-widget-item__content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--nf-text-light);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Quick Start & Links
+   ========================================================================== */
+
+.nf-quick-start {
+    margin: 0;
+    padding-left: 20px;
+    list-style: none;
+    counter-reset: steps;
+}
+
+.nf-quick-start li {
+    position: relative;
+    padding: 12px 0 12px 36px;
+    border-bottom: 1px solid var(--nf-border);
+    font-size: 14px;
+    color: var(--nf-text);
+    counter-increment: steps;
+}
+
+.nf-quick-start li:last-child {
+    border-bottom: none;
+}
+
+.nf-quick-start li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--nf-gradient);
+    border-radius: 50%;
+    color: var(--nf-white);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nf-links-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nf-links-list li {
+    margin-bottom: 8px;
+}
+
+.nf-links-list li:last-child {
+    margin-bottom: 0;
+}
+
+.nf-links-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--nf-bg);
+    border-radius: var(--nf-radius-sm);
+    color: var(--nf-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--nf-transition);
+}
+
+.nf-links-list a:hover {
+    background: var(--nf-gradient);
+    color: var(--nf-white);
+}
+
+.nf-links-list a .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* ==========================================================================
+   Requirements List
+   ========================================================================== */
+
+.nf-requirements {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nf-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--nf-text);
+}
+
+.nf-requirements .dashicons {
+    color: var(--nf-success);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* ==========================================================================
+   Widget Grid (Settings Page)
+   ========================================================================== */
+
+.nf-settings-content {
+    max-width: 900px;
+}
+
+.nf-widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .nf-widget-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.nf-widget-card {
+    background: var(--nf-white);
+    border: 1px solid var(--nf-border);
+    border-radius: var(--nf-radius);
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+    transition: all var(--nf-transition);
+}
+
+.nf-widget-card:hover {
+    border-color: var(--nf-primary);
+    box-shadow: var(--nf-shadow-lg);
+}
+
+.nf-widget-card--disabled {
+    opacity: 0.5;
+}
+
+.nf-widget-card--disabled:hover {
+    opacity: 0.7;
+}
+
+.nf-widget-card__icon {
+    width: 56px;
+    height: 56px;
+    background: var(--nf-gradient);
+    border-radius: var(--nf-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nf-widget-card__icon span {
+    font-size: 24px;
+    color: var(--nf-white);
+}
+
+.nf-widget-card__content {
+    flex: 1;
+    min-width: 200px;
+}
+
+.nf-widget-card__content h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--nf-text);
+}
+
+.nf-widget-card__content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--nf-text-light);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Toggle Switch
+   ========================================================================== */
+
+.nf-toggle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.nf-toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.nf-toggle__slider {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background-color: #d1d5db;
+    border-radius: 28px;
+    transition: all var(--nf-transition);
+}
+
+.nf-toggle__slider::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--nf-white);
+    border-radius: 50%;
+    transition: all var(--nf-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nf-toggle input:checked + .nf-toggle__slider {
+    background: var(--nf-gradient);
+}
+
+.nf-toggle input:checked + .nf-toggle__slider::before {
+    transform: translateX(24px);
+}
+
+.nf-toggle input:focus + .nf-toggle__slider {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.nf-toggle__label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--nf-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.nf-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--nf-radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--nf-transition);
+    text-decoration: none;
+}
+
+.nf-button--primary {
+    background: var(--nf-gradient);
+    color: var(--nf-white);
+}
+
+.nf-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nf-button--primary:active {
+    transform: translateY(0);
+}
+
+.nf-button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================================================
+   Settings Footer
+   ========================================================================== */
+
+.nf-settings-footer {
+    margin-top: 30px;
+    padding: 24px;
+    background: var(--nf-bg);
+    border-radius: var(--nf-radius);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nf-settings-footer__note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--nf-text-light);
+}
+
+/* ==========================================================================
+   Notices
+   ========================================================================== */
+
+.nf-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: var(--nf-radius-sm);
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nf-notice--success {
+    background: var(--nf-success-bg);
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.nf-notice .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================================================
+   Changelog
+   ========================================================================== */
+
+.nf-changelog {
+    max-width: 800px;
+}
+
+.nf-changelog-entry {
+    background: var(--nf-white);
+    border: 1px solid var(--nf-border);
+    border-radius: var(--nf-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.nf-changelog-entry:last-child {
+    margin-bottom: 0;
+}
+
+.nf-changelog-entry__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.nf-changelog-entry__version {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--nf-text);
+}
+
+.nf-badge {
+    display: inline-flex;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nf-badge--latest {
+    background: var(--nf-gradient);
+    color: var(--nf-white);
+}
+
+.nf-changelog-entry__changes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nf-changelog-entry__changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--nf-border);
+    font-size: 14px;
+    color: var(--nf-text);
+    line-height: 1.5;
+}
+
+.nf-changelog-entry__changes li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.nf-changelog-entry__changes .dashicons {
+    color: var(--nf-primary);
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
