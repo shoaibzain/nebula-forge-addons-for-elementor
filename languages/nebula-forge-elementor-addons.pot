@@ -1,0 +1,445 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nebula Forge Elementor Addons 0.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nebula-forge-elementor-addons\n"
+"POT-Creation-Date: 2025-12-29 13:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: scripts/make-pot-nebula.php\n"
+#: includes/Widgets/Feature_List_Widget.php:68
+msgid "A concise list of benefits that showcases your product strengths."
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:124
+msgid "After 6 months"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:119
+msgid "Avg. app store rating"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:157
+#: includes/Widgets/Hero_Cta_Widget.php:113
+#: includes/Widgets/Hero_Cta_Widget.php:453
+#: includes/Widgets/Hero_Cta_Widget.php:501
+#: includes/Widgets/Spotlight_Card_Widget.php:405
+#: includes/Widgets/Spotlight_Card_Widget.php:453
+msgid "Background"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:503
+msgid "Background Color"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:325
+msgid "Body"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:74
+msgid "Body Copy"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:191
+#: includes/Widgets/Hero_Cta_Widget.php:202
+#: includes/Widgets/Hero_Cta_Widget.php:412
+#: includes/Widgets/Spotlight_Card_Widget.php:178
+#: includes/Widgets/Stats_Grid_Widget.php:183
+msgid "Border Radius"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:278
+#: includes/Widgets/Hero_Cta_Widget.php:260
+#: includes/Widgets/Hero_Cta_Widget.php:306
+msgid "Bottom Spacing"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:376
+#: includes/Widgets/Spotlight_Card_Widget.php:328
+msgid "Button"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:105
+msgid "Button Link"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:96
+msgid "Button Text"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:118
+msgid "CSAT"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:136
+msgid "Card"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:138
+msgid "Center"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:469
+#: includes/Widgets/Hero_Cta_Widget.php:241
+#: includes/Widgets/Hero_Cta_Widget.php:287
+#: includes/Widgets/Hero_Cta_Widget.php:333
+msgid "Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:330
+#: includes/Widgets/Stats_Grid_Widget.php:301
+msgid "Columns"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:148
+#: includes/Widgets/Hero_Cta_Widget.php:104
+#: includes/Widgets/Stats_Grid_Widget.php:141
+msgid "Container"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:49
+#: includes/Widgets/Hero_Cta_Widget.php:47
+#: includes/Widgets/Spotlight_Card_Widget.php:49
+#: includes/Widgets/Stats_Grid_Widget.php:48
+msgid "Content"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:130
+msgid "Content Alignment"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:215
+msgid "Content Gap"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:535
+msgid "Corner Radius"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:66
+#: includes/Widgets/Feature_List_Widget.php:100
+#: includes/Widgets/Spotlight_Card_Widget.php:76
+msgid "Description"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:266
+#: includes/Widgets/Spotlight_Card_Widget.php:294
+msgid "Description Color"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:66
+msgid "Design expressive hero sections faster."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:131
+msgid "Design ready"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:86
+msgid "Explore Playbook"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:56
+msgid "Eyebrow"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:254
+msgid "Eyebrow Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:92
+#: includes/Widgets/Feature_List_Widget.php:115
+msgid "Fast setup"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:26
+msgid "Feature List"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:110
+msgid "Features"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:129
+msgid "Global coverage"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:230
+#: includes/Widgets/Spotlight_Card_Widget.php:238
+#: includes/Widgets/Stats_Grid_Widget.php:243
+msgid "Header"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:56
+#: includes/Widgets/Stats_Grid_Widget.php:55
+msgid "Heading"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:246
+#: includes/Widgets/Stats_Grid_Widget.php:259
+msgid "Heading Color"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:64
+#: includes/Widgets/Hero_Cta_Widget.php:279
+msgid "Headline"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:473
+msgid "Helper Color"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:97
+msgid "Helper Text"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:24
+msgid "Hero CTA"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:483
+#: includes/Widgets/Spotlight_Card_Widget.php:435
+msgid "Hover"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:78
+#: includes/Widgets/Feature_List_Widget.php:461
+msgid "Icon"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:114
+msgid "Image"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:392
+#: includes/Widgets/Stats_Grid_Widget.php:344
+msgid "Item Padding"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:412
+#: includes/Widgets/Stats_Grid_Widget.php:364
+msgid "Item Radius"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:301
+#: includes/Widgets/Stats_Grid_Widget.php:293
+msgid "Items"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:57
+msgid "Key results at a glance"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:54
+#: includes/Widgets/Hero_Cta_Widget.php:233
+msgid "Kicker"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:87
+msgid "Label"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:453
+msgid "Label Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:102
+#: includes/Widgets/Feature_List_Widget.php:116
+msgid "Launch campaigns without developer overhead."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:134
+msgid "Left"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:352
+msgid "Max Width"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:314
+msgid "Meta Color"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:86
+msgid "Meta Text"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:132
+msgid "Modern defaults that stay on-brand."
+msgstr ""
+
+#: includes/Plugin.php:95
+msgid "Nebula Forge"
+msgstr ""
+
+#: includes/Plugin.php:61
+msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgstr ""
+
+#: includes/Plugin.php:186
+msgid "Nebula Forge Elementor Addons requires Elementor, WordPress, and PHP versions that meet the minimum requirements. Please install/activate Elementor and re-check your site versions."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:56
+msgid "New Release"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:88
+msgid "No code handoff required"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:435
+#: includes/Widgets/Spotlight_Card_Widget.php:387
+msgid "Normal"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:171
+#: includes/Widgets/Feature_List_Widget.php:515
+#: includes/Widgets/Hero_Cta_Widget.php:161
+#: includes/Widgets/Hero_Cta_Widget.php:392
+#: includes/Widgets/Spotlight_Card_Widget.php:158
+#: includes/Widgets/Spotlight_Card_Widget.php:344
+#: includes/Widgets/Stats_Grid_Widget.php:163
+msgid "Padding"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:76
+msgid "Pair bold typography with a focused call-to-action optimized for Elementor workflows."
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:99
+#: includes/Widgets/Stats_Grid_Widget.php:114
+msgid "Past 12 months"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:124
+msgid "Performance-focused blocks for growing sites."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:84
+msgid "Primary Button Label"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:93
+msgid "Primary Button Link"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:123
+msgid "ROI"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:364
+msgid "Radius"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:78
+msgid "Reusable patterns, bold visuals, and sensible defaults that keep teams moving."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:142
+msgid "Right"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:309
+#: includes/Widgets/Hero_Cta_Widget.php:181
+msgid "Row Gap"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:323
+msgid "Row/Column Gap"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:123
+msgid "Scales with you"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:98
+msgid "See how it works"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:67
+msgid "Share proof points to build trust: uptime, adoption, ROI, and response times."
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:68
+msgid "Ship polished pages faster."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:481
+msgid "Size"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:58
+msgid "Spotlight"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:26
+msgid "Spotlight Card"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:107
+msgid "Stats"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:25
+msgid "Stats Grid"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:65
+msgid "Subheading"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:279
+msgid "Subheading Color"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:128
+msgid "Support"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:417
+msgid "Text"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:380
+#: includes/Widgets/Hero_Cta_Widget.php:442
+#: includes/Widgets/Hero_Cta_Widget.php:490
+#: includes/Widgets/Spotlight_Card_Widget.php:394
+#: includes/Widgets/Spotlight_Card_Widget.php:442
+msgid "Text Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:90
+#: includes/Widgets/Spotlight_Card_Widget.php:66
+msgid "Title"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:360
+#: includes/Widgets/Spotlight_Card_Widget.php:274
+msgid "Title Color"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:89
+#: includes/Widgets/Stats_Grid_Widget.php:113
+msgid "Uptime"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:77
+msgid "Value"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:433
+msgid "Value Color"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:220
+msgid "Vertical Gap"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:58
+msgid "Why teams choose us"
+msgstr ""
+
