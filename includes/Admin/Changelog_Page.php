@@ -25,7 +25,7 @@ final class Changelog_Page
     public function render(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have permission to access this page.', 'nebula-forge-elementor-addons'));
+            wp_die(esc_html__('You do not have permission to access this page.', 'nebula-forge-addons-for-elementor'));
         }
 
         $this->render_template();
@@ -41,9 +41,9 @@ final class Changelog_Page
         <div class="wrap nf-admin-wrap">
             <div class="nf-admin-header nf-admin-header--changelog">
                 <div class="nf-admin-header__content">
-                    <h1><?php esc_html_e('Changelog', 'nebula-forge-elementor-addons'); ?></h1>
+                    <h1><?php esc_html_e('Changelog', 'nebula-forge-addons-for-elementor'); ?></h1>
                     <p class="nf-admin-header__tagline">
-                        <?php esc_html_e('View the latest updates and improvements to Nebula Forge Elementor Addons.', 'nebula-forge-elementor-addons'); ?>
+                        <?php esc_html_e('View the latest updates and improvements to Nebula Forge Addons for Elementor.', 'nebula-forge-addons-for-elementor'); ?>
                     </p>
                 </div>
             </div>
@@ -52,7 +52,7 @@ final class Changelog_Page
                 <div class="nf-changelog">
                     <?php if (empty($changelog_entries)) : ?>
                         <div class="nf-card">
-                            <p><?php esc_html_e('No changelog entries found.', 'nebula-forge-elementor-addons'); ?></p>
+                            <p><?php esc_html_e('No changelog entries found.', 'nebula-forge-addons-for-elementor'); ?></p>
                         </div>
                     <?php else : ?>
                         <?php foreach ($changelog_entries as $entry) : ?>
@@ -60,7 +60,7 @@ final class Changelog_Page
                                 <div class="nf-changelog-entry__header">
                                     <span class="nf-changelog-entry__version"><?php echo esc_html($entry['version']); ?></span>
                                     <?php if ($entry === reset($changelog_entries)) : ?>
-                                        <span class="nf-badge nf-badge--latest"><?php esc_html_e('Latest', 'nebula-forge-elementor-addons'); ?></span>
+                                        <span class="nf-badge nf-badge--latest"><?php esc_html_e('Latest', 'nebula-forge-addons-for-elementor'); ?></span>
                                     <?php endif; ?>
                                 </div>
                                 <ul class="nf-changelog-entry__changes">

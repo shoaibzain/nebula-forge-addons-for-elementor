@@ -22,7 +22,7 @@ class Stats_Grid_Widget extends Widget_Base
 
     public function get_title(): string
     {
-        return esc_html__('Stats Grid', 'nebula-forge-elementor-addons');
+        return esc_html__('Stats Grid', 'nebula-forge-addons-for-elementor');
     }
 
     public function get_icon(): string
@@ -45,16 +45,16 @@ class Stats_Grid_Widget extends Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Content', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'heading',
             [
-                'label' => esc_html__('Heading', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Heading', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Key results at a glance', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Key results at a glance', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -62,9 +62,9 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'subheading',
             [
-                'label' => esc_html__('Subheading', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Subheading', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Share proof points to build trust: uptime, adoption, ROI, and response times.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Share proof points to build trust: uptime, adoption, ROI, and response times.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -74,7 +74,7 @@ class Stats_Grid_Widget extends Widget_Base
         $repeater->add_control(
             'stat_value',
             [
-                'label' => esc_html__('Value', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Value', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '99.9%',
                 'label_block' => true,
@@ -84,9 +84,9 @@ class Stats_Grid_Widget extends Widget_Base
         $repeater->add_control(
             'stat_label',
             [
-                'label' => esc_html__('Label', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Label', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Uptime', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Uptime', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -94,9 +94,9 @@ class Stats_Grid_Widget extends Widget_Base
         $repeater->add_control(
             'stat_helper',
             [
-                'label' => esc_html__('Helper Text', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Helper Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Past 12 months', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Past 12 months', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -104,29 +104,29 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'stats',
             [
-                'label' => esc_html__('Stats', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Stats', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
                         'stat_value' => '99.9%',
-                        'stat_label' => esc_html__('Uptime', 'nebula-forge-elementor-addons'),
-                        'stat_helper' => esc_html__('Past 12 months', 'nebula-forge-elementor-addons'),
+                        'stat_label' => esc_html__('Uptime', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Past 12 months', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
                         'stat_value' => '4.8',
-                        'stat_label' => esc_html__('CSAT', 'nebula-forge-elementor-addons'),
-                        'stat_helper' => esc_html__('Avg. app store rating', 'nebula-forge-elementor-addons'),
+                        'stat_label' => esc_html__('CSAT', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Avg. app store rating', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
                         'stat_value' => '320%',
-                        'stat_label' => esc_html__('ROI', 'nebula-forge-elementor-addons'),
-                        'stat_helper' => esc_html__('After 6 months', 'nebula-forge-elementor-addons'),
+                        'stat_label' => esc_html__('ROI', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('After 6 months', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
                         'stat_value' => '24/7',
-                        'stat_label' => esc_html__('Support', 'nebula-forge-elementor-addons'),
-                        'stat_helper' => esc_html__('Global coverage', 'nebula-forge-elementor-addons'),
+                        'stat_label' => esc_html__('Support', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Global coverage', 'nebula-forge-addons-for-elementor'),
                     ],
                 ],
                 'title_field' => '{{{ stat_value }}} — {{{ stat_label }}}',
@@ -138,7 +138,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_wrapper',
             [
-                'label' => esc_html__('Container', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -160,7 +160,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_responsive_control(
             'wrapper_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -180,7 +180,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'wrapper_radius',
             [
-                'label' => esc_html__('Border Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -217,7 +217,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_responsive_control(
             'wrapper_gap',
             [
-                'label' => esc_html__('Vertical Gap', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Vertical Gap', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -240,7 +240,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_header',
             [
-                'label' => esc_html__('Header', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -256,7 +256,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'heading_color',
             [
-                'label' => esc_html__('Heading Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Heading Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f8fafc',
                 'selectors' => [
@@ -276,7 +276,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'subheading_color',
             [
-                'label' => esc_html__('Subheading Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Subheading Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#cbd5e1',
                 'selectors' => [
@@ -290,7 +290,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_items',
             [
-                'label' => esc_html__('Items', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Items', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -298,7 +298,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_responsive_control(
             'items_columns',
             [
-                'label' => esc_html__('Columns', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Columns', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['col'],
                 'range' => [
@@ -320,7 +320,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_responsive_control(
             'items_gap',
             [
-                'label' => esc_html__('Row/Column Gap', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Row/Column Gap', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -341,7 +341,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_responsive_control(
             'item_padding',
             [
-                'label' => esc_html__('Item Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Item Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -361,7 +361,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'item_radius',
             [
-                'label' => esc_html__('Item Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Item Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -414,7 +414,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_text',
             [
-                'label' => esc_html__('Text', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -430,7 +430,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'value_color',
             [
-                'label' => esc_html__('Value Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Value Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f8fafc',
                 'selectors' => [
@@ -450,7 +450,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'label_color',
             [
-                'label' => esc_html__('Label Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Label Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#cbd5e1',
                 'selectors' => [
@@ -470,7 +470,7 @@ class Stats_Grid_Widget extends Widget_Base
         $this->add_control(
             'helper_color',
             [
-                'label' => esc_html__('Helper Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Helper Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9ca3af',
                 'selectors' => [

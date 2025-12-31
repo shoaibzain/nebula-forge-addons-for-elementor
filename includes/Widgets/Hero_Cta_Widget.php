@@ -21,7 +21,7 @@ class Hero_Cta_Widget extends Widget_Base
 
     public function get_title(): string
     {
-        return esc_html__('Hero CTA', 'nebula-forge-elementor-addons');
+        return esc_html__('Hero CTA', 'nebula-forge-addons-for-elementor');
     }
 
     public function get_icon(): string
@@ -44,16 +44,16 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Content', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'kicker',
             [
-                'label' => esc_html__('Kicker', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Kicker', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('New Release', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('New Release', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -61,9 +61,9 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'headline',
             [
-                'label' => esc_html__('Headline', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Headline', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Design expressive hero sections faster.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Design expressive hero sections faster.', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -71,9 +71,9 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'body',
             [
-                'label' => esc_html__('Body Copy', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Body Copy', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Pair bold typography with a focused call-to-action optimized for Elementor workflows.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Pair bold typography with a focused call-to-action optimized for Elementor workflows.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -81,16 +81,16 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'button_text',
             [
-                'label' => esc_html__('Primary Button Label', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Primary Button Label', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Explore Playbook', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Explore Playbook', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_url',
             [
-                'label' => esc_html__('Primary Button Link', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Primary Button Link', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'https://example.com',
             ]
@@ -101,7 +101,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_container',
             [
-                'label' => esc_html__('Container', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -110,7 +110,7 @@ class Hero_Cta_Widget extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'container_background',
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .nfa-hero-cta',
                 'fields_options' => [
@@ -127,19 +127,19 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'container_align',
             [
-                'label' => esc_html__('Content Alignment', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content Alignment', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__('Left', 'nebula-forge-elementor-addons'),
+                        'title' => esc_html__('Left', 'nebula-forge-addons-for-elementor'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'nebula-forge-elementor-addons'),
+                        'title' => esc_html__('Center', 'nebula-forge-addons-for-elementor'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__('Right', 'nebula-forge-elementor-addons'),
+                        'title' => esc_html__('Right', 'nebula-forge-addons-for-elementor'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -158,7 +158,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'container_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -178,7 +178,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'container_gap',
             [
-                'label' => esc_html__('Row Gap', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Row Gap', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -199,7 +199,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'container_radius',
             [
-                'label' => esc_html__('Border Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -230,7 +230,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_kicker',
             [
-                'label' => esc_html__('Kicker', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Kicker', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -238,7 +238,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'kicker_color',
             [
-                'label' => esc_html__('Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__kicker' => 'color: {{VALUE}};',
@@ -257,7 +257,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'kicker_spacing',
             [
-                'label' => esc_html__('Bottom Spacing', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Bottom Spacing', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -276,7 +276,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_headline',
             [
-                'label' => esc_html__('Headline', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Headline', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -284,7 +284,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'headline_color',
             [
-                'label' => esc_html__('Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__headline' => 'color: {{VALUE}};',
@@ -303,7 +303,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'headline_spacing',
             [
-                'label' => esc_html__('Bottom Spacing', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Bottom Spacing', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -322,7 +322,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_body',
             [
-                'label' => esc_html__('Body', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Body', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -330,7 +330,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'body_color',
             [
-                'label' => esc_html__('Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__body' => 'color: {{VALUE}};',
@@ -349,7 +349,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'body_max_width',
             [
-                'label' => esc_html__('Max Width', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Max Width', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -373,7 +373,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_button',
             [
-                'label' => esc_html__('Button', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Button', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -389,7 +389,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_responsive_control(
             'button_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -409,7 +409,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'button_radius',
             [
-                'label' => esc_html__('Border Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -432,14 +432,14 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_tab(
             'button_tab_normal',
             [
-                'label' => esc_html__('Normal', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Normal', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_color',
             [
-                'label' => esc_html__('Text Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__button' => 'color: {{VALUE}};',
@@ -450,7 +450,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'button_bg',
             [
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ff6b35',
                 'selectors' => [
@@ -480,14 +480,14 @@ class Hero_Cta_Widget extends Widget_Base
         $this->start_controls_tab(
             'button_tab_hover',
             [
-                'label' => esc_html__('Hover', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Hover', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_hover_color',
             [
-                'label' => esc_html__('Text Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__button:hover, {{WRAPPER}} .nfa-hero-cta__button:focus' => 'color: {{VALUE}};',
@@ -498,7 +498,7 @@ class Hero_Cta_Widget extends Widget_Base
         $this->add_control(
             'button_hover_bg',
             [
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-hero-cta__button:hover, {{WRAPPER}} .nfa-hero-cta__button:focus' => 'background: {{VALUE}};',

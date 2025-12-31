@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name:       Nebula Forge Elementor Addons
+ * Plugin Name:       Nebula Forge Addons for Elementor
  * Description:       Adds modern Elementor widgets (Hero CTA, Feature List, Spotlight Card, Stats Grid) for landing pages and product sections.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Author:            Zainaster
  * Requires Plugins:  elementor
- * Text Domain:       nebula-forge-elementor-addons
+ * Text Domain:       nebula-forge-addons-for-elementor
  * Domain Path:       /languages
  * Requires at least: 6.2
  * Requires PHP:      7.4
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-define('NEBULA_FORGE_ADDON_VERSION', '0.1.1');
+define('NEBULA_FORGE_ADDON_VERSION', '0.1.2');
 define('NEBULA_FORGE_ADDON_FILE', __FILE__);
 define('NEBULA_FORGE_ADDON_BASENAME', plugin_basename(__FILE__));
 define('NEBULA_FORGE_ADDON_PATH', plugin_dir_path(__FILE__));

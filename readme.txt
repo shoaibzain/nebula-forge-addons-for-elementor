@@ -1,17 +1,17 @@
-=== Nebula Forge Elementor Addons ===
+=== Nebula Forge Addons for Elementor ===
 Contributors: zainaster
 Tags: elementor, widgets, landing page, call to action, stats
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Adds modern Elementor widgets (Hero CTA, Feature List, Spotlight Card, Stats Grid) for landing pages and product sections.
 
 == Description ==
-Nebula Forge Elementor Addons delivers a small set of focused widgets so you can assemble high-converting sections quickly:
+Nebula Forge Addons for Elementor delivers a small set of focused widgets so you can assemble high-converting sections quickly:
 
 * Hero CTA – expressive hero banner with kicker, headline, supporting copy, and a stylable primary button.
 * Feature List – grid/list of benefit items with icons, headings, and descriptions using a repeater field.
@@ -21,7 +21,7 @@ Nebula Forge Elementor Addons delivers a small set of focused widgets so you can
 Designed for the free Elementor plugin. No Elementor Pro required.
 
 == Installation ==
-1. Upload the `nebula-forge-elementor-addons` folder to the `/wp-content/plugins/` directory, or install the ZIP via the WordPress Plugins page.
+1. Upload the `nebula-forge-addons-for-elementor` folder to the `/wp-content/plugins/` directory, or install the ZIP via the WordPress Plugins page.
 2. Activate the plugin through the "Plugins" menu in WordPress.
 3. Ensure **Elementor** is active. Open the Elementor editor and look for the **Nebula Forge** category to find the widgets.
 
@@ -42,6 +42,13 @@ Yes. Each widget exposes granular style controls for backgrounds, typography, sp
 4. Stats Grid widget example.
 
 == Changelog ==
+= 0.1.2 =
+* Bumped plugin version to `0.1.2`.
+* Added translators comment for version placeholder in the admin Welcome page.
+* Removed legacy `load_plugin_textdomain()` call.
+* Fixed PHP parse error in `Admin_Manager.php` and improved request method checks.
+* Added nonce verification and sanitization for settings save.
+
 = 0.1.1 =
 * Fix activation requirements check and harden security defaults.
 
@@ -49,6 +56,9 @@ Yes. Each widget exposes granular style controls for backgrounds, typography, sp
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
 == Upgrade Notice ==
+= 0.1.2 =
+Maintenance and security hardening. Update recommended.
+
 = 0.1.1 =
 Maintenance release.
 

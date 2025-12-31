@@ -27,11 +27,15 @@ final class Settings_Page
      */
     public function handle_save(): void
     {
-        if (!isset($_POST[self::NONCE_NAME])) {
+        // Take a local copy of POST data and unslash it prior to validation/sanitization.
+        $post = wp_unslash($_POST);
+
+        if (!isset($post[self::NONCE_NAME])) {
             return;
         }
 
-        if (!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST[self::NONCE_NAME])), self::NONCE_ACTION)) {
+        $nonce = sanitize_text_field($post[self::NONCE_NAME]);
+        if (!wp_verify_nonce($nonce, self::NONCE_ACTION)) {
             return;
         }
 
@@ -42,8 +46,9 @@ final class Settings_Page
         $enabled = [];
         $available_widgets = Widget_Registry::get_available_widgets();
 
-        if (isset($_POST['nf_widgets']) && is_array($_POST['nf_widgets'])) {
-            foreach ($_POST['nf_widgets'] as $widget_key) {
+        $raw_widgets = isset($post['nf_widgets']) ? $post['nf_widgets'] : [];
+        if (is_array($raw_widgets)) {
+            foreach ($raw_widgets as $widget_key) {
                 $sanitized_key = sanitize_key($widget_key);
                 if (array_key_exists($sanitized_key, $available_widgets)) {
                     $enabled[] = $sanitized_key;
@@ -65,7 +70,7 @@ final class Settings_Page
     public function render(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have permission to access this page.', 'nebula-forge-elementor-addons'));
+            wp_die(esc_html__('You do not have permission to access this page.', 'nebula-forge-addons-for-elementor'));
         }
 
         $this->render_template();
@@ -78,14 +83,15 @@ final class Settings_Page
     {
         $widgets = Widget_Registry::get_available_widgets();
         $enabled_widgets = Admin_Manager::get_enabled_widgets();
-        $settings_updated = isset($_GET['settings-updated']) && $_GET['settings-updated'] === '1';
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- simple status flag for UI, not processing sensitive form data.
+        $settings_updated = isset($_GET['settings-updated']) && sanitize_text_field(wp_unslash($_GET['settings-updated'])) === '1';
         ?>
         <div class="wrap nf-admin-wrap">
             <div class="nf-admin-header nf-admin-header--settings">
                 <div class="nf-admin-header__content">
-                    <h1><?php esc_html_e('Widget Settings', 'nebula-forge-elementor-addons'); ?></h1>
+                    <h1><?php esc_html_e('Widget Settings', 'nebula-forge-addons-for-elementor'); ?></h1>
                     <p class="nf-admin-header__tagline">
-                        <?php esc_html_e('Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor.', 'nebula-forge-elementor-addons'); ?>
+                        <?php esc_html_e('Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor.', 'nebula-forge-addons-for-elementor'); ?>
                     </p>
                 </div>
             </div>
@@ -94,7 +100,7 @@ final class Settings_Page
                 <?php if ($settings_updated) : ?>
                     <div class="nf-notice nf-notice--success">
                         <span class="dashicons dashicons-yes-alt"></span>
-                        <?php esc_html_e('Settings saved successfully!', 'nebula-forge-elementor-addons'); ?>
+                        <?php esc_html_e('Settings saved successfully!', 'nebula-forge-addons-for-elementor'); ?>
                     </div>
                 <?php endif; ?>
 
@@ -125,7 +131,7 @@ final class Settings_Page
                                     >
                                     <span class="nf-toggle__slider"></span>
                                     <span class="nf-toggle__label">
-                                        <?php echo $is_enabled ? esc_html__('Enabled', 'nebula-forge-elementor-addons') : esc_html__('Disabled', 'nebula-forge-elementor-addons'); ?>
+                                        <?php echo $is_enabled ? esc_html__('Enabled', 'nebula-forge-addons-for-elementor') : esc_html__('Disabled', 'nebula-forge-addons-for-elementor'); ?>
                                     </span>
                                 </label>
                             </div>
@@ -135,10 +141,10 @@ final class Settings_Page
                     <div class="nf-settings-footer">
                         <button type="submit" class="nf-button nf-button--primary">
                             <span class="dashicons dashicons-saved"></span>
-                            <?php esc_html_e('Save Settings', 'nebula-forge-elementor-addons'); ?>
+                            <?php esc_html_e('Save Settings', 'nebula-forge-addons-for-elementor'); ?>
                         </button>
                         <p class="nf-settings-footer__note">
-                            <?php esc_html_e('Changes will take effect after saving. You may need to refresh the Elementor editor.', 'nebula-forge-elementor-addons'); ?>
+                            <?php esc_html_e('Changes will take effect after saving. You may need to refresh the Elementor editor.', 'nebula-forge-addons-for-elementor'); ?>
                         </p>
                     </div>
                 </form>

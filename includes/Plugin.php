@@ -105,12 +105,10 @@ final class Plugin
      */
     public function on_plugins_loaded(): void
     {
-        // Load text domain.
-        load_plugin_textdomain(
-            'nebula-forge-elementor-addons',
-            false,
-            dirname(plugin_basename($this->plugin_file)) . '/languages'
-        );
+        // Translations for plugins hosted on WordPress.org are loaded automatically.
+        // Historically plugins called load_plugin_textdomain() here, but since WP 4.6
+        // this is not required and is discouraged. Keeping translations in the
+        // `languages` folder is recommended.
 
         // Check requirements.
         if (!$this->passes_requirements('runtime')) {
@@ -144,9 +142,9 @@ final class Plugin
             wp_die(
                 esc_html__(
                     'Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again.',
-                    'nebula-forge-elementor-addons'
+                    'nebula-forge-addons-for-elementor'
                 ),
-                esc_html__('Plugin Activation Error', 'nebula-forge-elementor-addons'),
+                esc_html__('Plugin Activation Error', 'nebula-forge-addons-for-elementor'),
                 ['back_link' => true]
             );
         }
@@ -201,7 +199,7 @@ final class Plugin
         $elements_manager->add_category(
             'nebula-forge',
             [
-                'title' => esc_html__('Nebula Forge', 'nebula-forge-elementor-addons'),
+                'title' => esc_html__('Nebula Forge', 'nebula-forge-addons-for-elementor'),
                 'icon'  => 'fa fa-star',
             ]
         );
@@ -253,7 +251,7 @@ final class Plugin
             '<div class="notice notice-error"><p>%s</p></div>',
             esc_html__(
                 'Nebula Forge Elementor Addons requires Elementor, WordPress 6.2+, and PHP 7.4+. Please install/activate Elementor and verify your site meets the requirements.',
-                'nebula-forge-elementor-addons'
+                'nebula-forge-addons-for-elementor'
             )
         );
     }

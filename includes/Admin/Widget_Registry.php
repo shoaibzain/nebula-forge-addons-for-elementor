@@ -30,26 +30,26 @@ final class Widget_Registry
     {
         return [
             'hero_cta' => [
-                'label'       => __('Hero CTA', 'nebula-forge-elementor-addons'),
-                'description' => __('Expressive hero banner with kicker, headline, supporting copy, and a stylable primary button.', 'nebula-forge-elementor-addons'),
+                'label'       => __('Hero CTA', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Expressive hero banner with kicker, headline, supporting copy, and a stylable primary button.', 'nebula-forge-addons-for-elementor'),
                 'class'       => Widgets\Hero_Cta_Widget::class,
                 'icon'        => 'eicon-single-page',
             ],
             'feature_list' => [
-                'label'       => __('Feature List', 'nebula-forge-elementor-addons'),
-                'description' => __('Grid/list of benefit items with icons, headings, and descriptions using a repeater field.', 'nebula-forge-elementor-addons'),
+                'label'       => __('Feature List', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Grid/list of benefit items with icons, headings, and descriptions using a repeater field.', 'nebula-forge-addons-for-elementor'),
                 'class'       => Widgets\Feature_List_Widget::class,
                 'icon'        => 'eicon-bullet-list',
             ],
             'spotlight_card' => [
-                'label'       => __('Spotlight Card', 'nebula-forge-elementor-addons'),
-                'description' => __('Media-forward card with eyebrow, title, description, meta text, CTA button, and image support.', 'nebula-forge-elementor-addons'),
+                'label'       => __('Spotlight Card', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Media-forward card with eyebrow, title, description, meta text, CTA button, and image support.', 'nebula-forge-addons-for-elementor'),
                 'class'       => Widgets\Spotlight_Card_Widget::class,
                 'icon'        => 'eicon-image-box',
             ],
             'stats_grid' => [
-                'label'       => __('Stats Grid', 'nebula-forge-elementor-addons'),
-                'description' => __('KPI grid with value/label/helper text per item to showcase performance metrics.', 'nebula-forge-elementor-addons'),
+                'label'       => __('Stats Grid', 'nebula-forge-addons-for-elementor'),
+                'description' => __('KPI grid with value/label/helper text per item to showcase performance metrics.', 'nebula-forge-addons-for-elementor'),
                 'class'       => Widgets\Stats_Grid_Widget::class,
                 'icon'        => 'eicon-number-field',
             ],

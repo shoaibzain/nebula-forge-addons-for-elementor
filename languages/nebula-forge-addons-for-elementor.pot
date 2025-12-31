@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Nebula Forge Elementor Addons 0.1.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nebula-forge-elementor-addons\n"
+"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nebula-forge-addons-for-elementor\n"
 "POT-Creation-Date: 2025-12-29 13:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,11 +276,11 @@ msgid "Nebula Forge"
 msgstr ""
 
 #: includes/Plugin.php:61
-msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgid "Nebula Forge Addons for Elementor requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
 msgstr ""
 
 #: includes/Plugin.php:186
-msgid "Nebula Forge Elementor Addons requires Elementor, WordPress, and PHP versions that meet the minimum requirements. Please install/activate Elementor and re-check your site versions."
+msgid "Nebula Forge Addons for Elementor requires Elementor, WordPress, and PHP versions that meet the minimum requirements. Please install/activate Elementor and re-check your site versions."
 msgstr ""
 
 #: includes/Widgets/Hero_Cta_Widget.php:56

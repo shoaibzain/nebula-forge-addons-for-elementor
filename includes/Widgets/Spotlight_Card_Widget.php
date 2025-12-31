@@ -23,7 +23,7 @@ class Spotlight_Card_Widget extends Widget_Base
 
     public function get_title(): string
     {
-        return esc_html__('Spotlight Card', 'nebula-forge-elementor-addons');
+        return esc_html__('Spotlight Card', 'nebula-forge-addons-for-elementor');
     }
 
     public function get_icon(): string
@@ -46,16 +46,16 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Content', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'eyebrow',
             [
-                'label' => esc_html__('Eyebrow', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Eyebrow', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Spotlight', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Spotlight', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -63,9 +63,9 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'title',
             [
-                'label' => esc_html__('Title', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Ship polished pages faster.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Ship polished pages faster.', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -73,9 +73,9 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'description',
             [
-                'label' => esc_html__('Description', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Reusable patterns, bold visuals, and sensible defaults that keep teams moving.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Reusable patterns, bold visuals, and sensible defaults that keep teams moving.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -83,9 +83,9 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'meta',
             [
-                'label' => esc_html__('Meta Text', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Meta Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('No code handoff required', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('No code handoff required', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -93,16 +93,16 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'button_text',
             [
-                'label' => esc_html__('Button Text', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Button Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('See how it works', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('See how it works', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_url',
             [
-                'label' => esc_html__('Button Link', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Button Link', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'https://example.com',
             ]
@@ -111,7 +111,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'image',
             [
-                'label' => esc_html__('Image', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Image', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -133,7 +133,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_card',
             [
-                'label' => esc_html__('Card', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Card', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -155,7 +155,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_responsive_control(
             'card_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -175,7 +175,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'card_radius',
             [
-                'label' => esc_html__('Border Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -212,7 +212,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_responsive_control(
             'card_gap',
             [
-                'label' => esc_html__('Content Gap', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content Gap', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -235,7 +235,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_header',
             [
-                'label' => esc_html__('Header', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -251,7 +251,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'eyebrow_color',
             [
-                'label' => esc_html__('Eyebrow Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Eyebrow Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#7dd3fc',
                 'selectors' => [
@@ -271,7 +271,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__('Title Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Title Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f8fafc',
                 'selectors' => [
@@ -291,7 +291,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__('Description Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#cbd5e1',
                 'selectors' => [
@@ -311,7 +311,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'meta_color',
             [
-                'label' => esc_html__('Meta Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Meta Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9ca3af',
                 'selectors' => [
@@ -325,7 +325,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_button',
             [
-                'label' => esc_html__('Button', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Button', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -341,7 +341,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_responsive_control(
             'button_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -361,7 +361,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'button_radius',
             [
-                'label' => esc_html__('Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -384,14 +384,14 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_tab(
             'button_tab_normal',
             [
-                'label' => esc_html__('Normal', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Normal', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_color',
             [
-                'label' => esc_html__('Text Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__button' => 'color: {{VALUE}};',
@@ -402,7 +402,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'button_bg',
             [
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ff6b35',
                 'selectors' => [
@@ -432,14 +432,14 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->start_controls_tab(
             'button_tab_hover',
             [
-                'label' => esc_html__('Hover', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Hover', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_hover_color',
             [
-                'label' => esc_html__('Text Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__button:hover, {{WRAPPER}} .nfa-spotlight-card__button:focus' => 'color: {{VALUE}};',
@@ -450,7 +450,7 @@ class Spotlight_Card_Widget extends Widget_Base
         $this->add_control(
             'button_hover_bg',
             [
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__button:hover, {{WRAPPER}} .nfa-spotlight-card__button:focus' => 'background: {{VALUE}};',

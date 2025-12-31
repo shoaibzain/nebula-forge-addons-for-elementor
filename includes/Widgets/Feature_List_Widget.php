@@ -23,7 +23,7 @@ class Feature_List_Widget extends Widget_Base
 
     public function get_title(): string
     {
-        return esc_html__('Feature List', 'nebula-forge-elementor-addons');
+        return esc_html__('Feature List', 'nebula-forge-addons-for-elementor');
     }
 
     public function get_icon(): string
@@ -46,16 +46,16 @@ class Feature_List_Widget extends Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Content', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'heading',
             [
-                'label' => esc_html__('Heading', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Heading', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Why teams choose us', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Why teams choose us', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -63,9 +63,9 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'description',
             [
-                'label' => esc_html__('Description', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('A concise list of benefits that showcases your product strengths.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('A concise list of benefits that showcases your product strengths.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -75,7 +75,7 @@ class Feature_List_Widget extends Widget_Base
         $repeater->add_control(
             'feature_icon',
             [
-                'label' => esc_html__('Icon', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Icon', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-check',
@@ -87,9 +87,9 @@ class Feature_List_Widget extends Widget_Base
         $repeater->add_control(
             'feature_title',
             [
-                'label' => esc_html__('Title', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Fast setup', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Fast setup', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -97,9 +97,9 @@ class Feature_List_Widget extends Widget_Base
         $repeater->add_control(
             'feature_text',
             [
-                'label' => esc_html__('Description', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-elementor-addons'),
+                'default' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 2,
             ]
         );
@@ -107,29 +107,29 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'features',
             [
-                'label' => esc_html__('Features', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Features', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'feature_title' => esc_html__('Fast setup', 'nebula-forge-elementor-addons'),
-                        'feature_text' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-elementor-addons'),
+                        'feature_title' => esc_html__('Fast setup', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'feature_title' => esc_html__('Scales with you', 'nebula-forge-elementor-addons'),
-                        'feature_text' => esc_html__('Performance-focused blocks for growing sites.', 'nebula-forge-elementor-addons'),
+                        'feature_title' => esc_html__('Scales with you', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Performance-focused blocks for growing sites.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-rocket',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'feature_title' => esc_html__('Design ready', 'nebula-forge-elementor-addons'),
-                        'feature_text' => esc_html__('Modern defaults that stay on-brand.', 'nebula-forge-elementor-addons'),
+                        'feature_title' => esc_html__('Design ready', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Modern defaults that stay on-brand.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-palette',
                             'library' => 'fa-solid',
@@ -145,7 +145,7 @@ class Feature_List_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_wrapper',
             [
-                'label' => esc_html__('Container', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -154,7 +154,7 @@ class Feature_List_Widget extends Widget_Base
             Group_Control_Background::get_type(),
             [
                 'name' => 'container_background',
-                'label' => esc_html__('Background', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .nfa-feature-list',
                 'fields_options' => [
@@ -168,7 +168,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'container_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -188,7 +188,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'container_radius',
             [
-                'label' => esc_html__('Border Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -227,7 +227,7 @@ class Feature_List_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_header',
             [
-                'label' => esc_html__('Header', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -243,7 +243,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'heading_color',
             [
-                'label' => esc_html__('Heading Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Heading Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f8fafc',
                 'selectors' => [
@@ -263,7 +263,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__('Description Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#cbd5e1',
                 'selectors' => [
@@ -275,7 +275,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'header_spacing',
             [
-                'label' => esc_html__('Bottom Spacing', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Bottom Spacing', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -298,7 +298,7 @@ class Feature_List_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_items',
             [
-                'label' => esc_html__('Items', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Items', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -306,7 +306,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'items_gap',
             [
-                'label' => esc_html__('Row Gap', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Row Gap', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -327,7 +327,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'items_columns',
             [
-                'label' => esc_html__('Columns', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Columns', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['col'],
                 'range' => [
@@ -357,7 +357,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'item_title_color',
             [
-                'label' => esc_html__('Title Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Title Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f8fafc',
                 'selectors' => [
@@ -377,7 +377,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'item_text_color',
             [
-                'label' => esc_html__('Text Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Text Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#cbd5e1',
                 'selectors' => [
@@ -389,7 +389,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'item_padding',
             [
-                'label' => esc_html__('Item Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Item Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -409,7 +409,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'item_radius',
             [
-                'label' => esc_html__('Item Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Item Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -458,7 +458,7 @@ class Feature_List_Widget extends Widget_Base
         $this->start_controls_section(
             'section_style_icon',
             [
-                'label' => esc_html__('Icon', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Icon', 'nebula-forge-addons-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -466,7 +466,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'icon_color',
             [
-                'label' => esc_html__('Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#7dd3fc',
                 'selectors' => [
@@ -478,7 +478,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'icon_size',
             [
-                'label' => esc_html__('Size', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Size', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -500,7 +500,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'icon_background_color',
             [
-                'label' => esc_html__('Background Color', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Background Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(125, 211, 252, 0.1)',
                 'selectors' => [
@@ -512,7 +512,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_responsive_control(
             'icon_padding',
             [
-                'label' => esc_html__('Padding', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -532,7 +532,7 @@ class Feature_List_Widget extends Widget_Base
         $this->add_control(
             'icon_radius',
             [
-                'label' => esc_html__('Corner Radius', 'nebula-forge-elementor-addons'),
+                'label' => esc_html__('Corner Radius', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [

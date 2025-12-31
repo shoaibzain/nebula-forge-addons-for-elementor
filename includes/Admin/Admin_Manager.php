@@ -61,7 +61,16 @@ final class Admin_Manager
     {
         add_action('admin_menu', [$this, 'register_menus']);
         add_action('admin_init', [$this, 'maybe_redirect_to_welcome']);
-        add_action('admin_init', [$this->settings_page, 'handle_save']);
+        // Only invoke settings save handler when a settings POST is detected.
+        add_action('admin_init', function () {
+            $method = isset($_SERVER['REQUEST_METHOD']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD'])) : '';
+            if (strtoupper($method) === 'POST' && isset($_POST['nf_settings_nonce'])) {
+                $nonce = isset($_POST['nf_settings_nonce']) ? sanitize_text_field(wp_unslash($_POST['nf_settings_nonce'])) : '';
+                if (wp_verify_nonce($nonce, 'nf_save_settings')) {
+                    $this->settings_page->handle_save();
+                }
+            }
+        });
         add_action('admin_enqueue_scripts', [$this, 'enqueue_assets']);
     }
 
@@ -75,8 +84,8 @@ final class Admin_Manager
         }
 
         add_menu_page(
-            esc_html__('Nebula Forge', 'nebula-forge-elementor-addons'),
-            esc_html__('Nebula Forge', 'nebula-forge-elementor-addons'),
+            esc_html__('Nebula Forge', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Nebula Forge', 'nebula-forge-addons-for-elementor'),
             'manage_options',
             self::MENU_SLUG_WELCOME,
             [$this->welcome_page, 'render'],
@@ -87,8 +96,8 @@ final class Admin_Manager
         // Rename first submenu from "Nebula Forge" to "Welcome"
         add_submenu_page(
             self::MENU_SLUG_WELCOME,
-            esc_html__('Welcome', 'nebula-forge-elementor-addons'),
-            esc_html__('Welcome', 'nebula-forge-elementor-addons'),
+            esc_html__('Welcome', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Welcome', 'nebula-forge-addons-for-elementor'),
             'manage_options',
             self::MENU_SLUG_WELCOME,
             [$this->welcome_page, 'render']
@@ -96,8 +105,8 @@ final class Admin_Manager
 
         add_submenu_page(
             self::MENU_SLUG_WELCOME,
-            esc_html__('Settings', 'nebula-forge-elementor-addons'),
-            esc_html__('Settings', 'nebula-forge-elementor-addons'),
+            esc_html__('Settings', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Settings', 'nebula-forge-addons-for-elementor'),
             'manage_options',
             self::MENU_SLUG_SETTINGS,
             [$this->settings_page, 'render']
@@ -105,8 +114,8 @@ final class Admin_Manager
 
         add_submenu_page(
             self::MENU_SLUG_WELCOME,
-            esc_html__('Changelog', 'nebula-forge-elementor-addons'),
-            esc_html__('Changelog', 'nebula-forge-elementor-addons'),
+            esc_html__('Changelog', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Changelog', 'nebula-forge-addons-for-elementor'),
             'manage_options',
             self::MENU_SLUG_CHANGELOG,
             [$this->changelog_page, 'render']
@@ -126,7 +135,9 @@ final class Admin_Manager
             return;
         }
 
-        if (!empty($_GET['activate-multi'])) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- activation flag provided by WP during plugin activation flow and not a user-submitted form.
+        $activate_multi = isset($_GET['activate-multi']) ? sanitize_text_field(wp_unslash($_GET['activate-multi'])) : '';
+        if (!empty($activate_multi)) {
             return;
         }
 
