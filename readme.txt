@@ -1,5 +1,5 @@
 === Nebula Forge Addons for Elementor ===
-Contributors: zainaster
+Contributors: shoaibzain
 Tags: elementor, widgets, landing page, call to action, stats
 Requires at least: 6.2
 Tested up to: 6.9
