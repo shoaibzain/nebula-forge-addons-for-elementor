@@ -89,7 +89,7 @@ final class Admin_Manager
             'manage_options',
             self::MENU_SLUG_WELCOME,
             [$this->welcome_page, 'render'],
-            'dashicons-star-filled',
+            plugin_dir_url(__DIR__) . '../assets/img/logo-20x20.png', // <-- custom icon
             59
         );
 

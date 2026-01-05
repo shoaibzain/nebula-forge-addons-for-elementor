@@ -10,10 +10,10 @@
    ========================================================================== */
 
 :root {
-    --nf-primary: #667eea;
-    --nf-primary-dark: #5a67d8;
-    --nf-secondary: #764ba2;
-    --nf-gradient: linear-gradient(135deg, var(--nf-primary) 0%, var(--nf-secondary) 100%);
+    --nf-primary: #ff6b35;
+    --nf-primary-dark: #0f172a;
+    --nf-secondary: #ff6b35;
+    --nf-gradient: #0f172a;
     --nf-success: #10b981;
     --nf-success-bg: #d1fae5;
     --nf-text: #1f2937;
@@ -321,13 +321,10 @@
    Widget Grid (Settings Page)
    ========================================================================== */
 
-.nf-settings-content {
-    max-width: 900px;
-}
 
 .nf-widget-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 20px;
 }
 
@@ -380,7 +377,7 @@
 
 .nf-widget-card__content {
     flex: 1;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .nf-widget-card__content h3 {
@@ -478,7 +475,7 @@
 }
 
 .nf-button--primary {
-    background: var(--nf-gradient);
+    background: var(--nf-primary);
     color: var(--nf-white);
 }
 
