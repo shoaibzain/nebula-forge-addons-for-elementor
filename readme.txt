@@ -1,6 +1,6 @@
 === Nebula Forge Addons for Elementor ===
 Contributors: shoaibzain
-Tags: elementor, elementor addons, elementor widgets, hero, cta, pricing table, testimonials, logo grid, faq, steps, landing page, feature list
+Tags: elementor, elementor widgets, landing page, pricing table, testimonials
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
@@ -8,7 +8,7 @@ Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds modern Elementor widgets (Hero CTA, Feature List, Spotlight Card, Stats Grid, Pricing Table, Testimonials Grid, Logo Grid, FAQ Accordion, Steps Timeline) for landing pages and product sections.
+Modern Elementor widgets for landing pages and product sections.
 
 == Description ==
 Nebula Forge Addons for Elementor brings modern, conversion-focused widgets to the free Elementor editor. Build standout landing pages and product sections with clean defaults and flexible styling controls.
