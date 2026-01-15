@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 08:52+0000\n"
+"PO-Revision-Date: 2026-01-15 08:52+0000\n"
+"Last-Translator: Nebula Forge\n"
+"Language-Team: Nebula Forge\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+msgid "Available Widgets"
+msgstr "Widgets disponibles"
+
+msgid "Changelog"
+msgstr "Journal des modifications"
+
+msgid "Changes will take effect after saving. You may need to refresh the Elementor editor."
+msgstr "Les changements prendront effet apres l'enregistrement. Vous devrez peut-etre actualiser l'editeur Elementor."
+
+msgid "Disabled"
+msgstr "Desactive"
+
+msgid "Drag and drop widgets to build your page."
+msgstr "Glissez-deposez les widgets pour construire votre page."
+
+msgid "Drag widgets into sections and customize content in the left panel."
+msgstr "Glissez les widgets dans les sections et personnalisez le contenu dans le panneau de gauche."
+
+msgid "Edit any page with Elementor."
+msgstr "Modifiez n'importe quelle page avec Elementor."
+
+msgid "Elementor 3.20+ (Free)"
+msgstr "Elementor 3.20+ (Gratuit)"
+
+msgid "Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor."
+msgstr "Activez ou desactivez des widgets individuellement. Les widgets desactives n'apparaitront pas dans l'editeur Elementor."
+
+msgid "Enabled"
+msgstr "Active"
+
+msgid "Ensure Elementor is installed and activated."
+msgstr "Assurez-vous qu'Elementor est installe et active."
+
+msgid "FAQ Accordion"
+msgstr "Accordeon FAQ"
+
+msgid "Feature List"
+msgstr "Liste de fonctionnalites"
+
+msgid "Hero CTA"
+msgstr "Hero CTA"
+
+msgid "Hover the help icon on each widget to see suggested usage tips."
+msgstr "Survolez l'icone d'aide de chaque widget pour voir des conseils d'utilisation."
+
+msgid "How this works"
+msgstr "Comment ca marche"
+
+msgid "Keep this page handy when updating. It highlights improvements and security updates for each release."
+msgstr "Gardez cette page sous la main lors des mises a jour. Elle met en avant les ameliorations et mises a jour de securite pour chaque version."
+
+msgid "Leave a Review"
+msgstr "Laisser un avis"
+
+msgid "Logo Grid"
+msgstr "Grille de logos"
+
+msgid "Modern Elementor widgets for landing pages and product sections."
+msgstr "Widgets Elementor modernes pour pages d'atterrissage et sections produit."
+
+msgid "Nebula Forge"
+msgstr "Nebula Forge"
+
+msgid "Nebula Forge Addons for Elementor"
+msgstr "Nebula Forge Addons pour Elementor"
+
+msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgstr "Nebula Forge Elementor Addons necessite Elementor et des versions minimales de WordPress et PHP. Installez/activez Elementor et assurez-vous que votre site respecte les exigences, puis reessayez."
+
+msgid "Nebula Forge Elementor Addons requires Elementor, WordPress 6.2+, and PHP 7.4+. Please install/activate Elementor and verify your site meets the requirements."
+msgstr "Nebula Forge Elementor Addons necessite Elementor, WordPress 6.2+ et PHP 7.4+. Installez/activez Elementor et verifiez que votre site respecte les exigences."
+
+msgid "No changelog entries found."
+msgstr "Aucune entree de journal des modifications trouvee."
+
+msgid "Open any page with Elementor and look for the Nebula Forge category."
+msgstr "Ouvrez n'importe quelle page avec Elementor et recherchez la categorie Nebula Forge."
+
+msgid "PHP 7.4+"
+msgstr "PHP 7.4+"
+
+msgid "Plugin Activation Error"
+msgstr "Erreur d'activation du plugin"
+
+msgid "Plugin Page"
+msgstr "Page du plugin"
+
+msgid "Pricing Table"
+msgstr "Tableau des tarifs"
+
+msgid "Quick Links"
+msgstr "Liens rapides"
+
+msgid "Quick Start"
+msgstr "Demarrage rapide"
+
+msgid "Rated %d out of 5"
+msgstr "Note %d sur 5"
+
+msgid "Requirements"
+msgstr "Exigences"
+
+msgid "Save Settings"
+msgstr "Enregistrer les parametres"
+
+msgid "Settings"
+msgstr "Parametres"
+
+msgid "Settings saved successfully!"
+msgstr "Parametres enregistres avec succes."
+
+msgid "Spotlight Card"
+msgstr "Carte mise en avant"
+
+msgid "Start Here"
+msgstr "Commencez ici"
+
+msgid "Stats Grid"
+msgstr "Grille de statistiques"
+
+msgid "Steps Timeline"
+msgstr "Chronologie des etapes"
+
+msgid "Testimonials Grid"
+msgstr "Grille de temoignages"
+
+msgid "Use the Settings tab to hide widgets you are not using."
+msgstr "Utilisez l'onglet Parametres pour masquer les widgets que vous n'utilisez pas."
+
+msgid "Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors."
+msgstr "Utilisez les onglets ci-dessus pour configurer les widgets, consulter les mises a jour et vous orienter rapidement. Chaque widget inclut des controles de style pour la typographie, l'espacement et les couleurs."
+
+msgid "Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused."
+msgstr "Utilisez les interrupteurs pour masquer les widgets dont vous n'avez pas besoin. Cela garde la barre laterale Elementor propre et aide les equipes a rester concentrees."
+
+msgid "Version %s"
+msgstr "Version %s"
+
+msgid "View Changelog"
+msgstr "Voir le journal des modifications"
+
+msgid "View the latest updates and improvements to Nebula Forge Addons for Elementor."
+msgstr "Consultez les dernieres mises a jour et ameliorations de Nebula Forge Addons pour Elementor."
+
+msgid "Welcome"
+msgstr "Bienvenue"
+
+msgid "What changed?"
+msgstr "Qu'est-ce qui a change ?"
+
+msgid "Widget Settings"
+msgstr "Parametres des widgets"
+
+msgid "WordPress 6.2+"
+msgstr "WordPress 6.2+"
+
+msgid "You do not have permission to access this page."
+msgstr "Vous n'avez pas l'autorisation d'acceder a cette page."

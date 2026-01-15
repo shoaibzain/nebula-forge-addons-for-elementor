@@ -1,445 +1,1266 @@
+# Copyright (C) 2026 Zainaster
+# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.2\n"
+"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nebula-forge-addons-for-elementor\n"
-"POT-Creation-Date: 2025-12-29 13:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-15T10:34:22+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: scripts/make-pot-nebula.php\n"
-#: includes/Widgets/Feature_List_Widget.php:68
-msgid "A concise list of benefits that showcases your product strengths."
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: nebula-forge-addons-for-elementor\n"
+
+#. Plugin Name of the plugin
+#: nebula-forge-addons-for-elementor.php
+#: includes/Admin/Welcome_Page.php:45
+msgid "Nebula Forge Addons for Elementor"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:124
-msgid "After 6 months"
+#. Description of the plugin
+#: nebula-forge-addons-for-elementor.php
+msgid "Adds modern Elementor widgets (Hero CTA, Feature List, Spotlight Card, Stats Grid) for landing pages and product sections."
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:119
-msgid "Avg. app store rating"
+#. Author of the plugin
+#: nebula-forge-addons-for-elementor.php
+msgid "Zainaster"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:157
-#: includes/Widgets/Hero_Cta_Widget.php:113
-#: includes/Widgets/Hero_Cta_Widget.php:453
-#: includes/Widgets/Hero_Cta_Widget.php:501
-#: includes/Widgets/Spotlight_Card_Widget.php:405
-#: includes/Widgets/Spotlight_Card_Widget.php:453
-msgid "Background"
+#: includes/Admin/Admin_Manager.php:87
+#: includes/Admin/Admin_Manager.php:88
+#: includes/Plugin.php:225
+msgid "Nebula Forge"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:503
-msgid "Background Color"
+#: includes/Admin/Admin_Manager.php:99
+#: includes/Admin/Admin_Manager.php:100
+#: includes/Admin/Ui_Helper.php:31
+msgid "Welcome"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:325
-msgid "Body"
+#: includes/Admin/Admin_Manager.php:108
+#: includes/Admin/Admin_Manager.php:109
+#: includes/Admin/Ui_Helper.php:35
+msgid "Settings"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:74
-msgid "Body Copy"
+#: includes/Admin/Admin_Manager.php:117
+#: includes/Admin/Admin_Manager.php:118
+#: includes/Admin/Changelog_Page.php:44
+#: includes/Admin/Ui_Helper.php:39
+msgid "Changelog"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:191
-#: includes/Widgets/Hero_Cta_Widget.php:202
-#: includes/Widgets/Hero_Cta_Widget.php:412
-#: includes/Widgets/Spotlight_Card_Widget.php:178
-#: includes/Widgets/Stats_Grid_Widget.php:183
-msgid "Border Radius"
+#: includes/Admin/Changelog_Page.php:28
+#: includes/Admin/Settings_Page.php:73
+#: includes/Admin/Welcome_Page.php:28
+msgid "You do not have permission to access this page."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:278
-#: includes/Widgets/Hero_Cta_Widget.php:260
-#: includes/Widgets/Hero_Cta_Widget.php:306
-msgid "Bottom Spacing"
+#: includes/Admin/Changelog_Page.php:46
+msgid "View the latest updates and improvements to Nebula Forge Addons for Elementor."
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:376
-#: includes/Widgets/Spotlight_Card_Widget.php:328
-msgid "Button"
+#: includes/Admin/Changelog_Page.php:56
+msgid "What changed?"
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:105
-msgid "Button Link"
+#: includes/Admin/Changelog_Page.php:59
+msgid "Keep this page handy when updating. It highlights improvements and security updates for each release."
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:96
-msgid "Button Text"
+#: includes/Admin/Changelog_Page.php:67
+msgid "No changelog entries found."
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:118
-msgid "CSAT"
+#: includes/Admin/Changelog_Page.php:75
+msgid "Latest"
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:136
-msgid "Card"
+#: includes/Admin/Settings_Page.php:92
+#: includes/Admin/Welcome_Page.php:141
+msgid "Widget Settings"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:138
-msgid "Center"
+#: includes/Admin/Settings_Page.php:94
+msgid "Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:469
-#: includes/Widgets/Hero_Cta_Widget.php:241
-#: includes/Widgets/Hero_Cta_Widget.php:287
-#: includes/Widgets/Hero_Cta_Widget.php:333
-msgid "Color"
+#: includes/Admin/Settings_Page.php:104
+msgid "How this works"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:330
-#: includes/Widgets/Stats_Grid_Widget.php:301
-msgid "Columns"
+#: includes/Admin/Settings_Page.php:107
+msgid "Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:148
-#: includes/Widgets/Hero_Cta_Widget.php:104
-#: includes/Widgets/Stats_Grid_Widget.php:141
-msgid "Container"
+#: includes/Admin/Settings_Page.php:110
+msgid "Hover the help icon on each widget to see suggested usage tips."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:49
-#: includes/Widgets/Hero_Cta_Widget.php:47
-#: includes/Widgets/Spotlight_Card_Widget.php:49
-#: includes/Widgets/Stats_Grid_Widget.php:48
-msgid "Content"
+#: includes/Admin/Settings_Page.php:118
+msgid "Settings saved successfully!"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:130
-msgid "Content Alignment"
+#: includes/Admin/Settings_Page.php:165
+msgid "Enabled"
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:215
-msgid "Content Gap"
+#: includes/Admin/Settings_Page.php:165
+msgid "Disabled"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:535
-msgid "Corner Radius"
+#: includes/Admin/Settings_Page.php:175
+msgid "Save Settings"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:66
-#: includes/Widgets/Feature_List_Widget.php:100
-#: includes/Widgets/Spotlight_Card_Widget.php:76
-msgid "Description"
+#: includes/Admin/Settings_Page.php:178
+msgid "Changes will take effect after saving. You may need to refresh the Elementor editor."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:266
-#: includes/Widgets/Spotlight_Card_Widget.php:294
-msgid "Description Color"
+#: includes/Admin/Ui_Helper.php:44
+msgid "Nebula Forge Navigation"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:66
-msgid "Design expressive hero sections faster."
+#. translators: %s: Plugin version number.
+#: includes/Admin/Welcome_Page.php:49
+#, php-format
+msgid "Version %s"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:131
-msgid "Design ready"
+#: includes/Admin/Welcome_Page.php:53
+msgid "Modern Elementor widgets for landing pages and product sections."
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:86
-msgid "Explore Playbook"
+#: includes/Admin/Welcome_Page.php:63
+msgid "Start Here"
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:56
-msgid "Eyebrow"
+#: includes/Admin/Welcome_Page.php:66
+msgid "Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors."
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:254
-msgid "Eyebrow Color"
+#: includes/Admin/Welcome_Page.php:69
+msgid "Open any page with Elementor and look for the Nebula Forge category."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:92
-#: includes/Widgets/Feature_List_Widget.php:115
-msgid "Fast setup"
+#: includes/Admin/Welcome_Page.php:70
+msgid "Drag widgets into sections and customize content in the left panel."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:26
-msgid "Feature List"
+#: includes/Admin/Welcome_Page.php:71
+msgid "Use the Settings tab to hide widgets you are not using."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:110
-msgid "Features"
+#: includes/Admin/Welcome_Page.php:82
+msgid "Available Widgets"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:129
-msgid "Global coverage"
+#: includes/Admin/Welcome_Page.php:122
+msgid "Quick Start"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:230
-#: includes/Widgets/Spotlight_Card_Widget.php:238
-#: includes/Widgets/Stats_Grid_Widget.php:243
-msgid "Header"
+#: includes/Admin/Welcome_Page.php:125
+msgid "Ensure Elementor is installed and activated."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:56
-#: includes/Widgets/Stats_Grid_Widget.php:55
-msgid "Heading"
+#: includes/Admin/Welcome_Page.php:126
+msgid "Edit any page with Elementor."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:246
-#: includes/Widgets/Stats_Grid_Widget.php:259
-msgid "Heading Color"
+#: includes/Admin/Welcome_Page.php:127
+msgid "Find widgets under \"Nebula Forge\" category."
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:64
-#: includes/Widgets/Hero_Cta_Widget.php:279
-msgid "Headline"
+#: includes/Admin/Welcome_Page.php:128
+msgid "Drag and drop widgets to build your page."
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:473
-msgid "Helper Color"
+#: includes/Admin/Welcome_Page.php:135
+msgid "Quick Links"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:97
-msgid "Helper Text"
+#: includes/Admin/Welcome_Page.php:147
+msgid "View Changelog"
 msgstr ""
 
+#: includes/Admin/Welcome_Page.php:153
+msgid "Plugin Page"
+msgstr ""
+
+#: includes/Admin/Welcome_Page.php:159
+msgid "Leave a Review"
+msgstr ""
+
+#: includes/Admin/Welcome_Page.php:168
+msgid "Requirements"
+msgstr ""
+
+#: includes/Admin/Welcome_Page.php:173
+msgid "WordPress 6.2+"
+msgstr ""
+
+#: includes/Admin/Welcome_Page.php:177
+msgid "PHP 7.4+"
+msgstr ""
+
+#: includes/Admin/Welcome_Page.php:181
+msgid "Elementor 3.20+ (Free)"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:33
 #: includes/Widgets/Hero_Cta_Widget.php:24
 msgid "Hero CTA"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:483
-#: includes/Widgets/Spotlight_Card_Widget.php:435
-msgid "Hover"
+#: includes/Admin/Widget_Registry.php:34
+msgid "Expressive hero banner with kicker, headline, supporting copy, and a stylable primary button."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:78
-#: includes/Widgets/Feature_List_Widget.php:461
-msgid "Icon"
+#: includes/Admin/Widget_Registry.php:35
+msgid "Best for above-the-fold sections with a single call-to-action button."
 msgstr ""
 
-#: includes/Widgets/Spotlight_Card_Widget.php:114
-msgid "Image"
+#: includes/Admin/Widget_Registry.php:36
+msgid "HERO"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:392
-#: includes/Widgets/Stats_Grid_Widget.php:344
-msgid "Item Padding"
+#: includes/Admin/Widget_Registry.php:42
+#: includes/Widgets/Feature_List_Widget.php:26
+msgid "Feature List"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:412
-#: includes/Widgets/Stats_Grid_Widget.php:364
-msgid "Item Radius"
+#: includes/Admin/Widget_Registry.php:43
+msgid "Grid/list of benefit items with icons, headings, and descriptions using a repeater field."
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:301
-#: includes/Widgets/Stats_Grid_Widget.php:293
-msgid "Items"
+#: includes/Admin/Widget_Registry.php:44
+msgid "Use 3-6 items for the best scan-friendly layout."
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:57
-msgid "Key results at a glance"
+#: includes/Admin/Widget_Registry.php:45
+msgid "LIST"
 msgstr ""
 
-#: includes/Widgets/Hero_Cta_Widget.php:54
-#: includes/Widgets/Hero_Cta_Widget.php:233
-msgid "Kicker"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:87
-msgid "Label"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:453
-msgid "Label Color"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:102
-#: includes/Widgets/Feature_List_Widget.php:116
-msgid "Launch campaigns without developer overhead."
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:134
-msgid "Left"
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:352
-msgid "Max Width"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:314
-msgid "Meta Color"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:86
-msgid "Meta Text"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:132
-msgid "Modern defaults that stay on-brand."
-msgstr ""
-
-#: includes/Plugin.php:95
-msgid "Nebula Forge"
-msgstr ""
-
-#: includes/Plugin.php:61
-msgid "Nebula Forge Addons for Elementor requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
-msgstr ""
-
-#: includes/Plugin.php:186
-msgid "Nebula Forge Addons for Elementor requires Elementor, WordPress, and PHP versions that meet the minimum requirements. Please install/activate Elementor and re-check your site versions."
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:56
-msgid "New Release"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:88
-msgid "No code handoff required"
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:435
-#: includes/Widgets/Spotlight_Card_Widget.php:387
-msgid "Normal"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:171
-#: includes/Widgets/Feature_List_Widget.php:515
-#: includes/Widgets/Hero_Cta_Widget.php:161
-#: includes/Widgets/Hero_Cta_Widget.php:392
-#: includes/Widgets/Spotlight_Card_Widget.php:158
-#: includes/Widgets/Spotlight_Card_Widget.php:344
-#: includes/Widgets/Stats_Grid_Widget.php:163
-msgid "Padding"
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:76
-msgid "Pair bold typography with a focused call-to-action optimized for Elementor workflows."
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:99
-#: includes/Widgets/Stats_Grid_Widget.php:114
-msgid "Past 12 months"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:124
-msgid "Performance-focused blocks for growing sites."
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:84
-msgid "Primary Button Label"
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:93
-msgid "Primary Button Link"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:123
-msgid "ROI"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:364
-msgid "Radius"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:78
-msgid "Reusable patterns, bold visuals, and sensible defaults that keep teams moving."
-msgstr ""
-
-#: includes/Widgets/Hero_Cta_Widget.php:142
-msgid "Right"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:309
-#: includes/Widgets/Hero_Cta_Widget.php:181
-msgid "Row Gap"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:323
-msgid "Row/Column Gap"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:123
-msgid "Scales with you"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:98
-msgid "See how it works"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:67
-msgid "Share proof points to build trust: uptime, adoption, ROI, and response times."
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:68
-msgid "Ship polished pages faster."
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:481
-msgid "Size"
-msgstr ""
-
-#: includes/Widgets/Spotlight_Card_Widget.php:58
-msgid "Spotlight"
-msgstr ""
-
+#: includes/Admin/Widget_Registry.php:51
 #: includes/Widgets/Spotlight_Card_Widget.php:26
 msgid "Spotlight Card"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:107
-msgid "Stats"
+#: includes/Admin/Widget_Registry.php:52
+msgid "Media-forward card with eyebrow, title, description, meta text, CTA button, and image support."
 msgstr ""
 
+#: includes/Admin/Widget_Registry.php:53
+msgid "Pair with a product image or illustration for storytelling blocks."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:54
+msgid "CARD"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:60
 #: includes/Widgets/Stats_Grid_Widget.php:25
 msgid "Stats Grid"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:65
+#: includes/Admin/Widget_Registry.php:61
+msgid "KPI grid with value/label/helper text per item to showcase performance metrics."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:62
+msgid "Keep values short to avoid wrapping on mobile."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:63
+msgid "STATS"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:69
+#: includes/Widgets/Pricing_Table_Widget.php:25
+msgid "Pricing Table"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:70
+msgid "Plan card with pricing, features list, and a strong call-to-action button."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:71
+msgid "Highlight one plan to guide visitors toward your best offer."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:72
+msgid "PRICE"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:78
+#: includes/Widgets/Testimonial_Grid_Widget.php:25
+msgid "Testimonials Grid"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:79
+msgid "Social-proof quotes with avatars, roles, and star ratings."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:80
+msgid "Use 3-6 testimonials for a clean, balanced grid."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:81
+msgid "TESTI"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:87
+#: includes/Widgets/Logo_Grid_Widget.php:25
+msgid "Logo Grid"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:88
+msgid "Partner or client logos laid out in a clean, responsive grid."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:89
+msgid "Add 6-12 logos for the best visual rhythm."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:90
+msgid "LOGO"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:96
+#: includes/Widgets/Faq_Accordion_Widget.php:25
+msgid "FAQ Accordion"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:97
+msgid "Collapsible Q&A list to address objections and support questions."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:98
+msgid "Keep answers concise to avoid long scrolls."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:99
+msgid "FAQ"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:105
+#: includes/Widgets/Steps_Timeline_Widget.php:25
+msgid "Steps Timeline"
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:106
+msgid "Sequential steps to explain your workflow or onboarding process."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:107
+msgid "Use short labels to keep the timeline readable."
+msgstr ""
+
+#: includes/Admin/Widget_Registry.php:108
+msgid "STEPS"
+msgstr ""
+
+#: includes/Plugin.php:166
+msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgstr ""
+
+#: includes/Plugin.php:170
+msgid "Plugin Activation Error"
+msgstr ""
+
+#: includes/Plugin.php:282
+msgid "Nebula Forge Elementor Addons requires Elementor, WordPress 6.2+, and PHP 7.4+. Please install/activate Elementor and verify your site meets the requirements."
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:53
+#: includes/Widgets/Feature_List_Widget.php:54
+#: includes/Widgets/Hero_Cta_Widget.php:57
+#: includes/Widgets/Logo_Grid_Widget.php:58
+#: includes/Widgets/Pricing_Table_Widget.php:53
+#: includes/Widgets/Spotlight_Card_Widget.php:54
+#: includes/Widgets/Stats_Grid_Widget.php:53
+#: includes/Widgets/Steps_Timeline_Widget.php:53
+#: includes/Widgets/Testimonial_Grid_Widget.php:58
+msgid "Content"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:60
+#: includes/Widgets/Feature_List_Widget.php:61
+#: includes/Widgets/Logo_Grid_Widget.php:65
+#: includes/Widgets/Stats_Grid_Widget.php:60
+#: includes/Widgets/Steps_Timeline_Widget.php:60
+#: includes/Widgets/Testimonial_Grid_Widget.php:65
+msgid "Heading"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:62
+msgid "Frequently asked questions"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:70
+#: includes/Widgets/Logo_Grid_Widget.php:75
+#: includes/Widgets/Stats_Grid_Widget.php:70
+#: includes/Widgets/Steps_Timeline_Widget.php:70
+#: includes/Widgets/Testimonial_Grid_Widget.php:75
 msgid "Subheading"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:279
+#: includes/Widgets/Faq_Accordion_Widget.php:72
+msgid "Answer the questions customers ask before they reach out."
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:80
+msgid "Open First Item"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:92
+msgid "Question"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:94
+#: includes/Widgets/Faq_Accordion_Widget.php:117
+msgid "Is Elementor Pro required?"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:102
+msgid "Answer"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:104
+#: includes/Widgets/Faq_Accordion_Widget.php:118
+msgid "No. All widgets are built for the free Elementor plugin."
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:112
+msgid "FAQ Items"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:121
+msgid "Can I disable unused widgets?"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:122
+msgid "Yes. Use the Widget Settings screen in wp-admin to toggle widgets on or off."
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:125
+msgid "Will this slow down my site?"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:126
+msgid "Assets load only when the widgets are used, keeping pages fast."
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:138
+#: includes/Widgets/Feature_List_Widget.php:153
+#: includes/Widgets/Hero_Cta_Widget.php:114
+#: includes/Widgets/Logo_Grid_Widget.php:153
+#: includes/Widgets/Pricing_Table_Widget.php:174
+#: includes/Widgets/Stats_Grid_Widget.php:146
+#: includes/Widgets/Steps_Timeline_Widget.php:153
+#: includes/Widgets/Testimonial_Grid_Widget.php:182
+msgid "Container"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:160
+#: includes/Widgets/Feature_List_Widget.php:176
+#: includes/Widgets/Feature_List_Widget.php:520
+#: includes/Widgets/Hero_Cta_Widget.php:171
+#: includes/Widgets/Hero_Cta_Widget.php:402
+#: includes/Widgets/Logo_Grid_Widget.php:175
+#: includes/Widgets/Pricing_Table_Widget.php:196
+#: includes/Widgets/Pricing_Table_Widget.php:464
+#: includes/Widgets/Spotlight_Card_Widget.php:163
+#: includes/Widgets/Spotlight_Card_Widget.php:349
+#: includes/Widgets/Stats_Grid_Widget.php:168
+#: includes/Widgets/Steps_Timeline_Widget.php:175
+#: includes/Widgets/Steps_Timeline_Widget.php:352
+#: includes/Widgets/Testimonial_Grid_Widget.php:204
+#: includes/Widgets/Testimonial_Grid_Widget.php:450
+msgid "Padding"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:180
+#: includes/Widgets/Feature_List_Widget.php:196
+#: includes/Widgets/Hero_Cta_Widget.php:212
+#: includes/Widgets/Hero_Cta_Widget.php:422
+#: includes/Widgets/Logo_Grid_Widget.php:195
+#: includes/Widgets/Pricing_Table_Widget.php:216
+#: includes/Widgets/Pricing_Table_Widget.php:484
+#: includes/Widgets/Spotlight_Card_Widget.php:183
+#: includes/Widgets/Stats_Grid_Widget.php:188
+#: includes/Widgets/Steps_Timeline_Widget.php:195
+#: includes/Widgets/Testimonial_Grid_Widget.php:224
+#: includes/Widgets/Testimonial_Grid_Widget.php:470
+msgid "Border Radius"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:219
+#: includes/Widgets/Feature_List_Widget.php:235
+#: includes/Widgets/Logo_Grid_Widget.php:234
+#: includes/Widgets/Pricing_Table_Widget.php:297
+#: includes/Widgets/Spotlight_Card_Widget.php:243
+#: includes/Widgets/Stats_Grid_Widget.php:248
+#: includes/Widgets/Steps_Timeline_Widget.php:234
+#: includes/Widgets/Testimonial_Grid_Widget.php:263
+msgid "Header"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:235
+#: includes/Widgets/Feature_List_Widget.php:251
+#: includes/Widgets/Logo_Grid_Widget.php:250
+#: includes/Widgets/Stats_Grid_Widget.php:264
+#: includes/Widgets/Steps_Timeline_Widget.php:250
+#: includes/Widgets/Testimonial_Grid_Widget.php:279
+msgid "Heading Color"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:255
+#: includes/Widgets/Logo_Grid_Widget.php:270
+#: includes/Widgets/Stats_Grid_Widget.php:284
+#: includes/Widgets/Steps_Timeline_Widget.php:270
+#: includes/Widgets/Testimonial_Grid_Widget.php:299
 msgid "Subheading Color"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:128
-msgid "Support"
+#: includes/Widgets/Faq_Accordion_Widget.php:269
+#: includes/Widgets/Feature_List_Widget.php:306
+#: includes/Widgets/Stats_Grid_Widget.php:298
+msgid "Items"
 msgstr ""
 
-#: includes/Widgets/Stats_Grid_Widget.php:417
+#: includes/Widgets/Faq_Accordion_Widget.php:277
+msgid "Item Gap"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:312
+#: includes/Widgets/Feature_List_Widget.php:397
+#: includes/Widgets/Stats_Grid_Widget.php:349
+msgid "Item Padding"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:332
+#: includes/Widgets/Feature_List_Widget.php:417
+#: includes/Widgets/Stats_Grid_Widget.php:369
+msgid "Item Radius"
+msgstr ""
+
+#: includes/Widgets/Faq_Accordion_Widget.php:363
+#: includes/Widgets/Stats_Grid_Widget.php:422
+#: includes/Widgets/Steps_Timeline_Widget.php:411
+#: includes/Widgets/Testimonial_Grid_Widget.php:509
 msgid "Text"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:380
-#: includes/Widgets/Hero_Cta_Widget.php:442
-#: includes/Widgets/Hero_Cta_Widget.php:490
-#: includes/Widgets/Spotlight_Card_Widget.php:394
-#: includes/Widgets/Spotlight_Card_Widget.php:442
-msgid "Text Color"
+#: includes/Widgets/Faq_Accordion_Widget.php:379
+msgid "Question Color"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:90
-#: includes/Widgets/Spotlight_Card_Widget.php:66
-msgid "Title"
+#: includes/Widgets/Faq_Accordion_Widget.php:399
+msgid "Answer Color"
 msgstr ""
 
-#: includes/Widgets/Feature_List_Widget.php:360
-#: includes/Widgets/Spotlight_Card_Widget.php:274
-msgid "Title Color"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:89
-#: includes/Widgets/Stats_Grid_Widget.php:113
-msgid "Uptime"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:77
-msgid "Value"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:433
-msgid "Value Color"
-msgstr ""
-
-#: includes/Widgets/Stats_Grid_Widget.php:220
-msgid "Vertical Gap"
-msgstr ""
-
-#: includes/Widgets/Feature_List_Widget.php:58
+#: includes/Widgets/Feature_List_Widget.php:63
 msgid "Why teams choose us"
 msgstr ""
 
+#: includes/Widgets/Feature_List_Widget.php:71
+#: includes/Widgets/Feature_List_Widget.php:105
+#: includes/Widgets/Pricing_Table_Widget.php:70
+#: includes/Widgets/Spotlight_Card_Widget.php:81
+#: includes/Widgets/Steps_Timeline_Widget.php:114
+msgid "Description"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:73
+msgid "A concise list of benefits that showcases your product strengths."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:83
+#: includes/Widgets/Feature_List_Widget.php:466
+msgid "Icon"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:95
+#: includes/Widgets/Spotlight_Card_Widget.php:71
+#: includes/Widgets/Steps_Timeline_Widget.php:104
+msgid "Title"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:97
+#: includes/Widgets/Feature_List_Widget.php:120
+msgid "Fast setup"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:107
+#: includes/Widgets/Feature_List_Widget.php:121
+msgid "Launch campaigns without developer overhead."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:115
+#: includes/Widgets/Pricing_Table_Widget.php:133
+#: includes/Widgets/Pricing_Table_Widget.php:397
+msgid "Features"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:128
+msgid "Scales with you"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:129
+msgid "Performance-focused blocks for growing sites."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:136
+msgid "Design ready"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:137
+msgid "Modern defaults that stay on-brand."
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:162
+#: includes/Widgets/Hero_Cta_Widget.php:123
+#: includes/Widgets/Hero_Cta_Widget.php:463
+#: includes/Widgets/Hero_Cta_Widget.php:511
+#: includes/Widgets/Pricing_Table_Widget.php:525
+#: includes/Widgets/Pricing_Table_Widget.php:573
+#: includes/Widgets/Spotlight_Card_Widget.php:410
+#: includes/Widgets/Spotlight_Card_Widget.php:458
+msgid "Background"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:271
+#: includes/Widgets/Pricing_Table_Widget.php:333
+#: includes/Widgets/Spotlight_Card_Widget.php:299
+#: includes/Widgets/Steps_Timeline_Widget.php:467
+msgid "Description Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:283
+#: includes/Widgets/Hero_Cta_Widget.php:270
+#: includes/Widgets/Hero_Cta_Widget.php:316
+msgid "Bottom Spacing"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:314
+#: includes/Widgets/Hero_Cta_Widget.php:191
+#: includes/Widgets/Pricing_Table_Widget.php:425
+msgid "Row Gap"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:335
+#: includes/Widgets/Logo_Grid_Widget.php:292
+#: includes/Widgets/Stats_Grid_Widget.php:306
+#: includes/Widgets/Steps_Timeline_Widget.php:292
+#: includes/Widgets/Testimonial_Grid_Widget.php:321
+msgid "Columns"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:365
+#: includes/Widgets/Spotlight_Card_Widget.php:279
+#: includes/Widgets/Steps_Timeline_Widget.php:447
+msgid "Title Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:385
+#: includes/Widgets/Hero_Cta_Widget.php:452
+#: includes/Widgets/Hero_Cta_Widget.php:500
+#: includes/Widgets/Pricing_Table_Widget.php:514
+#: includes/Widgets/Pricing_Table_Widget.php:562
+#: includes/Widgets/Spotlight_Card_Widget.php:399
+#: includes/Widgets/Spotlight_Card_Widget.php:447
+msgid "Text Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:474
+#: includes/Widgets/Hero_Cta_Widget.php:251
+#: includes/Widgets/Hero_Cta_Widget.php:297
+#: includes/Widgets/Hero_Cta_Widget.php:343
+msgid "Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:486
+msgid "Size"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:508
+msgid "Background Color"
+msgstr ""
+
+#: includes/Widgets/Feature_List_Widget.php:540
+msgid "Corner Radius"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:64
+#: includes/Widgets/Hero_Cta_Widget.php:243
+msgid "Kicker"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:66
+msgid "New Release"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:74
+#: includes/Widgets/Hero_Cta_Widget.php:289
+msgid "Headline"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:76
+msgid "Design expressive hero sections faster."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:84
+msgid "Body Copy"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:86
+msgid "Pair bold typography with a focused call-to-action optimized for Elementor workflows."
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:94
+msgid "Primary Button Label"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:96
+msgid "Explore Playbook"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:103
+msgid "Primary Button Link"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:140
+msgid "Content Alignment"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:144
+#: includes/Widgets/Pricing_Table_Widget.php:257
+msgid "Left"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:148
+#: includes/Widgets/Pricing_Table_Widget.php:261
+msgid "Center"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:152
+#: includes/Widgets/Pricing_Table_Widget.php:265
+msgid "Right"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:335
+msgid "Body"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:362
+#: includes/Widgets/Logo_Grid_Widget.php:397
+msgid "Max Width"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:386
+#: includes/Widgets/Pricing_Table_Widget.php:448
+#: includes/Widgets/Spotlight_Card_Widget.php:333
+msgid "Button"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:445
+#: includes/Widgets/Pricing_Table_Widget.php:507
+#: includes/Widgets/Spotlight_Card_Widget.php:392
+msgid "Normal"
+msgstr ""
+
+#: includes/Widgets/Hero_Cta_Widget.php:493
+#: includes/Widgets/Pricing_Table_Widget.php:555
+#: includes/Widgets/Spotlight_Card_Widget.php:440
+msgid "Hover"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:67
+msgid "Trusted by teams worldwide"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:77
+msgid "Add your customer or partner logos to build instant credibility."
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:85
+#: includes/Widgets/Steps_Timeline_Widget.php:80
+#: includes/Widgets/Testimonial_Grid_Widget.php:85
+msgid "Layout"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:89
+#: includes/Widgets/Testimonial_Grid_Widget.php:89
+#: includes/Widgets/Testimonial_Grid_Widget.php:313
+msgid "Grid"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:90
+#: includes/Widgets/Testimonial_Grid_Widget.php:90
+msgid "Slider"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:100
+msgid "Logo"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:108
+msgid "Brand Name"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:110
+msgid "Brand"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:118
+msgid "Link"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:127
+#: includes/Widgets/Logo_Grid_Widget.php:284
+msgid "Logos"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:132
+msgid "Lumen"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:135
+msgid "Pulse"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:138
+msgid "Vertex"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:141
+msgid "Summit"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:317
+#: includes/Widgets/Steps_Timeline_Widget.php:317
+#: includes/Widgets/Testimonial_Grid_Widget.php:346
+msgid "Gap"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:341
+#: includes/Widgets/Testimonial_Grid_Widget.php:370
+msgid "Show Arrows"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:354
+#: includes/Widgets/Testimonial_Grid_Widget.php:383
+msgid "Slides Per View"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:376
+#: includes/Widgets/Testimonial_Grid_Widget.php:405
+msgid "Slide Gap"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:418
+msgid "Grayscale Logos"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:430
+msgid "Hover Opacity"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:505
+#: includes/Widgets/Testimonial_Grid_Widget.php:661
+msgid "Previous slide"
+msgstr ""
+
+#: includes/Widgets/Logo_Grid_Widget.php:508
+#: includes/Widgets/Testimonial_Grid_Widget.php:664
+msgid "Next slide"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:60
+msgid "Plan Label"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:62
+msgid "Starter"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:72
+msgid "For growing teams shipping faster."
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:80
+#: includes/Widgets/Pricing_Table_Widget.php:347
+msgid "Price"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:90
+msgid "Price Suffix"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:92
+msgid "/month"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:99
+msgid "Highlight Plan"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:109
+msgid "Highlight Badge"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:111
+msgid "Most Popular"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:123
+msgid "Feature"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:125
+#: includes/Widgets/Pricing_Table_Widget.php:138
+msgid "Unlimited landing pages"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:141
+msgid "Premium starter templates"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:144
+msgid "Priority support"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:154
+msgid "Button Label"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:156
+msgid "Get Started"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:163
+#: includes/Widgets/Spotlight_Card_Widget.php:110
+msgid "Button Link"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:253
+msgid "Alignment"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:284
+msgid "Featured Border Color"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:313
+#: includes/Widgets/Stats_Grid_Widget.php:458
+#: includes/Widgets/Steps_Timeline_Widget.php:427
+msgid "Label Color"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:363
+msgid "Price Color"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:383
+msgid "Suffix Color"
+msgstr ""
+
+#: includes/Widgets/Pricing_Table_Widget.php:413
+msgid "Feature Color"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:61
+msgid "Eyebrow"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:63
+msgid "Spotlight"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:73
+msgid "Ship polished pages faster."
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:83
+msgid "Reusable patterns, bold visuals, and sensible defaults that keep teams moving."
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:91
+msgid "Meta Text"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:93
+msgid "No code handoff required"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:101
+msgid "Button Text"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:103
+msgid "See how it works"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:119
+msgid "Image"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:141
+#: includes/Widgets/Testimonial_Grid_Widget.php:428
+msgid "Card"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:220
+msgid "Content Gap"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:259
+msgid "Eyebrow Color"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:319
+msgid "Meta Color"
+msgstr ""
+
+#: includes/Widgets/Spotlight_Card_Widget.php:369
+#: includes/Widgets/Steps_Timeline_Widget.php:372
+msgid "Radius"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:62
+msgid "Key results at a glance"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:72
+msgid "Share proof points to build trust: uptime, adoption, ROI, and response times."
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:82
+msgid "Value"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:92
+msgid "Label"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:94
+#: includes/Widgets/Stats_Grid_Widget.php:118
+msgid "Uptime"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:102
+msgid "Helper Text"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:104
+#: includes/Widgets/Stats_Grid_Widget.php:119
+msgid "Past 12 months"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:112
+msgid "Stats"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:123
+msgid "CSAT"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:124
+msgid "Avg. app store rating"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:128
+msgid "ROI"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:129
+msgid "After 6 months"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:133
+msgid "Support"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:134
+msgid "Global coverage"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:225
+msgid "Vertical Gap"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:328
+msgid "Row/Column Gap"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:438
+msgid "Value Color"
+msgstr ""
+
+#: includes/Widgets/Stats_Grid_Widget.php:478
+msgid "Helper Color"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:62
+msgid "How it works"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:72
+msgid "Guide visitors through the journey with clear, sequential steps."
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:84
+msgid "Horizontal"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:85
+msgid "Vertical"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:95
+msgid "Step Label"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:97
+#: includes/Widgets/Steps_Timeline_Widget.php:129
+msgid "Step 01"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:106
+#: includes/Widgets/Steps_Timeline_Widget.php:130
+msgid "Plan the section"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:116
+#: includes/Widgets/Steps_Timeline_Widget.php:131
+msgid "Pick a widget, add content, and define the layout structure."
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:124
+#: includes/Widgets/Steps_Timeline_Widget.php:284
+msgid "Steps"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:134
+msgid "Step 02"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:135
+msgid "Customize styling"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:136
+msgid "Adjust colors, spacing, and typography to match your brand."
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:139
+msgid "Step 03"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:140
+msgid "Publish and test"
+msgstr ""
+
+#: includes/Widgets/Steps_Timeline_Widget.php:141
+msgid "Launch your page and measure engagement with confidence."
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:67
+msgid "Loved by modern teams"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:77
+msgid "Short, authentic quotes build trust and keep conversion paths strong."
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:100
+msgid "Quote"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:102
+#: includes/Widgets/Testimonial_Grid_Widget.php:155
+msgid "We shipped our landing page in a day and the layout feels premium."
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:110
+msgid "Name"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:112
+#: includes/Widgets/Testimonial_Grid_Widget.php:156
+msgid "Jordan Lee"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:120
+msgid "Role"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:122
+#: includes/Widgets/Testimonial_Grid_Widget.php:157
+msgid "Growth Lead, Atlas"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:130
+msgid "Avatar"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:138
+msgid "Rating (0-5)"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:150
+msgid "Testimonials"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:161
+msgid "The widgets are clean, focused, and simple to customize."
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:162
+msgid "Priya Shah"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:163
+msgid "Marketing Manager, Nova"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:167
+msgid "Perfect for quick experiments and growth pages."
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:168
+msgid "Alex Kim"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:169
+msgid "Founder, Brightside"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:525
+msgid "Quote Color"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:545
+msgid "Name Color"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:565
+msgid "Role Color"
+msgstr ""
+
+#: includes/Widgets/Testimonial_Grid_Widget.php:577
+msgid "Rating Color"
+msgstr ""
+
+#. translators: %d: rating value.
+#: includes/Widgets/Testimonial_Grid_Widget.php:643
+#: includes/Widgets/Testimonial_Grid_Widget.php:699
+#, php-format
+msgid "Rated %d out of 5"
+msgstr ""

@@ -111,7 +111,29 @@ final class Plugin
         // `languages` folder is recommended.
 
         // Check requirements.
-        if (!$this->passes_requirements('runtime')) {
+        if (!$this->passes_requirements('bootstrap')) {
+            add_action('admin_notices', [$this, 'render_requirements_notice']);
+            return;
+        }
+
+        if (did_action('elementor/loaded')) {
+            $this->on_elementor_loaded();
+            return;
+        }
+
+        add_action('elementor/loaded', [$this, 'on_elementor_loaded']);
+    }
+
+    /**
+     * Initialize Elementor-dependent hooks after Elementor has loaded.
+     */
+    public function on_elementor_loaded(): void
+    {
+        if ($this->is_ready) {
+            return;
+        }
+
+        if (!$this->passes_requirements('elementor')) {
             add_action('admin_notices', [$this, 'render_requirements_notice']);
             return;
         }
@@ -121,7 +143,8 @@ final class Plugin
         // Register Elementor hooks.
         add_action('elementor/elements/categories_registered', [$this, 'register_widget_category']);
         add_action('elementor/widgets/register', [$this, 'register_widgets']);
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
+        add_action('elementor/frontend/after_register_styles', [$this, 'register_frontend_styles']);
+        add_action('elementor/frontend/after_register_scripts', [$this, 'register_frontend_scripts']);
     }
 
     /**
@@ -208,7 +231,7 @@ final class Plugin
     /**
      * Enqueue frontend assets.
      */
-    public function enqueue_frontend_assets(): void
+    public function register_frontend_styles(): void
     {
         if (!$this->is_ready) {
             return;
@@ -220,6 +243,16 @@ final class Plugin
             [],
             NEBULA_FORGE_ADDON_VERSION
         );
+    }
+
+    /**
+     * Register frontend scripts for Elementor widgets.
+     */
+    public function register_frontend_scripts(): void
+    {
+        if (!$this->is_ready) {
+            return;
+        }
 
         wp_register_script(
             'nebula-forge-elementor-addon-frontend',
@@ -228,9 +261,6 @@ final class Plugin
             NEBULA_FORGE_ADDON_VERSION,
             true
         );
-
-        wp_enqueue_style('nebula-forge-elementor-addon-frontend');
-        wp_enqueue_script('nebula-forge-elementor-addon-frontend');
     }
 
     /**
@@ -259,10 +289,10 @@ final class Plugin
     /**
      * Check if plugin requirements are met.
      *
-     * @param string $context Check context ('runtime' or 'activation').
+     * @param string $context Check context ('activation', 'bootstrap', or 'elementor').
      * @return bool
      */
-    private function passes_requirements(string $context = 'runtime'): bool
+    private function passes_requirements(string $context = 'elementor'): bool
     {
         global $wp_version;
 
@@ -281,7 +311,11 @@ final class Plugin
             return $this->is_elementor_active_for_activation();
         }
 
-        // Runtime: Check if Elementor is loaded.
+        if ('bootstrap' === $context) {
+            return $this->is_elementor_plugin_active();
+        }
+
+        // Elementor loaded/runtime: Check if Elementor is loaded.
         if (!did_action('elementor/loaded')) {
             return false;
         }
@@ -296,6 +330,31 @@ final class Plugin
         }
 
         return true;
+    }
+
+    /**
+     * Check if Elementor plugin is active before it loads.
+     *
+     * @return bool
+     */
+    private function is_elementor_plugin_active(): bool
+    {
+        if (defined('ELEMENTOR_VERSION')) {
+            return true;
+        }
+
+        if (!function_exists('is_plugin_active')) {
+            $plugin_file = ABSPATH . 'wp-admin/includes/plugin.php';
+            if (file_exists($plugin_file)) {
+                include_once $plugin_file;
+            }
+        }
+
+        if (function_exists('is_plugin_active')) {
+            return is_plugin_active('elementor/elementor.php');
+        }
+
+        return class_exists('\\Elementor\\Plugin');
     }
 
     /**

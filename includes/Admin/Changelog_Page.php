@@ -48,6 +48,18 @@ final class Changelog_Page
                 </div>
             </div>
 
+            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_CHANGELOG); ?>
+
+            <div class="nf-callout nf-callout--note">
+                <div class="nf-callout__title">
+                    <span class="dashicons dashicons-megaphone"></span>
+                    <?php esc_html_e('What changed?', 'nebula-forge-addons-for-elementor'); ?>
+                </div>
+                <p class="nf-callout__text">
+                    <?php esc_html_e('Keep this page handy when updating. It highlights improvements and security updates for each release.', 'nebula-forge-addons-for-elementor'); ?>
+                </p>
+            </div>
+
             <div class="nf-admin-content">
                 <div class="nf-changelog">
                     <?php if (empty($changelog_entries)) : ?>

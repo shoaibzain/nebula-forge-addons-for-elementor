@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 08:52+0000\n"
+"PO-Revision-Date: 2026-01-15 08:52+0000\n"
+"Last-Translator: Nebula Forge\n"
+"Language-Team: Nebula Forge\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3 && n%100<=10?3:n%100>=11 && n%100<=99?4:5;\n"
+
+msgid "Available Widgets"
+msgstr "الأدوات المتاحة"
+
+msgid "Changelog"
+msgstr "سجل التغييرات"
+
+msgid "Changes will take effect after saving. You may need to refresh the Elementor editor."
+msgstr "ستظهر التغييرات بعد الحفظ. قد تحتاج إلى تحديث محرر إليمنتور."
+
+msgid "Disabled"
+msgstr "معطل"
+
+msgid "Drag and drop widgets to build your page."
+msgstr "اسحب وأفلت الأدوات لبناء صفحتك."
+
+msgid "Drag widgets into sections and customize content in the left panel."
+msgstr "اسحب الأدوات إلى الأقسام وخصص المحتوى في اللوحة اليسرى."
+
+msgid "Edit any page with Elementor."
+msgstr "حرر أي صفحة باستخدام إليمنتور."
+
+msgid "Elementor 3.20+ (Free)"
+msgstr "إليمنتور 3.20+ (مجاني)"
+
+msgid "Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor."
+msgstr "قم بتفعيل أو تعطيل الأدوات بشكل فردي. الأدوات المعطلة لن تظهر في محرر إليمنتور."
+
+msgid "Enabled"
+msgstr "مفعل"
+
+msgid "Ensure Elementor is installed and activated."
+msgstr "تأكد من تثبيت وتفعيل إليمنتور."
+
+msgid "FAQ Accordion"
+msgstr "أكورديون الأسئلة الشائعة"
+
+msgid "Feature List"
+msgstr "قائمة الميزات"
+
+msgid "Hero CTA"
+msgstr "Hero CTA"
+
+msgid "Hover the help icon on each widget to see suggested usage tips."
+msgstr "مرر المؤشر فوق أيقونة المساعدة لكل أداة لعرض نصائح الاستخدام."
+
+msgid "How this works"
+msgstr "كيف يعمل هذا"
+
+msgid "Keep this page handy when updating. It highlights improvements and security updates for each release."
+msgstr "احتفظ بهذه الصفحة عند التحديث. فهي توضح التحسينات والتحديثات الأمنية لكل إصدار."
+
+msgid "Leave a Review"
+msgstr "اترك تقييما"
+
+msgid "Logo Grid"
+msgstr "شبكة الشعارات"
+
+msgid "Modern Elementor widgets for landing pages and product sections."
+msgstr "عناصر إليمنتور الحديثة لصفحات الهبوط وأقسام المنتجات."
+
+msgid "Nebula Forge"
+msgstr "Nebula Forge"
+
+msgid "Nebula Forge Addons for Elementor"
+msgstr "إضافات نبولا فورج لإليمنتور"
+
+msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgstr "تتطلب إضافات نبولا فورج لإليمنتور وجود إليمنتور وإصدارات دنيا من ووردبريس وPHP. يرجى تثبيت/تفعيل إليمنتور والتأكد من أن موقعك يفي بالمتطلبات ثم المحاولة مرة أخرى."
+
+msgid "Nebula Forge Elementor Addons requires Elementor, WordPress 6.2+, and PHP 7.4+. Please install/activate Elementor and verify your site meets the requirements."
+msgstr "تتطلب إضافات نبولا فورج لإليمنتور وجود إليمنتور وووردبريس 6.2+ وPHP 7.4+. يرجى تثبيت/تفعيل إليمنتور والتحقق من المتطلبات."
+
+msgid "No changelog entries found."
+msgstr "لم يتم العثور على سجلات للتغييرات."
+
+msgid "Open any page with Elementor and look for the Nebula Forge category."
+msgstr "افتح أي صفحة باستخدام إليمنتور وابحث عن قسم نبولا فورج."
+
+msgid "PHP 7.4+"
+msgstr "PHP 7.4+"
+
+msgid "Plugin Activation Error"
+msgstr "خطأ في تفعيل الإضافة"
+
+msgid "Plugin Page"
+msgstr "صفحة الإضافة"
+
+msgid "Pricing Table"
+msgstr "جدول الأسعار"
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Quick Start"
+msgstr "بدء سريع"
+
+msgid "Rated %d out of 5"
+msgstr "التقييم %d من 5"
+
+msgid "Requirements"
+msgstr "المتطلبات"
+
+msgid "Save Settings"
+msgstr "حفظ الإعدادات"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Settings saved successfully!"
+msgstr "تم حفظ الإعدادات بنجاح!"
+
+msgid "Spotlight Card"
+msgstr "بطاقة تسليط الضوء"
+
+msgid "Start Here"
+msgstr "ابدأ هنا"
+
+msgid "Stats Grid"
+msgstr "شبكة الإحصاءات"
+
+msgid "Steps Timeline"
+msgstr "خطوات زمنية"
+
+msgid "Testimonials Grid"
+msgstr "شبكة الشهادات"
+
+msgid "Use the Settings tab to hide widgets you are not using."
+msgstr "استخدم تبويب الإعدادات لإخفاء الأدوات التي لا تستخدمها."
+
+msgid "Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors."
+msgstr "استخدم علامات التبويب أعلاه لضبط الأدوات، ومراجعة التحديثات، والتعرف بسرعة. كل أداة تحتوي على إعدادات نمط للطباعة والمسافات والألوان."
+
+msgid "Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused."
+msgstr "استخدم أزرار التبديل لإخفاء الأدوات غير المطلوبة. هذا يحافظ على ترتيب الشريط الجانبي ويساعد الفرق على التركيز."
+
+msgid "Version %s"
+msgstr "الإصدار %s"
+
+msgid "View Changelog"
+msgstr "عرض سجل التغييرات"
+
+msgid "View the latest updates and improvements to Nebula Forge Addons for Elementor."
+msgstr "اطلع على أحدث التحديثات والتحسينات لإضافات نبولا فورج لإليمنتور."
+
+msgid "Welcome"
+msgstr "مرحبا"
+
+msgid "What changed?"
+msgstr "ما الجديد؟"
+
+msgid "Widget Settings"
+msgstr "إعدادات الأدوات"
+
+msgid "WordPress 6.2+"
+msgstr "ووردبريس 6.2+"
+
+msgid "You do not have permission to access this page."
+msgstr "ليس لديك صلاحية للوصول إلى هذه الصفحة."

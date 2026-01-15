@@ -55,6 +55,23 @@ final class Welcome_Page
                 </div>
             </div>
 
+            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_WELCOME); ?>
+
+            <div class="nf-callout nf-callout--info">
+                <div class="nf-callout__title">
+                    <span class="dashicons dashicons-sos"></span>
+                    <?php esc_html_e('Start Here', 'nebula-forge-addons-for-elementor'); ?>
+                </div>
+                <p class="nf-callout__text">
+                    <?php esc_html_e('Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors.', 'nebula-forge-addons-for-elementor'); ?>
+                </p>
+                <ul class="nf-callout__list">
+                    <li><?php esc_html_e('Open any page with Elementor and look for the Nebula Forge category.', 'nebula-forge-addons-for-elementor'); ?></li>
+                    <li><?php esc_html_e('Drag widgets into sections and customize content in the left panel.', 'nebula-forge-addons-for-elementor'); ?></li>
+                    <li><?php esc_html_e('Use the Settings tab to hide widgets you are not using.', 'nebula-forge-addons-for-elementor'); ?></li>
+                </ul>
+            </div>
+
             <div class="nf-admin-content">
                 <div class="nf-admin-row">
                     <!-- Main Content -->
@@ -66,12 +83,29 @@ final class Welcome_Page
                             </h2>
                             <div class="nf-widget-list">
                                 <?php foreach ($widgets as $key => $widget) : ?>
+                                    <?php
+                                    $badge = isset($widget['badge']) ? $widget['badge'] : '';
+                                    $badge_color = isset($widget['badge_color']) ? sanitize_hex_color($widget['badge_color']) : '';
+                                    $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
+                                    ?>
                                     <div class="nf-widget-item">
                                         <div class="nf-widget-item__icon">
                                             <span class="<?php echo esc_attr($widget['icon']); ?>"></span>
                                         </div>
                                         <div class="nf-widget-item__content">
-                                            <h3><?php echo esc_html($widget['label']); ?></h3>
+                                            <h3>
+                                                <?php echo esc_html($widget['label']); ?>
+                                                <?php if (!empty($badge)) : ?>
+                                                    <span class="nf-badge-chip" style="<?php echo esc_attr($badge_style); ?>">
+                                                        <?php echo esc_html($badge); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                                <?php if (!empty($widget['tooltip'])) : ?>
+                                                    <span class="nf-tooltip" data-tooltip="<?php echo esc_attr($widget['tooltip']); ?>" tabindex="0" aria-label="<?php echo esc_attr($widget['tooltip']); ?>">
+                                                        <span class="dashicons dashicons-editor-help" aria-hidden="true"></span>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </h3>
                                             <p><?php echo esc_html($widget['description']); ?></p>
                                         </div>
                                     </div>
@@ -111,6 +145,18 @@ final class Welcome_Page
                                     <a href="<?php echo esc_url(admin_url('admin.php?page=' . Admin_Manager::MENU_SLUG_CHANGELOG)); ?>">
                                         <span class="dashicons dashicons-backup"></span>
                                         <?php esc_html_e('View Changelog', 'nebula-forge-addons-for-elementor'); ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo esc_url('https://wordpress.org/plugins/nebula-forge-addons-for-elementor/'); ?>" target="_blank" rel="noopener noreferrer">
+                                        <span class="dashicons dashicons-megaphone"></span>
+                                        <?php esc_html_e('Plugin Page', 'nebula-forge-addons-for-elementor'); ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo esc_url('https://wordpress.org/support/plugin/nebula-forge-addons-for-elementor/reviews/#new-post'); ?>" target="_blank" rel="noopener noreferrer">
+                                        <span class="dashicons dashicons-star-filled"></span>
+                                        <?php esc_html_e('Leave a Review', 'nebula-forge-addons-for-elementor'); ?>
                                     </a>
                                 </li>
                             </ul>

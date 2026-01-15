@@ -41,6 +41,11 @@ class Spotlight_Card_Widget extends Widget_Base
         return ['card', 'spotlight', 'feature', 'call to action'];
     }
 
+    public function get_style_depends(): array
+    {
+        return ['nebula-forge-elementor-addon-frontend'];
+    }
+
     protected function register_controls(): void
     {
         $this->start_controls_section(

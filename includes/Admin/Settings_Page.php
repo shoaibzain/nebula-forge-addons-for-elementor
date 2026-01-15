@@ -96,6 +96,21 @@ final class Settings_Page
                 </div>
             </div>
 
+            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_SETTINGS); ?>
+
+            <div class="nf-callout nf-callout--note">
+                <div class="nf-callout__title">
+                    <span class="dashicons dashicons-info-outline"></span>
+                    <?php esc_html_e('How this works', 'nebula-forge-addons-for-elementor'); ?>
+                </div>
+                <p class="nf-callout__text">
+                    <?php esc_html_e('Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused.', 'nebula-forge-addons-for-elementor'); ?>
+                </p>
+                <p class="nf-callout__text">
+                    <?php esc_html_e('Hover the help icon on each widget to see suggested usage tips.', 'nebula-forge-addons-for-elementor'); ?>
+                </p>
+            </div>
+
             <div class="nf-admin-content nf-settings-content">
                 <?php if ($settings_updated) : ?>
                     <div class="nf-notice nf-notice--success">
@@ -112,13 +127,29 @@ final class Settings_Page
                             <?php
                             $is_enabled = in_array($widget_key, $enabled_widgets, true);
                             $card_class = $is_enabled ? 'nf-widget-card' : 'nf-widget-card nf-widget-card--disabled';
+                            $tooltip = isset($widget_data['tooltip']) ? $widget_data['tooltip'] : '';
+                            $badge = isset($widget_data['badge']) ? $widget_data['badge'] : '';
+                            $badge_color = isset($widget_data['badge_color']) ? sanitize_hex_color($widget_data['badge_color']) : '';
+                            $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
                             ?>
                             <div class="<?php echo esc_attr($card_class); ?>" data-widget="<?php echo esc_attr($widget_key); ?>">
                                 <div class="nf-widget-card__icon">
                                     <span class="<?php echo esc_attr($widget_data['icon']); ?>"></span>
                                 </div>
                                 <div class="nf-widget-card__content">
-                                    <h3><?php echo esc_html($widget_data['label']); ?></h3>
+                                    <h3>
+                                        <?php echo esc_html($widget_data['label']); ?>
+                                        <?php if (!empty($badge)) : ?>
+                                            <span class="nf-badge-chip" style="<?php echo esc_attr($badge_style); ?>">
+                                                <?php echo esc_html($badge); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($tooltip)) : ?>
+                                            <span class="nf-tooltip" data-tooltip="<?php echo esc_attr($tooltip); ?>" tabindex="0" aria-label="<?php echo esc_attr($tooltip); ?>">
+                                                <span class="dashicons dashicons-editor-help" aria-hidden="true"></span>
+                                            </span>
+                                        <?php endif; ?>
+                                    </h3>
                                     <p><?php echo esc_html($widget_data['description']); ?></p>
                                 </div>
                                 <label class="nf-toggle">

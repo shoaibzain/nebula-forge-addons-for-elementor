@@ -41,6 +41,11 @@ class Feature_List_Widget extends Widget_Base
         return ['features', 'list', 'icon', 'benefits'];
     }
 
+    public function get_style_depends(): array
+    {
+        return ['nebula-forge-elementor-addon-frontend'];
+    }
+
     protected function register_controls(): void
     {
         $this->start_controls_section(

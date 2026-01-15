@@ -39,6 +39,16 @@ class Hero_Cta_Widget extends Widget_Base
         return ['hero', 'cta', 'call to action', 'banner'];
     }
 
+    public function get_style_depends(): array
+    {
+        return ['nebula-forge-elementor-addon-frontend'];
+    }
+
+    public function get_script_depends(): array
+    {
+        return ['nebula-forge-elementor-addon-frontend'];
+    }
+
     protected function register_controls(): void
     {
         $this->start_controls_section(

@@ -119,6 +119,177 @@
 }
 
 /* ==========================================================================
+   Tabs
+   ========================================================================== */
+
+.nf-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 10px;
+    background: var(--nf-white);
+    border: 1px solid var(--nf-border);
+    border-radius: var(--nf-radius);
+}
+
+.nf-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--nf-radius-sm);
+    background: var(--nf-bg);
+    color: var(--nf-text);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--nf-transition);
+}
+
+.nf-tab .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.nf-tab:hover,
+.nf-tab--active {
+    background: var(--nf-gradient);
+    color: var(--nf-white);
+}
+
+.nf-tab:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.2);
+}
+
+/* ==========================================================================
+   Callouts
+   ========================================================================== */
+
+.nf-callout {
+    margin-top: 20px;
+    padding: 20px 24px;
+    border-radius: var(--nf-radius);
+    border: 1px solid var(--nf-border);
+    background: var(--nf-white);
+}
+
+.nf-callout--info {
+    background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+    border-color: #bfdbfe;
+}
+
+.nf-callout--note {
+    background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%);
+    border-color: #fed7aa;
+}
+
+.nf-callout__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--nf-text);
+    margin-bottom: 8px;
+}
+
+.nf-callout__title .dashicons {
+    color: var(--nf-primary);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.nf-callout__text {
+    margin: 0 0 8px 0;
+    color: var(--nf-text);
+    font-size: 14px;
+}
+
+.nf-callout__text:last-child {
+    margin-bottom: 0;
+}
+
+.nf-callout__list {
+    margin: 8px 0 0 18px;
+    color: var(--nf-text);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Tooltips
+   ========================================================================== */
+
+.nf-tooltip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px;
+    color: var(--nf-text-light);
+    cursor: help;
+}
+
+.nf-tooltip .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.nf-tooltip:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.2);
+    border-radius: 999px;
+}
+
+.nf-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #111827;
+    color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--nf-transition), transform var(--nf-transition);
+    box-shadow: var(--nf-shadow-lg);
+    z-index: 10;
+}
+
+.nf-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #111827 transparent transparent transparent;
+    opacity: 0;
+    transition: opacity var(--nf-transition);
+}
+
+.nf-tooltip:hover::after,
+.nf-tooltip:hover::before,
+.nf-tooltip:focus::after,
+.nf-tooltip:focus::before {
+    opacity: 1;
+}
+
+.nf-tooltip:hover::after,
+.nf-tooltip:focus::after {
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ==========================================================================
    Cards
    ========================================================================== */
 
@@ -201,6 +372,24 @@
     font-size: 15px;
     font-weight: 600;
     color: var(--nf-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.nf-badge-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--nf-badge-color, var(--nf-primary));
+    color: var(--nf-white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
 }
 
 .nf-widget-item__content p {
@@ -385,6 +574,10 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--nf-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
 }
 
 .nf-widget-card__content p {

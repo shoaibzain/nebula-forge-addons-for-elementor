@@ -89,7 +89,7 @@ final class Admin_Manager
             'manage_options',
             self::MENU_SLUG_WELCOME,
             [$this->welcome_page, 'render'],
-            plugin_dir_url(__DIR__) . '../assets/img/logo-20x20.png', // <-- custom icon
+            NEBULA_FORGE_ADDON_URL . 'assets/img/logo-20x20.png',
             59
         );
 
@@ -183,9 +183,9 @@ final class Admin_Manager
      */
     public static function get_enabled_widgets(): array
     {
-        $saved = get_option(self::OPTION_WIDGETS, []);
+        $saved = get_option(self::OPTION_WIDGETS, null);
 
-        if (empty($saved) || !is_array($saved)) {
+        if ($saved === null || !is_array($saved)) {
             return array_keys(Widget_Registry::get_available_widgets());
         }
 

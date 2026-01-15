@@ -232,3 +232,431 @@
     color: #9ca3af;
     font-size: 0.92rem;
 }
+
+.nfa-pricing-table {
+    background: #0b1220;
+    border-radius: 24px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #f8fafc;
+    position: relative;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.nfa-pricing-table--featured {
+    border-color: #ff6b35;
+    box-shadow: 0 20px 45px rgb(15 23 42 / 0.35);
+}
+
+.nfa-pricing-table__badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #ff6b35;
+    color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.nfa-pricing-table__label {
+    margin: 0 0 6px 0;
+    font-size: 1.4rem;
+}
+
+.nfa-pricing-table__description {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+.nfa-pricing-table__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.nfa-pricing-table__amount {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.nfa-pricing-table__suffix {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.nfa-pricing-table__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.nfa-pricing-table__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #cbd5e1;
+}
+
+.nfa-pricing-table__features li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #7dd3fc;
+    margin-top: 7px;
+    flex-shrink: 0;
+}
+
+.nfa-pricing-table__button {
+    align-self: flex-start;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #0f172a;
+    background: #ff6b35;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 15px 35px rgb(15 23 42 / 0.35);
+}
+
+.nfa-pricing-table__button:hover,
+.nfa-pricing-table__button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 45px rgb(15 23 42 / 0.45);
+}
+
+.nfa-testimonials {
+    background: #0b1220;
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nfa-testimonials__heading {
+    margin: 0 0 8px 0;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    color: #f8fafc;
+}
+
+.nfa-testimonials__subheading {
+    margin: 0;
+    color: #cbd5e1;
+    max-width: 760px;
+}
+
+.nfa-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.nfa-testimonials__card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nfa-testimonials__avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.nfa-testimonials__quote {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.nfa-testimonials__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.nfa-testimonials__name {
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.nfa-testimonials__role {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.nfa-testimonials__rating {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #fbbf24;
+}
+
+.nfa-logo-grid {
+    background: #0b1220;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nfa-logo-grid__heading {
+    margin: 0 0 8px 0;
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    color: #f8fafc;
+}
+
+.nfa-logo-grid__subheading {
+    margin: 0;
+    color: #cbd5e1;
+    max-width: 760px;
+}
+
+.nfa-logo-grid__items {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: center;
+}
+
+.nfa-logo-grid__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    min-height: 86px;
+    transition: transform 0.2s ease;
+}
+
+.nfa-logo-grid__logo img {
+    max-width: 140px;
+    width: 100%;
+    height: auto;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nfa-logo-grid__logo:hover img {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.nfa-logo-grid__text {
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.nfa-faq {
+    background: #0b1220;
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nfa-faq__heading {
+    margin: 0 0 8px 0;
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    color: #f8fafc;
+}
+
+.nfa-faq__subheading {
+    margin: 0;
+    color: #cbd5e1;
+    max-width: 760px;
+}
+
+.nfa-faq__items {
+    display: grid;
+    gap: 14px;
+}
+
+.nfa-faq__item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 16px 18px;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.nfa-faq__question {
+    cursor: pointer;
+    font-weight: 600;
+    color: #f8fafc;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.nfa-faq__question::after {
+    content: '+';
+    font-size: 1.1rem;
+    color: #7dd3fc;
+}
+
+.nfa-faq__item[open] .nfa-faq__question::after {
+    content: '-';
+}
+
+.nfa-faq__question::-webkit-details-marker {
+    display: none;
+}
+
+.nfa-faq__answer {
+    margin-top: 12px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.nfa-steps {
+    background: #0b1220;
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nfa-steps__heading {
+    margin: 0 0 8px 0;
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    color: #f8fafc;
+}
+
+.nfa-steps__subheading {
+    margin: 0;
+    color: #cbd5e1;
+    max-width: 760px;
+}
+
+.nfa-steps__list {
+    display: grid;
+    gap: 20px;
+}
+
+.nfa-steps--vertical .nfa-steps__list {
+    grid-template-columns: 1fr;
+}
+
+.nfa-steps--horizontal .nfa-steps__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nfa-steps__item {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.nfa-steps__label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: #7dd3fc;
+    font-weight: 700;
+}
+
+.nfa-steps__title {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #f8fafc;
+}
+
+.nfa-steps__description {
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.nfa-slider {
+    position: relative;
+}
+
+.nfa-slider__track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+}
+
+.nfa-slider__track::-webkit-scrollbar {
+    display: none;
+}
+
+.nfa-slider__item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.nfa-slider__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: none;
+    background: #0f172a;
+    color: #f8fafc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgb(15 23 42 / 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nfa-slider__btn--prev {
+    left: -12px;
+}
+
+.nfa-slider__btn--next {
+    right: -12px;
+}
+
+.nfa-slider__btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.nfa-slider__btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.3);
+}
+
+@media (max-width: 900px) {
+    .nfa-feature-list__items,
+    .nfa-stats-grid__items,
+    .nfa-testimonials__grid,
+    .nfa-logo-grid__items,
+    .nfa-steps--horizontal .nfa-steps__list {
+        grid-template-columns: 1fr;
+    }
+}

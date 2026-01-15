@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nebula Forge Addons for Elementor 0.1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 08:52+0000\n"
+"PO-Revision-Date: 2026-01-15 08:52+0000\n"
+"Last-Translator: Nebula Forge\n"
+"Language-Team: Nebula Forge\n"
+"Language: ur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Available Widgets"
+msgstr "دستیاب ویجٹس"
+
+msgid "Changelog"
+msgstr "تبدیلیوں کا ریکارڈ"
+
+msgid "Changes will take effect after saving. You may need to refresh the Elementor editor."
+msgstr "محفوظ کرنے کے بعد تبدیلیاں لاگو ہوں گی۔ ممکن ہے کہ آپ کو ایلیمینٹر ایڈیٹر ریفریش کرنا پڑے۔"
+
+msgid "Disabled"
+msgstr "غیر فعال"
+
+msgid "Drag and drop widgets to build your page."
+msgstr "اپنا صفحہ بنانے کے لئے ویجٹس ڈریگ اینڈ ڈراپ کریں۔"
+
+msgid "Drag widgets into sections and customize content in the left panel."
+msgstr "ویجٹس کو سیکشنز میں ڈریگ کریں اور بائیں پینل میں مواد حسب ضرورت بنائیں۔"
+
+msgid "Edit any page with Elementor."
+msgstr "ایلیمینٹر کے ساتھ کوئی بھی صفحہ ایڈٹ کریں۔"
+
+msgid "Elementor 3.20+ (Free)"
+msgstr "ایلیمینٹر 3.20+ (مفت)"
+
+msgid "Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor."
+msgstr "انفرادی ویجٹس کو فعال یا غیر فعال کریں۔ غیر فعال ویجٹس ایلیمینٹر ایڈیٹر میں نظر نہیں آئیں گے۔"
+
+msgid "Enabled"
+msgstr "فعال"
+
+msgid "Ensure Elementor is installed and activated."
+msgstr "یقینی بنائیں کہ ایلیمینٹر انسٹال اور فعال ہے۔"
+
+msgid "FAQ Accordion"
+msgstr "ایف اے کیو اکارڈین"
+
+msgid "Feature List"
+msgstr "فیچر لسٹ"
+
+msgid "Hero CTA"
+msgstr "ہیرو سی ٹی اے"
+
+msgid "Hover the help icon on each widget to see suggested usage tips."
+msgstr "ہر ویجٹ پر مدد کے آئیکن پر ہور کریں تاکہ استعمال کی تجاویز نظر آئیں۔"
+
+msgid "How this works"
+msgstr "یہ کیسے کام کرتا ہے"
+
+msgid "Keep this page handy when updating. It highlights improvements and security updates for each release."
+msgstr "اپڈیٹ کرتے وقت یہ صفحہ ساتھ رکھیں۔ یہ ہر ریلیز کی بہتریاں اور سکیورٹی اپڈیٹس دکھاتا ہے۔"
+
+msgid "Leave a Review"
+msgstr "جائزہ دیں"
+
+msgid "Logo Grid"
+msgstr "لوگو گرڈ"
+
+msgid "Modern Elementor widgets for landing pages and product sections."
+msgstr "لینڈنگ پیجز اور پروڈکٹ سیکشنز کے لئے جدید ایلیمینٹر ویجٹس۔"
+
+msgid "Nebula Forge"
+msgstr "Nebula Forge"
+
+msgid "Nebula Forge Addons for Elementor"
+msgstr "نیبولا فورج ایڈآنز برائے ایلیمینٹر"
+
+msgid "Nebula Forge Elementor Addons requires Elementor and minimum versions of WordPress and PHP. Please install/activate Elementor and ensure your site meets the plugin requirements, then try again."
+msgstr "نیبولا فورج ایڈآنز برائے ایلیمینٹر کو ایلیمینٹر اور ورڈپریس و PHP کے کم از کم ورژنز درکار ہیں۔ براہ کرم ایلیمینٹر انسٹال/فعال کریں اور یقینی بنائیں کہ آپ کی سائٹ ضروریات پوری کرتی ہے، پھر دوبارہ کوشش کریں۔"
+
+msgid "Nebula Forge Elementor Addons requires Elementor, WordPress 6.2+, and PHP 7.4+. Please install/activate Elementor and verify your site meets the requirements."
+msgstr "نیبولا فورج ایڈآنز برائے ایلیمینٹر کو ایلیمینٹر، ورڈپریس 6.2+ اور PHP 7.4+ درکار ہیں۔ براہ کرم ایلیمینٹر انسٹال/فعال کریں اور تصدیق کریں کہ آپ کی سائٹ ضروریات پوری کرتی ہے۔"
+
+msgid "No changelog entries found."
+msgstr "کوئی تبدیلیاں دستیاب نہیں ہیں۔"
+
+msgid "Open any page with Elementor and look for the Nebula Forge category."
+msgstr "ایلیمینٹر کے ساتھ کوئی بھی صفحہ کھولیں اور نیبولا فورج کیٹیگری تلاش کریں۔"
+
+msgid "PHP 7.4+"
+msgstr "PHP 7.4+"
+
+msgid "Plugin Activation Error"
+msgstr "پلگ ان فعال کرنے میں خرابی"
+
+msgid "Plugin Page"
+msgstr "پلگ ان صفحہ"
+
+msgid "Pricing Table"
+msgstr "پرائسنگ ٹیبل"
+
+msgid "Quick Links"
+msgstr "فوری لنکس"
+
+msgid "Quick Start"
+msgstr "فوری آغاز"
+
+msgid "Rated %d out of 5"
+msgstr "%d میں سے 5 کی درجہ بندی"
+
+msgid "Requirements"
+msgstr "ضروریات"
+
+msgid "Save Settings"
+msgstr "ترتیبات محفوظ کریں"
+
+msgid "Settings"
+msgstr "ترتیبات"
+
+msgid "Settings saved successfully!"
+msgstr "ترتیبات کامیابی سے محفوظ ہو گئیں!"
+
+msgid "Spotlight Card"
+msgstr "اسپاٹ لائٹ کارڈ"
+
+msgid "Start Here"
+msgstr "یہاں سے شروع کریں"
+
+msgid "Stats Grid"
+msgstr "اسٹیٹس گرڈ"
+
+msgid "Steps Timeline"
+msgstr "اسٹیپس ٹائم لائن"
+
+msgid "Testimonials Grid"
+msgstr "ٹیسٹیمونیلز گرڈ"
+
+msgid "Use the Settings tab to hide widgets you are not using."
+msgstr "ترتیبات ٹیب استعمال کریں تاکہ غیر ضروری ویجٹس چھپ جائیں۔"
+
+msgid "Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors."
+msgstr "اوپر والے ٹیبز استعمال کریں تاکہ ویجٹس ترتیب دیں، اپڈیٹس دیکھیں، اور جلدی رہنمائی حاصل کریں۔ ہر ویجٹ میں ٹائپوگرافی، اسپیسنگ اور رنگوں کے لئے اسٹائل کنٹرولز ہیں۔"
+
+msgid "Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused."
+msgstr "غیر ضروری ویجٹس چھپانے کے لئے ٹوگلز استعمال کریں۔ اس سے ایلیمینٹر سائیڈبار منظم رہتی ہے اور ٹیموں کی توجہ برقرار رہتی ہے۔"
+
+msgid "Version %s"
+msgstr "ورژن %s"
+
+msgid "View Changelog"
+msgstr "تبدیلیوں کا ریکارڈ دیکھیں"
+
+msgid "View the latest updates and improvements to Nebula Forge Addons for Elementor."
+msgstr "نیبولا فورج ایڈآنز برائے ایلیمینٹر کی تازہ ترین اپڈیٹس اور بہتریاں دیکھیں۔"
+
+msgid "Welcome"
+msgstr "خوش آمدید"
+
+msgid "What changed?"
+msgstr "کیا بدلا؟"
+
+msgid "Widget Settings"
+msgstr "ویجٹ ترتیبات"
+
+msgid "WordPress 6.2+"
+msgstr "ورڈپریس 6.2+"
+
+msgid "You do not have permission to access this page."
+msgstr "آپ کو اس صفحے تک رسائی کی اجازت نہیں ہے۔"
