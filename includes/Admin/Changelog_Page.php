@@ -37,6 +37,12 @@ final class Changelog_Page
     private function render_template(): void
     {
         $changelog_entries = $this->parse_changelog();
+        if (!class_exists(Ui_Helper::class) && defined('NEBULA_FORGE_ADDON_PATH')) {
+            $ui_helper_path = NEBULA_FORGE_ADDON_PATH . 'includes/Admin/Ui_Helper.php';
+            if (file_exists($ui_helper_path)) {
+                require_once $ui_helper_path;
+            }
+        }
         ?>
         <div class="wrap nf-admin-wrap">
             <div class="nf-admin-header nf-admin-header--changelog">
@@ -48,7 +54,9 @@ final class Changelog_Page
                 </div>
             </div>
 
-            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_CHANGELOG); ?>
+            <?php if (class_exists(Ui_Helper::class)) : ?>
+                <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_CHANGELOG); ?>
+            <?php endif; ?>
 
             <div class="nf-callout nf-callout--note">
                 <div class="nf-callout__title">

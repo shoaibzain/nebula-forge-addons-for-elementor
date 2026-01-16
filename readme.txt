@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, landing page, pricing table, testimonials
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.1.5
+Stable tag: 0.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,19 +90,12 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 10. FAQ Accordion widget example.
 11. Steps Timeline widget example.
 
-== Video Demos ==
-Add short video walkthrough links here when publishing on WordPress.org:
-* Hero CTA walkthrough
-* Feature List walkthrough
-* Spotlight Card walkthrough
-* Stats Grid walkthrough
-* Pricing Table walkthrough
-* Testimonials Grid walkthrough
-* Logo Grid walkthrough
-* FAQ Accordion walkthrough
-* Steps Timeline walkthrough
-
 == Changelog ==
+= 0.1.6 =
+* Fixed fatal error when a widget class is missing by skipping registration.
+* Fixed admin page fatal when Ui_Helper is unavailable.
+* Documentation cleanup in readme.
+
 = 0.1.5 =
 * Added grid/slider layout option for Testimonials and Logo widgets.
 
@@ -130,6 +123,9 @@ Add short video walkthrough links here when publishing on WordPress.org:
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
 == Upgrade Notice ==
+= 0.1.6 =
+Fixes admin and widget registration fatals. Update recommended.
+
 = 0.1.5 =
 Grid/slider layout option for Testimonials and Logo widgets. Update recommended.
 

@@ -38,6 +38,12 @@ final class Welcome_Page
     {
         $plugin_version = defined('NEBULA_FORGE_ADDON_VERSION') ? NEBULA_FORGE_ADDON_VERSION : '1.0.0';
         $widgets = Widget_Registry::get_available_widgets();
+        if (!class_exists(Ui_Helper::class) && defined('NEBULA_FORGE_ADDON_PATH')) {
+            $ui_helper_path = NEBULA_FORGE_ADDON_PATH . 'includes/Admin/Ui_Helper.php';
+            if (file_exists($ui_helper_path)) {
+                require_once $ui_helper_path;
+            }
+        }
         ?>
         <div class="wrap nf-admin-wrap">
             <div class="nf-admin-header">
@@ -55,7 +61,9 @@ final class Welcome_Page
                 </div>
             </div>
 
-            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_WELCOME); ?>
+            <?php if (class_exists(Ui_Helper::class)) : ?>
+                <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_WELCOME); ?>
+            <?php endif; ?>
 
             <div class="nf-callout nf-callout--info">
                 <div class="nf-callout__title">

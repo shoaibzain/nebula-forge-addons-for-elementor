@@ -85,6 +85,12 @@ final class Settings_Page
         $enabled_widgets = Admin_Manager::get_enabled_widgets();
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- simple status flag for UI, not processing sensitive form data.
         $settings_updated = isset($_GET['settings-updated']) && sanitize_text_field(wp_unslash($_GET['settings-updated'])) === '1';
+        if (!class_exists(Ui_Helper::class) && defined('NEBULA_FORGE_ADDON_PATH')) {
+            $ui_helper_path = NEBULA_FORGE_ADDON_PATH . 'includes/Admin/Ui_Helper.php';
+            if (file_exists($ui_helper_path)) {
+                require_once $ui_helper_path;
+            }
+        }
         ?>
         <div class="wrap nf-admin-wrap">
             <div class="nf-admin-header nf-admin-header--settings">
@@ -96,7 +102,9 @@ final class Settings_Page
                 </div>
             </div>
 
-            <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_SETTINGS); ?>
+            <?php if (class_exists(Ui_Helper::class)) : ?>
+                <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_SETTINGS); ?>
+            <?php endif; ?>
 
             <div class="nf-callout nf-callout--note">
                 <div class="nf-callout__title">
