@@ -44,11 +44,6 @@ class Hero_Cta_Widget extends Widget_Base
         return ['nebula-forge-elementor-addon-frontend'];
     }
 
-    public function get_script_depends(): array
-    {
-        return ['nebula-forge-elementor-addon-frontend'];
-    }
-
     protected function register_controls(): void
     {
         $this->start_controls_section(
@@ -75,6 +70,25 @@ class Hero_Cta_Widget extends Widget_Base
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Design expressive hero sections faster.', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h2',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
             ]
         );
 
@@ -154,13 +168,13 @@ class Hero_Cta_Widget extends Widget_Base
                     ],
                 ],
                 'default' => 'left',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-hero-cta' => 'text-align: {{VALUE}}; align-items: {{container_align_flex.VALUE}};',
-                ],
                 'selectors_dictionary' => [
-                    'left' => 'flex-start',
-                    'center' => 'center',
-                    'right' => 'flex-end',
+                    'left'   => 'text-align: left; align-items: flex-start;',
+                    'center' => 'text-align: center; align-items: center;',
+                    'right'  => 'text-align: right; align-items: flex-end;',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-hero-cta' => '{{VALUE}}',
                 ],
             ]
         );
@@ -559,7 +573,8 @@ class Hero_Cta_Widget extends Widget_Base
                 $this->add_render_attribute('button', 'rel', 'nofollow');
             }
         } else {
-            $this->add_render_attribute('button', 'href', '#');
+            $this->add_render_attribute('button', 'role', 'button');
+            $this->add_render_attribute('button', 'tabindex', '0');
         }
         ?>
             <section <?php echo $this->get_render_attribute_string('hero'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor renders sanitized attributes ?>>
@@ -567,7 +582,7 @@ class Hero_Cta_Widget extends Widget_Base
                 <p class="nfa-hero-cta__kicker"><?php echo esc_html($settings['kicker']); ?></p>
             <?php endif; ?>
             <?php if (!empty($settings['headline'])) : ?>
-                <h2 class="nfa-hero-cta__headline"><?php echo esc_html($settings['headline']); ?></h2>
+                <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-hero-cta__headline"><?php echo esc_html($settings['headline']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
             <?php endif; ?>
             <?php if (!empty($settings['body'])) : ?>
                 <p class="nfa-hero-cta__body"><?php echo esc_html($settings['body']); ?></p>

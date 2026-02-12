@@ -47,7 +47,11 @@ class Logo_Grid_Widget extends Widget_Base
 
     public function get_script_depends(): array
     {
-        return ['nebula-forge-elementor-addon-frontend'];
+        $settings = $this->get_settings_for_display();
+        if (!empty($settings['layout']) && $settings['layout'] === 'slider') {
+            return ['nebula-forge-elementor-addon-frontend'];
+        }
+        return [];
     }
 
     protected function register_controls(): void
@@ -66,6 +70,25 @@ class Logo_Grid_Widget extends Widget_Base
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Trusted by teams worldwide', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
             ]
         );
 
@@ -302,6 +325,14 @@ class Logo_Grid_Widget extends Widget_Base
                     'size' => 4,
                     'unit' => 'col',
                 ],
+                'tablet_default' => [
+                    'size' => 3,
+                    'unit' => 'col',
+                ],
+                'mobile_default' => [
+                    'size' => 2,
+                    'unit' => 'col',
+                ],
                 'condition' => [
                     'layout' => 'grid',
                 ],
@@ -462,7 +493,7 @@ class Logo_Grid_Widget extends Widget_Base
         <div class="nfa-logo-grid">
             <div class="nfa-logo-grid__header">
                 <?php if (!empty($settings['heading'])) : ?>
-                    <h3 class="nfa-logo-grid__heading"><?php echo esc_html($settings['heading']); ?></h3>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-logo-grid__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
                 <?php if (!empty($settings['subheading'])) : ?>
                     <p class="nfa-logo-grid__subheading"><?php echo esc_html($settings['subheading']); ?></p>

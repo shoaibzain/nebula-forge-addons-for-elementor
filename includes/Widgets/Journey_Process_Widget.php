@@ -78,6 +78,25 @@ class Journey_Process_Widget extends Widget_Base
         );
 
         $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h2',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'description',
             [
                 'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
@@ -817,7 +836,7 @@ class Journey_Process_Widget extends Widget_Base
                 <?php endif; ?>
 
                 <?php if (!empty($settings['heading'])) : ?>
-                    <h2 class="nfa-journey__heading"><?php echo esc_html($settings['heading']); ?></h2>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-journey__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
 
                 <?php if (!empty($settings['description'])) : ?>

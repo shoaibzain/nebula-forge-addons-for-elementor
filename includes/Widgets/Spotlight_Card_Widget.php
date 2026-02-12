@@ -76,6 +76,25 @@ class Spotlight_Card_Widget extends Widget_Base
         );
 
         $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Title HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'description',
             [
                 'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
@@ -498,7 +517,7 @@ class Spotlight_Card_Widget extends Widget_Base
                 <?php endif; ?>
 
                 <?php if (!empty($settings['title'])) : ?>
-                    <h3 class="nfa-spotlight-card__title"><?php echo esc_html($settings['title']); ?></h3>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-spotlight-card__title"><?php echo esc_html($settings['title']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
 
                 <?php if (!empty($settings['description'])) : ?>
@@ -523,7 +542,8 @@ class Spotlight_Card_Widget extends Widget_Base
                             $this->add_render_attribute('button', 'rel', 'nofollow');
                         }
                     } else {
-                        $this->add_render_attribute('button', 'href', '#');
+                        $this->add_render_attribute('button', 'role', 'button');
+                        $this->add_render_attribute('button', 'tabindex', '0');
                     }
                     ?>
                     <a <?php echo $this->get_render_attribute_string('button'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>

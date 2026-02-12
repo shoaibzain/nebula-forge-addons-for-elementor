@@ -65,6 +65,25 @@ class Stats_Grid_Widget extends Widget_Base
         );
 
         $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'subheading',
             [
                 'label' => esc_html__('Subheading', 'nebula-forge-addons-for-elementor'),
@@ -316,6 +335,14 @@ class Stats_Grid_Widget extends Widget_Base
                     'size' => 2,
                     'unit' => 'col',
                 ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'col',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'col',
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .nfa-stats-grid__items' => 'grid-template-columns: repeat({{SIZE}}, minmax(0, 1fr));',
                 ],
@@ -495,7 +522,7 @@ class Stats_Grid_Widget extends Widget_Base
         <div class="nfa-stats-grid">
             <div class="nfa-stats-grid__header">
                 <?php if (!empty($settings['heading'])) : ?>
-                    <h3 class="nfa-stats-grid__heading"><?php echo esc_html($settings['heading']); ?></h3>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-stats-grid__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
                 <?php if (!empty($settings['subheading'])) : ?>
                     <p class="nfa-stats-grid__subheading"><?php echo esc_html($settings['subheading']); ?></p>

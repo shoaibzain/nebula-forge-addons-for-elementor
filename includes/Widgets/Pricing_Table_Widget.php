@@ -65,6 +65,25 @@ class Pricing_Table_Widget extends Widget_Base
         );
 
         $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Label HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'plan_description',
             [
                 'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
@@ -267,13 +286,13 @@ class Pricing_Table_Widget extends Widget_Base
                     ],
                 ],
                 'default' => 'left',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-pricing-table' => 'text-align: {{VALUE}}; align-items: {{content_align_flex.VALUE}};',
-                ],
                 'selectors_dictionary' => [
-                    'left' => 'flex-start',
-                    'center' => 'center',
-                    'right' => 'flex-end',
+                    'left'   => 'text-align: left; align-items: flex-start;',
+                    'center' => 'text-align: center; align-items: center;',
+                    'right'  => 'text-align: right; align-items: flex-end;',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table' => '{{VALUE}}',
                 ],
             ]
         );
@@ -625,7 +644,8 @@ class Pricing_Table_Widget extends Widget_Base
                 $this->add_render_attribute('button', 'rel', 'nofollow');
             }
         } else {
-            $this->add_render_attribute('button', 'href', '#');
+            $this->add_render_attribute('button', 'role', 'button');
+            $this->add_render_attribute('button', 'tabindex', '0');
         }
         ?>
         <div <?php echo $this->get_render_attribute_string('wrapper'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
@@ -634,7 +654,7 @@ class Pricing_Table_Widget extends Widget_Base
             <?php endif; ?>
             <div class="nfa-pricing-table__header">
                 <?php if (!empty($settings['plan_label'])) : ?>
-                    <h3 class="nfa-pricing-table__label"><?php echo esc_html($settings['plan_label']); ?></h3>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-pricing-table__label"><?php echo esc_html($settings['plan_label']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
                 <?php if (!empty($settings['plan_description'])) : ?>
                     <p class="nfa-pricing-table__description"><?php echo esc_html($settings['plan_description']); ?></p>

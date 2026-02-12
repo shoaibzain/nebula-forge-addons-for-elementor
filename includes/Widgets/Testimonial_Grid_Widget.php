@@ -47,7 +47,11 @@ class Testimonial_Grid_Widget extends Widget_Base
 
     public function get_script_depends(): array
     {
-        return ['nebula-forge-elementor-addon-frontend'];
+        $settings = $this->get_settings_for_display();
+        if (!empty($settings['layout']) && $settings['layout'] === 'slider') {
+            return ['nebula-forge-elementor-addon-frontend'];
+        }
+        return [];
     }
 
     protected function register_controls(): void
@@ -66,6 +70,25 @@ class Testimonial_Grid_Widget extends Widget_Base
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Loved by modern teams', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'heading_tag',
+            [
+                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'p' => 'p',
+                ],
             ]
         );
 
@@ -331,6 +354,14 @@ class Testimonial_Grid_Widget extends Widget_Base
                     'size' => 3,
                     'unit' => 'col',
                 ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'col',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'col',
+                ],
                 'condition' => [
                     'layout' => 'grid',
                 ],
@@ -586,6 +617,58 @@ class Testimonial_Grid_Widget extends Widget_Base
         $this->end_controls_section();
     }
 
+    /**
+     * Render a single testimonial card.
+     *
+     * @param array $testimonial Testimonial data.
+     */
+    private function render_testimonial_card(array $testimonial): void
+    {
+        ?>
+        <div class="nfa-testimonials__card">
+            <?php if (!empty($testimonial['avatar']['url'])) : ?>
+                <div class="nfa-testimonials__avatar">
+                    <img src="<?php echo esc_url($testimonial['avatar']['url']); ?>" alt="<?php echo esc_attr($testimonial['name'] ?? ''); ?>" loading="lazy" width="48" height="48">
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($testimonial['quote'])) : ?>
+                <blockquote class="nfa-testimonials__quote"><?php echo esc_html($testimonial['quote']); ?></blockquote>
+            <?php endif; ?>
+
+            <div class="nfa-testimonials__footer">
+                <div>
+                    <?php if (!empty($testimonial['name'])) : ?>
+                        <div class="nfa-testimonials__name"><?php echo esc_html($testimonial['name']); ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($testimonial['role'])) : ?>
+                        <div class="nfa-testimonials__role"><?php echo esc_html($testimonial['role']); ?></div>
+                    <?php endif; ?>
+                </div>
+                <?php
+                $rating = isset($testimonial['rating']) ? (int) $testimonial['rating'] : 0;
+                $rating = max(0, min(5, $rating));
+                ?>
+                <?php if ($rating > 0) : ?>
+                    <?php
+                    // translators: %d: rating value.
+                    $rating_label = sprintf(__('Rated %d out of 5', 'nebula-forge-addons-for-elementor'), $rating);
+                    ?>
+                    <div class="nfa-testimonials__rating" aria-label="<?php echo esc_attr($rating_label); ?>">
+                        <?php for ($i = 1; $i <= 5; $i++) : ?>
+                            <?php if ($i <= $rating) : ?>
+                                &#9733;
+                            <?php else : ?>
+                                &#9734;
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php
+    }
+
     protected function render(): void
     {
         $settings = $this->get_settings_for_display();
@@ -600,7 +683,7 @@ class Testimonial_Grid_Widget extends Widget_Base
         <div class="nfa-testimonials">
             <div class="nfa-testimonials__header">
                 <?php if (!empty($settings['heading'])) : ?>
-                    <h3 class="nfa-testimonials__heading"><?php echo esc_html($settings['heading']); ?></h3>
+                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-testimonials__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
                 <?php endif; ?>
                 <?php if (!empty($settings['subheading'])) : ?>
                     <p class="nfa-testimonials__subheading"><?php echo esc_html($settings['subheading']); ?></p>
@@ -613,47 +696,7 @@ class Testimonial_Grid_Widget extends Widget_Base
                         <div class="nfa-slider__track">
                             <?php foreach ($testimonials as $testimonial) : ?>
                                 <div class="nfa-slider__item">
-                                    <div class="nfa-testimonials__card">
-                                        <?php if (!empty($testimonial['avatar']['url'])) : ?>
-                                            <div class="nfa-testimonials__avatar">
-                                                <img src="<?php echo esc_url($testimonial['avatar']['url']); ?>" alt="<?php echo esc_attr($testimonial['name'] ?? ''); ?>">
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <?php if (!empty($testimonial['quote'])) : ?>
-                                            <p class="nfa-testimonials__quote"><?php echo esc_html($testimonial['quote']); ?></p>
-                                        <?php endif; ?>
-
-                                        <div class="nfa-testimonials__footer">
-                                            <div>
-                                                <?php if (!empty($testimonial['name'])) : ?>
-                                                    <div class="nfa-testimonials__name"><?php echo esc_html($testimonial['name']); ?></div>
-                                                <?php endif; ?>
-                                                <?php if (!empty($testimonial['role'])) : ?>
-                                                    <div class="nfa-testimonials__role"><?php echo esc_html($testimonial['role']); ?></div>
-                                                <?php endif; ?>
-                                            </div>
-                                            <?php
-                                            $rating = isset($testimonial['rating']) ? (int) $testimonial['rating'] : 0;
-                                            $rating = max(0, min(5, $rating));
-                                            ?>
-                                            <?php if ($rating > 0) : ?>
-                                                <?php
-                                                // translators: %d: rating value.
-                                                $rating_label = sprintf(__('Rated %d out of 5', 'nebula-forge-addons-for-elementor'), $rating);
-                                                ?>
-                                                <div class="nfa-testimonials__rating" aria-label="<?php echo esc_attr($rating_label); ?>">
-                                                    <?php for ($i = 1; $i <= 5; $i++) : ?>
-                                                        <?php if ($i <= $rating) : ?>
-                                                            &#9733;
-                                                        <?php else : ?>
-                                                            &#9734;
-                                                        <?php endif; ?>
-                                                    <?php endfor; ?>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
+                                    <?php $this->render_testimonial_card($testimonial); ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -669,47 +712,7 @@ class Testimonial_Grid_Widget extends Widget_Base
                 <?php else : ?>
                     <div class="nfa-testimonials__grid">
                         <?php foreach ($testimonials as $testimonial) : ?>
-                            <div class="nfa-testimonials__card">
-                                <?php if (!empty($testimonial['avatar']['url'])) : ?>
-                                    <div class="nfa-testimonials__avatar">
-                                        <img src="<?php echo esc_url($testimonial['avatar']['url']); ?>" alt="<?php echo esc_attr($testimonial['name'] ?? ''); ?>">
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if (!empty($testimonial['quote'])) : ?>
-                                    <p class="nfa-testimonials__quote"><?php echo esc_html($testimonial['quote']); ?></p>
-                                <?php endif; ?>
-
-                                <div class="nfa-testimonials__footer">
-                                    <div>
-                                        <?php if (!empty($testimonial['name'])) : ?>
-                                            <div class="nfa-testimonials__name"><?php echo esc_html($testimonial['name']); ?></div>
-                                        <?php endif; ?>
-                                        <?php if (!empty($testimonial['role'])) : ?>
-                                            <div class="nfa-testimonials__role"><?php echo esc_html($testimonial['role']); ?></div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <?php
-                                    $rating = isset($testimonial['rating']) ? (int) $testimonial['rating'] : 0;
-                                    $rating = max(0, min(5, $rating));
-                                    ?>
-                                    <?php if ($rating > 0) : ?>
-                                        <?php
-                                        // translators: %d: rating value.
-                                        $rating_label = sprintf(__('Rated %d out of 5', 'nebula-forge-addons-for-elementor'), $rating);
-                                        ?>
-                                        <div class="nfa-testimonials__rating" aria-label="<?php echo esc_attr($rating_label); ?>">
-                                            <?php for ($i = 1; $i <= 5; $i++) : ?>
-                                                <?php if ($i <= $rating) : ?>
-                                                    &#9733;
-                                                <?php else : ?>
-                                                    &#9734;
-                                                <?php endif; ?>
-                                            <?php endfor; ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+                            <?php $this->render_testimonial_card($testimonial); ?>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
