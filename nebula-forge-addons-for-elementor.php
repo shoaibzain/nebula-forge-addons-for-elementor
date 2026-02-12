@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name:       Nebula Forge Addons for Elementor
+ * Plugin URI:        https://wordpress.org/plugins/nebula-forge-addons-for-elementor/
  * Description:       Professional Elementor widgets for any WordPress page — blogs, portfolios, landing pages, WooCommerce, and beyond.
  * Version:           0.4.0
  * Author:            Zainaster
+ * Author URI:        https://profiles.wordpress.org/shoaibzain/
  * Requires Plugins:  elementor
  * Text Domain:       nebula-forge-addons-for-elementor
  * Domain Path:       /languages

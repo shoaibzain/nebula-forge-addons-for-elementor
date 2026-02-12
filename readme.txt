@@ -1,17 +1,21 @@
 === Nebula Forge Addons for Elementor ===
 Contributors: shoaibzain
-Tags: elementor, elementor widgets, elementor addons, page builder, blog widgets
+Tags: elementor, elementor widgets, elementor addons, page builder, wordpress widgets
 Requires at least: 6.2
-Tested up to: 6.9
+Tested up to: 6.9.1
 Requires PHP: 7.4
 Stable tag: 0.4.0
+Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Professional Elementor widgets for any WordPress page — blogs, portfolios, landing pages, WooCommerce, and beyond.
+10+ free Elementor widgets — hero sections, pricing tables, testimonials, FAQs, stats counters, carousels & more. No Elementor Pro required.
 
 == Description ==
-Nebula Forge Addons for Elementor delivers professional, conversion-focused widgets for the free Elementor editor. Build beautiful sections on any WordPress page — landing pages, blog posts, portfolios, WooCommerce stores, and more — with clean defaults and powerful styling controls.
+
+**Nebula Forge Addons for Elementor** is a free collection of 10+ professionally designed Elementor widgets. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousels, and more — all without Elementor Pro.
+
+Works with any WordPress page: landing pages, blog posts, portfolios, WooCommerce product pages, and beyond. Every widget ships with clean light-mode defaults and granular style controls for typography, spacing, colors, borders, and hover effects.
 
 = Highlights =
 * Built for the free Elementor plugin. No Elementor Pro required.
