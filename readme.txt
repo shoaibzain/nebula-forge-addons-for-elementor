@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, blog widgets
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,17 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.4.0 =
+* Switched frontend styles from dark theme (CSS custom properties) to light-mode defaults for broader compatibility.
+* Added mobile-responsive rules for Areas Grid featured card layout.
+* Added Card style controls (background, padding, border radius, border, box shadow) to Spotlight Card, Pricing Table, Logo Grid, and Showcase Carousel widgets.
+* Added Item Card and Text style sections to Logo Grid widget.
+* Added toggle icon, open-state background, and open-state border color controls to FAQ Accordion widget.
+* Added badge typography and border radius controls to Showcase Carousel widget.
+* Added tag typography and border radius controls to Showcase Carousel widget.
+* Updated default widget colors from dark-theme palette to neutral light-mode values across all widgets.
+* Fixed slider arrow color default to white for better contrast.
+
 = 0.3.0 =
 * Redesigned admin Welcome page with widget stats, categorised showcase grid, and system status panel.
 * Redesigned Settings page with Enable All / Disable All toolbar and real-time active counter.
@@ -150,6 +161,9 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
 == Upgrade Notice ==
+= 0.4.0 =
+Light-mode frontend defaults, new card/badge/tag style controls, mobile-responsive fixes, and color updates across all widgets. Update recommended.
+
 = 0.3.0 =
 Major admin redesign with pro layout, updated widget names, category grouping, and broader page-type support. Update recommended.
 
