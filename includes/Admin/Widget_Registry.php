@@ -110,6 +110,15 @@ final class Widget_Registry
                 'class'       => Widgets\Steps_Timeline_Widget::class,
                 'icon'        => 'eicon-time-line',
             ],
+            'journey_process' => [
+                'label'       => __('Journey Process', 'nebula-forge-addons-for-elementor'),
+                'description' => __('End-to-end process section with numbered steps and full style controls.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Great for service workflows and investment journeys.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('FLOW', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#6366f1',
+                'class'       => Widgets\Journey_Process_Widget::class,
+                'icon'        => 'eicon-flow',
+            ],
         ];
     }
 

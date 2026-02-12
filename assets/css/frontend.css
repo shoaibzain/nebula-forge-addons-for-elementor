@@ -651,12 +651,130 @@
     box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.3);
 }
 
+.nfa-journey {
+    background: #f4f4f4;
+    padding: 48px 32px;
+}
+
+.nfa-journey__header {
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.nfa-journey__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(19, 19, 19, 0.45);
+    margin-bottom: 14px;
+}
+
+.nfa-journey__heading {
+    margin: 0 0 14px;
+    font-size: clamp(1.75rem, 3.6vw, 2.625rem);
+    line-height: 1.2;
+    color: #131313;
+}
+
+.nfa-journey__description {
+    margin: 0 auto;
+    max-width: 780px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(19, 19, 19, 0.65);
+}
+
+.nfa-journey__steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    position: relative;
+}
+
+.nfa-journey__steps--line::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 48px;
+    right: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, #131313, rgba(19, 19, 19, 0.1));
+    z-index: 0;
+}
+
+.nfa-journey__step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.nfa-journey__number {
+    width: 72px;
+    height: 72px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 2px solid #131313;
+    background: #ffffff;
+    color: #131313;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.nfa-journey__step:hover .nfa-journey__number {
+    background: #131313;
+    color: #f4f4f4;
+}
+
+.nfa-journey__step-title {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #131313;
+}
+
+.nfa-journey__step-description {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(19, 19, 19, 0.45);
+}
+
 @media (max-width: 900px) {
     .nfa-feature-list__items,
     .nfa-stats-grid__items,
     .nfa-testimonials__grid,
     .nfa-logo-grid__items,
     .nfa-steps--horizontal .nfa-steps__list {
+        grid-template-columns: 1fr;
+    }
+
+    .nfa-journey__steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nfa-journey__steps--line::before {
+        display: none;
+    }
+
+    .nfa-journey__header {
+        margin-bottom: 48px;
+    }
+}
+
+@media (max-width: 640px) {
+    .nfa-journey {
+        padding: 36px 22px;
+    }
+
+    .nfa-journey__steps {
         grid-template-columns: 1fr;
     }
 }
