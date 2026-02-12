@@ -129,6 +129,26 @@ final class Widget_Registry
                 'class'       => Widgets\Journey_Process_Widget::class,
                 'icon'        => 'eicon-flow',
             ],
+            'showcase_carousel' => [
+                'label'       => __('Showcase Carousel', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Image card carousel with badges, titles, descriptions, tags, and full navigation controls.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Showcase developers, projects, products, or team members in a sleek sliding carousel.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('SLIDE', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#ec4899',
+                'category'    => 'content',
+                'class'       => Widgets\Showcase_Carousel_Widget::class,
+                'icon'        => 'eicon-media-carousel',
+            ],
+            'areas_grid' => [
+                'label'       => __('Areas Grid', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Responsive image-card grid with badges, titles, and a featured first-card overlay.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Highlight locations, areas, or categories with an eye-catching featured card layout.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('GRID', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#14b8a6',
+                'category'    => 'content',
+                'class'       => Widgets\Areas_Grid_Widget::class,
+                'icon'        => 'eicon-gallery-grid',
+            ],
         ];
     }
 
