@@ -45,12 +45,21 @@ final class Changelog_Page
         }
         ?>
         <div class="wrap nf-admin-wrap">
-            <div class="nf-admin-header nf-admin-header--changelog">
+            <div class="nf-admin-header nf-admin-header--compact">
                 <div class="nf-admin-header__content">
-                    <h1><?php esc_html_e('Changelog', 'nebula-forge-addons-for-elementor'); ?></h1>
+                    <h1>
+                        <span class="dashicons dashicons-backup"></span>
+                        <?php esc_html_e('Changelog', 'nebula-forge-addons-for-elementor'); ?>
+                    </h1>
                     <p class="nf-admin-header__tagline">
-                        <?php esc_html_e('View the latest updates and improvements to Nebula Forge Addons for Elementor.', 'nebula-forge-addons-for-elementor'); ?>
+                        <?php esc_html_e('Track every improvement, fix, and new feature across releases.', 'nebula-forge-addons-for-elementor'); ?>
                     </p>
+                </div>
+                <div class="nf-header-stats nf-header-stats--compact">
+                    <div class="nf-header-stat">
+                        <span class="nf-header-stat__value"><?php echo esc_html(count($changelog_entries)); ?></span>
+                        <span class="nf-header-stat__label"><?php esc_html_e('Releases', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </div>
                 </div>
             </div>
 
@@ -58,40 +67,53 @@ final class Changelog_Page
                 <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_CHANGELOG); ?>
             <?php endif; ?>
 
-            <div class="nf-callout nf-callout--note">
-                <div class="nf-callout__title">
-                    <span class="dashicons dashicons-megaphone"></span>
-                    <?php esc_html_e('What changed?', 'nebula-forge-addons-for-elementor'); ?>
-                </div>
-                <p class="nf-callout__text">
-                    <?php esc_html_e('Keep this page handy when updating. It highlights improvements and security updates for each release.', 'nebula-forge-addons-for-elementor'); ?>
-                </p>
-            </div>
-
             <div class="nf-admin-content">
-                <div class="nf-changelog">
+                <div class="nf-changelog-timeline">
                     <?php if (empty($changelog_entries)) : ?>
                         <div class="nf-card">
                             <p><?php esc_html_e('No changelog entries found.', 'nebula-forge-addons-for-elementor'); ?></p>
                         </div>
                     <?php else : ?>
+                        <?php $is_first = true; ?>
                         <?php foreach ($changelog_entries as $entry) : ?>
-                            <div class="nf-changelog-entry">
-                                <div class="nf-changelog-entry__header">
-                                    <span class="nf-changelog-entry__version"><?php echo esc_html($entry['version']); ?></span>
-                                    <?php if ($entry === reset($changelog_entries)) : ?>
-                                        <span class="nf-badge nf-badge--latest"><?php esc_html_e('Latest', 'nebula-forge-addons-for-elementor'); ?></span>
-                                    <?php endif; ?>
+                            <div class="nf-timeline-entry <?php echo $is_first ? 'nf-timeline-entry--latest' : ''; ?>">
+                                <div class="nf-timeline-entry__marker">
+                                    <span class="nf-timeline-entry__dot"></span>
                                 </div>
-                                <ul class="nf-changelog-entry__changes">
-                                    <?php foreach ($entry['changes'] as $change) : ?>
-                                        <li>
-                                            <span class="dashicons dashicons-arrow-right-alt2"></span>
-                                            <?php echo esc_html($change); ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
+                                <div class="nf-timeline-entry__card">
+                                    <div class="nf-timeline-entry__header">
+                                        <span class="nf-timeline-entry__version"><?php echo esc_html($entry['version']); ?></span>
+                                        <?php if ($is_first) : ?>
+                                            <span class="nf-badge nf-badge--latest"><?php esc_html_e('Latest', 'nebula-forge-addons-for-elementor'); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                    <ul class="nf-timeline-entry__changes">
+                                        <?php foreach ($entry['changes'] as $change) : ?>
+                                            <?php
+                                            // Detect change type for color coding.
+                                            $type_class = 'nf-change--default';
+                                            $type_icon = 'dashicons-arrow-right-alt2';
+                                            $lower = strtolower($change);
+                                            if (strpos($lower, 'fix') !== false || strpos($lower, 'bug') !== false) {
+                                                $type_class = 'nf-change--fix';
+                                                $type_icon = 'dashicons-admin-tools';
+                                            } elseif (strpos($lower, 'add') !== false || strpos($lower, 'new') !== false || strpos($lower, 'introduc') !== false) {
+                                                $type_class = 'nf-change--add';
+                                                $type_icon = 'dashicons-plus-alt2';
+                                            } elseif (strpos($lower, 'improv') !== false || strpos($lower, 'updat') !== false || strpos($lower, 'enhanc') !== false || strpos($lower, 'refactor') !== false) {
+                                                $type_class = 'nf-change--improve';
+                                                $type_icon = 'dashicons-update';
+                                            }
+                                            ?>
+                                            <li class="<?php echo esc_attr($type_class); ?>">
+                                                <span class="dashicons <?php echo esc_attr($type_icon); ?>"></span>
+                                                <?php echo esc_html($change); ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
                             </div>
+                            <?php $is_first = false; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>

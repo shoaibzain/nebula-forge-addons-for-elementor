@@ -1,17 +1,17 @@
 === Nebula Forge Addons for Elementor ===
 Contributors: shoaibzain
-Tags: elementor, elementor widgets, landing page, pricing table, testimonials
+Tags: elementor, elementor widgets, elementor addons, page builder, blog widgets
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.1.6
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Modern Elementor widgets for landing pages and product sections.
+Professional Elementor widgets for any WordPress page — blogs, portfolios, landing pages, WooCommerce, and beyond.
 
 == Description ==
-Nebula Forge Addons for Elementor brings modern, conversion-focused widgets to the free Elementor editor. Build standout landing pages and product sections with clean defaults and flexible styling controls.
+Nebula Forge Addons for Elementor delivers professional, conversion-focused widgets for the free Elementor editor. Build beautiful sections on any WordPress page — landing pages, blog posts, portfolios, WooCommerce stores, and more — with clean defaults and powerful styling controls.
 
 = Highlights =
 * Built for the free Elementor plugin. No Elementor Pro required.
@@ -23,20 +23,24 @@ Nebula Forge Addons for Elementor brings modern, conversion-focused widgets to t
 * Layout controls to switch between grid and slider displays.
 
 = Widgets =
-Nebula Forge Addons for Elementor delivers a small set of focused widgets so you can assemble high-converting sections quickly:
+Nebula Forge Addons for Elementor delivers a curated set of professional widgets for any WordPress page:
 
-* Hero CTA - expressive hero banner with kicker, headline, supporting copy, and a stylable primary button.
-* Feature List - grid/list of benefit items with icons, headings, and descriptions using a repeater field.
-* Spotlight Card - media-forward card with eyebrow, title, description, meta text, CTA button, and image support.
-* Stats Grid - KPI grid with value/label/helper text per item to showcase performance metrics.
-* Pricing Table - pricing card with plan details, feature list, and CTA.
-* Testimonials Grid - social-proof cards with quotes, avatars, roles, and star ratings.
-* Logo Grid - responsive partner and client logos.
-* FAQ Accordion - collapsible Q&A list for objections.
-* Steps Timeline - sequential steps for onboarding or workflows.
+* Hero Section — full-width hero banner with kicker text, headline, sub-copy, and a powerful CTA button.
+* Feature Showcase — responsive grid of feature items with icons, titles, and descriptions.
+* Content Spotlight — rich content card with eyebrow, title, body text, featured image, and CTA button.
+* Stats Counter — eye-catching number grid to showcase KPIs, metrics, and achievements.
+* Pricing Plans — professional pricing card with plan name, price, features checklist, and CTA button.
+* Reviews Showcase — social-proof grid or slider with quotes, avatars, roles, and star ratings.
+* Brand Showcase — clean, responsive grid or carousel of partner, client, or sponsor logos.
+* FAQ Section — collapsible accordion for frequently asked questions, support docs, or knowledge base.
+* Process Timeline — visual step-by-step timeline for workflows, onboarding, or project phases.
+* Journey Map — end-to-end journey section with numbered phases, descriptions, and full style controls.
 
 = Great for =
-* SaaS landing pages and product launches
+* Landing pages and product launches
+* Blog posts and article layouts
+* Portfolio and case study pages
+* WooCommerce store pages
 * Marketing call-to-action sections
 * Feature and benefit highlights
 * KPI and social-proof blocks
@@ -91,6 +95,29 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.3.0 =
+* Redesigned admin Welcome page with widget stats, categorised showcase grid, and system status panel.
+* Redesigned Settings page with Enable All / Disable All toolbar and real-time active counter.
+* Redesigned Changelog page with vertical timeline and colour-coded change types.
+* Updated plugin description to reflect support for blogs, portfolios, WooCommerce, and all page types.
+* Renamed widgets for clarity: Hero Section, Feature Showcase, Content Spotlight, Stats Counter, Pricing Plans, Reviews Showcase, Brand Showcase, FAQ Section, Process Timeline, Journey Map.
+* Updated all widget icons to a consistent Elementor icon set.
+* Added category grouping (Layout, Content, Data & Process, Conversion, Social Proof) to widget registry.
+* Rewrote admin CSS with modern design token system, glassmorphism header, and pro-level cards.
+* Added onboarding 3-step flow to Welcome page.
+* Added Pro Tip sidebar card with link to Settings.
+
+= 0.2.0 =
+* Fixed broken selectors_dictionary in Hero CTA and Pricing Table widgets.
+* Replaced href="#" with role="button" tabindex="0" for accessibility.
+* Removed Hero CTA JS dependency — hover effect now pure CSS.
+* Conditional JS loading for Logo Grid and Testimonial Grid slider mode.
+* Added responsive grid column defaults (tablet_default, mobile_default) to all grid widgets.
+* Added HTML heading tag selector (H1-H6, div, p) to all 10 widgets.
+* Refactored Testimonial Grid card template into reusable render method.
+* Upgraded frontend CSS with design tokens, gradient backgrounds, and hover effects.
+* Cleaned up frontend JS — removed wiggle handler, added debounced resize.
+
 = 0.1.6 =
 * Fixed fatal error when a widget class is missing by skipping registration.
 * Fixed admin page fatal when Ui_Helper is unavailable.
@@ -123,6 +150,12 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
 == Upgrade Notice ==
+= 0.3.0 =
+Major admin redesign with pro layout, updated widget names, category grouping, and broader page-type support. Update recommended.
+
+= 0.2.0 =
+Bug fixes, accessibility improvements, responsive defaults, heading tag selectors, and upgraded frontend design. Update recommended.
+
 = 0.1.6 =
 Fixes admin and widget registration fatals. Update recommended.
 

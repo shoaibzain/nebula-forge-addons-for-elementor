@@ -38,26 +38,58 @@ final class Welcome_Page
     {
         $plugin_version = defined('NEBULA_FORGE_ADDON_VERSION') ? NEBULA_FORGE_ADDON_VERSION : '1.0.0';
         $widgets = Widget_Registry::get_available_widgets();
+        $enabled_widgets = Admin_Manager::get_enabled_widgets();
+        $total = count($widgets);
+        $active = count($enabled_widgets);
+
         if (!class_exists(Ui_Helper::class) && defined('NEBULA_FORGE_ADDON_PATH')) {
             $ui_helper_path = NEBULA_FORGE_ADDON_PATH . 'includes/Admin/Ui_Helper.php';
             if (file_exists($ui_helper_path)) {
                 require_once $ui_helper_path;
             }
         }
+
+        // Group widgets by category.
+        $categories = [
+            'layout'     => ['label' => __('Layout', 'nebula-forge-addons-for-elementor'), 'icon' => 'dashicons-layout', 'widgets' => []],
+            'content'    => ['label' => __('Content', 'nebula-forge-addons-for-elementor'), 'icon' => 'dashicons-edit-large', 'widgets' => []],
+            'data'       => ['label' => __('Data & Process', 'nebula-forge-addons-for-elementor'), 'icon' => 'dashicons-chart-bar', 'widgets' => []],
+            'conversion' => ['label' => __('Conversion', 'nebula-forge-addons-for-elementor'), 'icon' => 'dashicons-megaphone', 'widgets' => []],
+            'social'     => ['label' => __('Social Proof', 'nebula-forge-addons-for-elementor'), 'icon' => 'dashicons-groups', 'widgets' => []],
+        ];
+        foreach ($widgets as $key => $widget) {
+            $cat = isset($widget['category'], $categories[$widget['category']]) ? $widget['category'] : 'content';
+            $categories[$cat]['widgets'][$key] = $widget;
+        }
         ?>
         <div class="wrap nf-admin-wrap">
+
+            <!-- ── Header ── -->
             <div class="nf-admin-header">
                 <div class="nf-admin-header__content">
-                    <h1><?php esc_html_e('Nebula Forge Addons for Elementor', 'nebula-forge-addons-for-elementor'); ?></h1>
-                    <p class="nf-admin-header__version">
-                        <?php
-                        // translators: %s: Plugin version number.
-                        printf(esc_html__('Version %s', 'nebula-forge-addons-for-elementor'), esc_html($plugin_version));
-                        ?>
-                    </p>
-                    <p class="nf-admin-header__tagline">
-                        <?php esc_html_e('Modern Elementor widgets for landing pages and product sections.', 'nebula-forge-addons-for-elementor'); ?>
-                    </p>
+                    <div class="nf-admin-header__top">
+                        <div>
+                            <span class="nf-admin-header__badge"><?php echo esc_html($plugin_version); ?></span>
+                            <h1><?php esc_html_e('Nebula Forge', 'nebula-forge-addons-for-elementor'); ?></h1>
+                            <p class="nf-admin-header__tagline">
+                                <?php esc_html_e('Professional Elementor widgets for any WordPress page — blogs, portfolios, landing pages, and beyond.', 'nebula-forge-addons-for-elementor'); ?>
+                            </p>
+                        </div>
+                        <div class="nf-header-stats">
+                            <div class="nf-header-stat">
+                                <span class="nf-header-stat__value"><?php echo esc_html($total); ?></span>
+                                <span class="nf-header-stat__label"><?php esc_html_e('Widgets', 'nebula-forge-addons-for-elementor'); ?></span>
+                            </div>
+                            <div class="nf-header-stat">
+                                <span class="nf-header-stat__value"><?php echo esc_html($active); ?></span>
+                                <span class="nf-header-stat__label"><?php esc_html_e('Active', 'nebula-forge-addons-for-elementor'); ?></span>
+                            </div>
+                            <div class="nf-header-stat">
+                                <span class="nf-header-stat__value"><?php echo esc_html(count($categories)); ?></span>
+                                <span class="nf-header-stat__label"><?php esc_html_e('Categories', 'nebula-forge-addons-for-elementor'); ?></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -65,78 +97,121 @@ final class Welcome_Page
                 <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_WELCOME); ?>
             <?php endif; ?>
 
-            <div class="nf-callout nf-callout--info">
-                <div class="nf-callout__title">
-                    <span class="dashicons dashicons-sos"></span>
-                    <?php esc_html_e('Start Here', 'nebula-forge-addons-for-elementor'); ?>
+            <!-- ── Getting Started ── -->
+            <div class="nf-onboarding">
+                <h2 class="nf-onboarding__title">
+                    <span class="dashicons dashicons-flag"></span>
+                    <?php esc_html_e('Get Started in 3 Steps', 'nebula-forge-addons-for-elementor'); ?>
+                </h2>
+                <div class="nf-onboarding__steps">
+                    <div class="nf-onboard-step">
+                        <span class="nf-onboard-step__num">1</span>
+                        <h3><?php esc_html_e('Activate Elementor', 'nebula-forge-addons-for-elementor'); ?></h3>
+                        <p><?php esc_html_e('Make sure the free Elementor plugin is installed and active.', 'nebula-forge-addons-for-elementor'); ?></p>
+                    </div>
+                    <div class="nf-onboard-step">
+                        <span class="nf-onboard-step__num">2</span>
+                        <h3><?php esc_html_e('Open the Editor', 'nebula-forge-addons-for-elementor'); ?></h3>
+                        <p><?php esc_html_e('Edit any page or post with Elementor and find the Nebula Forge category.', 'nebula-forge-addons-for-elementor'); ?></p>
+                    </div>
+                    <div class="nf-onboard-step">
+                        <span class="nf-onboard-step__num">3</span>
+                        <h3><?php esc_html_e('Drag & Build', 'nebula-forge-addons-for-elementor'); ?></h3>
+                        <p><?php esc_html_e('Drag widgets onto your page and customise content, style, and layout.', 'nebula-forge-addons-for-elementor'); ?></p>
+                    </div>
                 </div>
-                <p class="nf-callout__text">
-                    <?php esc_html_e('Use the tabs above to configure widgets, review updates, and get oriented quickly. Each widget includes built-in style controls for typography, spacing, and colors.', 'nebula-forge-addons-for-elementor'); ?>
-                </p>
-                <ul class="nf-callout__list">
-                    <li><?php esc_html_e('Open any page with Elementor and look for the Nebula Forge category.', 'nebula-forge-addons-for-elementor'); ?></li>
-                    <li><?php esc_html_e('Drag widgets into sections and customize content in the left panel.', 'nebula-forge-addons-for-elementor'); ?></li>
-                    <li><?php esc_html_e('Use the Settings tab to hide widgets you are not using.', 'nebula-forge-addons-for-elementor'); ?></li>
-                </ul>
             </div>
 
+            <!-- ── Main Content ── -->
             <div class="nf-admin-content">
                 <div class="nf-admin-row">
-                    <!-- Main Content -->
+
+                    <!-- Widget Showcase -->
                     <div class="nf-admin-col nf-admin-col--main">
-                        <div class="nf-card">
-                            <h2 class="nf-card__title">
-                                <span class="dashicons dashicons-welcome-widgets-menus"></span>
-                                <?php esc_html_e('Available Widgets', 'nebula-forge-addons-for-elementor'); ?>
-                            </h2>
-                            <div class="nf-widget-list">
-                                <?php foreach ($widgets as $key => $widget) : ?>
-                                    <?php
-                                    $badge = isset($widget['badge']) ? $widget['badge'] : '';
-                                    $badge_color = isset($widget['badge_color']) ? sanitize_hex_color($widget['badge_color']) : '';
-                                    $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
-                                    ?>
-                                    <div class="nf-widget-item">
-                                        <div class="nf-widget-item__icon">
-                                            <span class="<?php echo esc_attr($widget['icon']); ?>"></span>
-                                        </div>
-                                        <div class="nf-widget-item__content">
-                                            <h3>
-                                                <?php echo esc_html($widget['label']); ?>
+                        <?php foreach ($categories as $cat_key => $cat) : ?>
+                            <?php if (empty($cat['widgets'])) continue; ?>
+                            <div class="nf-category-section" id="nf-cat-<?php echo esc_attr($cat_key); ?>">
+                                <h2 class="nf-category-section__title">
+                                    <span class="dashicons <?php echo esc_attr($cat['icon']); ?>"></span>
+                                    <?php echo esc_html($cat['label']); ?>
+                                    <span class="nf-category-section__count"><?php echo esc_html(count($cat['widgets'])); ?></span>
+                                </h2>
+                                <div class="nf-widget-showcase">
+                                    <?php foreach ($cat['widgets'] as $key => $widget) : ?>
+                                        <?php
+                                        $badge = isset($widget['badge']) ? $widget['badge'] : '';
+                                        $badge_color = isset($widget['badge_color']) ? sanitize_hex_color($widget['badge_color']) : '';
+                                        $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
+                                        $is_active = in_array($key, $enabled_widgets, true);
+                                        ?>
+                                        <div class="nf-showcase-card <?php echo $is_active ? '' : 'nf-showcase-card--inactive'; ?>">
+                                            <div class="nf-showcase-card__header">
+                                                <div class="nf-showcase-card__icon" style="<?php echo esc_attr($badge_style); ?>">
+                                                    <span class="<?php echo esc_attr($widget['icon']); ?>"></span>
+                                                </div>
                                                 <?php if (!empty($badge)) : ?>
                                                     <span class="nf-badge-chip" style="<?php echo esc_attr($badge_style); ?>">
                                                         <?php echo esc_html($badge); ?>
                                                     </span>
                                                 <?php endif; ?>
+                                                <?php if ($is_active) : ?>
+                                                    <span class="nf-status-dot nf-status-dot--active" title="<?php esc_attr_e('Active', 'nebula-forge-addons-for-elementor'); ?>"></span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <h3 class="nf-showcase-card__title">
+                                                <?php echo esc_html($widget['label']); ?>
                                                 <?php if (!empty($widget['tooltip'])) : ?>
                                                     <span class="nf-tooltip" data-tooltip="<?php echo esc_attr($widget['tooltip']); ?>" tabindex="0" aria-label="<?php echo esc_attr($widget['tooltip']); ?>">
                                                         <span class="dashicons dashicons-editor-help" aria-hidden="true"></span>
                                                     </span>
                                                 <?php endif; ?>
                                             </h3>
-                                            <p><?php echo esc_html($widget['description']); ?></p>
+                                            <p class="nf-showcase-card__desc"><?php echo esc_html($widget['description']); ?></p>
                                         </div>
-                                    </div>
-                                <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <!-- Sidebar -->
                     <div class="nf-admin-col nf-admin-col--sidebar">
-                        <div class="nf-card">
+
+                        <!-- System Status -->
+                        <div class="nf-card nf-card--status">
                             <h2 class="nf-card__title">
-                                <span class="dashicons dashicons-lightbulb"></span>
-                                <?php esc_html_e('Quick Start', 'nebula-forge-addons-for-elementor'); ?>
+                                <span class="dashicons dashicons-heart"></span>
+                                <?php esc_html_e('System Status', 'nebula-forge-addons-for-elementor'); ?>
                             </h2>
-                            <ol class="nf-quick-start">
-                                <li><?php esc_html_e('Ensure Elementor is installed and activated.', 'nebula-forge-addons-for-elementor'); ?></li>
-                                <li><?php esc_html_e('Edit any page with Elementor.', 'nebula-forge-addons-for-elementor'); ?></li>
-                                <li><?php esc_html_e('Find widgets under "Nebula Forge" category.', 'nebula-forge-addons-for-elementor'); ?></li>
-                                <li><?php esc_html_e('Drag and drop widgets to build your page.', 'nebula-forge-addons-for-elementor'); ?></li>
-                            </ol>
+                            <ul class="nf-status-list">
+                                <li>
+                                    <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                                    <span class="nf-status-list__text"><?php esc_html_e('WordPress', 'nebula-forge-addons-for-elementor'); ?></span>
+                                    <span class="nf-status-list__value"><?php echo esc_html(get_bloginfo('version')); ?></span>
+                                </li>
+                                <li>
+                                    <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                                    <span class="nf-status-list__text"><?php esc_html_e('PHP', 'nebula-forge-addons-for-elementor'); ?></span>
+                                    <span class="nf-status-list__value"><?php echo esc_html(PHP_VERSION); ?></span>
+                                </li>
+                                <li>
+                                    <?php
+                                    $elementor_active = defined('ELEMENTOR_VERSION');
+                                    $el_icon_class = $elementor_active ? 'nf-status-list__icon--ok' : 'nf-status-list__icon--error';
+                                    ?>
+                                    <span class="nf-status-list__icon <?php echo esc_attr($el_icon_class); ?>"><span class="dashicons <?php echo $elementor_active ? 'dashicons-yes-alt' : 'dashicons-warning'; ?>"></span></span>
+                                    <span class="nf-status-list__text"><?php esc_html_e('Elementor', 'nebula-forge-addons-for-elementor'); ?></span>
+                                    <span class="nf-status-list__value"><?php echo $elementor_active ? esc_html(ELEMENTOR_VERSION) : esc_html__('Not found', 'nebula-forge-addons-for-elementor'); ?></span>
+                                </li>
+                                <li>
+                                    <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                                    <span class="nf-status-list__text"><?php esc_html_e('Plugin', 'nebula-forge-addons-for-elementor'); ?></span>
+                                    <span class="nf-status-list__value"><?php echo esc_html($plugin_version); ?></span>
+                                </li>
+                            </ul>
                         </div>
 
+                        <!-- Quick Links -->
                         <div class="nf-card">
                             <h2 class="nf-card__title">
                                 <span class="dashicons dashicons-admin-links"></span>
@@ -147,48 +222,44 @@ final class Welcome_Page
                                     <a href="<?php echo esc_url(admin_url('admin.php?page=' . Admin_Manager::MENU_SLUG_SETTINGS)); ?>">
                                         <span class="dashicons dashicons-admin-settings"></span>
                                         <?php esc_html_e('Widget Settings', 'nebula-forge-addons-for-elementor'); ?>
+                                        <span class="nf-links-list__arrow dashicons dashicons-arrow-right-alt2"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo esc_url(admin_url('admin.php?page=' . Admin_Manager::MENU_SLUG_CHANGELOG)); ?>">
                                         <span class="dashicons dashicons-backup"></span>
                                         <?php esc_html_e('View Changelog', 'nebula-forge-addons-for-elementor'); ?>
+                                        <span class="nf-links-list__arrow dashicons dashicons-arrow-right-alt2"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo esc_url('https://wordpress.org/plugins/nebula-forge-addons-for-elementor/'); ?>" target="_blank" rel="noopener noreferrer">
-                                        <span class="dashicons dashicons-megaphone"></span>
-                                        <?php esc_html_e('Plugin Page', 'nebula-forge-addons-for-elementor'); ?>
+                                        <span class="dashicons dashicons-wordpress"></span>
+                                        <?php esc_html_e('WordPress.org', 'nebula-forge-addons-for-elementor'); ?>
+                                        <span class="nf-links-list__arrow dashicons dashicons-external"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo esc_url('https://wordpress.org/support/plugin/nebula-forge-addons-for-elementor/reviews/#new-post'); ?>" target="_blank" rel="noopener noreferrer">
                                         <span class="dashicons dashicons-star-filled"></span>
-                                        <?php esc_html_e('Leave a Review', 'nebula-forge-addons-for-elementor'); ?>
+                                        <?php esc_html_e('Rate this Plugin', 'nebula-forge-addons-for-elementor'); ?>
+                                        <span class="nf-links-list__arrow dashicons dashicons-external"></span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="nf-card nf-card--highlight">
-                            <h2 class="nf-card__title">
-                                <span class="dashicons dashicons-info"></span>
-                                <?php esc_html_e('Requirements', 'nebula-forge-addons-for-elementor'); ?>
-                            </h2>
-                            <ul class="nf-requirements">
-                                <li>
-                                    <span class="dashicons dashicons-yes-alt"></span>
-                                    <?php esc_html_e('WordPress 6.2+', 'nebula-forge-addons-for-elementor'); ?>
-                                </li>
-                                <li>
-                                    <span class="dashicons dashicons-yes-alt"></span>
-                                    <?php esc_html_e('PHP 7.4+', 'nebula-forge-addons-for-elementor'); ?>
-                                </li>
-                                <li>
-                                    <span class="dashicons dashicons-yes-alt"></span>
-                                    <?php esc_html_e('Elementor 3.20+ (Free)', 'nebula-forge-addons-for-elementor'); ?>
-                                </li>
-                            </ul>
+                        <!-- Pro Tip -->
+                        <div class="nf-card nf-card--tip">
+                            <div class="nf-card__tip-icon">
+                                <span class="dashicons dashicons-lightbulb"></span>
+                            </div>
+                            <h2 class="nf-card__title"><?php esc_html_e('Pro Tip', 'nebula-forge-addons-for-elementor'); ?></h2>
+                            <p><?php esc_html_e('Disable widgets you don\'t use in Settings to keep the Elementor panel clean and improve editor load times.', 'nebula-forge-addons-for-elementor'); ?></p>
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=' . Admin_Manager::MENU_SLUG_SETTINGS)); ?>" class="nf-button nf-button--outline nf-button--sm">
+                                <?php esc_html_e('Open Settings', 'nebula-forge-addons-for-elementor'); ?>
+                                <span class="dashicons dashicons-arrow-right-alt2"></span>
+                            </a>
                         </div>
                     </div>
                 </div>

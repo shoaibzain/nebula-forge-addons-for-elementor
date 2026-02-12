@@ -60,45 +60,6 @@ class Logo_Grid_Widget extends Widget_Base
         );
 
         $this->add_control(
-            'heading',
-            [
-                'label' => esc_html__('Heading', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Trusted by teams worldwide', 'nebula-forge-addons-for-elementor'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'heading_tag',
-            [
-                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'h3',
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'p' => 'p',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'subheading',
-            [
-                'label' => esc_html__('Subheading', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Add your customer or partner logos to build instant credibility.', 'nebula-forge-addons-for-elementor'),
-                'rows' => 3,
-            ]
-        );
-
-        $this->add_control(
             'layout',
             [
                 'label' => esc_html__('Layout', 'nebula-forge-addons-for-elementor'),
@@ -161,137 +122,6 @@ class Logo_Grid_Widget extends Widget_Base
                     ],
                 ],
                 'title_field' => '{{{ logo_name }}}',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_container',
-            [
-                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'container_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .nfa-logo-grid',
-                'fields_options' => [
-                    'color' => [
-                        'default' => '#0b1220',
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'container_padding',
-            [
-                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default' => [
-                    'top' => '40',
-                    'right' => '40',
-                    'bottom' => '40',
-                    'left' => '40',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-logo-grid' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'container_radius',
-            [
-                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 80,
-                    ],
-                ],
-                'default' => [
-                    'size' => 24,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-logo-grid' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'container_shadow',
-                'selector' => '{{WRAPPER}} .nfa-logo-grid',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'container_border',
-                'selector' => '{{WRAPPER}} .nfa-logo-grid',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_header',
-            [
-                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'heading_typography',
-                'selector' => '{{WRAPPER}} .nfa-logo-grid__heading',
-            ]
-        );
-
-        $this->add_control(
-            'heading_color',
-            [
-                'label' => esc_html__('Heading Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-logo-grid__heading' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'subheading_typography',
-                'selector' => '{{WRAPPER}} .nfa-logo-grid__subheading',
-            ]
-        );
-
-        $this->add_control(
-            'subheading_color',
-            [
-                'label' => esc_html__('Subheading Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-logo-grid__subheading' => 'color: {{VALUE}};',
-                ],
             ]
         );
 
@@ -487,15 +317,6 @@ class Logo_Grid_Widget extends Widget_Base
         $slide_gap = max(0, $slide_gap);
         ?>
         <div class="nfa-logo-grid">
-            <div class="nfa-logo-grid__header">
-                <?php if (!empty($settings['heading'])) : ?>
-                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-logo-grid__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
-                <?php endif; ?>
-                <?php if (!empty($settings['subheading'])) : ?>
-                    <p class="nfa-logo-grid__subheading"><?php echo esc_html($settings['subheading']); ?></p>
-                <?php endif; ?>
-            </div>
-
             <?php if (!empty($logos)) : ?>
                 <?php if ($layout === 'slider') : ?>
                     <div class="nfa-logo-grid__slider nfa-slider" data-slider-per-view="<?php echo esc_attr((string) $slides_per_view); ?>" data-slider-gap="<?php echo esc_attr((string) $slide_gap); ?>">

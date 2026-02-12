@@ -83,6 +83,8 @@ final class Settings_Page
     {
         $widgets = Widget_Registry::get_available_widgets();
         $enabled_widgets = Admin_Manager::get_enabled_widgets();
+        $total = count($widgets);
+        $active = count($enabled_widgets);
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- simple status flag for UI, not processing sensitive form data.
         $settings_updated = isset($_GET['settings-updated']) && sanitize_text_field(wp_unslash($_GET['settings-updated'])) === '1';
         if (!class_exists(Ui_Helper::class) && defined('NEBULA_FORGE_ADDON_PATH')) {
@@ -93,12 +95,25 @@ final class Settings_Page
         }
         ?>
         <div class="wrap nf-admin-wrap">
-            <div class="nf-admin-header nf-admin-header--settings">
+            <div class="nf-admin-header nf-admin-header--compact">
                 <div class="nf-admin-header__content">
-                    <h1><?php esc_html_e('Widget Settings', 'nebula-forge-addons-for-elementor'); ?></h1>
+                    <h1>
+                        <span class="dashicons dashicons-admin-generic"></span>
+                        <?php esc_html_e('Widget Settings', 'nebula-forge-addons-for-elementor'); ?>
+                    </h1>
                     <p class="nf-admin-header__tagline">
-                        <?php esc_html_e('Enable or disable individual widgets. Disabled widgets will not appear in the Elementor editor.', 'nebula-forge-addons-for-elementor'); ?>
+                        <?php esc_html_e('Enable or disable individual widgets. Only active widgets appear in the Elementor editor.', 'nebula-forge-addons-for-elementor'); ?>
                     </p>
+                </div>
+                <div class="nf-header-stats nf-header-stats--compact">
+                    <div class="nf-header-stat">
+                        <span class="nf-header-stat__value"><?php echo esc_html($active); ?></span>
+                        <span class="nf-header-stat__label"><?php esc_html_e('Active', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </div>
+                    <div class="nf-header-stat">
+                        <span class="nf-header-stat__value"><?php echo esc_html($total - $active); ?></span>
+                        <span class="nf-header-stat__label"><?php esc_html_e('Disabled', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </div>
                 </div>
             </div>
 
@@ -106,29 +121,36 @@ final class Settings_Page
                 <?php Ui_Helper::render_tabs(Admin_Manager::MENU_SLUG_SETTINGS); ?>
             <?php endif; ?>
 
-            <div class="nf-callout nf-callout--note">
-                <div class="nf-callout__title">
-                    <span class="dashicons dashicons-info-outline"></span>
-                    <?php esc_html_e('How this works', 'nebula-forge-addons-for-elementor'); ?>
-                </div>
-                <p class="nf-callout__text">
-                    <?php esc_html_e('Use the toggles to hide widgets you do not need. This keeps the Elementor sidebar tidy and helps teams stay focused.', 'nebula-forge-addons-for-elementor'); ?>
-                </p>
-                <p class="nf-callout__text">
-                    <?php esc_html_e('Hover the help icon on each widget to see suggested usage tips.', 'nebula-forge-addons-for-elementor'); ?>
-                </p>
-            </div>
-
             <div class="nf-admin-content nf-settings-content">
                 <?php if ($settings_updated) : ?>
                     <div class="nf-notice nf-notice--success">
                         <span class="dashicons dashicons-yes-alt"></span>
-                        <?php esc_html_e('Settings saved successfully!', 'nebula-forge-addons-for-elementor'); ?>
+                        <?php esc_html_e('Settings saved successfully.', 'nebula-forge-addons-for-elementor'); ?>
                     </div>
                 <?php endif; ?>
 
                 <form method="post" action="" class="nf-settings-form">
                     <?php wp_nonce_field(self::NONCE_ACTION, self::NONCE_NAME); ?>
+
+                    <!-- Toolbar -->
+                    <div class="nf-toolbar">
+                        <div class="nf-toolbar__left">
+                            <button type="button" class="nf-button nf-button--outline nf-button--sm" id="nf-enable-all">
+                                <span class="dashicons dashicons-yes"></span>
+                                <?php esc_html_e('Enable All', 'nebula-forge-addons-for-elementor'); ?>
+                            </button>
+                            <button type="button" class="nf-button nf-button--outline nf-button--sm" id="nf-disable-all">
+                                <span class="dashicons dashicons-no-alt"></span>
+                                <?php esc_html_e('Disable All', 'nebula-forge-addons-for-elementor'); ?>
+                            </button>
+                        </div>
+                        <div class="nf-toolbar__right">
+                            <span class="nf-toolbar__counter">
+                                <span id="nf-active-count"><?php echo esc_html($active); ?></span> / <?php echo esc_html($total); ?>
+                                <?php esc_html_e('active', 'nebula-forge-addons-for-elementor'); ?>
+                            </span>
+                        </div>
+                    </div>
 
                     <div class="nf-widget-grid">
                         <?php foreach ($widgets as $widget_key => $widget_data) : ?>
@@ -141,8 +163,20 @@ final class Settings_Page
                             $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
                             ?>
                             <div class="<?php echo esc_attr($card_class); ?>" data-widget="<?php echo esc_attr($widget_key); ?>">
-                                <div class="nf-widget-card__icon">
-                                    <span class="<?php echo esc_attr($widget_data['icon']); ?>"></span>
+                                <div class="nf-widget-card__header">
+                                    <div class="nf-widget-card__icon" style="<?php echo esc_attr($badge_style); ?>">
+                                        <span class="<?php echo esc_attr($widget_data['icon']); ?>"></span>
+                                    </div>
+                                    <label class="nf-toggle">
+                                        <input
+                                            type="checkbox"
+                                            name="nf_widgets[]"
+                                            value="<?php echo esc_attr($widget_key); ?>"
+                                            <?php checked($is_enabled); ?>
+                                            class="nf-widget-toggle"
+                                        >
+                                        <span class="nf-toggle__slider"></span>
+                                    </label>
                                 </div>
                                 <div class="nf-widget-card__content">
                                     <h3>
@@ -152,27 +186,15 @@ final class Settings_Page
                                                 <?php echo esc_html($badge); ?>
                                             </span>
                                         <?php endif; ?>
-                                        <?php if (!empty($tooltip)) : ?>
-                                            <span class="nf-tooltip" data-tooltip="<?php echo esc_attr($tooltip); ?>" tabindex="0" aria-label="<?php echo esc_attr($tooltip); ?>">
-                                                <span class="dashicons dashicons-editor-help" aria-hidden="true"></span>
-                                            </span>
-                                        <?php endif; ?>
                                     </h3>
                                     <p><?php echo esc_html($widget_data['description']); ?></p>
                                 </div>
-                                <label class="nf-toggle">
-                                    <input 
-                                        type="checkbox" 
-                                        name="nf_widgets[]" 
-                                        value="<?php echo esc_attr($widget_key); ?>"
-                                        <?php checked($is_enabled); ?>
-                                        onchange="this.closest('.nf-widget-card').classList.toggle('nf-widget-card--disabled', !this.checked)"
-                                    >
-                                    <span class="nf-toggle__slider"></span>
-                                    <span class="nf-toggle__label">
-                                        <?php echo $is_enabled ? esc_html__('Enabled', 'nebula-forge-addons-for-elementor') : esc_html__('Disabled', 'nebula-forge-addons-for-elementor'); ?>
-                                    </span>
-                                </label>
+                                <?php if (!empty($tooltip)) : ?>
+                                    <div class="nf-widget-card__footer">
+                                        <span class="dashicons dashicons-info-outline"></span>
+                                        <span class="nf-widget-card__tip"><?php echo esc_html($tooltip); ?></span>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -183,12 +205,41 @@ final class Settings_Page
                             <?php esc_html_e('Save Settings', 'nebula-forge-addons-for-elementor'); ?>
                         </button>
                         <p class="nf-settings-footer__note">
-                            <?php esc_html_e('Changes will take effect after saving. You may need to refresh the Elementor editor.', 'nebula-forge-addons-for-elementor'); ?>
+                            <?php esc_html_e('Changes take effect immediately. Refresh the Elementor editor to see updates.', 'nebula-forge-addons-for-elementor'); ?>
                         </p>
                     </div>
                 </form>
             </div>
         </div>
+        <script>
+        (function(){
+            var form = document.querySelector('.nf-settings-form');
+            if (!form) return;
+            var toggles = form.querySelectorAll('.nf-widget-toggle');
+            var counter = document.getElementById('nf-active-count');
+
+            function updateUI(){
+                var active = 0;
+                toggles.forEach(function(t){
+                    var card = t.closest('.nf-widget-card');
+                    if (t.checked){
+                        card.classList.remove('nf-widget-card--disabled');
+                        active++;
+                    } else {
+                        card.classList.add('nf-widget-card--disabled');
+                    }
+                });
+                if(counter) counter.textContent = active;
+            }
+
+            toggles.forEach(function(t){ t.addEventListener('change', updateUI); });
+
+            var enableAll = document.getElementById('nf-enable-all');
+            var disableAll = document.getElementById('nf-disable-all');
+            if(enableAll) enableAll.addEventListener('click', function(){ toggles.forEach(function(t){ t.checked = true; }); updateUI(); });
+            if(disableAll) disableAll.addEventListener('click', function(){ toggles.forEach(function(t){ t.checked = false; }); updateUI(); });
+        })();
+        </script>
         <?php
     }
 }

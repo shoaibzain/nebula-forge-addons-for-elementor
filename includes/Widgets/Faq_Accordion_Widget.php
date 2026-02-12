@@ -55,45 +55,6 @@ class Faq_Accordion_Widget extends Widget_Base
         );
 
         $this->add_control(
-            'heading',
-            [
-                'label' => esc_html__('Heading', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Frequently asked questions', 'nebula-forge-addons-for-elementor'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'heading_tag',
-            [
-                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'h3',
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'p' => 'p',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'subheading',
-            [
-                'label' => esc_html__('Subheading', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Answer the questions customers ask before they reach out.', 'nebula-forge-addons-for-elementor'),
-                'rows' => 3,
-            ]
-        );
-
-        $this->add_control(
             'open_first',
             [
                 'label' => esc_html__('Open First Item', 'nebula-forge-addons-for-elementor'),
@@ -146,137 +107,6 @@ class Faq_Accordion_Widget extends Widget_Base
                     ],
                 ],
                 'title_field' => '{{{ question }}}',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_container',
-            [
-                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'container_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .nfa-faq',
-                'fields_options' => [
-                    'color' => [
-                        'default' => '#0b1220',
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'container_padding',
-            [
-                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default' => [
-                    'top' => '48',
-                    'right' => '48',
-                    'bottom' => '48',
-                    'left' => '48',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-faq' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'container_radius',
-            [
-                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 80,
-                    ],
-                ],
-                'default' => [
-                    'size' => 24,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-faq' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'container_shadow',
-                'selector' => '{{WRAPPER}} .nfa-faq',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'container_border',
-                'selector' => '{{WRAPPER}} .nfa-faq',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_header',
-            [
-                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'heading_typography',
-                'selector' => '{{WRAPPER}} .nfa-faq__heading',
-            ]
-        );
-
-        $this->add_control(
-            'heading_color',
-            [
-                'label' => esc_html__('Heading Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-faq__heading' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'subheading_typography',
-                'selector' => '{{WRAPPER}} .nfa-faq__subheading',
-            ]
-        );
-
-        $this->add_control(
-            'subheading_color',
-            [
-                'label' => esc_html__('Subheading Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-faq__subheading' => 'color: {{VALUE}};',
-                ],
             ]
         );
 
@@ -434,15 +264,6 @@ class Faq_Accordion_Widget extends Widget_Base
         $open_first = isset($settings['open_first']) && $settings['open_first'] === 'yes';
         ?>
         <div class="nfa-faq">
-            <div class="nfa-faq__header">
-                <?php if (!empty($settings['heading'])) : ?>
-                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-faq__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
-                <?php endif; ?>
-                <?php if (!empty($settings['subheading'])) : ?>
-                    <p class="nfa-faq__subheading"><?php echo esc_html($settings['subheading']); ?></p>
-                <?php endif; ?>
-            </div>
-
             <?php if (!empty($items)) : ?>
                 <div class="nfa-faq__items">
                     <?php foreach ($items as $index => $item) : ?>

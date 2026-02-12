@@ -54,55 +54,6 @@ class Journey_Process_Widget extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'section_label',
-            [
-                'label' => esc_html__('Section Label', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Our Process', 'nebula-forge-addons-for-elementor'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'heading',
-            [
-                'label' => esc_html__('Heading', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Your End-to-End Property Investment Journey', 'nebula-forge-addons-for-elementor'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'heading_tag',
-            [
-                'label' => esc_html__('Heading HTML Tag', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'h2',
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'p' => 'p',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'description',
-            [
-                'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('We eliminate the complexities of international property acquisition. Our advisors manage every phase to ensure your capital is deployed effectively.', 'nebula-forge-addons-for-elementor'),
-                'rows' => 4,
-            ]
-        );
-
         $repeater = new Repeater();
 
         $repeater->add_control(
@@ -168,204 +119,6 @@ class Journey_Process_Widget extends Widget_Base
                     ],
                 ],
                 'title_field' => '{{{ step_number }}} - {{{ step_title }}}',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_container',
-            [
-                'label' => esc_html__('Container', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'container_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .nfa-journey',
-                'fields_options' => [
-                    'color' => [
-                        'default' => '#f4f4f4',
-                    ],
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'container_padding',
-            [
-                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default' => [
-                    'top' => '48',
-                    'right' => '32',
-                    'bottom' => '48',
-                    'left' => '32',
-                    'unit' => 'px',
-                    'isLinked' => false,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'container_radius',
-            [
-                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 120,
-                    ],
-                ],
-                'default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'container_border',
-                'selector' => '{{WRAPPER}} .nfa-journey',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'container_shadow',
-                'selector' => '{{WRAPPER}} .nfa-journey',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_header',
-            [
-                'label' => esc_html__('Header', 'nebula-forge-addons-for-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'header_alignment',
-            [
-                'label' => esc_html__('Alignment', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'nebula-forge-addons-for-elementor'),
-                        'icon' => 'eicon-text-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'nebula-forge-addons-for-elementor'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'nebula-forge-addons-for-elementor'),
-                        'icon' => 'eicon-text-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey__header' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'header_spacing',
-            [
-                'label' => esc_html__('Bottom Spacing', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 180,
-                    ],
-                ],
-                'default' => [
-                    'size' => 70,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey__header' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'label_typography',
-                'selector' => '{{WRAPPER}} .nfa-journey__label',
-            ]
-        );
-
-        $this->add_control(
-            'label_color',
-            [
-                'label' => esc_html__('Label Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(19, 19, 19, 0.45)',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey__label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'heading_typography',
-                'selector' => '{{WRAPPER}} .nfa-journey__heading',
-            ]
-        );
-
-        $this->add_control(
-            'heading_color',
-            [
-                'label' => esc_html__('Heading Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#131313',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey__heading' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .nfa-journey__description',
-            ]
-        );
-
-        $this->add_control(
-            'description_color',
-            [
-                'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(19, 19, 19, 0.65)',
-                'selectors' => [
-                    '{{WRAPPER}} .nfa-journey__description' => 'color: {{VALUE}};',
-                ],
             ]
         );
 
@@ -826,21 +579,7 @@ class Journey_Process_Widget extends Widget_Base
         $steps = !empty($settings['steps']) && is_array($settings['steps']) ? $settings['steps'] : [];
         $line_class = !empty($settings['connector_line']) && $settings['connector_line'] === 'yes' ? ' nfa-journey__steps--line' : '';
         ?>
-        <section class="nfa-journey">
-            <div class="nfa-journey__header">
-                <?php if (!empty($settings['section_label'])) : ?>
-                    <div class="nfa-journey__label"><?php echo esc_html($settings['section_label']); ?></div>
-                <?php endif; ?>
-
-                <?php if (!empty($settings['heading'])) : ?>
-                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-journey__heading"><?php echo esc_html($settings['heading']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
-                <?php endif; ?>
-
-                <?php if (!empty($settings['description'])) : ?>
-                    <p class="nfa-journey__description"><?php echo esc_html($settings['description']); ?></p>
-                <?php endif; ?>
-            </div>
-
+        <div class="nfa-journey">
             <?php if (!empty($steps)) : ?>
                 <div class="nfa-journey__steps<?php echo esc_attr($line_class); ?>">
                     <?php foreach ($steps as $step) : ?>
@@ -860,7 +599,7 @@ class Journey_Process_Widget extends Widget_Base
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-        </section>
+        </div>
         <?php
     }
 }

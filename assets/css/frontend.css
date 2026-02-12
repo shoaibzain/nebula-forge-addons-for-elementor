@@ -34,28 +34,11 @@
    ========================================================================== */
 
 .nfa-hero-cta {
-    padding: 72px 64px;
-    border-radius: 32px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: var(--nfa-text);
     display: flex;
     flex-direction: column;
     gap: 24px;
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.nfa-hero-cta::before {
-    content: '';
-    position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
 }
 
 .nfa-hero-cta__kicker {
@@ -116,26 +99,9 @@
    ========================================================================== */
 
 .nfa-feature-list {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: 28px;
-    padding: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.nfa-feature-list__heading {
-    font-size: clamp(1.75rem, 3vw, 2.2rem);
-    color: var(--nfa-text);
-    margin: 0 0 8px 0;
-    letter-spacing: -0.01em;
-}
-
-.nfa-feature-list__description {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    line-height: 1.7;
 }
 
 .nfa-feature-list__items {
@@ -204,11 +170,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
-    padding: 40px;
-    border-radius: 28px;
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
     align-items: center;
-    border: 1px solid var(--nfa-border);
 }
 
 .nfa-spotlight-card__content {
@@ -285,27 +247,9 @@
    ========================================================================== */
 
 .nfa-stats-grid {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 48px;
     display: flex;
     flex-direction: column;
     gap: 28px;
-}
-
-.nfa-stats-grid__heading {
-    margin: 0;
-    color: var(--nfa-text);
-    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-    letter-spacing: -0.01em;
-}
-
-.nfa-stats-grid__subheading {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    font-size: 1rem;
-    line-height: 1.7;
 }
 
 .nfa-stats-grid__items {
@@ -355,31 +299,16 @@
    ========================================================================== */
 
 .nfa-pricing-table {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: var(--nfa-text);
     position: relative;
-    border: 1px solid var(--nfa-border);
-    transition: border-color var(--nfa-transition), transform var(--nfa-transition), box-shadow var(--nfa-transition);
+    transition: transform var(--nfa-transition), box-shadow var(--nfa-transition);
 }
 
 .nfa-pricing-table:hover {
-    border-color: rgba(148, 163, 184, 0.3);
     transform: translateY(-4px);
-}
-
-.nfa-pricing-table--featured {
-    border-color: var(--nfa-accent);
-    box-shadow: 0 20px 45px rgb(15 23 42 / 0.35), 0 0 0 1px var(--nfa-accent);
-}
-
-.nfa-pricing-table--featured:hover {
-    border-color: var(--nfa-accent);
-    box-shadow: var(--nfa-shadow-glow);
 }
 
 .nfa-pricing-table__badge {
@@ -478,26 +407,9 @@
    ========================================================================== */
 
 .nfa-testimonials {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.nfa-testimonials__heading {
-    margin: 0 0 8px 0;
-    font-size: clamp(1.7rem, 3vw, 2.2rem);
-    color: var(--nfa-text);
-    letter-spacing: -0.01em;
-}
-
-.nfa-testimonials__subheading {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    line-height: 1.7;
 }
 
 .nfa-testimonials__grid {
@@ -574,26 +486,9 @@ blockquote.nfa-testimonials__quote {
    ========================================================================== */
 
 .nfa-logo-grid {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.nfa-logo-grid__heading {
-    margin: 0 0 8px 0;
-    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-    color: var(--nfa-text);
-    letter-spacing: -0.01em;
-}
-
-.nfa-logo-grid__subheading {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    line-height: 1.7;
 }
 
 .nfa-logo-grid__items {
@@ -645,26 +540,9 @@ blockquote.nfa-testimonials__quote {
    ========================================================================== */
 
 .nfa-faq {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.nfa-faq__heading {
-    margin: 0 0 8px 0;
-    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-    color: var(--nfa-text);
-    letter-spacing: -0.01em;
-}
-
-.nfa-faq__subheading {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    line-height: 1.7;
 }
 
 .nfa-faq__items {
@@ -736,26 +614,9 @@ blockquote.nfa-testimonials__quote {
    ========================================================================== */
 
 .nfa-steps {
-    background: linear-gradient(135deg, var(--nfa-dark) 0%, var(--nfa-darker) 100%);
-    border-radius: var(--nfa-radius);
-    padding: 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.nfa-steps__heading {
-    margin: 0 0 8px 0;
-    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-    color: var(--nfa-text);
-    letter-spacing: -0.01em;
-}
-
-.nfa-steps__subheading {
-    margin: 0;
-    color: var(--nfa-text-secondary);
-    max-width: 760px;
-    line-height: 1.7;
 }
 
 .nfa-steps__list {
@@ -881,44 +742,6 @@ blockquote.nfa-testimonials__quote {
    Journey Process
    ========================================================================== */
 
-.nfa-journey {
-    background: #f4f4f4;
-    padding: 48px 32px;
-}
-
-.nfa-journey__header {
-    margin-bottom: 70px;
-    text-align: center;
-}
-
-.nfa-journey__label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(19, 19, 19, 0.4);
-    margin-bottom: 14px;
-}
-
-.nfa-journey__heading {
-    margin: 0 0 14px;
-    font-size: clamp(1.75rem, 3.6vw, 2.625rem);
-    line-height: 1.2;
-    color: #131313;
-    letter-spacing: -0.02em;
-}
-
-.nfa-journey__description {
-    margin: 0 auto;
-    max-width: 780px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: rgba(19, 19, 19, 0.6);
-}
-
 .nfa-journey__steps {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1000,59 +823,11 @@ blockquote.nfa-testimonials__quote {
     .nfa-journey__steps--line::before {
         display: none;
     }
-
-    .nfa-journey__header {
-        margin-bottom: 48px;
-    }
-
-    .nfa-hero-cta {
-        padding: 48px 32px;
-    }
-
-    .nfa-feature-list,
-    .nfa-stats-grid,
-    .nfa-testimonials,
-    .nfa-logo-grid,
-    .nfa-faq,
-    .nfa-steps {
-        padding: 36px 28px;
-    }
 }
 
 @media (max-width: 640px) {
-    .nfa-hero-cta {
-        padding: 36px 24px;
-        border-radius: 20px;
-    }
-
-    .nfa-hero-cta::before {
-        display: none;
-    }
-
-    .nfa-journey {
-        padding: 36px 22px;
-    }
-
     .nfa-journey__steps {
         grid-template-columns: 1fr;
-    }
-
-    .nfa-spotlight-card {
-        padding: 28px;
-    }
-
-    .nfa-pricing-table {
-        padding: 28px;
-    }
-
-    .nfa-feature-list,
-    .nfa-stats-grid,
-    .nfa-testimonials,
-    .nfa-logo-grid,
-    .nfa-faq,
-    .nfa-steps {
-        padding: 28px 20px;
-        border-radius: 18px;
     }
 
     .nfa-slider__btn--prev {
