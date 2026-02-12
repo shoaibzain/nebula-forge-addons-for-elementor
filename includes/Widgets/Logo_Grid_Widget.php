@@ -303,6 +303,99 @@ class Logo_Grid_Widget extends Widget_Base
         );
 
         $this->end_controls_section();
+
+        /* ── Style: Item Card ────────────────────────────────────────── */
+        $this->start_controls_section(
+            'section_style_item',
+            [
+                'label' => esc_html__('Item Card', 'nebula-forge-addons-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'item_bg',
+            [
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-logo-grid__logo' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'item_padding',
+            [
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-logo-grid__logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'item_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-logo-grid__logo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'item_border',
+                'selector' => '{{WRAPPER}} .nfa-logo-grid__logo',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'item_shadow',
+                'selector' => '{{WRAPPER}} .nfa-logo-grid__logo',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /* ── Style: Text ─────────────────────────────────────────────── */
+        $this->start_controls_section(
+            'section_style_text',
+            [
+                'label' => esc_html__('Text', 'nebula-forge-addons-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'text_typography',
+                'selector' => '{{WRAPPER}} .nfa-logo-grid__text',
+            ]
+        );
+
+        $this->add_control(
+            'text_color',
+            [
+                'label' => esc_html__('Color', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#131313',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-logo-grid__text' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
     }
 
     protected function render(): void

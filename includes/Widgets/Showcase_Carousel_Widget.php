@@ -269,6 +269,30 @@ class Showcase_Carousel_Widget extends Widget_Base
             ],
         ]);
 
+        $this->add_control('card_bg', [
+            'label'     => esc_html__('Card Background', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .nfa-showcase__card' => 'background-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'card_border',
+                'selector' => '{{WRAPPER}} .nfa-showcase__card',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'card_shadow',
+                'selector' => '{{WRAPPER}} .nfa-showcase__card',
+            ]
+        );
+
         $this->add_control('overlay_gradient', [
             'label'     => esc_html__('Overlay Gradient', 'nebula-forge-addons-for-elementor'),
             'type'      => Controls_Manager::SELECT,
@@ -311,6 +335,20 @@ class Showcase_Carousel_Widget extends Widget_Base
             'default'   => '#F4F4F4',
             'selectors' => [
                 '{{WRAPPER}} .nfa-showcase__badge' => 'color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_group_control(Group_Control_Typography::get_type(), [
+            'name'     => 'badge_typography',
+            'selector' => '{{WRAPPER}} .nfa-showcase__badge',
+        ]);
+
+        $this->add_control('badge_border_radius', [
+            'label'   => esc_html__('Badge Radius', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SLIDER,
+            'range'   => ['px' => ['min' => 0, 'max' => 30]],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-showcase__badge' => 'border-radius: {{SIZE}}{{UNIT}};',
             ],
         ]);
 
@@ -378,6 +416,20 @@ class Showcase_Carousel_Widget extends Widget_Base
             ],
         ]);
 
+        $this->add_group_control(Group_Control_Typography::get_type(), [
+            'name'     => 'tag_typography',
+            'selector' => '{{WRAPPER}} .nfa-showcase__tag',
+        ]);
+
+        $this->add_control('tag_border_radius', [
+            'label'   => esc_html__('Tag Radius', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SLIDER,
+            'range'   => ['px' => ['min' => 0, 'max' => 30]],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-showcase__tag' => 'border-radius: {{SIZE}}{{UNIT}};',
+            ],
+        ]);
+
         $this->end_controls_section();
     }
 
@@ -403,7 +455,7 @@ class Showcase_Carousel_Widget extends Widget_Base
         $this->add_control('arrow_color', [
             'label'     => esc_html__('Arrow Color', 'nebula-forge-addons-for-elementor'),
             'type'      => Controls_Manager::COLOR,
-            'default'   => '#131313',
+            'default'   => '#ffffff',
             'selectors' => [
                 '{{WRAPPER}} .nfa-showcase__arrow' => 'color: {{VALUE}};',
             ],

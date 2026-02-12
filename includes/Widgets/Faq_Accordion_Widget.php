@@ -204,6 +204,66 @@ class Faq_Accordion_Widget extends Widget_Base
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'item_shadow',
+                'selector' => '{{WRAPPER}} .nfa-faq__item',
+            ]
+        );
+
+        $this->add_control(
+            'heading_toggle_icon',
+            [
+                'label' => esc_html__('Toggle Icon', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'toggle_icon_color',
+            [
+                'label' => esc_html__('Icon Color', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#131313',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-faq__question::after' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'heading_open_state',
+            [
+                'label' => esc_html__('Open State', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'item_open_bg',
+            [
+                'label' => esc_html__('Open Background', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-faq__item[open]' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'item_open_border_color',
+            [
+                'label' => esc_html__('Open Border Color', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-faq__item[open]' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -227,7 +287,7 @@ class Faq_Accordion_Widget extends Widget_Base
             [
                 'label' => esc_html__('Question Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-faq__question' => 'color: {{VALUE}};',
                 ],
@@ -247,7 +307,7 @@ class Faq_Accordion_Widget extends Widget_Base
             [
                 'label' => esc_html__('Answer Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-faq__answer' => 'color: {{VALUE}};',
                 ],

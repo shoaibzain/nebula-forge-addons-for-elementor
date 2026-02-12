@@ -283,7 +283,7 @@ class Steps_Timeline_Widget extends Widget_Base
             [
                 'label' => esc_html__('Label Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#7dd3fc',
+                'default' => '#0ea5e9',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-steps__label' => 'color: {{VALUE}};',
                 ],
@@ -303,7 +303,7 @@ class Steps_Timeline_Widget extends Widget_Base
             [
                 'label' => esc_html__('Title Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-steps__title' => 'color: {{VALUE}};',
                 ],
@@ -323,7 +323,7 @@ class Steps_Timeline_Widget extends Widget_Base
             [
                 'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-steps__description' => 'color: {{VALUE}};',
                 ],

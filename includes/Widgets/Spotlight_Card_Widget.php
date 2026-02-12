@@ -154,6 +154,100 @@ class Spotlight_Card_Widget extends Widget_Base
 
         $this->end_controls_section();
 
+        /* ── Style: Card ─────────────────────────────────────────────── */
+        $this->start_controls_section(
+            'section_style_card',
+            [
+                'label' => esc_html__('Card', 'nebula-forge-addons-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'card_bg',
+            [
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-spotlight-card' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_padding',
+            [
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-spotlight-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'card_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-spotlight-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'card_border',
+                'selector' => '{{WRAPPER}} .nfa-spotlight-card',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'card_shadow',
+                'selector' => '{{WRAPPER}} .nfa-spotlight-card',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /* ── Style: Image ────────────────────────────────────────────── */
+        $this->start_controls_section(
+            'section_style_image',
+            [
+                'label' => esc_html__('Image', 'nebula-forge-addons-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'image_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-spotlight-card__media img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'image_shadow',
+                'selector' => '{{WRAPPER}} .nfa-spotlight-card__media img',
+            ]
+        );
+
+        $this->end_controls_section();
+
         $this->start_controls_section(
             'section_style_header',
             [
@@ -175,7 +269,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Eyebrow Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#7dd3fc',
+                'default' => '#0ea5e9',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__eyebrow' => 'color: {{VALUE}};',
                 ],
@@ -195,7 +289,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Title Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__title' => 'color: {{VALUE}};',
                 ],
@@ -215,7 +309,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__description' => 'color: {{VALUE}};',
                 ],
@@ -235,7 +329,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Meta Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#9ca3af',
+                'default' => 'rgba(19,19,19,0.4)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-spotlight-card__meta' => 'color: {{VALUE}};',
                 ],

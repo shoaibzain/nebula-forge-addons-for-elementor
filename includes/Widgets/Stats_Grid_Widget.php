@@ -273,7 +273,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Value Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-stats-grid__value' => 'color: {{VALUE}};',
                 ],
@@ -293,7 +293,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Label Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-stats-grid__label' => 'color: {{VALUE}};',
                 ],
@@ -313,7 +313,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Helper Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#9ca3af',
+                'default' => 'rgba(19,19,19,0.4)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-stats-grid__helper' => 'color: {{VALUE}};',
                 ],

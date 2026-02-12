@@ -381,7 +381,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Quote Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#e2e8f0',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-testimonials__quote' => 'color: {{VALUE}};',
                 ],
@@ -401,7 +401,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Name Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-testimonials__name' => 'color: {{VALUE}};',
                 ],
@@ -421,7 +421,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Role Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#94a3b8',
+                'default' => 'rgba(19,19,19,0.4)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-testimonials__role' => 'color: {{VALUE}};',
                 ],

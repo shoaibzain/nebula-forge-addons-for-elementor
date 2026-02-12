@@ -187,6 +187,110 @@ class Pricing_Table_Widget extends Widget_Base
 
         $this->end_controls_section();
 
+        /* ── Style: Card ─────────────────────────────────────────────── */
+        $this->start_controls_section(
+            'section_style_card',
+            [
+                'label' => esc_html__('Card', 'nebula-forge-addons-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'card_bg',
+            [
+                'label' => esc_html__('Background', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_padding',
+            [
+                'label' => esc_html__('Padding', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'card_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'card_border',
+                'selector' => '{{WRAPPER}} .nfa-pricing-table',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'card_shadow',
+                'selector' => '{{WRAPPER}} .nfa-pricing-table',
+            ]
+        );
+
+        $this->add_control(
+            'heading_badge_styling',
+            [
+                'label' => esc_html__('Badge', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'badge_bg_color',
+            [
+                'label' => esc_html__('Badge Background', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#0ea5e9',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table__badge' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'badge_text_color',
+            [
+                'label' => esc_html__('Badge Text Color', 'nebula-forge-addons-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .nfa-pricing-table__badge' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'badge_typography',
+                'selector' => '{{WRAPPER}} .nfa-pricing-table__badge',
+            ]
+        );
+
+        $this->end_controls_section();
+
         $this->start_controls_section(
             'section_style_header',
             [
@@ -208,7 +312,7 @@ class Pricing_Table_Widget extends Widget_Base
             [
                 'label' => esc_html__('Label Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-pricing-table__label' => 'color: {{VALUE}};',
                 ],
@@ -228,7 +332,7 @@ class Pricing_Table_Widget extends Widget_Base
             [
                 'label' => esc_html__('Description Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-pricing-table__description' => 'color: {{VALUE}};',
                 ],
@@ -258,7 +362,7 @@ class Pricing_Table_Widget extends Widget_Base
             [
                 'label' => esc_html__('Price Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f8fafc',
+                'default' => '#131313',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-pricing-table__amount' => 'color: {{VALUE}};',
                 ],
@@ -278,7 +382,7 @@ class Pricing_Table_Widget extends Widget_Base
             [
                 'label' => esc_html__('Suffix Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#94a3b8',
+                'default' => 'rgba(19,19,19,0.4)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-pricing-table__suffix' => 'color: {{VALUE}};',
                 ],
@@ -308,7 +412,7 @@ class Pricing_Table_Widget extends Widget_Base
             [
                 'label' => esc_html__('Feature Color', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#cbd5e1',
+                'default' => 'rgba(19,19,19,0.55)',
                 'selectors' => [
                     '{{WRAPPER}} .nfa-pricing-table__features li' => 'color: {{VALUE}};',
                 ],

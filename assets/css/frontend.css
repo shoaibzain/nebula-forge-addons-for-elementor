@@ -1,40 +1,14 @@
 /* ==========================================================================
    Nebula Forge Addons — Frontend Styles
-   Professional-grade Elementor widget styles.
+   Professional-grade Elementor widget stylesalll.
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   CSS Custom Properties (Design Tokens)
-   -------------------------------------------------------------------------- */
-:root {
-    --nfa-dark: #0b1220;
-    --nfa-darker: #070d18;
-    --nfa-surface: rgba(255, 255, 255, 0.03);
-    --nfa-surface-hover: rgba(255, 255, 255, 0.06);
-    --nfa-border: rgba(148, 163, 184, 0.15);
-    --nfa-text: #f8fafc;
-    --nfa-text-secondary: #cbd5e1;
-    --nfa-text-muted: #94a3b8;
-    --nfa-accent: #ff6b35;
-    --nfa-accent-glow: rgba(255, 107, 53, 0.25);
-    --nfa-highlight: #7dd3fc;
-    --nfa-highlight-bg: rgba(125, 211, 252, 0.1);
-    --nfa-radius: 24px;
-    --nfa-radius-sm: 16px;
-    --nfa-radius-xs: 12px;
-    --nfa-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --nfa-transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --nfa-shadow: 0 15px 35px rgb(15 23 42 / 0.35);
-    --nfa-shadow-hover: 0 20px 45px rgb(15 23 42 / 0.45);
-    --nfa-shadow-glow: 0 8px 30px var(--nfa-accent-glow);
-}
 
 /* ==========================================================================
    Hero CTA
    ========================================================================== */
 
 .nfa-hero-cta {
-    color: var(--nfa-text);
+    color: #131313;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -73,10 +47,10 @@
     border-radius: 999px;
     font-weight: 600;
     color: #0f172a;
-    background: var(--nfa-accent);
+    background: #ff6b35;
     text-decoration: none;
-    transition: transform var(--nfa-transition), box-shadow var(--nfa-transition), background var(--nfa-transition);
-    box-shadow: var(--nfa-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -86,7 +60,7 @@
 .nfa-hero-cta__button:hover,
 .nfa-hero-cta__button:focus-visible {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--nfa-shadow-glow);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
     background: #ff7d4f;
 }
 
@@ -116,15 +90,15 @@
     gap: 14px;
     align-items: flex-start;
     padding: 20px;
-    border-radius: var(--nfa-radius-sm);
-    background: var(--nfa-surface);
-    border: 1px solid var(--nfa-border);
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast), transform var(--nfa-transition-fast);
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .nfa-feature-list__item:hover {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.2);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
     transform: translateY(-2px);
 }
 
@@ -133,31 +107,31 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border-radius: var(--nfa-radius-xs);
-    background: var(--nfa-highlight-bg);
-    transition: background var(--nfa-transition-fast);
+    border-radius: 12px;
+    background: rgba(14, 165, 233, 0.08);
+    transition: background 0.2s ease;
 }
 
 .nfa-feature-list__item:hover .nfa-feature-list__icon-wrap {
-    background: rgba(125, 211, 252, 0.18);
+    background: rgba(14, 165, 233, 0.08);
 }
 
 .nfa-feature-list__icon {
-    color: var(--nfa-highlight);
+    color: #0ea5e9;
     font-size: 24px;
     line-height: 1;
 }
 
 .nfa-feature-list__title {
     margin: 0 0 4px 0;
-    color: var(--nfa-text);
+    color: #131313;
     font-size: 1.05rem;
     font-weight: 600;
 }
 
 .nfa-feature-list__text {
     margin: 0;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -183,28 +157,28 @@
     margin: 0;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--nfa-highlight);
+    color: #0ea5e9;
     font-size: 0.78rem;
     font-weight: 600;
 }
 
 .nfa-spotlight-card__title {
     margin: 0;
-    color: var(--nfa-text);
+    color: #131313;
     font-size: clamp(1.9rem, 3vw, 2.4rem);
     letter-spacing: -0.01em;
 }
 
 .nfa-spotlight-card__description {
     margin: 0;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     font-size: 1.02rem;
     line-height: 1.7;
 }
 
 .nfa-spotlight-card__meta {
     margin: 0;
-    color: var(--nfa-text-muted);
+    color: rgba(19, 19, 19, 0.4);
     font-size: 0.95rem;
 }
 
@@ -214,10 +188,10 @@
     border-radius: 999px;
     font-weight: 600;
     color: #0f172a;
-    background: var(--nfa-accent);
+    background: #ff6b35;
     text-decoration: none;
-    transition: transform var(--nfa-transition), box-shadow var(--nfa-transition), background var(--nfa-transition);
-    box-shadow: var(--nfa-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -226,7 +200,7 @@
 .nfa-spotlight-card__button:hover,
 .nfa-spotlight-card__button:focus-visible {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--nfa-shadow-glow);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
     background: #ff7d4f;
 }
 
@@ -235,7 +209,7 @@
     height: auto;
     border-radius: 20px;
     display: block;
-    transition: transform var(--nfa-transition);
+    transition: transform 0.3s ease;
 }
 
 .nfa-spotlight-card:hover .nfa-spotlight-card__media img {
@@ -261,21 +235,21 @@
 .nfa-stats-grid__item {
     padding: 24px;
     border-radius: 18px;
-    background: var(--nfa-surface);
-    border: 1px solid var(--nfa-border);
+    background: #ffffff;
+    border: 1px solid rgba(19, 19, 19, 0.1);
     display: grid;
     row-gap: 8px;
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast), transform var(--nfa-transition-fast);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .nfa-stats-grid__item:hover {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.2);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
     transform: translateY(-2px);
 }
 
 .nfa-stats-grid__value {
-    color: var(--nfa-text);
+    color: #131313;
     font-weight: 700;
     font-size: 2rem;
     line-height: 1.2;
@@ -283,13 +257,13 @@
 }
 
 .nfa-stats-grid__label {
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     font-weight: 600;
     font-size: 1rem;
 }
 
 .nfa-stats-grid__helper {
-    color: var(--nfa-text-muted);
+    color: rgba(19, 19, 19, 0.4);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -302,9 +276,9 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    color: var(--nfa-text);
+    color: #131313;
     position: relative;
-    transition: transform var(--nfa-transition), box-shadow var(--nfa-transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nfa-pricing-table:hover {
@@ -315,7 +289,7 @@
     position: absolute;
     top: 18px;
     right: 18px;
-    background: var(--nfa-accent);
+    background: #ff6b35;
     color: #0f172a;
     padding: 6px 14px;
     border-radius: 999px;
@@ -323,7 +297,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px var(--nfa-accent-glow);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
 }
 
 .nfa-pricing-table__label {
@@ -333,7 +307,7 @@
 
 .nfa-pricing-table__description {
     margin: 0;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     line-height: 1.6;
 }
 
@@ -352,7 +326,7 @@
 
 .nfa-pricing-table__suffix {
     font-size: 1rem;
-    color: var(--nfa-text-muted);
+    color: rgba(19, 19, 19, 0.4);
 }
 
 .nfa-pricing-table__features {
@@ -367,13 +341,13 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     line-height: 1.5;
 }
 
 .nfa-pricing-table__features li::before {
     content: '\2713';
-    color: var(--nfa-highlight);
+    color: #0ea5e9;
     font-weight: 700;
     font-size: 0.9rem;
     margin-top: 1px;
@@ -386,10 +360,10 @@
     border-radius: 999px;
     font-weight: 600;
     color: #0f172a;
-    background: var(--nfa-accent);
+    background: #ff6b35;
     text-decoration: none;
-    transition: transform var(--nfa-transition), box-shadow var(--nfa-transition), background var(--nfa-transition);
-    box-shadow: var(--nfa-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -398,7 +372,7 @@
 .nfa-pricing-table__button:hover,
 .nfa-pricing-table__button:focus-visible {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--nfa-shadow-glow);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
     background: #ff7d4f;
 }
 
@@ -419,19 +393,19 @@
 }
 
 .nfa-testimonials__card {
-    background: var(--nfa-surface);
+    background: #ffffff;
     border-radius: 18px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    border: 1px solid var(--nfa-border);
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast), transform var(--nfa-transition-fast);
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .nfa-testimonials__card:hover {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.2);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
     transform: translateY(-2px);
 }
 
@@ -441,12 +415,12 @@
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    border: 2px solid var(--nfa-border);
+    border: 2px solid rgba(19, 19, 19, 0.1);
 }
 
 .nfa-testimonials__quote {
     margin: 0;
-    color: #e2e8f0;
+    color: rgba(19, 19, 19, 0.55);
     font-size: 1rem;
     line-height: 1.7;
     font-style: normal;
@@ -467,11 +441,11 @@ blockquote.nfa-testimonials__quote {
 
 .nfa-testimonials__name {
     font-weight: 600;
-    color: var(--nfa-text);
+    color: #131313;
 }
 
 .nfa-testimonials__role {
-    color: var(--nfa-text-muted);
+    color: rgba(19, 19, 19, 0.4);
     font-size: 0.9rem;
 }
 
@@ -504,15 +478,15 @@ blockquote.nfa-testimonials__quote {
     justify-content: center;
     padding: 20px;
     border-radius: 14px;
-    background: var(--nfa-surface);
-    border: 1px solid var(--nfa-border);
+    background: #ffffff;
+    border: 1px solid rgba(19, 19, 19, 0.1);
     min-height: 86px;
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast), transform var(--nfa-transition-fast);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .nfa-logo-grid__logo:hover {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.2);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
     transform: translateY(-3px);
 }
 
@@ -521,7 +495,7 @@ blockquote.nfa-testimonials__quote {
     width: 100%;
     height: auto;
     opacity: 0.7;
-    transition: opacity var(--nfa-transition-fast), filter var(--nfa-transition-fast);
+    transition: opacity 0.2s ease, filter 0.2s ease;
     filter: grayscale(20%);
 }
 
@@ -531,7 +505,7 @@ blockquote.nfa-testimonials__quote {
 }
 
 .nfa-logo-grid__text {
-    color: #e2e8f0;
+    color: #131313;
     font-weight: 600;
 }
 
@@ -551,26 +525,26 @@ blockquote.nfa-testimonials__quote {
 }
 
 .nfa-faq__item {
-    background: var(--nfa-surface);
-    border-radius: var(--nfa-radius-sm);
+    background: #ffffff;
+    border-radius: 16px;
     padding: 20px 22px;
-    border: 1px solid var(--nfa-border);
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast);
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .nfa-faq__item:hover {
-    border-color: rgba(125, 211, 252, 0.2);
+    border-color: #0ea5e9;
 }
 
 .nfa-faq__item[open] {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.15);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
 }
 
 .nfa-faq__question {
     cursor: pointer;
     font-weight: 600;
-    color: var(--nfa-text);
+    color: #131313;
     list-style: none;
     display: flex;
     align-items: center;
@@ -582,8 +556,8 @@ blockquote.nfa-testimonials__quote {
 .nfa-faq__question::after {
     content: '+';
     font-size: 1.2rem;
-    color: var(--nfa-highlight);
-    transition: transform var(--nfa-transition-fast);
+    color: #0ea5e9;
+    transition: transform 0.2s ease;
     flex-shrink: 0;
     width: 28px;
     height: 28px;
@@ -591,7 +565,7 @@ blockquote.nfa-testimonials__quote {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--nfa-highlight-bg);
+    background: rgba(14, 165, 233, 0.08);
 }
 
 .nfa-faq__item[open] .nfa-faq__question::after {
@@ -605,7 +579,7 @@ blockquote.nfa-testimonials__quote {
 
 .nfa-faq__answer {
     margin-top: 14px;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     line-height: 1.7;
 }
 
@@ -633,20 +607,20 @@ blockquote.nfa-testimonials__quote {
 }
 
 .nfa-steps__item {
-    background: var(--nfa-surface);
+    background: #ffffff;
     border-radius: 18px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid var(--nfa-border);
-    transition: background var(--nfa-transition-fast), border-color var(--nfa-transition-fast), transform var(--nfa-transition-fast);
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     position: relative;
 }
 
 .nfa-steps__item:hover {
-    background: var(--nfa-surface-hover);
-    border-color: rgba(125, 211, 252, 0.2);
+    background: #f8f9fa;
+    border-color: #0ea5e9;
     transform: translateY(-2px);
 }
 
@@ -654,20 +628,20 @@ blockquote.nfa-testimonials__quote {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.72rem;
-    color: var(--nfa-highlight);
+    color: #0ea5e9;
     font-weight: 700;
 }
 
 .nfa-steps__title {
     margin: 0;
     font-size: 1.1rem;
-    color: var(--nfa-text);
+    color: #131313;
     font-weight: 600;
 }
 
 .nfa-steps__description {
     margin: 0;
-    color: var(--nfa-text-secondary);
+    color: rgba(19, 19, 19, 0.55);
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -707,15 +681,15 @@ blockquote.nfa-testimonials__quote {
     width: 40px;
     height: 40px;
     border-radius: 999px;
-    border: 1px solid var(--nfa-border);
-    background: var(--nfa-dark);
-    color: var(--nfa-text);
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    background: #131313;
+    color: #131313;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 8px 20px rgb(15 23 42 / 0.3);
-    transition: transform var(--nfa-transition-fast), box-shadow var(--nfa-transition-fast), background var(--nfa-transition-fast), border-color var(--nfa-transition-fast);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     z-index: 2;
 }
 
@@ -730,7 +704,7 @@ blockquote.nfa-testimonials__quote {
 .nfa-slider__btn:hover {
     transform: translateY(-50%) scale(1.08);
     background: rgba(255, 255, 255, 0.08);
-    border-color: var(--nfa-highlight);
+    border-color: #0ea5e9;
 }
 
 .nfa-slider__btn:focus-visible {
@@ -759,7 +733,7 @@ blockquote.nfa-testimonials__quote {
     border-radius: 50%;
     border: 1.5px solid rgba(19, 19, 19, 0.15);
     background: transparent;
-    color: #131313;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
     display: flex;
@@ -1102,7 +1076,7 @@ a.nfa-areas__card:hover {
     font-size: 22px;
     font-weight: 700;
     margin: 0 auto 20px;
-    transition: all var(--nfa-transition);
+    transition: all 0.3s ease;
 }
 
 .nfa-journey__step:hover .nfa-journey__number {
@@ -1149,6 +1123,44 @@ a.nfa-areas__card:hover {
 
     .nfa-areas__grid--featured .nfa-areas__card:first-child {
         grid-row: auto;
+    }
+
+    /* Reset featured card to normal card style on mobile */
+    .nfa-areas__card--featured .nfa-areas__img {
+        position: relative;
+        inset: auto;
+        height: 200px;
+    }
+
+    .nfa-areas__card--featured .nfa-areas__overlay {
+        display: none;
+    }
+
+    .nfa-areas__card--featured .nfa-areas__body {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        padding: 24px;
+    }
+
+    .nfa-areas .nfa-areas__card--featured .nfa-areas__title {
+        color: #131313 !important;
+        font-size: 19px !important;
+        margin-bottom: 8px;
+    }
+
+    .nfa-areas .nfa-areas__card--featured .nfa-areas__desc {
+        color: rgba(19, 19, 19, 0.55) !important;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .nfa-areas .nfa-areas__card--featured .nfa-areas__badge {
+        background: #131313 !important;
+        color: #F4F4F4 !important;
+        backdrop-filter: none;
+        border: none !important;
     }
 }
 
