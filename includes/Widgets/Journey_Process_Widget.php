@@ -12,9 +12,6 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
-use function esc_attr;
-use function esc_html;
-use function esc_html__;
 
 class Journey_Process_Widget extends Widget_Base
 {

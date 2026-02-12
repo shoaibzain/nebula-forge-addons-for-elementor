@@ -47,11 +47,7 @@ class Testimonial_Grid_Widget extends Widget_Base
 
     public function get_script_depends(): array
     {
-        $settings = $this->get_settings_for_display();
-        if (!empty($settings['layout']) && $settings['layout'] === 'slider') {
-            return ['nebula-forge-elementor-addon-frontend'];
-        }
-        return [];
+        return ['nebula-forge-elementor-addon-frontend'];
     }
 
     protected function register_controls(): void
