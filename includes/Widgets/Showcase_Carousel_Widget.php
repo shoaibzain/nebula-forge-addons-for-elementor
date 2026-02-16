@@ -579,8 +579,16 @@ class Showcase_Carousel_Widget extends Widget_Base
                             if (!empty($link['is_external'])) {
                                 $tag_attr .= ' target="_blank"';
                             }
+                            $rel_parts = [];
+                            if (!empty($link['is_external'])) {
+                                $rel_parts[] = 'noopener';
+                                $rel_parts[] = 'noreferrer';
+                            }
                             if (!empty($link['nofollow'])) {
-                                $tag_attr .= ' rel="nofollow"';
+                                $rel_parts[] = 'nofollow';
+                            }
+                            if ($rel_parts) {
+                                $tag_attr .= ' rel="' . esc_attr(implode(' ', $rel_parts)) . '"';
                             }
                         }
                     ?>
@@ -677,22 +685,22 @@ class Showcase_Carousel_Widget extends Widget_Base
                         <# } #>
 
                         <# if ( slide.badge ) { #>
-                        <span class="nfa-showcase__badge">{{{ slide.badge }}}</span>
+                        <span class="nfa-showcase__badge">{{ slide.badge }}</span>
                         <# } #>
 
                         <div class="nfa-showcase__body">
                             <# if ( slide.title ) { #>
-                            <div class="nfa-showcase__title">{{{ slide.title }}}</div>
+                            <div class="nfa-showcase__title">{{ slide.title }}</div>
                             <# } #>
 
                             <# if ( slide.description ) { #>
-                            <p class="nfa-showcase__desc">{{{ slide.description }}}</p>
+                            <p class="nfa-showcase__desc">{{ slide.description }}</p>
                             <# } #>
 
                             <# if ( tags.length ) { #>
                             <div class="nfa-showcase__tags">
                                 <# _.each( tags, function( tag ) { #>
-                                <span class="nfa-showcase__tag">{{{ tag }}}</span>
+                                <span class="nfa-showcase__tag">{{ tag }}</span>
                                 <# }); #>
                             </div>
                             <# } #>

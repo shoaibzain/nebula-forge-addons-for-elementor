@@ -549,10 +549,18 @@ class Areas_Grid_Widget extends Widget_Base
                     if ($has_link) {
                         $link_attrs .= ' href="' . esc_url($link['url']) . '"';
                         if (!empty($link['is_external'])) {
-                            $link_attrs .= ' target="_blank" rel="noopener noreferrer"';
+                            $link_attrs .= ' target="_blank"';
+                        }
+                        $rel_parts = [];
+                        if (!empty($link['is_external'])) {
+                            $rel_parts[] = 'noopener';
+                            $rel_parts[] = 'noreferrer';
                         }
                         if (!empty($link['nofollow'])) {
-                            $link_attrs .= ' rel="nofollow"';
+                            $rel_parts[] = 'nofollow';
+                        }
+                        if ($rel_parts) {
+                            $link_attrs .= ' rel="' . esc_attr(implode(' ', $rel_parts)) . '"';
                         }
                     }
                 ?>
@@ -625,15 +633,15 @@ class Areas_Grid_Widget extends Widget_Base
                             <span class="nfa-areas__overlay" style="{{ overlayCss }}"></span>
                         <# } #>
                         <# if (card.badge) { #>
-                            <span class="nfa-areas__badge">{{{ card.badge }}}</span>
+                            <span class="nfa-areas__badge">{{ card.badge }}</span>
                         <# } #>
                     </div>
                     <div class="nfa-areas__body">
                         <# if (card.title) { #>
-                            <{{{ tag }}} class="nfa-areas__title">{{{ card.title }}}</{{{ tag }}}>
+                            <{{{ tag }}} class="nfa-areas__title">{{ card.title }}</{{{ tag }}}>
                         <# } #>
                         <# if (card.description) { #>
-                            <p class="nfa-areas__desc">{{{ card.description }}}</p>
+                            <p class="nfa-areas__desc">{{ card.description }}</p>
                         <# } #>
                     </div>
                 </{{{ linkTag }}}>

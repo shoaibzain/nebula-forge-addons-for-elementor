@@ -1,4 +1,14 @@
 <?php
+/**
+ * Spotlight Card Widget
+ *
+ * Rich content card with eyebrow, title, body text, featured image,
+ * and a call-to-action button.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.0
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

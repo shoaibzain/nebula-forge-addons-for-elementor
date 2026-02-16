@@ -4,16 +4,16 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.4.0
+Stable tag: 0.5.0
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-10+ free Elementor widgets — hero sections, pricing tables, testimonials, FAQs, stats counters, carousels & more. No Elementor Pro required.
+17 free Elementor widgets — hero sections, pricing tables, testimonials, FAQs, countdown timers, image comparisons, content tabs, team profiles, CTA banners & more. No Elementor Pro required.
 
 == Description ==
 
-**Nebula Forge Addons for Elementor** is a free collection of 10+ professionally designed Elementor widgets. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousels, and more — all without Elementor Pro.
+**Nebula Forge Addons for Elementor** is a free collection of 17 professionally designed Elementor widgets. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousals, team member profiles, CTA banners, content tabs, image comparison sliders, countdown timers, and more — all without Elementor Pro.
 
 Works with any WordPress page: landing pages, blog posts, portfolios, WooCommerce product pages, and beyond. Every widget ships with clean light-mode defaults and granular style controls for typography, spacing, colors, borders, and hover effects.
 
@@ -39,6 +39,13 @@ Nebula Forge Addons for Elementor delivers a curated set of professional widgets
 * FAQ Section — collapsible accordion for frequently asked questions, support docs, or knowledge base.
 * Process Timeline — visual step-by-step timeline for workflows, onboarding, or project phases.
 * Journey Map — end-to-end journey section with numbered phases, descriptions, and full style controls.
+* Showcase Carousel — image card carousel with badges, titles, descriptions, tags, and full navigation controls.
+* Areas Grid — responsive image-card grid with badges, titles, and a featured first-card overlay.
+* Team Member — professional team/staff profile cards with photo, name, role, bio, and social media links.
+* CTA Banner — conversion-focused call-to-action banner with gradient backgrounds, icon, dual buttons, and three layouts.
+* Content Tabs — tabbed content sections with horizontal or vertical orientation, icon support, and rich WYSIWYG panels.
+* Image Comparison — interactive before/after image comparison slider with draggable handle, labels, and hover options.
+* Countdown Timer — countdown to a target date with blocks, inline, or circle styles, labels, and expiry actions.
 
 = Great for =
 * Landing pages and product launches
@@ -164,7 +171,22 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 = 0.1.0 =
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
+= 0.5.0 =
+* Added 5 new professional widgets: Team Member, CTA Banner, Content Tabs, Image Comparison, and Countdown Timer.
+* Team Member widget with photo, name, role, bio, and 4 social media links in grid layout.
+* CTA Banner widget with gradient backgrounds, icon, kicker, dual buttons, and 3 layout options.
+* Content Tabs widget with horizontal/vertical tabs, per-tab icons, and rich WYSIWYG content panels.
+* Image Comparison widget with before/after slider, draggable handle, labels, and hover controls.
+* Countdown Timer widget with blocks, inline, and circle display styles, plus expiry message/redirect actions.
+* Updated frontend CSS with styles for all 5 new widgets, hover effects, and responsive breakpoints.
+* Updated frontend JS with tab switching, image comparison drag logic, and countdown timer with circle progress.
+* Registered all 5 new widgets in Widget Registry with metadata, badges, and categories.
+* Bumped total widget count from 12 to 17.
+
 == Upgrade Notice ==
+= 0.5.0 =
+5 new professional widgets: Team Member, CTA Banner, Content Tabs, Image Comparison, and Countdown Timer. Update recommended.
+
 = 0.4.0 =
 Light-mode frontend defaults, new card/badge/tag style controls, mobile-responsive fixes, and color updates across all widgets. Update recommended.
 

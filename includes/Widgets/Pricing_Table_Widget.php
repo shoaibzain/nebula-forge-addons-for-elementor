@@ -1,4 +1,14 @@
 <?php
+/**
+ * Pricing Table Widget
+ *
+ * Professional pricing card with plan name, price, features checklist,
+ * and a call-to-action button.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.4
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

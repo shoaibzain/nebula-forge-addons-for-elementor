@@ -235,6 +235,170 @@
         });
     };
 
+    /**
+     * Initialize Content Tabs widget.
+     *
+     * @param {jQuery} scope The widget wrapper element.
+     */
+    const initContentTabs = (scope) => {
+        const $tabs = scope.find('[data-tabs]');
+        if (!$tabs.length) return;
+
+        $tabs.each(function () {
+            const $el = $(this);
+            if ($el.data('tabs-bound')) return;
+            $el.data('tabs-bound', true);
+
+            const $buttons = $el.find('.nfa-tabs__btn');
+            const $panels  = $el.find('.nfa-tabs__panel');
+
+            $buttons.on('click', function () {
+                const $btn   = $(this);
+                const target = $btn.attr('aria-controls');
+
+                $buttons.removeClass('nfa-tabs__btn--active').attr('aria-selected', 'false');
+                $btn.addClass('nfa-tabs__btn--active').attr('aria-selected', 'true');
+
+                $panels.removeClass('nfa-tabs__panel--active').attr('hidden', true);
+                $el.find('#' + target).addClass('nfa-tabs__panel--active').removeAttr('hidden');
+            });
+        });
+    };
+
+    /**
+     * Initialize Image Comparison widget.
+     *
+     * @param {jQuery} scope The widget wrapper element.
+     */
+    const initImageComparison = (scope) => {
+        const $compare = scope.find('[data-compare]');
+        if (!$compare.length) return;
+
+        $compare.each(function () {
+            const el          = this;
+            const $el         = $(el);
+            if ($el.data('compare-bound')) return;
+            $el.data('compare-bound', true);
+
+            const orientation = $el.data('orientation') || 'horizontal';
+            const isHoriz     = orientation === 'horizontal';
+            const $before     = $el.find('.nfa-compare__before');
+            const $slider     = $el.find('.nfa-compare__slider');
+            let dragging      = false;
+
+            function setPosition(pct) {
+                pct = Math.max(0, Math.min(100, pct));
+                if (isHoriz) {
+                    $before.css('clip-path', 'inset(0 ' + (100 - pct) + '% 0 0)');
+                    $slider.css('left', pct + '%');
+                } else {
+                    $before.css('clip-path', 'inset(0 0 ' + (100 - pct) + '% 0)');
+                    $slider.css('top', pct + '%');
+                }
+            }
+
+            function getPercent(e) {
+                const rect = el.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                if (isHoriz) {
+                    return ((clientX - rect.left) / rect.width) * 100;
+                }
+                return ((clientY - rect.top) / rect.height) * 100;
+            }
+
+            function onMove(e) {
+                if (!dragging) return;
+                e.preventDefault();
+                setPosition(getPercent(e));
+            }
+
+            function onUp() {
+                dragging = false;
+                $(document).off('mousemove.nfaCompare touchmove.nfaCompare');
+                $(document).off('mouseup.nfaCompare touchend.nfaCompare');
+            }
+
+            $el.on('mousedown touchstart', function (e) {
+                dragging = true;
+                setPosition(getPercent(e));
+                $(document).on('mousemove.nfaCompare touchmove.nfaCompare', onMove);
+                $(document).on('mouseup.nfaCompare touchend.nfaCompare', onUp);
+            });
+        });
+    };
+
+    /**
+     * Initialize Countdown Timer widget.
+     *
+     * @param {jQuery} scope The widget wrapper element.
+     */
+    const initCountdownTimer = (scope) => {
+        const $countdown = scope.find('[data-countdown]');
+        if (!$countdown.length) return;
+
+        $countdown.each(function () {
+            const $el = $(this);
+            if ($el.data('countdown-bound')) return;
+            $el.data('countdown-bound', true);
+
+            const targetDate = new Date($el.data('target')).getTime();
+            const expiry     = $el.data('expiry') || {};
+            const units      = ($el.data('units') || 'days,hours,minutes,seconds').split(',');
+            const circumference = 2 * Math.PI * 44; // r=44 in SVG
+
+            function update() {
+                const now  = Date.now();
+                const diff = Math.max(0, targetDate - now);
+
+                if (diff <= 0) {
+                    handleExpiry();
+                    return;
+                }
+
+                const totalSec = Math.floor(diff / 1000);
+                const vals = {
+                    days:    Math.floor(totalSec / 86400),
+                    hours:   Math.floor((totalSec % 86400) / 3600),
+                    minutes: Math.floor((totalSec % 3600) / 60),
+                    seconds: totalSec % 60,
+                };
+
+                units.forEach(function (unit) {
+                    const $digit = $el.find('[data-digit="' + unit + '"]');
+                    $digit.text(String(vals[unit]).padStart(2, '0'));
+
+                    // Update circle progress.
+                    const $progress = $el.find('[data-unit="' + unit + '"] .nfa-countdown__progress');
+                    if ($progress.length) {
+                        const max = parseInt($progress.data('max'), 10) || 60;
+                        const fraction = vals[unit] / max;
+                        const offset = circumference * (1 - fraction);
+                        $progress.attr('stroke-dashoffset', offset);
+                    }
+                });
+            }
+
+            function handleExpiry() {
+                clearInterval(timer);
+                const action = expiry.action || 'none';
+
+                if (action === 'message') {
+                    $el.find('.nfa-countdown__block, .nfa-countdown__sep').hide();
+                    $el.find('.nfa-countdown__expiry').show();
+                } else if (action === 'hide') {
+                    $el.hide();
+                } else if (action === 'redirect' && expiry.redirect) {
+                    window.location.href = expiry.redirect;
+                }
+                // 'none' — digits already show 00.
+            }
+
+            update();
+            const timer = setInterval(update, 1000);
+        });
+    };
+
     $(window).on('elementor/frontend/init', () => {
         if (!window.elementorFrontend || !elementorFrontend.hooks) {
             return;
@@ -243,5 +407,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-testimonial-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-logo-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-showcase-carousel.default', initShowcaseCarousel);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-content-tabs.default', initContentTabs);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-image-comparison.default', initImageComparison);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-countdown-timer.default', initCountdownTimer);
     });
 })(jQuery);

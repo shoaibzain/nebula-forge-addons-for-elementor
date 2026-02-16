@@ -144,7 +144,7 @@ final class Welcome_Page
                                         $badge_style = $badge_color ? '--nf-badge-color: ' . $badge_color . ';' : '';
                                         $is_active = in_array($key, $enabled_widgets, true);
                                         ?>
-                                        <div class="nf-showcase-card <?php echo $is_active ? '' : 'nf-showcase-card--inactive'; ?>">
+                                        <div class="nf-showcase-card <?php echo $is_active ? '' : esc_attr('nf-showcase-card--inactive'); ?>">
                                             <div class="nf-showcase-card__header">
                                                 <div class="nf-showcase-card__icon" style="<?php echo esc_attr($badge_style); ?>">
                                                     <span class="<?php echo esc_attr($widget['icon']); ?>"></span>
@@ -199,7 +199,7 @@ final class Welcome_Page
                                     $elementor_active = defined('ELEMENTOR_VERSION');
                                     $el_icon_class = $elementor_active ? 'nf-status-list__icon--ok' : 'nf-status-list__icon--error';
                                     ?>
-                                    <span class="nf-status-list__icon <?php echo esc_attr($el_icon_class); ?>"><span class="dashicons <?php echo $elementor_active ? 'dashicons-yes-alt' : 'dashicons-warning'; ?>"></span></span>
+                                    <span class="nf-status-list__icon <?php echo esc_attr($el_icon_class); ?>"><span class="dashicons <?php echo esc_attr($elementor_active ? 'dashicons-yes-alt' : 'dashicons-warning'); ?>"></span></span>
                                     <span class="nf-status-list__text"><?php esc_html_e('Elementor', 'nebula-forge-addons-for-elementor'); ?></span>
                                     <span class="nf-status-list__value"><?php echo $elementor_active ? esc_html(ELEMENTOR_VERSION) : esc_html__('Not found', 'nebula-forge-addons-for-elementor'); ?></span>
                                 </li>

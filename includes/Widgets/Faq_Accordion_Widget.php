@@ -1,4 +1,14 @@
 <?php
+/**
+ * FAQ Accordion Widget
+ *
+ * Collapsible accordion for frequently asked questions, support docs,
+ * or knowledge base entries.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.4
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

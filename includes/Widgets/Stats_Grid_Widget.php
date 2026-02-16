@@ -1,4 +1,13 @@
 <?php
+/**
+ * Stats Grid Widget
+ *
+ * Eye-catching number grid to showcase KPIs, metrics, and achievements.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.0
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

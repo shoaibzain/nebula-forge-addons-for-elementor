@@ -1,4 +1,13 @@
 <?php
+/**
+ * Testimonial Grid Widget
+ *
+ * Social-proof grid or slider with quotes, avatars, roles, and star ratings.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.4
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

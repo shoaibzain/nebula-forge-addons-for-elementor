@@ -1,4 +1,14 @@
 <?php
+/**
+ * Steps Timeline Widget
+ *
+ * Visual step-by-step timeline for workflows, onboarding,
+ * or project phases.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.4
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

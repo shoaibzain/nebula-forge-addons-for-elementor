@@ -237,9 +237,11 @@ final class Plugin
             return;
         }
 
+        $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
         wp_register_style(
             'nebula-forge-elementor-addon-frontend',
-            NEBULA_FORGE_ADDON_URL . 'assets/css/frontend.css',
+            NEBULA_FORGE_ADDON_URL . 'assets/css/frontend' . $suffix . '.css',
             [],
             NEBULA_FORGE_ADDON_VERSION
         );
@@ -254,9 +256,11 @@ final class Plugin
             return;
         }
 
+        $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
         wp_register_script(
             'nebula-forge-elementor-addon-frontend',
-            NEBULA_FORGE_ADDON_URL . 'assets/js/frontend.js',
+            NEBULA_FORGE_ADDON_URL . 'assets/js/frontend' . $suffix . '.js',
             ['elementor-frontend', 'jquery'],
             NEBULA_FORGE_ADDON_VERSION,
             true

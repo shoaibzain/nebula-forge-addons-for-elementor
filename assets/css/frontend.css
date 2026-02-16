@@ -1,6 +1,6 @@
 /* ==========================================================================
    Nebula Forge Addons — Frontend Styles
-   Professional-grade Elementor widget stylesalll.
+   Professional-grade Elementor widget styles.
    ========================================================================== */
 
 /* ==========================================================================
@@ -1175,5 +1175,646 @@ a.nfa-areas__card:hover {
 
     .nfa-slider__btn--next {
         right: -8px;
+    }
+}
+
+/* =========================================================
+   Team Member Widget
+   ========================================================= */
+.nfa-team__grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(var(--nfa-team-cols, 3), 1fr);
+}
+
+.nfa-team__card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.nfa-team__card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    transform: translateY(-4px);
+}
+
+.nfa-team__card--layout-left {
+    display: flex;
+    text-align: left;
+}
+
+.nfa-team__card--layout-left .nfa-team__photo {
+    flex: 0 0 140px;
+    height: auto;
+}
+
+.nfa-team__photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.nfa-team__card--layout-circle .nfa-team__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 24px auto 0;
+}
+
+.nfa-team__body {
+    padding: 20px;
+}
+
+.nfa-team__name {
+    margin: 0 0 4px;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: #131313;
+}
+
+.nfa-team__role {
+    font-size: .875em;
+    color: rgba(19,19,19,.55);
+    margin-bottom: 10px;
+}
+
+.nfa-team__bio {
+    font-size: .9em;
+    color: rgba(19,19,19,.7);
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.nfa-team__social {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.nfa-team__card--layout-left .nfa-team__social {
+    justify-content: flex-start;
+}
+
+.nfa-team__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(19,19,19,.06);
+    color: #131313;
+    font-size: 15px;
+    transition: background .25s, color .25s;
+    text-decoration: none;
+}
+
+.nfa-team__social a:hover {
+    background: #0ea5e9;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .nfa-team__grid {
+        grid-template-columns: 1fr;
+    }
+    .nfa-team__card--layout-left {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nfa-team__card--layout-left .nfa-team__photo {
+        flex: none;
+        width: 100%;
+        height: 200px;
+    }
+    .nfa-team__card--layout-left .nfa-team__social {
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   CTA Banner Widget
+   ========================================================= */
+.nfa-cta-banner {
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.nfa-cta-banner--left {
+    text-align: left;
+}
+
+.nfa-cta-banner--side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 32px;
+}
+
+.nfa-cta-banner__icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.nfa-cta-banner__kicker {
+    display: inline-block;
+    font-size: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 10px;
+    opacity: .75;
+}
+
+.nfa-cta-banner__title {
+    margin: 0 0 14px;
+    font-size: 1.75em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.nfa-cta-banner__desc {
+    font-size: 1.05em;
+    line-height: 1.6;
+    opacity: .85;
+    max-width: 640px;
+    margin: 0 auto 24px;
+}
+
+.nfa-cta-banner--left .nfa-cta-banner__desc,
+.nfa-cta-banner--side .nfa-cta-banner__desc {
+    margin-left: 0;
+}
+
+.nfa-cta-banner__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nfa-cta-banner--center .nfa-cta-banner__actions {
+    justify-content: center;
+}
+
+.nfa-cta-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .95em;
+    text-decoration: none;
+    transition: opacity .25s, transform .15s;
+    border: none;
+    cursor: pointer;
+}
+
+.nfa-cta-banner__btn:hover {
+    opacity: .88;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+    .nfa-cta-banner {
+        padding: 32px 24px;
+    }
+    .nfa-cta-banner--side {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nfa-cta-banner--side .nfa-cta-banner__actions {
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   Content Tabs Widget
+   ========================================================= */
+.nfa-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.nfa-tabs--vertical {
+    flex-direction: row;
+    gap: 24px;
+}
+
+.nfa-tabs__nav {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid rgba(19,19,19,.08);
+    padding-bottom: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nfa-tabs--vertical .nfa-tabs__nav {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 2px solid rgba(19,19,19,.08);
+    padding-right: 0;
+    padding-bottom: 0;
+    min-width: 180px;
+    overflow-x: visible;
+}
+
+.nfa-tabs__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+    font-size: .95em;
+    background: transparent;
+    border: none;
+    color: rgba(19,19,19,.55);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .2s, background .2s;
+    border-radius: 8px 8px 0 0;
+}
+
+.nfa-tabs--vertical .nfa-tabs__btn {
+    border-radius: 8px 0 0 8px;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.nfa-tabs__btn:hover {
+    color: #131313;
+    background: rgba(19,19,19,.03);
+}
+
+.nfa-tabs__btn--active {
+    color: #0ea5e9;
+    background: rgba(14,165,233,.08);
+}
+
+.nfa-tabs__btn--active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #0ea5e9;
+    border-radius: 3px 3px 0 0;
+}
+
+.nfa-tabs--vertical .nfa-tabs__btn--active::after {
+    bottom: auto;
+    top: 0;
+    left: auto;
+    right: -2px;
+    width: 3px;
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+}
+
+.nfa-tabs__btn--icon-top {
+    flex-direction: column;
+}
+
+.nfa-tabs__btn-icon {
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nfa-tabs__panels {
+    flex: 1;
+}
+
+.nfa-tabs__panel {
+    display: none;
+    padding: 24px;
+    color: rgba(19,19,19,.7);
+    line-height: 1.7;
+    border-radius: 0 0 12px 12px;
+}
+
+.nfa-tabs--vertical .nfa-tabs__panel {
+    border-radius: 0 12px 12px 0;
+}
+
+.nfa-tabs__panel--active {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .nfa-tabs--vertical {
+        flex-direction: column;
+    }
+    .nfa-tabs--vertical .nfa-tabs__nav {
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 2px solid rgba(19,19,19,.08);
+        min-width: 0;
+        overflow-x: auto;
+    }
+    .nfa-tabs--vertical .nfa-tabs__btn {
+        border-radius: 8px 8px 0 0;
+    }
+    .nfa-tabs--vertical .nfa-tabs__btn--active::after {
+        bottom: -2px;
+        top: auto;
+        right: 0;
+        left: 0;
+        width: auto;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+    }
+    .nfa-tabs--vertical .nfa-tabs__panel {
+        border-radius: 0 0 12px 12px;
+    }
+}
+
+/* =========================================================
+   Image Comparison Widget
+   ========================================================= */
+.nfa-compare {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    user-select: none;
+    touch-action: none;
+    cursor: col-resize;
+    line-height: 0;
+}
+
+.nfa-compare--vertical {
+    cursor: row-resize;
+}
+
+.nfa-compare__before,
+.nfa-compare__after {
+    position: relative;
+    width: 100%;
+}
+
+.nfa-compare__before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    overflow: hidden;
+}
+
+.nfa-compare__before img,
+.nfa-compare__after img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.nfa-compare__label {
+    position: absolute;
+    bottom: 16px;
+    padding: 4px 14px;
+    font-size: .8em;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0,0,0,.55);
+    border-radius: 6px;
+    z-index: 5;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.nfa-compare__label--before {
+    left: 16px;
+}
+
+.nfa-compare__label--after {
+    right: 16px;
+}
+
+.nfa-compare--vertical .nfa-compare__label--before {
+    top: 16px;
+    bottom: auto;
+    left: 16px;
+}
+
+.nfa-compare--vertical .nfa-compare__label--after {
+    bottom: 16px;
+    right: auto;
+    left: 16px;
+}
+
+.nfa-compare--hover-labels .nfa-compare__label {
+    opacity: 0;
+}
+
+.nfa-compare--hover-labels:hover .nfa-compare__label {
+    opacity: 1;
+}
+
+.nfa-compare__slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nfa-compare--horizontal .nfa-compare__slider {
+    flex-direction: column;
+    width: 0;
+}
+
+.nfa-compare--vertical .nfa-compare__slider {
+    top: auto;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    height: 0;
+}
+
+.nfa-compare__line {
+    position: absolute;
+}
+
+.nfa-compare--horizontal .nfa-compare__line {
+    width: 3px;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+}
+
+.nfa-compare--vertical .nfa-compare__line {
+    height: 3px;
+    left: 0;
+    right: 0;
+    background: #fff;
+}
+
+.nfa-compare__handle {
+    position: relative;
+    z-index: 11;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    color: #131313;
+    cursor: inherit;
+    flex-shrink: 0;
+}
+
+.nfa-compare__handle svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* =========================================================
+   Countdown Timer Widget
+   ========================================================= */
+.nfa-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.nfa-countdown__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-width: 80px;
+    border-radius: 12px;
+    background: rgba(19,19,19,.04);
+    transition: transform .25s, box-shadow .25s;
+    position: relative;
+}
+
+.nfa-countdown__block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+
+.nfa-countdown__digit {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #131313;
+    font-variant-numeric: tabular-nums;
+}
+
+.nfa-countdown__label {
+    font-size: .8em;
+    font-weight: 500;
+    color: rgba(19,19,19,.55);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-top: 8px;
+}
+
+.nfa-countdown__sep {
+    font-size: 2em;
+    font-weight: 700;
+    color: rgba(19,19,19,.3);
+    line-height: 1;
+    align-self: flex-start;
+    padding-top: 20px;
+}
+
+/* Inline variant */
+.nfa-countdown--inline .nfa-countdown__block {
+    background: transparent;
+    padding: 10px 6px;
+    min-width: auto;
+    border-radius: 0;
+}
+
+.nfa-countdown--inline .nfa-countdown__block:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Circle variant */
+.nfa-countdown__block--circle {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.nfa-countdown__block--circle:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.nfa-countdown__ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nfa-countdown__progress {
+    transition: stroke-dashoffset .6s ease;
+}
+
+.nfa-countdown__block--circle .nfa-countdown__digit {
+    font-size: 1.6em;
+}
+
+.nfa-countdown__block--circle .nfa-countdown__label {
+    font-size: .65em;
+    margin-top: 2px;
+}
+
+.nfa-countdown__expiry {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #131313;
+    padding: 24px;
+}
+
+@media (max-width: 480px) {
+    .nfa-countdown__digit {
+        font-size: 1.8em;
+    }
+    .nfa-countdown__block {
+        min-width: 60px;
+        padding: 14px;
+    }
+    .nfa-countdown__block--circle {
+        width: 80px;
+        height: 80px;
+    }
+    .nfa-countdown__block--circle .nfa-countdown__digit {
+        font-size: 1.2em;
     }
 }

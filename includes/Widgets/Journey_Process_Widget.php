@@ -1,4 +1,14 @@
 <?php
+/**
+ * Journey Process Widget
+ *
+ * End-to-end journey section with numbered phases, descriptions,
+ * and full style controls.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.3.0
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

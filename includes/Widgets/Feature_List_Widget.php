@@ -1,4 +1,13 @@
 <?php
+/**
+ * Feature List Widget
+ *
+ * Responsive grid of feature items with icons, titles, and descriptions.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.0
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {

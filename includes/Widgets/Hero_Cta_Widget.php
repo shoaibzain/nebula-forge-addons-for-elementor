@@ -1,4 +1,14 @@
 <?php
+/**
+ * Hero CTA Widget
+ *
+ * Full-width hero banner with kicker text, headline, sub-copy,
+ * and a prominent call-to-action button.
+ *
+ * @package NebulaForgeAddon
+ * @since   0.1.0
+ */
+
 namespace NebulaForgeAddon\Widgets;
 
 if (!defined('ABSPATH')) {
