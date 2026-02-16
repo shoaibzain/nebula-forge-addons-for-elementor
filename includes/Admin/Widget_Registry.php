@@ -199,6 +199,26 @@ final class Widget_Registry
                 'class'       => Widgets\Countdown_Timer_Widget::class,
                 'icon'        => 'eicon-countdown',
             ],
+            'hamburger_menu' => [
+                'label'       => __('Hamburger Menu', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Off-canvas mobile navigation with slide panel, WP menus or custom items, and submenu support.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Add a responsive hamburger menu with off-canvas navigation, ideal for mobile-first designs.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('MENU', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#8b5cf6',
+                'category'    => 'layout',
+                'class'       => Widgets\Hamburger_Menu_Widget::class,
+                'icon'        => 'eicon-menu-bar',
+            ],
+            'advanced_form' => [
+                'label'       => __('Advanced Form', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Drag-and-drop form builder with email notifications, database submissions, and field validation.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Build contact, lead, or registration forms with AJAX submission, validation, and saved entries.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('FORM', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#10b981',
+                'category'    => 'conversion',
+                'class'       => Widgets\Advanced_Form_Widget::class,
+                'icon'        => 'eicon-form-horizontal',
+            ],
         ];
     }
 

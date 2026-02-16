@@ -58,6 +58,22 @@ final class Settings_Page
 
         update_option(Admin_Manager::OPTION_WIDGETS, $enabled);
 
+        // Save extensions.
+        $enabled_extensions = [];
+        $available_extensions = Admin_Manager::get_available_extensions();
+
+        $raw_extensions = isset($post['nf_extensions']) ? $post['nf_extensions'] : [];
+        if (is_array($raw_extensions)) {
+            foreach ($raw_extensions as $ext_key) {
+                $sanitized = sanitize_key($ext_key);
+                if (array_key_exists($sanitized, $available_extensions)) {
+                    $enabled_extensions[] = $sanitized;
+                }
+            }
+        }
+
+        update_option(Admin_Manager::OPTION_EXTENSIONS, $enabled_extensions);
+
         wp_safe_redirect(
             add_query_arg('settings-updated', '1', admin_url('admin.php?page=' . Admin_Manager::MENU_SLUG_SETTINGS))
         );
@@ -83,6 +99,8 @@ final class Settings_Page
     {
         $widgets = Widget_Registry::get_available_widgets();
         $enabled_widgets = Admin_Manager::get_enabled_widgets();
+        $extensions = Admin_Manager::get_available_extensions();
+        $enabled_extensions = Admin_Manager::get_enabled_extensions();
         $total = count($widgets);
         $active = count($enabled_widgets);
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- simple status flag for UI, not processing sensitive form data.
@@ -197,6 +215,37 @@ final class Settings_Page
                                 <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
+                    </div>
+
+                    <!-- Extensions Section -->
+                    <div class="nf-card" style="margin-top: 32px;">
+                        <h2 style="margin-top:0;">
+                            <span class="dashicons dashicons-admin-plugins" style="margin-right:8px;"></span>
+                            <?php esc_html_e('Pro Extensions', 'nebula-forge-addons-for-elementor'); ?>
+                        </h2>
+                        <p style="color:#64748b;margin-bottom:16px;">
+                            <?php esc_html_e('Toggle professional extensions that add advanced capabilities to every Elementor element.', 'nebula-forge-addons-for-elementor'); ?>
+                        </p>
+                        <div class="nf-extensions-grid">
+                            <?php foreach ($extensions as $ext_key => $ext) : ?>
+                                <?php $is_ext_enabled = in_array($ext_key, $enabled_extensions, true); ?>
+                                <div class="nf-extension-card">
+                                    <div class="nf-extension-card__icon">
+                                        <span class="dashicons <?php echo esc_attr($ext['icon']); ?>"></span>
+                                    </div>
+                                    <div class="nf-extension-card__body">
+                                        <div class="nf-extension-card__header">
+                                            <span class="nf-extension-card__label"><?php echo esc_html($ext['label']); ?></span>
+                                            <label class="nf-toggle">
+                                                <input type="checkbox" name="nf_extensions[]" value="<?php echo esc_attr($ext_key); ?>" <?php checked($is_ext_enabled); ?>>
+                                                <span class="nf-toggle__slider"></span>
+                                            </label>
+                                        </div>
+                                        <p class="nf-extension-card__desc"><?php echo esc_html($ext['description']); ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
 
                     <div class="nf-settings-footer">

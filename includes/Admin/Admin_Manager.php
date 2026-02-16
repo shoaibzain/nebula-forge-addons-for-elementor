@@ -21,16 +21,21 @@ final class Admin_Manager
 {
     public const MENU_SLUG_WELCOME = 'nebula-forge-addon-welcome';
     public const MENU_SLUG_SETTINGS = 'nebula-forge-addon-settings';
+    public const MENU_SLUG_FONTS = 'nebula-forge-addon-fonts';
     public const MENU_SLUG_CHANGELOG = 'nebula-forge-addon-changelog';
+    public const MENU_SLUG_SUBMISSIONS = 'nebula-forge-addon-submissions';
 
     public const OPTION_ACTIVATION_REDIRECT = 'nebula_forge_addon_activation_redirect';
     public const OPTION_WIDGETS = 'nebula_forge_addon_widgets';
+    public const OPTION_EXTENSIONS = 'nebula_forge_addon_extensions';
 
     private static ?self $instance = null;
 
     private ?Settings_Page $settings_page = null;
     private ?Welcome_Page $welcome_page = null;
     private ?Changelog_Page $changelog_page = null;
+    private ?Custom_Fonts_Page $fonts_page = null;
+    private ?Submissions_Page $submissions_page = null;
 
     /**
      * Get singleton instance.
@@ -52,6 +57,8 @@ final class Admin_Manager
         $this->settings_page = new Settings_Page();
         $this->welcome_page = new Welcome_Page();
         $this->changelog_page = new Changelog_Page();
+        $this->fonts_page = new Custom_Fonts_Page();
+        $this->submissions_page = new Submissions_Page();
     }
 
     /**
@@ -114,6 +121,24 @@ final class Admin_Manager
 
         add_submenu_page(
             self::MENU_SLUG_WELCOME,
+            esc_html__('Custom Fonts', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Custom Fonts', 'nebula-forge-addons-for-elementor'),
+            'manage_options',
+            self::MENU_SLUG_FONTS,
+            [$this->fonts_page, 'render']
+        );
+
+        add_submenu_page(
+            self::MENU_SLUG_WELCOME,
+            esc_html__('Submissions', 'nebula-forge-addons-for-elementor'),
+            esc_html__('Submissions', 'nebula-forge-addons-for-elementor'),
+            'manage_options',
+            self::MENU_SLUG_SUBMISSIONS,
+            [$this->submissions_page, 'render']
+        );
+
+        add_submenu_page(
+            self::MENU_SLUG_WELCOME,
             esc_html__('Changelog', 'nebula-forge-addons-for-elementor'),
             esc_html__('Changelog', 'nebula-forge-addons-for-elementor'),
             'manage_options',
@@ -168,6 +193,11 @@ final class Admin_Manager
             [],
             NEBULA_FORGE_ADDON_VERSION
         );
+
+        // Enqueue media uploader on fonts page.
+        if (strpos($hook, 'fonts') !== false) {
+            wp_enqueue_media();
+        }
     }
 
     /**
@@ -190,5 +220,53 @@ final class Admin_Manager
         }
 
         return $saved;
+    }
+
+    /**
+     * Get enabled extensions.
+     *
+     * @return string[]
+     */
+    public static function get_enabled_extensions(): array
+    {
+        $saved = get_option(self::OPTION_EXTENSIONS, null);
+
+        if ($saved === null || !is_array($saved)) {
+            // All enabled by default.
+            return ['display_conditions', 'custom_fonts', 'tooltip', 'wrapper_link'];
+        }
+
+        return $saved;
+    }
+
+    /**
+     * Get available extensions metadata.
+     *
+     * @return array<string, array{label: string, description: string, icon: string}>
+     */
+    public static function get_available_extensions(): array
+    {
+        return [
+            'display_conditions' => [
+                'label'       => __('Display Conditions', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Show or hide any widget based on user role, login status, date range, page type, browser, and OS.', 'nebula-forge-addons-for-elementor'),
+                'icon'        => 'dashicons-visibility',
+            ],
+            'custom_fonts' => [
+                'label'       => __('Custom Fonts', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Upload custom font files and use them in Elementor typography controls.', 'nebula-forge-addons-for-elementor'),
+                'icon'        => 'dashicons-editor-textcolor',
+            ],
+            'tooltip' => [
+                'label'       => __('Widget Tooltip', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Add configurable hover or click tooltips to any Elementor widget.', 'nebula-forge-addons-for-elementor'),
+                'icon'        => 'dashicons-info-outline',
+            ],
+            'wrapper_link' => [
+                'label'       => __('Wrapper Link', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Make any widget, column, section, or container fully clickable with a URL.', 'nebula-forge-addons-for-elementor'),
+                'icon'        => 'dashicons-admin-links',
+            ],
+        ];
     }
 }

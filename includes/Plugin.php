@@ -18,6 +18,11 @@ use Elementor\Plugin as ElementorPlugin;
 use Elementor\Widgets_Manager;
 use NebulaForgeAddon\Admin\Admin_Manager;
 use NebulaForgeAddon\Admin\Widget_Registry;
+use NebulaForgeAddon\Extensions\Custom_Fonts;
+use NebulaForgeAddon\Extensions\Display_Conditions;
+use NebulaForgeAddon\Extensions\Tooltip_Extension;
+use NebulaForgeAddon\Extensions\Wrapper_Link;
+use NebulaForgeAddon\Extensions\Form_Handler;
 
 /**
  * Class Plugin
@@ -145,6 +150,33 @@ final class Plugin
         add_action('elementor/widgets/register', [$this, 'register_widgets']);
         add_action('elementor/frontend/after_register_styles', [$this, 'register_frontend_styles']);
         add_action('elementor/frontend/after_register_scripts', [$this, 'register_frontend_scripts']);
+
+        // Initialize extensions.
+        $this->init_extensions();
+    }
+
+    /**
+     * Initialize pro extensions.
+     */
+    private function init_extensions(): void
+    {
+        $enabled = Admin_Manager::get_enabled_extensions();
+
+        if (in_array('display_conditions', $enabled, true)) {
+            Display_Conditions::init();
+        }
+        if (in_array('custom_fonts', $enabled, true)) {
+            Custom_Fonts::init();
+        }
+        if (in_array('tooltip', $enabled, true)) {
+            Tooltip_Extension::init();
+        }
+        if (in_array('wrapper_link', $enabled, true)) {
+            Wrapper_Link::init();
+        }
+
+        // Form handler is always active (not a toggle-able extension).
+        Form_Handler::init();
     }
 
     /**

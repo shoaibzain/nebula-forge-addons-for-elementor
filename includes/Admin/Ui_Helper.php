@@ -35,6 +35,14 @@ final class Ui_Helper
                 'label' => esc_html__('Settings', 'nebula-forge-addons-for-elementor'),
                 'icon' => 'dashicons-admin-generic',
             ],
+            Admin_Manager::MENU_SLUG_FONTS => [
+                'label' => esc_html__('Custom Fonts', 'nebula-forge-addons-for-elementor'),
+                'icon' => 'dashicons-editor-textcolor',
+            ],
+            Admin_Manager::MENU_SLUG_SUBMISSIONS => [
+                'label' => esc_html__('Submissions', 'nebula-forge-addons-for-elementor'),
+                'icon' => 'dashicons-email-alt',
+            ],
             Admin_Manager::MENU_SLUG_CHANGELOG => [
                 'label' => esc_html__('Changelog', 'nebula-forge-addons-for-elementor'),
                 'icon' => 'dashicons-backup',

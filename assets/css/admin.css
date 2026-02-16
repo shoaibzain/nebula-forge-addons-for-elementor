@@ -1297,3 +1297,236 @@
         left: 1px;
     }
 }
+
+/* ==========================================================================
+   Custom Fonts Page
+   ========================================================================== */
+
+.nf-font-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nf-font-form .nf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nf-font-form .nf-field label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.nf-font-form .nf-field input[type="text"] {
+    max-width: 400px;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.nf-font-form .nf-field input[type="text"]:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Font Variants */
+.nf-font-variants-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1e293b;
+    margin: 8px 0 4px;
+}
+
+.nf-font-variants {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nf-font-variant {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.nf-font-variant select {
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 13px;
+    background: #fff;
+    min-width: 110px;
+}
+
+.nf-font-variant .nf-font-file-name {
+    font-size: 12px;
+    color: #64748b;
+    font-style: italic;
+    flex: 1;
+    min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nf-font-variant .button {
+    flex-shrink: 0;
+}
+
+.nf-font-variant .nf-variant-remove {
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 2px 6px;
+    border: none;
+    background: none;
+    transition: color 0.2s ease;
+}
+
+.nf-font-variant .nf-variant-remove:hover {
+    color: #dc2626;
+}
+
+.nf-font-add-variant {
+    align-self: flex-start;
+}
+
+.nf-font-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Saved Font Items */
+.nf-fonts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.nf-font-item {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.nf-font-item:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+}
+
+.nf-font-item__name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 8px;
+}
+
+.nf-font-item__preview {
+    font-size: 22px;
+    color: #334155;
+    margin: 0 0 12px;
+    line-height: 1.4;
+    min-height: 36px;
+}
+
+.nf-font-item__variants {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0 0 16px;
+}
+
+.nf-font-item__actions {
+    display: flex;
+    gap: 8px;
+}
+
+.nf-font-item__delete {
+    color: #ef4444 !important;
+    border-color: #fecaca !important;
+}
+
+.nf-font-item__delete:hover {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   Extensions Toggle Cards (Settings Page)
+   ========================================================================== */
+
+.nf-extensions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.nf-extension-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nf-extension-card:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.06);
+}
+
+.nf-extension-card__icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef2ff;
+    border-radius: 8px;
+    color: #6366f1;
+    font-size: 18px;
+}
+
+.nf-extension-card__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.nf-extension-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.nf-extension-card__label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.nf-extension-card__desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}

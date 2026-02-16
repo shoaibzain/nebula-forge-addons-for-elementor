@@ -1818,3 +1818,517 @@ a.nfa-areas__card:hover {
         font-size: 1.2em;
     }
 }
+
+/* ==========================================================================
+   Tooltip Extension
+   ========================================================================== */
+
+.nfa-tooltip {
+    position: absolute;
+    z-index: 99999;
+    max-width: 260px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #1e293b;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    white-space: normal;
+    word-wrap: break-word;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nfa-tooltip--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow */
+.nfa-tooltip::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+}
+
+.nfa-tooltip--no-arrow::after {
+    display: none;
+}
+
+/* Position: top (default) */
+.nfa-tooltip--top {
+    transform: translateY(6px);
+}
+
+.nfa-tooltip--top.nfa-tooltip--visible {
+    transform: translateY(0);
+}
+
+.nfa-tooltip--top::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: inherit;
+}
+
+/* Position: bottom */
+.nfa-tooltip--bottom {
+    transform: translateY(-6px);
+}
+
+.nfa-tooltip--bottom.nfa-tooltip--visible {
+    transform: translateY(0);
+}
+
+.nfa-tooltip--bottom::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: inherit;
+}
+
+/* Position: left */
+.nfa-tooltip--left {
+    transform: translateX(6px);
+}
+
+.nfa-tooltip--left.nfa-tooltip--visible {
+    transform: translateX(0);
+}
+
+.nfa-tooltip--left::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: inherit;
+}
+
+/* Position: right */
+.nfa-tooltip--right {
+    transform: translateX(-6px);
+}
+
+.nfa-tooltip--right.nfa-tooltip--visible {
+    transform: translateX(0);
+}
+
+.nfa-tooltip--right::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: inherit;
+}
+
+/* ==========================================================================
+   Wrapper Link Extension
+   ========================================================================== */
+
+[data-nfa-wrapper-link] {
+    cursor: pointer;
+    position: relative;
+}
+
+[data-nfa-wrapper-link]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Hamburger Menu Widget
+   ========================================================================== */
+
+.nfa-hamburger__toggle-wrap {
+    display: flex;
+}
+
+.nfa-hamburger__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Icon: Bars */
+.nfa-hamburger__icon--bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 1em;
+}
+
+.nfa-hamburger__icon--bars span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Icon: Dots */
+.nfa-hamburger__icon--dots {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    width: 1em;
+}
+
+.nfa-hamburger__icon--dots span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+/* Icon: Grid */
+.nfa-hamburger__icon--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    width: 1em;
+}
+
+.nfa-hamburger__icon--grid span {
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+/* Overlay */
+.nfa-hamburger__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nfa-hamburger--open .nfa-hamburger__overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Panel */
+.nfa-hamburger__panel {
+    position: fixed;
+    z-index: 99999;
+    background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s ease;
+    visibility: hidden;
+}
+
+.nfa-hamburger__panel--left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+}
+
+.nfa-hamburger__panel--right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+}
+
+.nfa-hamburger__panel--top {
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 80vh;
+    transform: translateY(-100%);
+}
+
+.nfa-hamburger--open .nfa-hamburger__panel {
+    transform: translate(0);
+    visibility: visible;
+}
+
+/* Panel header */
+.nfa-hamburger__panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.nfa-hamburger__logo {
+    max-height: 40px;
+    width: auto;
+}
+
+.nfa-hamburger__close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    transition: color 0.2s ease;
+    margin-left: auto;
+}
+
+/* Menu list */
+.nfa-hamburger__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nfa-hamburger__item--separated {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nfa-hamburger__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nfa-hamburger__link-icon {
+    flex-shrink: 0;
+    font-size: 1.1em;
+}
+
+.nfa-hamburger__arrow {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+.nfa-hamburger__item--sub-open > .nfa-hamburger__link .nfa-hamburger__arrow {
+    transform: rotate(180deg);
+}
+
+/* Sub-menu */
+.nfa-hamburger__sub-list {
+    list-style: none;
+    margin: 0;
+    padding: 4px 0 4px 24px;
+    display: none;
+}
+
+.nfa-hamburger__item--sub-open > .nfa-hamburger__sub-list {
+    display: block;
+}
+
+.nfa-hamburger__sub-link {
+    display: block;
+    padding: 6px 0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+/* ==========================================================================
+   Advanced Form Widget
+   ========================================================================== */
+
+.nfa-form__fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.nfa-form__col--100 { width: 100%; }
+.nfa-form__col--75  { width: calc(75% - 8px); }
+.nfa-form__col--66  { width: calc(66.666% - 8px); }
+.nfa-form__col--50  { width: calc(50% - 8px); }
+.nfa-form__col--33  { width: calc(33.333% - 8px); }
+.nfa-form__col--25  { width: calc(25% - 12px); }
+.nfa-form__col--hidden { display: none; }
+
+.nfa-form__label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.nfa-form__required {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+.nfa-form__input,
+.nfa-form__select,
+.nfa-form__textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.nfa-form__input:focus,
+.nfa-form__select:focus,
+.nfa-form__textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.nfa-form__input--file {
+    padding: 8px;
+    border-style: dashed;
+}
+
+.nfa-form__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.nfa-form__choice-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nfa-form__choice {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nfa-form__choice input {
+    accent-color: #6366f1;
+    width: 16px;
+    height: 16px;
+}
+
+.nfa-form__field-error {
+    display: block;
+    font-size: 12px;
+    color: #ef4444;
+    min-height: 18px;
+    margin-top: 4px;
+}
+
+.nfa-form__actions {
+    display: flex;
+    margin-top: 20px;
+}
+
+.nfa-form__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.nfa-form__submit:hover {
+    transform: translateY(-1px);
+}
+
+.nfa-form__submit:active {
+    transform: translateY(0);
+}
+
+.nfa-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.nfa-form__spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: nfa-spin 0.6s linear infinite;
+}
+
+@keyframes nfa-spin {
+    to { transform: rotate(360deg); }
+}
+
+.nfa-form__msg {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+.nfa-form__msg--success {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.nfa-form__msg--error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.nfa-form__input--invalid,
+.nfa-form__select--invalid,
+.nfa-form__textarea--invalid {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+@media (max-width: 767px) {
+    .nfa-form__col--75,
+    .nfa-form__col--66,
+    .nfa-form__col--50,
+    .nfa-form__col--33,
+    .nfa-form__col--25 {
+        width: 100%;
+    }
+}
+
+/* Submissions admin badges */
+.nfa-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.nfa-badge--blue {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.nfa-badge--gray {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.nfa-sub-row--unread td {
+    background: #fafbff;
+    font-weight: 500;
+}

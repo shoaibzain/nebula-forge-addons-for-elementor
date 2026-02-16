@@ -399,6 +399,413 @@
         });
     };
 
+    /**
+     * Initialize tooltips for any widget with data-nfa-tooltip attribute.
+     */
+    const initTooltips = () => {
+        document.querySelectorAll('[data-nfa-tooltip]').forEach((el) => {
+            if (el._nfaTooltipBound) {
+                return;
+            }
+            el._nfaTooltipBound = true;
+
+            const text = el.getAttribute('data-nfa-tooltip');
+            const pos = el.getAttribute('data-nfa-tooltip-pos') || 'top';
+            const trigger = el.getAttribute('data-nfa-tooltip-trigger') || 'hover';
+            const showArrow = el.getAttribute('data-nfa-tooltip-arrow') !== '0';
+            const duration = parseInt(el.getAttribute('data-nfa-tooltip-duration'), 10) || 250;
+
+            // Create tooltip element.
+            const tip = document.createElement('div');
+            tip.className = 'nfa-tooltip nfa-tooltip--' + pos;
+            if (!showArrow) {
+                tip.classList.add('nfa-tooltip--no-arrow');
+            }
+            tip.textContent = text;
+            tip.style.transitionDuration = duration + 'ms';
+            tip.setAttribute('role', 'tooltip');
+            tip.id = 'nfa-tooltip-' + Math.random().toString(36).substr(2, 9);
+
+            el.setAttribute('aria-describedby', tip.id);
+            el.style.position = el.style.position || 'relative';
+
+            document.body.appendChild(tip);
+
+            /**
+             * Position the tooltip relative to the element.
+             */
+            function positionTip() {
+                const rect = el.getBoundingClientRect();
+                const tipRect = tip.getBoundingClientRect();
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const gap = 8;
+
+                let top, left;
+
+                switch (pos) {
+                    case 'bottom':
+                        top = rect.bottom + scrollY + gap;
+                        left = rect.left + scrollX + (rect.width / 2) - (tipRect.width / 2);
+                        break;
+                    case 'left':
+                        top = rect.top + scrollY + (rect.height / 2) - (tipRect.height / 2);
+                        left = rect.left + scrollX - tipRect.width - gap;
+                        break;
+                    case 'right':
+                        top = rect.top + scrollY + (rect.height / 2) - (tipRect.height / 2);
+                        left = rect.right + scrollX + gap;
+                        break;
+                    default: // top
+                        top = rect.top + scrollY - tipRect.height - gap;
+                        left = rect.left + scrollX + (rect.width / 2) - (tipRect.width / 2);
+                }
+
+                tip.style.top = top + 'px';
+                tip.style.left = left + 'px';
+            }
+
+            function showTip() {
+                positionTip();
+                tip.classList.add('nfa-tooltip--visible');
+            }
+
+            function hideTip() {
+                tip.classList.remove('nfa-tooltip--visible');
+            }
+
+            if (trigger === 'click') {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (tip.classList.contains('nfa-tooltip--visible')) {
+                        hideTip();
+                    } else {
+                        showTip();
+                    }
+                });
+                document.addEventListener('click', (e) => {
+                    if (!el.contains(e.target) && !tip.contains(e.target)) {
+                        hideTip();
+                    }
+                });
+            } else {
+                el.addEventListener('mouseenter', showTip);
+                el.addEventListener('mouseleave', hideTip);
+                el.addEventListener('focusin', showTip);
+                el.addEventListener('focusout', hideTip);
+            }
+        });
+    };
+
+    /**
+     * Initialize wrapper links for elements with data-nfa-wrapper-link.
+     */
+    const initWrapperLinks = () => {
+        document.querySelectorAll('[data-nfa-wrapper-link]').forEach((el) => {
+            if (el._nfaWrapperLinkBound) {
+                return;
+            }
+            el._nfaWrapperLinkBound = true;
+
+            const url = el.getAttribute('data-nfa-wrapper-link');
+            const isExternal = el.getAttribute('data-nfa-link-external') === '1';
+            const isNofollow = el.getAttribute('data-nfa-link-nofollow') === '1';
+
+            if (!url) {
+                return;
+            }
+
+            el.addEventListener('click', (e) => {
+                // Don't navigate if clicking on an actual link or button inside.
+                const tag = e.target.tagName.toLowerCase();
+                if (tag === 'a' || tag === 'button' || tag === 'input' || tag === 'textarea' || tag === 'select') {
+                    return;
+                }
+
+                if (isExternal) {
+                    const win = window.open(url, '_blank');
+                    if (win && isNofollow) {
+                        win.opener = null;
+                    }
+                } else {
+                    window.location.href = url;
+                }
+            });
+
+            // Keyboard accessibility — Enter key triggers navigation.
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    el.click();
+                }
+            });
+        });
+    };
+
+    /**
+     * Initialize hamburger menu widgets.
+     */
+    const initHamburgerMenu = (scope) => {
+        const $menus = scope.find('.nfa-hamburger');
+
+        $menus.each(function () {
+            const $root = $(this);
+            if ($root.data('nfa-hm-bound')) return;
+            $root.data('nfa-hm-bound', true);
+
+            const $toggle  = $root.find('.nfa-hamburger__toggle');
+            const $panel   = $root.find('.nfa-hamburger__panel');
+            const $overlay = $root.find('.nfa-hamburger__overlay');
+            const $close   = $root.find('.nfa-hamburger__close');
+            const closeOnLink = $root.data('close-on-link') === 1 || $root.data('close-on-link') === '1';
+            const closeOnEsc  = $root.data('close-on-esc') === 1 || $root.data('close-on-esc') === '1';
+
+            function open() {
+                $root.addClass('nfa-hamburger--open');
+                $toggle.attr('aria-expanded', 'true');
+                $panel.attr('aria-hidden', 'false');
+                // Trap focus inside panel.
+                $panel.find('a, button').first().focus();
+            }
+
+            function close() {
+                $root.removeClass('nfa-hamburger--open');
+                $toggle.attr('aria-expanded', 'false');
+                $panel.attr('aria-hidden', 'true');
+                $toggle.focus();
+            }
+
+            $toggle.on('click', function (e) {
+                e.preventDefault();
+                if ($root.hasClass('nfa-hamburger--open')) {
+                    close();
+                } else {
+                    open();
+                }
+            });
+
+            $close.on('click', close);
+            $overlay.on('click', close);
+
+            if (closeOnEsc) {
+                $(document).on('keydown', function (e) {
+                    if (e.key === 'Escape' && $root.hasClass('nfa-hamburger--open')) {
+                        close();
+                    }
+                });
+            }
+
+            if (closeOnLink) {
+                $panel.on('click', '.nfa-hamburger__link, .nfa-hamburger__sub-link', function () {
+                    const href = $(this).attr('href');
+                    if (href && href !== '#') {
+                        close();
+                    }
+                });
+            }
+
+            // Submenu toggle.
+            $root.find('.nfa-hamburger__item--has-sub > .nfa-hamburger__link').on('click', function (e) {
+                if ($(this).attr('href') === '#') {
+                    e.preventDefault();
+                }
+                $(this).parent().toggleClass('nfa-hamburger__item--sub-open');
+            });
+        });
+    };
+
+    /**
+     * Initialize advanced form widgets.
+     */
+    const initAdvancedForm = (scope) => {
+        const $forms = scope.find('.nfa-form');
+
+        $forms.each(function () {
+            const $root = $(this);
+            if ($root.data('nfa-form-bound')) return;
+            $root.data('nfa-form-bound', true);
+
+            const config = $root.data('nfa-form');
+            if (!config) return;
+
+            const $form   = $root.find('.nfa-form__el');
+            const $submit = $root.find('.nfa-form__submit');
+            const $text   = $root.find('.nfa-form__submit-text');
+            const $spin   = $root.find('.nfa-form__spinner');
+            const $msg    = $root.find('.nfa-form__msg');
+
+            /**
+             * Validate a single field.
+             */
+            function validateField(el) {
+                const $el = $(el);
+                const $err = $el.closest('.nfa-form__col').find('.nfa-form__field-error');
+                let valid = true;
+                let errMsg = '';
+
+                // Required check.
+                if (el.required) {
+                    if (el.type === 'checkbox') {
+                        const name = el.name;
+                        const checked = $form.find('input[name="' + name + '"]:checked').length;
+                        if (!checked) {
+                            valid = false;
+                            errMsg = config.requiredMsg || 'This field is required.';
+                        }
+                    } else if (!el.value.trim()) {
+                        valid = false;
+                        errMsg = config.requiredMsg || 'This field is required.';
+                    }
+                }
+
+                // Type-specific validation.
+                if (valid && el.value.trim()) {
+                    if (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+                        valid = false;
+                        errMsg = 'Please enter a valid email address.';
+                    }
+                    if (el.type === 'url' && !/^https?:\/\/.+/.test(el.value)) {
+                        valid = false;
+                        errMsg = 'Please enter a valid URL.';
+                    }
+                    if (el.type === 'tel' && !/^[\d\s+\-().]+$/.test(el.value)) {
+                        valid = false;
+                        errMsg = 'Please enter a valid phone number.';
+                    }
+                    if (el.type === 'file') {
+                        const maxMB = parseFloat($el.data('max-size') || 5);
+                        if (el.files[0] && el.files[0].size > maxMB * 1024 * 1024) {
+                            valid = false;
+                            errMsg = 'File exceeds ' + maxMB + 'MB limit.';
+                        }
+                    }
+                }
+
+                if (!valid) {
+                    $el.addClass('nfa-form__input--invalid nfa-form__select--invalid nfa-form__textarea--invalid');
+                    $err.text(errMsg);
+                } else {
+                    $el.removeClass('nfa-form__input--invalid nfa-form__select--invalid nfa-form__textarea--invalid');
+                    $err.text('');
+                }
+
+                return valid;
+            }
+
+            // Live validation on blur.
+            $form.find('input, textarea, select').on('blur change', function () {
+                validateField(this);
+            });
+
+            $form.on('submit', function (e) {
+                e.preventDefault();
+
+                // Validate all fields.
+                let allValid = true;
+                $form.find('input[required], textarea[required], select[required]').each(function () {
+                    if (!validateField(this)) {
+                        allValid = false;
+                    }
+                });
+
+                if (!allValid) {
+                    $form.find('.nfa-form__input--invalid, .nfa-form__select--invalid, .nfa-form__textarea--invalid').first().focus();
+                    return;
+                }
+
+                // Gather field data.
+                const fields = [];
+                const seen = {};
+
+                $form.find('[data-label]').each(function () {
+                    const $el = $(this);
+                    const label = $el.data('label');
+                    const type = $el.attr('type') || this.tagName.toLowerCase();
+
+                    if (type === 'checkbox') {
+                        if (!seen[label]) {
+                            seen[label] = true;
+                            const vals = [];
+                            $form.find('input[data-label="' + label + '"]:checked').each(function () {
+                                vals.push($(this).val());
+                            });
+                            fields.push({ label: label, value: vals });
+                        }
+                        return;
+                    }
+
+                    if (type === 'radio') {
+                        if (!seen[label]) {
+                            seen[label] = true;
+                            const val = $form.find('input[data-label="' + label + '"]:checked').val() || '';
+                            fields.push({ label: label, value: val });
+                        }
+                        return;
+                    }
+
+                    if (type === 'file') {
+                        // File uploads not sent via AJAX JSON — skip for now.
+                        fields.push({ label: label, value: this.files[0] ? this.files[0].name : '' });
+                        return;
+                    }
+
+                    fields.push({ label: label, value: $el.val() || '' });
+                });
+
+                // Show loading state.
+                $submit.prop('disabled', true);
+                $text.css('opacity', '0.5');
+                $spin.show();
+                $msg.hide();
+
+                $.ajax({
+                    url: config.ajaxUrl,
+                    type: 'POST',
+                    data: {
+                        action:          'nfa_form_submit',
+                        nonce:           config.nonce,
+                        form_name:       config.formName,
+                        action_save:     config.actionSave ? '1' : '',
+                        action_email:    config.actionEmail ? '1' : '',
+                        email_to:        config.emailTo,
+                        email_subject:   config.emailSubject,
+                        email_from_name: config.emailFromName,
+                        email_reply_to:  config.emailReplyTo,
+                        page_url:        window.location.href,
+                        fields:          JSON.stringify(fields),
+                    },
+                    success: function (resp) {
+                        $submit.prop('disabled', false);
+                        $text.css('opacity', '1');
+                        $spin.hide();
+
+                        if (resp.success) {
+                            $msg.removeClass('nfa-form__msg--error').addClass('nfa-form__msg--success')
+                                .text(config.successMessage || resp.data.message).show();
+                            $form[0].reset();
+                            $form.find('.nfa-form__field-error').text('');
+
+                            if (config.actionRedirect && config.redirectUrl) {
+                                setTimeout(function () {
+                                    window.location.href = config.redirectUrl;
+                                }, 1000);
+                            }
+                        } else {
+                            $msg.removeClass('nfa-form__msg--success').addClass('nfa-form__msg--error')
+                                .text(config.errorMessage || resp.data.message || 'Error').show();
+                        }
+                    },
+                    error: function () {
+                        $submit.prop('disabled', false);
+                        $text.css('opacity', '1');
+                        $spin.hide();
+                        $msg.removeClass('nfa-form__msg--success').addClass('nfa-form__msg--error')
+                            .text(config.errorMessage || 'Network error. Please try again.').show();
+                    },
+                });
+            });
+        });
+    };
+
     $(window).on('elementor/frontend/init', () => {
         if (!window.elementorFrontend || !elementorFrontend.hooks) {
             return;
@@ -410,5 +817,13 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-content-tabs.default', initContentTabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-image-comparison.default', initImageComparison);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-countdown-timer.default', initCountdownTimer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-hamburger-menu.default', initHamburgerMenu);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-advanced-form.default', initAdvancedForm);
+
+        // Initialize extensions on every element ready (global).
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', () => {
+            initTooltips();
+            initWrapperLinks();
+        });
     });
 })(jQuery);
