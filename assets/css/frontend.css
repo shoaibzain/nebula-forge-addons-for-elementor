@@ -3000,6 +3000,18 @@ a.nfa-areas__card:hover {
     border: 0;
 }
 
+.nfa-vtestimonials-lightbox__media {
+    width: 100%;
+    height: 100%;
+}
+
+.nfa-vtestimonials-lightbox__media iframe,
+.nfa-vtestimonials-lightbox__media video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 .nfa-vtestimonials-lightbox__close {
     position: absolute;
     top: -40px;
@@ -3029,13 +3041,46 @@ a.nfa-areas__card:hover {
     position: relative;
 }
 
-.nfa-vtestimonials__thumb--playing iframe {
+.nfa-vtestimonials__thumb--playing iframe,
+.nfa-vtestimonials__thumb--playing video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
     z-index: 5;
+    object-fit: cover;
+}
+
+/* Hide default browser controls on our custom-controlled videos */
+.nfa-vtestimonials__thumb--playing video::-webkit-media-controls,
+.nfa-vtestimonials__reel-card video::-webkit-media-controls {
+    display: none !important;
+}
+
+/* Reel card playing state */
+.nfa-vtestimonials__reel-card.is-playing .nfa-vtestimonials__reel-play {
+    display: none;
+}
+
+.nfa-vtestimonials__reel-card.is-playing .nfa-vtestimonials__reel-img {
+    visibility: hidden;
+}
+
+.nfa-vtestimonials__reel-card.is-playing .nfa-vtestimonials__reel-controls {
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nfa-vtestimonials__reel-card.is-playing:hover .nfa-vtestimonials__reel-controls {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nfa-vtestimonials__reel-card.is-playing::after {
+    background: transparent;
 }
 
 /* ── Carousel Layout ─────────────────────────────────────────────────── */
@@ -3222,7 +3267,7 @@ a.nfa-areas__card:hover {
 .nfa-vtestimonials__reel-card {
     position: relative;
     aspect-ratio: 9 / 16;
-    border-radius: 16px;
+    border-radius: .5rem;
     overflow: hidden;
     cursor: pointer;
     background: #000;
@@ -3232,95 +3277,108 @@ a.nfa-areas__card:hover {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.15);
-    transition: background 0.35s ease;
+    background: rgb(0 0 0 / .2);
+    transition: background-color 150ms cubic-bezier(.4, 0, .2, 1);
     pointer-events: none;
     z-index: 1;
 }
 
 .nfa-vtestimonials__reel-card:hover::after {
-    background: rgba(0, 0, 0, 0.30);
+    background: rgb(0 0 0 / .3);
 }
 
-/* ── Reel Thumbnail Image ────────────────────────────────────────────── */
-
-.nfa-vtestimonials__reel-img {
+.nfa-vtestimonials__reel-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
+    z-index: 0;
+    background: #000;
 }
 
-.nfa-vtestimonials__reel-card:hover .nfa-vtestimonials__reel-img {
-    transform: scale(1.05);
+.nfa-vtestimonials__reel-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.nfa-vtestimonials__reel-card:hover .nfa-vtestimonials__reel-video {
+    transform: none;
+    transition: none;
 }
 
 /* ── Reel Play Button (centered) ─────────────────────────────────────── */
 
 .nfa-vtestimonials__reel-play {
     position: absolute;
+    inset: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
     width: 56px;
     height: 56px;
-    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
     border: none;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.35s ease, background-color 0.3s ease;
+    transition: color 150ms cubic-bezier(.4, 0, .2, 1), background-color 150ms cubic-bezier(.4, 0, .2, 1), border-color 150ms cubic-bezier(.4, 0, .2, 1), fill 150ms cubic-bezier(.4, 0, .2, 1), stroke 150ms cubic-bezier(.4, 0, .2, 1);
     padding: 0;
 }
 
 .nfa-vtestimonials__reel-play svg {
-    width: 24px;
-    height: 24px;
+    width: 2rem;
+    height: 2rem;
     fill: #ffffff;
-    margin-left: 2px;
-}
-
-.nfa-vtestimonials__reel-card:hover .nfa-vtestimonials__reel-play {
-    transform: translate(-50%, -50%) scale(1.12);
-    background-color: rgba(0, 0, 0, 0.55);
+    stroke: #ffffff;
+    color: #ffffff;
+    margin-left: 0;
+    background-color: rgb(0 0 0 / .5);
+    border-radius: 9999px;
+    padding: .75rem;
+    box-sizing: content-box;
 }
 
 /* ── Reel Bottom Controls ────────────────────────────────────────────── */
 
 .nfa-vtestimonials__reel-controls {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
+    right: .5rem;
+    left: .5rem;
+    bottom: .5rem;
     z-index: 2;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: .25rem;
 }
 
 .nfa-vtestimonials__reel-ctrl {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.35);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: #00000080;
     color: #ffffff;
-    transition: background 0.25s ease;
+    transition: color 150ms cubic-bezier(.4, 0, .2, 1), background-color 150ms cubic-bezier(.4, 0, .2, 1), border-color 150ms cubic-bezier(.4, 0, .2, 1), fill 150ms cubic-bezier(.4, 0, .2, 1), stroke 150ms cubic-bezier(.4, 0, .2, 1);
     cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nfa-vtestimonials__reel-ctrl:hover {
-    background: rgba(0, 0, 0, 0.55);
+    background: #00000080;
 }
 
 .nfa-vtestimonials__reel-ctrl svg {
-    width: 14px;
-    height: 14px;
+    width: 1rem;
+    height: 1rem;
+    fill: #ffffff;
+    stroke: #ffffff;
+    color: #ffffff;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────── */

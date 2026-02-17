@@ -207,7 +207,19 @@ class Video_Testimonials_Widget extends Widget_Base
             'type'      => Controls_Manager::COLOR,
             'default'   => '#ffffff',
             'selectors' => [
-                '{{WRAPPER}} .nfa-vtestimonials__reel-play svg' => 'fill: {{VALUE}};',
+                '{{WRAPPER}} .nfa-vtestimonials__reel-play svg' => 'fill: {{VALUE}}; color: {{VALUE}};',
+                '{{WRAPPER}} .nfa-vtestimonials__reel-ctrl svg' => 'fill: {{VALUE}}; color: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_play_icon_stroke_color', [
+            'label'     => esc_html__('Play Icon Stroke', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'default'   => '#ffffff',
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-play svg' => 'stroke: {{VALUE}};',
+                '{{WRAPPER}} .nfa-vtestimonials__reel-ctrl svg' => 'stroke: {{VALUE}};',
             ],
             'condition' => ['layout' => 'reel'],
         ]);
@@ -225,12 +237,51 @@ class Video_Testimonials_Widget extends Widget_Base
 
         $repeater = new Repeater();
 
-        $repeater->add_control('video_url', [
-            'label'       => esc_html__('Video URL', 'nebula-forge-addons-for-elementor'),
+        $repeater->add_control('video_source', [
+            'label'   => esc_html__('Video Source', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SELECT,
+            'default' => 'youtube',
+            'options' => [
+                'youtube'     => esc_html__('YouTube', 'nebula-forge-addons-for-elementor'),
+                'vimeo'       => esc_html__('Vimeo', 'nebula-forge-addons-for-elementor'),
+                'self_hosted' => esc_html__('Self Hosted (MP4)', 'nebula-forge-addons-for-elementor'),
+            ],
+        ]);
+
+        $repeater->add_control('video_youtube_url', [
+            'label'       => esc_html__('YouTube URL', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::URL,
             'placeholder' => 'https://www.youtube.com/watch?v=...',
             'label_block' => true,
             'default'     => ['url' => ''],
+            'condition'   => ['video_source' => 'youtube'],
+        ]);
+
+        $repeater->add_control('video_vimeo_url', [
+            'label'       => esc_html__('Vimeo URL', 'nebula-forge-addons-for-elementor'),
+            'type'        => Controls_Manager::URL,
+            'placeholder' => 'https://vimeo.com/123456789',
+            'label_block' => true,
+            'default'     => ['url' => ''],
+            'condition'   => ['video_source' => 'vimeo'],
+        ]);
+
+        $repeater->add_control('video_hosted', [
+            'label'      => esc_html__('Upload Video', 'nebula-forge-addons-for-elementor'),
+            'type'       => Controls_Manager::MEDIA,
+            'media_types' => ['video'],
+            'default'    => ['url' => ''],
+            'condition'  => ['video_source' => 'self_hosted'],
+        ]);
+
+        $repeater->add_control('video_external_url', [
+            'label'       => esc_html__('External Video URL', 'nebula-forge-addons-for-elementor'),
+            'type'        => Controls_Manager::URL,
+            'placeholder' => 'https://example.com/video.mp4',
+            'label_block' => true,
+            'default'     => ['url' => ''],
+            'description' => esc_html__('Or paste a direct link to an MP4 file.', 'nebula-forge-addons-for-elementor'),
+            'condition'   => ['video_source' => 'self_hosted'],
         ]);
 
         $repeater->add_control('thumbnail', [
@@ -239,6 +290,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
             ],
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('name', [
@@ -246,6 +298,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'type'        => Controls_Manager::TEXT,
             'default'     => esc_html__('John Doe', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
+            'condition'   => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('role', [
@@ -253,6 +306,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'type'        => Controls_Manager::TEXT,
             'default'     => esc_html__('CEO, Acme Corp', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
+            'condition'   => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('quote', [
@@ -260,11 +314,13 @@ class Video_Testimonials_Widget extends Widget_Base
             'type'    => Controls_Manager::TEXTAREA,
             'default' => esc_html__('This product completely transformed our workflow. Highly recommended!', 'nebula-forge-addons-for-elementor'),
             'rows'    => 3,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('avatar', [
             'label' => esc_html__('Avatar', 'nebula-forge-addons-for-elementor'),
             'type'  => Controls_Manager::MEDIA,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('rating', [
@@ -274,6 +330,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'max'     => 5,
             'step'    => 1,
             'default' => 5,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $repeater->add_control('video_duration', [
@@ -281,6 +338,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'type'        => Controls_Manager::TEXT,
             'default'     => '2:30',
             'description' => esc_html__('Optional. Shown on thumbnail corner.', 'nebula-forge-addons-for-elementor'),
+            'condition'   => ['layout!' => 'reel'],
         ]);
 
         $this->add_control('testimonials', [
@@ -322,7 +380,7 @@ class Video_Testimonials_Widget extends Widget_Base
         $this->start_controls_section('section_carousel', [
             'label'     => esc_html__('Carousel Settings', 'nebula-forge-addons-for-elementor'),
             'tab'       => Controls_Manager::TAB_CONTENT,
-            'condition' => ['layout' => 'carousel'],
+            'condition' => ['layout' => ['carousel', 'reel']],
         ]);
 
         $this->add_responsive_control('slides_per_view', [
@@ -879,7 +937,7 @@ class Video_Testimonials_Widget extends Widget_Base
         $this->start_controls_section('section_style_nav', [
             'label'     => esc_html__('Navigation', 'nebula-forge-addons-for-elementor'),
             'tab'       => Controls_Manager::TAB_STYLE,
-            'condition' => ['layout' => 'carousel'],
+            'condition' => ['layout' => ['carousel', 'reel']],
         ]);
 
         $this->add_control('arrow_size', [
@@ -983,10 +1041,47 @@ class Video_Testimonials_Widget extends Widget_Base
      * ----------------------------------------------------------------*/
 
     /**
+     * Resolve the video URL from the repeater item based on selected source.
+     */
+    private function resolve_video_url(array $item): string
+    {
+        $source = $item['video_source'] ?? 'youtube';
+
+        switch ($source) {
+            case 'youtube':
+                $url = $item['video_youtube_url']['url'] ?? '';
+                break;
+            case 'vimeo':
+                $url = $item['video_vimeo_url']['url'] ?? '';
+                break;
+            case 'self_hosted':
+                $hosted   = $item['video_hosted']['url'] ?? '';
+                $external = $item['video_external_url']['url'] ?? '';
+                $url      = !empty($hosted) ? $hosted : $external;
+                break;
+            default:
+                $url = '';
+                break;
+        }
+
+        // Backward compatibility: fall back to legacy video_url field.
+        if (empty($url) && !empty($item['video_url']['url'])) {
+            $url = $item['video_url']['url'];
+        }
+
+        return $url;
+    }
+
+    /**
      * Extract a video embed URL from a given link.
      */
-    private function get_embed_url(string $url): string
+    private function get_embed_url(string $url, string $source = ''): string
     {
+        // Self-hosted MP4 – return as-is (played via <video> or direct)
+        if ($source === 'self_hosted') {
+            return $url;
+        }
+
         // YouTube
         if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/', $url, $m)) {
             return 'https://www.youtube.com/embed/' . $m[1] . '?autoplay=1&rel=0';
@@ -1000,48 +1095,103 @@ class Video_Testimonials_Widget extends Widget_Base
     }
 
     /**
+     * Check if URL points to a self-hosted video file.
+     */
+    private function is_self_hosted(string $source): bool
+    {
+        return $source === 'self_hosted';
+    }
+
+    /**
+     * Resolve thumbnail URL.
+     * Priority: custom thumbnail > auto thumbnail from video source > Elementor placeholder.
+     */
+    private function resolve_thumbnail_url(array $item, bool $allow_placeholder = true): string
+    {
+        $thumb_url = $item['thumbnail']['url'] ?? '';
+
+        // Treat Elementor default placeholder as empty.
+        if (!empty($thumb_url) && strpos($thumb_url, 'elementor/assets/images/placeholder.png') !== false) {
+            $thumb_url = '';
+        }
+
+        if (!empty($thumb_url)) {
+            return $thumb_url;
+        }
+
+        $video_url = $this->resolve_video_url($item);
+        $source    = $item['video_source'] ?? 'youtube';
+
+        if (!empty($video_url)) {
+            $youtube_id = '';
+            if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/', $video_url, $m)) {
+                $youtube_id = $m[1];
+            }
+
+            if (!empty($youtube_id)) {
+                return 'https://img.youtube.com/vi/' . $youtube_id . '/hqdefault.jpg';
+            }
+
+            $vimeo_id = '';
+            if (preg_match('/vimeo\.com\/(?:video\/)?(\d+)/', $video_url, $m)) {
+                $vimeo_id = $m[1];
+            }
+
+            if (!empty($vimeo_id)) {
+                return 'https://vumbnail.com/' . $vimeo_id . '.jpg';
+            }
+        }
+
+        return $allow_placeholder ? Utils::get_placeholder_image_src() : '';
+    }
+
+    /**
      * Render a single testimonial card.
      */
     private function render_card(array $item, string $video_action): void
     {
-        $video_url   = $item['video_url']['url'] ?? '';
+        $video_url   = $this->resolve_video_url($item);
+        $video_src   = $item['video_source'] ?? 'youtube';
         $has_video   = !empty($video_url);
-        $thumb_url   = $item['thumbnail']['url'] ?? '';
+        $thumb_url   = $this->resolve_thumbnail_url($item);
         $name        = $item['name'] ?? '';
         $role        = $item['role'] ?? '';
         $quote       = $item['quote'] ?? '';
         $duration    = $item['video_duration'] ?? '';
         $avatar_url  = $item['avatar']['url'] ?? '';
         $rating      = isset($item['rating']) ? max(0, min(5, (int) $item['rating'])) : 0;
+        $is_hosted   = $this->is_self_hosted($video_src);
 
         $card_attrs = '';
         if ($has_video) {
+            $embed_url = $this->get_embed_url($video_url, $video_src);
             if ($video_action === 'lightbox') {
-                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="lightbox"';
+                $card_attrs = ' data-video-url="' . esc_attr($embed_url) . '" data-action="lightbox"';
             } elseif ($video_action === 'inline') {
-                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="inline"';
+                $card_attrs = ' data-video-url="' . esc_attr($embed_url) . '" data-action="inline"';
             } elseif ($video_action === 'new_tab') {
                 $card_attrs = ' data-video-url="' . esc_attr(esc_url($video_url)) . '" data-action="new_tab"';
+            }
+            if ($is_hosted) {
+                $card_attrs .= ' data-video-type="hosted"';
             }
         }
         ?>
         <div class="nfa-vtestimonials__card"<?php echo $card_attrs; ?>>
-            <?php if (!empty($thumb_url)) : ?>
-                <div class="nfa-vtestimonials__thumb">
-                    <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy">
-                    <?php if ($has_video) : ?>
-                        <button class="nfa-vtestimonials__play" type="button" aria-label="<?php echo esc_attr(
-                            /* translators: %s: person name */
-                            sprintf(__('Play video testimonial from %s', 'nebula-forge-addons-for-elementor'), $name)
-                        ); ?>">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
-                    <?php endif; ?>
-                    <?php if (!empty($duration)) : ?>
-                        <span class="nfa-vtestimonials__duration"><?php echo esc_html($duration); ?></span>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
+            <div class="nfa-vtestimonials__thumb">
+                <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy">
+                <?php if ($has_video) : ?>
+                    <button class="nfa-vtestimonials__play" type="button" aria-label="<?php echo esc_attr(
+                        /* translators: %s: person name */
+                        sprintf(__('Play video testimonial from %s', 'nebula-forge-addons-for-elementor'), $name)
+                    ); ?>">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                <?php endif; ?>
+                <?php if (!empty($duration)) : ?>
+                    <span class="nfa-vtestimonials__duration"><?php echo esc_html($duration); ?></span>
+                <?php endif; ?>
+            </div>
 
             <div class="nfa-vtestimonials__content">
                 <?php if ($rating > 0) : ?>
@@ -1118,13 +1268,71 @@ class Video_Testimonials_Widget extends Widget_Base
     /* ── Reel Render ──────────────────────────────────────────────────── */
     private function render_reel(array $settings, array $testimonials, string $video_action): void
     {
+        $per_view         = intval($settings['slides_per_view'] ?? ($settings['reel_columns']['size'] ?? 4));
+        $per_view_tablet  = intval($settings['slides_per_view_tablet'] ?? ($settings['reel_columns_tablet']['size'] ?? min($per_view, 2)));
+        $per_view_mobile  = intval($settings['slides_per_view_mobile'] ?? ($settings['reel_columns_mobile']['size'] ?? 1));
+        $gap              = intval($settings['slide_gap']['size'] ?? ($settings['reel_gap']['size'] ?? 16));
+        $show_arrows      = !empty($settings['show_arrows']) && $settings['show_arrows'] === 'yes';
+        $nav_position     = $settings['nav_position'] ?? 'bottom-center';
+        $show_dots        = !empty($settings['show_dots']) && $settings['show_dots'] === 'yes';
+        $mouse_drag       = (!empty($settings['mouse_drag']) && $settings['mouse_drag'] === 'yes') ? 'yes' : 'no';
+        $infinite_loop    = (!empty($settings['infinite_loop']) && $settings['infinite_loop'] === 'yes') ? 'yes' : 'no';
+        $transition_speed = intval($settings['transition_speed'] ?? 450);
+        $autoplay         = $settings['autoplay'] ?? 'no';
+        $autoplay_speed   = $settings['autoplay_speed'] ?? 4000;
+        $pause_on_hover   = $settings['pause_on_hover'] ?? 'yes';
+
+        $wrapper_class = 'nfa-vtestimonials nfa-vtestimonials--carousel nfa-vtestimonials--reel-carousel';
+        if ($show_arrows) {
+            $wrapper_class .= ' nfa-vtestimonials--nav-' . $nav_position;
+        }
         ?>
-        <div class="nfa-vtestimonials nfa-vtestimonials--reel">
-            <div class="nfa-vtestimonials__reel">
-                <?php foreach ($testimonials as $item) : ?>
-                    <?php $this->render_reel_card($item, $video_action); ?>
-                <?php endforeach; ?>
+        <div class="<?php echo esc_attr($wrapper_class); ?>"
+             data-per-view="<?php echo esc_attr($per_view); ?>"
+             data-per-view-tablet="<?php echo esc_attr($per_view_tablet); ?>"
+             data-per-view-mobile="<?php echo esc_attr($per_view_mobile); ?>"
+             data-gap="<?php echo esc_attr($gap); ?>"
+             data-mouse-drag="<?php echo esc_attr($mouse_drag); ?>"
+             data-infinite="<?php echo esc_attr($infinite_loop); ?>"
+             data-speed="<?php echo esc_attr($transition_speed); ?>"
+             data-autoplay="<?php echo esc_attr($autoplay); ?>"
+             data-autoplay-speed="<?php echo esc_attr($autoplay_speed); ?>"
+             data-pause-on-hover="<?php echo esc_attr($pause_on_hover); ?>">
+
+            <?php if ($show_arrows && $nav_position === 'sides') : ?>
+            <button class="nfa-vtestimonials__arrow nfa-vtestimonials__arrow--prev nfa-vtestimonials__arrow--side" aria-label="<?php esc_attr_e('Previous', 'nebula-forge-addons-for-elementor'); ?>">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <?php endif; ?>
+
+            <div class="nfa-vtestimonials__viewport">
+                <div class="nfa-vtestimonials__track" style="gap:<?php echo esc_attr($gap); ?>px;">
+                    <?php foreach ($testimonials as $item) : ?>
+                        <?php $this->render_reel_card($item, $video_action); ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
+
+            <?php if ($show_arrows && $nav_position === 'sides') : ?>
+            <button class="nfa-vtestimonials__arrow nfa-vtestimonials__arrow--next nfa-vtestimonials__arrow--side" aria-label="<?php esc_attr_e('Next', 'nebula-forge-addons-for-elementor'); ?>">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <?php endif; ?>
+
+            <?php if ($show_arrows && $nav_position !== 'sides') : ?>
+            <div class="nfa-vtestimonials__nav">
+                <button class="nfa-vtestimonials__arrow nfa-vtestimonials__arrow--prev" aria-label="<?php esc_attr_e('Previous', 'nebula-forge-addons-for-elementor'); ?>">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="nfa-vtestimonials__arrow nfa-vtestimonials__arrow--next" aria-label="<?php esc_attr_e('Next', 'nebula-forge-addons-for-elementor'); ?>">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+            <?php endif; ?>
+
+            <?php if ($show_dots) : ?>
+            <div class="nfa-vtestimonials__dots"></div>
+            <?php endif; ?>
         </div>
         <?php
     }
@@ -1134,42 +1342,59 @@ class Video_Testimonials_Widget extends Widget_Base
      */
     private function render_reel_card(array $item, string $video_action): void
     {
-        $video_url  = $item['video_url']['url'] ?? '';
+        $video_url  = $this->resolve_video_url($item);
+        $video_src  = $item['video_source'] ?? 'youtube';
         $has_video  = !empty($video_url);
-        $thumb_url  = $item['thumbnail']['url'] ?? '';
+        $thumb_url  = $this->resolve_thumbnail_url($item, false);
         $name       = $item['name'] ?? '';
+        $is_hosted  = $this->is_self_hosted($video_src);
+        $card_style = '';
+        if (!$is_hosted && !empty($thumb_url)) {
+            $card_style = ' style="background-image:url(' . esc_url($thumb_url) . ');background-size:cover;background-position:center;"';
+        }
 
         $card_attrs = '';
         if ($has_video) {
+            $embed_url = $this->get_embed_url($video_url, $video_src);
             if ($video_action === 'lightbox') {
-                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="lightbox"';
+                $card_attrs = ' data-video-url="' . esc_attr($embed_url) . '" data-action="lightbox"';
             } elseif ($video_action === 'inline') {
-                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="inline"';
+                $card_attrs = ' data-video-url="' . esc_attr($embed_url) . '" data-action="inline"';
             } elseif ($video_action === 'new_tab') {
                 $card_attrs = ' data-video-url="' . esc_attr(esc_url($video_url)) . '" data-action="new_tab"';
             }
+            if ($is_hosted) {
+                $card_attrs .= ' data-video-type="hosted"';
+            }
         }
         ?>
-        <div class="nfa-vtestimonials__reel-card nfa-vtestimonials__card"<?php echo $card_attrs; ?>>
-            <?php if (!empty($thumb_url)) : ?>
-                <img class="nfa-vtestimonials__reel-img" src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy">
+        <div class="nfa-vtestimonials__reel-card nfa-vtestimonials__card"<?php echo $card_attrs . $card_style; ?>>
+            <?php if ($is_hosted && $has_video) : ?>
+                <video class="nfa-vtestimonials__reel-video" loop playsinline preload="metadata" poster="<?php echo esc_url($thumb_url); ?>" aria-label="<?php echo esc_attr(
+                    sprintf(__('Client testimonial: %s', 'nebula-forge-addons-for-elementor'), $name)
+                ); ?>">
+                    <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                    <?php esc_html_e('Your browser does not support the video tag.', 'nebula-forge-addons-for-elementor'); ?>
+                </video>
             <?php endif; ?>
 
             <?php if ($has_video) : ?>
                 <button class="nfa-vtestimonials__reel-play nfa-vtestimonials__play" type="button" aria-label="<?php echo esc_attr(
                     sprintf(__('Play video testimonial from %s', 'nebula-forge-addons-for-elementor'), $name)
                 ); ?>">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="play_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
                 </button>
             <?php endif; ?>
 
             <div class="nfa-vtestimonials__reel-controls">
                 <?php if ($has_video) : ?>
-                    <span class="nfa-vtestimonials__reel-ctrl" aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <span class="nfa-vtestimonials__reel-ctrl nfa-vtestimonials__reel-ctrl--play" aria-hidden="true">
+                        <svg class="play_icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                        <svg class="pause_icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
                     </span>
-                    <span class="nfa-vtestimonials__reel-ctrl" aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    <span class="nfa-vtestimonials__reel-ctrl nfa-vtestimonials__reel-ctrl--volume" aria-hidden="true">
+                        <svg class="volume_up_icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15 9a5 5 0 0 1 0 6"></path><path d="M19 5a9 9 0 0 1 0 14"></path></svg>
+                        <svg class="volume_mute_icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="22" x2="16" y1="9" y2="15"></line><line x1="16" x2="22" y1="9" y2="15"></line></svg>
                     </span>
                 <?php endif; ?>
             </div>

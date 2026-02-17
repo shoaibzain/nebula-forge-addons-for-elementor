@@ -1214,14 +1214,91 @@
             $(window).on('resize', function () { render(); buildDots(); });
         });
 
-        /* ── Video Play Actions (grid + carousel) ─────── */
+        /* ── Helper: stop all playing videos globally ─────── */
+        function stopAllVideos() {
+            /* Remove inline iframes */
+            $('.nfa-vtestimonials__thumb--playing iframe, .nfa-vtestimonials__thumb--playing video').each(function () {
+                const el = this;
+                if (el.tagName === 'VIDEO') { el.pause(); }
+                $(el).remove();
+            });
+            $('.nfa-vtestimonials__thumb--playing').removeClass('nfa-vtestimonials__thumb--playing')
+                .find('.nfa-vtestimonials__play, .nfa-vtestimonials__duration').show();
+
+            /* Reel cards */
+            $('.nfa-vtestimonials__reel-card.is-playing').each(function () {
+                const $rc = $(this);
+                const nativeVideo = $rc.find('.nfa-vtestimonials__reel-video').get(0);
+                if (nativeVideo) {
+                    nativeVideo.pause();
+                    nativeVideo.currentTime = 0;
+                }
+                $rc.find('.nfa-vtestimonials__reel-runtime').each(function () {
+                    if (this.tagName === 'VIDEO') this.pause();
+                    $(this).remove();
+                });
+                $rc.removeClass('is-playing');
+                $rc.find('.nfa-vtestimonials__reel-play').show();
+                $rc.find('.nfa-vtestimonials__reel-controls').show();
+                /* reset control icons */
+                $rc.find('.play_icon').css('display', 'inline');
+                $rc.find('.pause_icon').css('display', 'none');
+                $rc.find('.volume_up_icon').css('display', 'inline');
+                $rc.find('.volume_mute_icon').css('display', 'none');
+            });
+
+            /* Close lightbox if open */
+            const $lb = $('#nfa-vtestimonials-lightbox');
+            if ($lb.hasClass('is-open')) {
+                $lb.removeClass('is-open');
+                setTimeout(function () { $lb.find('.nfa-vtestimonials-lightbox__media').empty(); }, 350);
+            }
+        }
+
+        /* ── Video Play Actions ─────────────────────────── */
         scope.find('.nfa-vtestimonials__card[data-video-url]').each(function () {
-            const $card  = $(this);
-            const url    = $card.data('video-url');
-            const action = $card.data('action');
+            const $card    = $(this);
+            const url      = $card.data('video-url');
+            const action   = $card.data('action');
+            const isHosted = $card.data('video-type') === 'hosted';
+            const isReel   = $card.hasClass('nfa-vtestimonials__reel-card');
 
             if (!url) return;
 
+            /* Reel bottom-bar play/pause toggle */
+            if (isReel) {
+                $card.find('.nfa-vtestimonials__reel-ctrl--play').on('click', function (e) {
+                    e.stopPropagation();
+                    const vid = $card.find('.nfa-vtestimonials__reel-video')[0];
+                    if (!vid) return;
+                    if (vid.paused) {
+                        stopAllVideos();
+                        $card.addClass('is-playing');
+                        $card.find('.nfa-vtestimonials__reel-play').hide();
+                        vid.play();
+                        $card.find('.play_icon').css('display', 'none');
+                        $card.find('.pause_icon').css('display', 'inline');
+                    } else {
+                        vid.pause();
+                        $card.removeClass('is-playing');
+                        $card.find('.nfa-vtestimonials__reel-play').show();
+                        $card.find('.play_icon').css('display', 'inline');
+                        $card.find('.pause_icon').css('display', 'none');
+                    }
+                });
+
+                /* Reel volume toggle */
+                $card.find('.nfa-vtestimonials__reel-ctrl--volume').on('click', function (e) {
+                    e.stopPropagation();
+                    const vid = $card.find('.nfa-vtestimonials__reel-video')[0];
+                    if (!vid) return;
+                    vid.muted = !vid.muted;
+                    $card.find('.volume_up_icon').css('display', vid.muted ? 'none' : 'inline');
+                    $card.find('.volume_mute_icon').css('display', vid.muted ? 'inline' : 'none');
+                });
+            }
+
+            /* Main play button click */
             $card.find('.nfa-vtestimonials__play').on('click', function (e) {
                 e.stopPropagation();
 
@@ -1230,16 +1307,56 @@
                     return;
                 }
 
+                /* Stop any currently playing video first */
+                stopAllVideos();
+
                 if (action === 'inline') {
-                    const $thumb = $card.find('.nfa-vtestimonials__thumb');
-                    if ($thumb.hasClass('nfa-vtestimonials__thumb--playing')) return;
-                    $thumb.addClass('nfa-vtestimonials__thumb--playing');
-                    const iframe = document.createElement('iframe');
-                    iframe.src = url;
-                    iframe.setAttribute('allow', 'autoplay; encrypted-media');
-                    iframe.setAttribute('allowfullscreen', '');
-                    $thumb.append(iframe);
-                    $thumb.find('.nfa-vtestimonials__play, .nfa-vtestimonials__duration').hide();
+                    if (isReel) {
+                        /* ── Reel inline: custom controls, no browser UI ── */
+                        $card.addClass('is-playing');
+
+                        if (isHosted) {
+                            const video = $card.find('.nfa-vtestimonials__reel-video').get(0);
+                            if (video) {
+                                video.muted = false;
+                                video.play();
+                            }
+                            /* Update icons to pause */
+                            $card.find('.play_icon').css('display', 'none');
+                            $card.find('.pause_icon').css('display', 'inline');
+                        } else {
+                            const iframe = document.createElement('iframe');
+                            iframe.src = url;
+                            iframe.setAttribute('allow', 'autoplay; encrypted-media');
+                            iframe.setAttribute('allowfullscreen', '');
+                            iframe.className = 'nfa-vtestimonials__reel-runtime';
+                            iframe.style.cssText = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;border:0;';
+                            $card.append(iframe);
+                            /* hide reel controls for iframe (can't control them) */
+                            $card.find('.nfa-vtestimonials__reel-controls').hide();
+                        }
+                        $card.find('.nfa-vtestimonials__reel-play').hide();
+                    } else {
+                        /* ── Grid / Carousel inline ── */
+                        const $container = $card.find('.nfa-vtestimonials__thumb');
+                        if ($container.hasClass('nfa-vtestimonials__thumb--playing')) return;
+                        $container.addClass('nfa-vtestimonials__thumb--playing');
+
+                        if (isHosted) {
+                            const video = document.createElement('video');
+                            video.src = url;
+                            video.autoplay = true;
+                            video.controls = true;
+                            $container.append(video);
+                        } else {
+                            const iframe = document.createElement('iframe');
+                            iframe.src = url;
+                            iframe.setAttribute('allow', 'autoplay; encrypted-media');
+                            iframe.setAttribute('allowfullscreen', '');
+                            $container.append(iframe);
+                        }
+                        $container.find('.nfa-vtestimonials__play, .nfa-vtestimonials__duration').hide();
+                    }
                     return;
                 }
 
@@ -1249,32 +1366,36 @@
                     $lb = $('<div id="nfa-vtestimonials-lightbox" class="nfa-vtestimonials-lightbox">' +
                         '<div class="nfa-vtestimonials-lightbox__inner">' +
                         '<button class="nfa-vtestimonials-lightbox__close" aria-label="Close">&times;</button>' +
-                        '<iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>' +
+                        '<div class="nfa-vtestimonials-lightbox__media"></div>' +
                         '</div>' +
                         '</div>');
                     $('body').append($lb);
 
-                    $lb.find('.nfa-vtestimonials-lightbox__close').on('click', function () {
+                    const closeLb = function () {
                         $lb.removeClass('is-open');
-                        setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
-                    });
+                        setTimeout(function () {
+                            $lb.find('.nfa-vtestimonials-lightbox__media').empty();
+                        }, 350);
+                    };
+
+                    $lb.find('.nfa-vtestimonials-lightbox__close').on('click', closeLb);
 
                     $lb.on('click', function (ev) {
-                        if ($(ev.target).hasClass('nfa-vtestimonials-lightbox')) {
-                            $lb.removeClass('is-open');
-                            setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
-                        }
+                        if ($(ev.target).hasClass('nfa-vtestimonials-lightbox')) closeLb();
                     });
 
                     $(document).on('keydown', function (ev) {
-                        if (ev.key === 'Escape' && $lb.hasClass('is-open')) {
-                            $lb.removeClass('is-open');
-                            setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
-                        }
+                        if (ev.key === 'Escape' && $lb.hasClass('is-open')) closeLb();
                     });
                 }
 
-                $lb.find('iframe').attr('src', url);
+                const $media = $lb.find('.nfa-vtestimonials-lightbox__media');
+                $media.empty();
+                if (isHosted) {
+                    $media.append('<video src="' + url + '" autoplay controls style="width:100%;height:100%;object-fit:contain;"></video>');
+                } else {
+                    $media.append('<iframe src="' + url + '" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:100%;border:0;"></iframe>');
+                }
                 $lb.addClass('is-open');
             });
         });
