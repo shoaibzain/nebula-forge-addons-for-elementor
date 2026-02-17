@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,10 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.1 =
+* Removed `.nfa-vtestimonials__reel-video` CSS positioning block from frontend styles.
+* Removed related reel video hover transform/transition rule from minified frontend CSS.
+
 = 0.9.0 =
 * Added Video Testimonials widget with Grid and Carousel layout modes.
 * Video thumbnail cards with play button overlay, duration badge, star rating, quote, avatar, name, and role.
