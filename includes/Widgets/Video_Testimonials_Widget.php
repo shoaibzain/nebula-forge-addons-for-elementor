@@ -49,7 +49,7 @@ class Video_Testimonials_Widget extends Widget_Base
 
     public function get_keywords(): array
     {
-        return ['video', 'testimonials', 'reviews', 'carousel', 'grid', 'play', 'social proof'];
+        return ['video', 'testimonials', 'reviews', 'carousel', 'grid', 'reel', 'play', 'social proof'];
     }
 
     public function get_style_depends(): array
@@ -93,6 +93,7 @@ class Video_Testimonials_Widget extends Widget_Base
             'options' => [
                 'grid'     => esc_html__('Grid', 'nebula-forge-addons-for-elementor'),
                 'carousel' => esc_html__('Carousel', 'nebula-forge-addons-for-elementor'),
+                'reel'     => esc_html__('Reel', 'nebula-forge-addons-for-elementor'),
             ],
         ]);
 
@@ -105,6 +106,110 @@ class Video_Testimonials_Widget extends Widget_Base
                 'inline'   => esc_html__('Play Inline', 'nebula-forge-addons-for-elementor'),
                 'new_tab'  => esc_html__('Open in New Tab', 'nebula-forge-addons-for-elementor'),
             ],
+        ]);
+
+        /* ── Reel Settings ────────────────────────────────────────── */
+        $this->add_responsive_control('reel_columns', [
+            'label'          => esc_html__('Columns', 'nebula-forge-addons-for-elementor'),
+            'type'           => Controls_Manager::SLIDER,
+            'size_units'     => ['col'],
+            'range'          => ['col' => ['min' => 1, 'max' => 6]],
+            'default'        => ['size' => 4, 'unit' => 'col'],
+            'tablet_default' => ['size' => 2, 'unit' => 'col'],
+            'mobile_default' => ['size' => 1, 'unit' => 'col'],
+            'selectors'      => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel' => 'grid-template-columns: repeat({{SIZE}}, minmax(0, 1fr));',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_responsive_control('reel_gap', [
+            'label'   => esc_html__('Gap', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SLIDER,
+            'range'   => ['px' => ['min' => 0, 'max' => 60]],
+            'default' => ['size' => 16, 'unit' => 'px'],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel' => 'gap: {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_responsive_control('reel_aspect_ratio', [
+            'label'   => esc_html__('Aspect Ratio', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SELECT,
+            'default' => '9/16',
+            'options' => [
+                '9/16'  => esc_html__('9:16 (Reel)', 'nebula-forge-addons-for-elementor'),
+                '3/4'   => esc_html__('3:4 (Portrait)', 'nebula-forge-addons-for-elementor'),
+                '4/5'   => esc_html__('4:5 (Social)', 'nebula-forge-addons-for-elementor'),
+                '1/1'   => esc_html__('1:1 (Square)', 'nebula-forge-addons-for-elementor'),
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-card' => 'aspect-ratio: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_radius', [
+            'label'   => esc_html__('Border Radius', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SLIDER,
+            'range'   => ['px' => ['min' => 0, 'max' => 40]],
+            'default' => ['size' => 16, 'unit' => 'px'],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-card' => 'border-radius: {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_overlay_color', [
+            'label'     => esc_html__('Overlay Color', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'default'   => 'rgba(0,0,0,0.15)',
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-card::after' => 'background: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_hover_overlay_color', [
+            'label'     => esc_html__('Hover Overlay Color', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'default'   => 'rgba(0,0,0,0.30)',
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-card:hover::after' => 'background: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_play_size', [
+            'label'   => esc_html__('Play Button Size', 'nebula-forge-addons-for-elementor'),
+            'type'    => Controls_Manager::SLIDER,
+            'range'   => ['px' => ['min' => 30, 'max' => 100]],
+            'default' => ['size' => 56, 'unit' => 'px'],
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-play' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_play_bg', [
+            'label'     => esc_html__('Play Button BG', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'default'   => 'rgba(0,0,0,0.45)',
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-play' => 'background-color: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
+        ]);
+
+        $this->add_control('reel_play_icon_color', [
+            'label'     => esc_html__('Play Icon Color', 'nebula-forge-addons-for-elementor'),
+            'type'      => Controls_Manager::COLOR,
+            'default'   => '#ffffff',
+            'selectors' => [
+                '{{WRAPPER}} .nfa-vtestimonials__reel-play svg' => 'fill: {{VALUE}};',
+            ],
+            'condition' => ['layout' => 'reel'],
         ]);
 
         $this->end_controls_section();
@@ -367,6 +472,13 @@ class Video_Testimonials_Widget extends Widget_Base
             'condition' => ['layout' => 'grid'],
         ]);
 
+        $this->add_control('heading_card_style_notice', [
+            'type'            => Controls_Manager::RAW_HTML,
+            'raw'             => esc_html__('Card style options are not applicable in Reel layout.', 'nebula-forge-addons-for-elementor'),
+            'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
+            'condition'       => ['layout' => 'reel'],
+        ]);
+
         $this->add_group_control(Group_Control_Background::get_type(), [
             'name'     => 'card_background',
             'types'    => ['classic', 'gradient'],
@@ -416,8 +528,9 @@ class Video_Testimonials_Widget extends Widget_Base
     private function register_style_thumbnail_controls(): void
     {
         $this->start_controls_section('section_style_thumbnail', [
-            'label' => esc_html__('Thumbnail', 'nebula-forge-addons-for-elementor'),
-            'tab'   => Controls_Manager::TAB_STYLE,
+            'label'     => esc_html__('Thumbnail', 'nebula-forge-addons-for-elementor'),
+            'tab'       => Controls_Manager::TAB_STYLE,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $this->add_responsive_control('thumb_height', [
@@ -483,8 +596,9 @@ class Video_Testimonials_Widget extends Widget_Base
     private function register_style_play_button_controls(): void
     {
         $this->start_controls_section('section_style_play', [
-            'label' => esc_html__('Play Button', 'nebula-forge-addons-for-elementor'),
-            'tab'   => Controls_Manager::TAB_STYLE,
+            'label'     => esc_html__('Play Button', 'nebula-forge-addons-for-elementor'),
+            'tab'       => Controls_Manager::TAB_STYLE,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $this->add_control('play_size', [
@@ -546,8 +660,9 @@ class Video_Testimonials_Widget extends Widget_Base
     private function register_style_content_controls(): void
     {
         $this->start_controls_section('section_style_content', [
-            'label' => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
-            'tab'   => Controls_Manager::TAB_STYLE,
+            'label'     => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
+            'tab'       => Controls_Manager::TAB_STYLE,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $this->add_responsive_control('content_padding', [
@@ -691,8 +806,9 @@ class Video_Testimonials_Widget extends Widget_Base
     private function register_style_hover_controls(): void
     {
         $this->start_controls_section('section_style_hover', [
-            'label' => esc_html__('Hover Effects', 'nebula-forge-addons-for-elementor'),
-            'tab'   => Controls_Manager::TAB_STYLE,
+            'label'     => esc_html__('Hover Effects', 'nebula-forge-addons-for-elementor'),
+            'tab'       => Controls_Manager::TAB_STYLE,
+            'condition' => ['layout!' => 'reel'],
         ]);
 
         $this->add_control('hover_lift', [
@@ -976,6 +1092,8 @@ class Video_Testimonials_Widget extends Widget_Base
 
         if ($layout === 'carousel') {
             $this->render_carousel($settings, $testimonials, $video_action);
+        } elseif ($layout === 'reel') {
+            $this->render_reel($settings, $testimonials, $video_action);
         } else {
             $this->render_grid($settings, $testimonials, $video_action);
         }
@@ -992,6 +1110,68 @@ class Video_Testimonials_Widget extends Widget_Base
                 <?php foreach ($testimonials as $item) : ?>
                     <?php $this->render_card($item, $video_action); ?>
                 <?php endforeach; ?>
+            </div>
+        </div>
+        <?php
+    }
+
+    /* ── Reel Render ──────────────────────────────────────────────────── */
+    private function render_reel(array $settings, array $testimonials, string $video_action): void
+    {
+        ?>
+        <div class="nfa-vtestimonials nfa-vtestimonials--reel">
+            <div class="nfa-vtestimonials__reel">
+                <?php foreach ($testimonials as $item) : ?>
+                    <?php $this->render_reel_card($item, $video_action); ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
+     * Render a single reel card (video-only, portrait thumbnail).
+     */
+    private function render_reel_card(array $item, string $video_action): void
+    {
+        $video_url  = $item['video_url']['url'] ?? '';
+        $has_video  = !empty($video_url);
+        $thumb_url  = $item['thumbnail']['url'] ?? '';
+        $name       = $item['name'] ?? '';
+
+        $card_attrs = '';
+        if ($has_video) {
+            if ($video_action === 'lightbox') {
+                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="lightbox"';
+            } elseif ($video_action === 'inline') {
+                $card_attrs = ' data-video-url="' . esc_attr($this->get_embed_url($video_url)) . '" data-action="inline"';
+            } elseif ($video_action === 'new_tab') {
+                $card_attrs = ' data-video-url="' . esc_attr(esc_url($video_url)) . '" data-action="new_tab"';
+            }
+        }
+        ?>
+        <div class="nfa-vtestimonials__reel-card nfa-vtestimonials__card"<?php echo $card_attrs; ?>>
+            <?php if (!empty($thumb_url)) : ?>
+                <img class="nfa-vtestimonials__reel-img" src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy">
+            <?php endif; ?>
+
+            <?php if ($has_video) : ?>
+                <button class="nfa-vtestimonials__reel-play nfa-vtestimonials__play" type="button" aria-label="<?php echo esc_attr(
+                    sprintf(__('Play video testimonial from %s', 'nebula-forge-addons-for-elementor'), $name)
+                ); ?>">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+            <?php endif; ?>
+
+            <div class="nfa-vtestimonials__reel-controls">
+                <?php if ($has_video) : ?>
+                    <span class="nfa-vtestimonials__reel-ctrl" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                    <span class="nfa-vtestimonials__reel-ctrl" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </span>
+                <?php endif; ?>
             </div>
         </div>
         <?php
