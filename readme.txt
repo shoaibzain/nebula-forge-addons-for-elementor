@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.7.0
+Stable tag: 0.8.0
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,17 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.8.0 =
+* Added Numbered Cards widget with 3 layout modes: Grid, Steps, and Carousel.
+* Grid layout: configurable columns, gap, card background, padding, border radius, border, and box shadow.
+* Steps layout: icon badge circle, step label prefix, bold italic title, divider, accent border on hover (left/top/right/bottom/none), full typography and color controls.
+* Carousel layout: slides per view (responsive), gap, arrows, dots, mouse/touch drag, infinite loop, transition speed, autoplay with pause on hover.
+* Carousel arrow position: bottom-right/left/center, top-right/left/center, sides overlay.
+* Redesigned admin UI with premium glassmorphism styling, animated background orbs, Inter font, and elevated cards.
+* Changed FAQ widget answer field from textarea to WYSIWYG rich-text editor.
+* Updated frontend CSS and JS with numbered cards styles, carousel logic, and drag support.
+* Bumped total widget count from 19 to 20.
+
 = 0.7.0 =
 * Added Hamburger Menu widget — off-canvas mobile navigation with slide panel (left/right/top), WP nav menu or custom items, submenu accordion, three icon styles, overlay, close on link/ESC, and full style controls.
 * Added Advanced Form widget — drag-and-drop form builder with 12 field types (text, email, tel, URL, number, textarea, select, radio, checkbox, date, file, hidden), per-field width, validation, AJAX submission, email notifications, database storage, and redirect actions.
