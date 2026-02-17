@@ -236,6 +236,237 @@
     };
 
     /**
+     * Initialize Numbered Cards carousel layout.
+     *
+     * @param {jQuery} scope The widget wrapper element.
+     */
+    const initNumberedCards = (scope) => {
+        const $carousel = scope.find('.nfa-ncards--carousel');
+        if (!$carousel.length) return;
+
+        $carousel.each(function () {
+            const $el         = $(this);
+            const track       = $el.find('.nfa-ncards__track').get(0);
+            const cards       = Array.from(track.children);
+            const totalSlides = cards.length;
+
+            if (!track || totalSlides === 0) return;
+
+            // Prevent double-binding on Elementor re-init.
+            if ($el.data('ncards-bound')) return;
+            $el.data('ncards-bound', true);
+
+            const perViewDesktop = Math.max(1, parseInt($el.data('per-view'), 10) || 3);
+            const perViewTablet  = Math.max(1, parseInt($el.data('per-view-tablet'), 10) || 2);
+            const perViewMobile  = Math.max(1, parseInt($el.data('per-view-mobile'), 10) || 1);
+            const gap            = Math.max(0, parseInt($el.data('gap'), 10) || 20);
+            const doAutoplay     = $el.data('autoplay') === 'yes';
+            const autoplaySpeed  = Math.max(1000, parseInt($el.data('autoplay-speed'), 10) || 4000);
+            const pauseOnHover   = $el.data('pause-on-hover') === 'yes';
+            const enableDrag     = $el.data('mouse-drag') === 'yes';
+            const infiniteLoop   = $el.data('infinite') === 'yes';
+            const transSpeed     = Math.max(100, parseInt($el.data('speed'), 10) || 450);
+            const $dots          = $el.find('.nfa-ncards__dots');
+
+            // Apply transition speed
+            track.style.transition = 'transform ' + transSpeed + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+
+            let pos = 0;
+            let autoplayTimer = null;
+
+            function getPerView() {
+                const w = window.innerWidth;
+                if (w <= 767) return perViewMobile;
+                if (w <= 1024) return perViewTablet;
+                return perViewDesktop;
+            }
+
+            function getMaxPos() {
+                return Math.max(0, totalSlides - getPerView());
+            }
+
+            /* ── Dots ─────────────────────────────────── */
+            function buildDots() {
+                if (!$dots.length) return;
+                $dots.empty();
+                const maxPos = getMaxPos();
+                for (let i = 0; i <= maxPos; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'nfa-ncards__dot' + (i === pos ? ' is-active' : '');
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.addEventListener('click', function () {
+                        pos = i;
+                        render();
+                        updateDots();
+                        resetAutoplay();
+                    });
+                    $dots.get(0).appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                if (!$dots.length) return;
+                $dots.find('.nfa-ncards__dot').each(function (i) {
+                    $(this).toggleClass('is-active', i === pos);
+                });
+            }
+
+            function render() {
+                const pv = getPerView();
+                const cardWidth = 'calc((100% - ' + (gap * (pv - 1)) + 'px) / ' + pv + ')';
+                cards.forEach(function (card) {
+                    card.style.flex = '0 0 ' + cardWidth;
+                });
+
+                if (cards[0]) {
+                    const rect   = cards[0].getBoundingClientRect();
+                    const cardPx = rect.width + gap;
+                    track.style.transform = 'translateX(-' + (pos * cardPx) + 'px)';
+                }
+            }
+
+            function next() {
+                if (infiniteLoop) {
+                    pos = pos >= getMaxPos() ? 0 : pos + 1;
+                } else {
+                    pos = Math.min(pos + 1, getMaxPos());
+                }
+                render();
+                updateDots();
+            }
+
+            function prev() {
+                if (infiniteLoop) {
+                    pos = pos <= 0 ? getMaxPos() : pos - 1;
+                } else {
+                    pos = Math.max(pos - 1, 0);
+                }
+                render();
+                updateDots();
+            }
+
+            function startAutoplay() {
+                if (!doAutoplay) return;
+                stopAutoplay();
+                autoplayTimer = setInterval(next, autoplaySpeed);
+            }
+
+            function stopAutoplay() {
+                if (autoplayTimer) {
+                    clearInterval(autoplayTimer);
+                    autoplayTimer = null;
+                }
+            }
+
+            function resetAutoplay() {
+                if (!doAutoplay) return;
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            /* ── Arrow clicks ─────────────────────────── */
+            $el.find('.nfa-ncards__arrow--prev').on('click', function () {
+                prev();
+                resetAutoplay();
+            });
+
+            $el.find('.nfa-ncards__arrow--next').on('click', function () {
+                next();
+                resetAutoplay();
+            });
+
+            /* ── Mouse / Touch Drag ───────────────────── */
+            if (enableDrag) {
+                let dragStartX  = 0;
+                let dragDelta   = 0;
+                let isDragging  = false;
+                let startTransX = 0;
+                const threshold = 40; // px to trigger slide change
+
+                function getTranslateX() {
+                    const st = window.getComputedStyle(track);
+                    const mx = new DOMMatrix(st.transform);
+                    return mx.m41;
+                }
+
+                function onDragStart(e) {
+                    isDragging  = true;
+                    dragStartX  = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    startTransX = getTranslateX();
+                    track.style.transition = 'none';
+                    stopAutoplay();
+                    $el.addClass('is-dragging');
+                }
+
+                function onDragMove(e) {
+                    if (!isDragging) return;
+                    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    dragDelta = clientX - dragStartX;
+                    track.style.transform = 'translateX(' + (startTransX + dragDelta) + 'px)';
+                }
+
+                function onDragEnd() {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    $el.removeClass('is-dragging');
+                    track.style.transition = 'transform ' + transSpeed + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+
+                    if (Math.abs(dragDelta) > threshold) {
+                        if (dragDelta < 0) {
+                            next();
+                        } else {
+                            prev();
+                        }
+                    } else {
+                        render(); // snap back
+                    }
+                    dragDelta = 0;
+                    resetAutoplay();
+                }
+
+                // Mouse events
+                track.addEventListener('mousedown', onDragStart);
+                window.addEventListener('mousemove', onDragMove);
+                window.addEventListener('mouseup', onDragEnd);
+
+                // Touch events
+                track.addEventListener('touchstart', onDragStart, { passive: true });
+                track.addEventListener('touchmove', onDragMove, { passive: true });
+                track.addEventListener('touchend', onDragEnd);
+
+                // Prevent image dragging
+                $(track).find('img').on('dragstart', function (e) { e.preventDefault(); });
+
+                // Prevent click on links after drag
+                $(track).on('click', 'a', function (e) {
+                    if (Math.abs(dragDelta) > 5) {
+                        e.preventDefault();
+                    }
+                });
+            }
+
+            if (pauseOnHover && doAutoplay) {
+                $el.on('mouseenter', stopAutoplay);
+                $el.on('mouseleave', startAutoplay);
+            }
+
+            let resizeTimer;
+            $(window).on('resize.nfaNumberedCards', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    pos = Math.min(pos, getMaxPos());
+                    render();
+                    buildDots();
+                }, 150);
+            });
+
+            render();
+            buildDots();
+            startAutoplay();
+        });
+    };
+
+    /**
      * Initialize Content Tabs widget.
      *
      * @param {jQuery} scope The widget wrapper element.
@@ -814,6 +1045,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-testimonial-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-logo-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-showcase-carousel.default', initShowcaseCarousel);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-numbered-cards.default', initNumberedCards);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-content-tabs.default', initContentTabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-image-comparison.default', initImageComparison);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-countdown-timer.default', initCountdownTimer);

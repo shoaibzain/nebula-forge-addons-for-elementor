@@ -142,10 +142,11 @@ final class Submissions_Page
 
             <div class="nf-admin-content">
                 <!-- Filter Bar -->
-                <form method="get" class="nf-toolbar" style="margin-bottom:16px;">
+                <form method="get" class="nf-filter-bar">
                     <input type="hidden" name="page" value="<?php echo esc_attr(Admin_Manager::MENU_SLUG_SUBMISSIONS); ?>">
+                    <label><?php esc_html_e('Filter by form:', 'nebula-forge-addons-for-elementor'); ?></label>
                     <div class="nf-toolbar__left">
-                        <select name="form_name" style="min-width:180px;padding:6px 10px;">
+                        <select name="form_name">
                             <option value=""><?php esc_html_e('All Forms', 'nebula-forge-addons-for-elementor'); ?></option>
                             <?php foreach ($form_names as $fn) : ?>
                                 <option value="<?php echo esc_attr($fn); ?>" <?php selected($filter_form, $fn); ?>>
@@ -163,7 +164,7 @@ final class Submissions_Page
                 <?php if ($query->have_posts()) : ?>
                     <form method="post">
                         <?php wp_nonce_field('nfa_submissions_action', 'nfa_sub_nonce'); ?>
-                        <table class="widefat nf-submissions-table" style="border-radius:12px;overflow:hidden;">
+                        <table class="widefat nf-submissions-table">
                             <thead>
                                 <tr>
                                     <th style="width:30px;"><input type="checkbox" id="nfa-check-all"></th>
@@ -216,7 +217,7 @@ final class Submissions_Page
                             </tbody>
                         </table>
 
-                        <div class="nf-toolbar" style="margin-top:12px;">
+                        <div class="nf-toolbar" style="margin-top:16px;">
                             <div class="nf-toolbar__left">
                                 <button type="submit" name="nfa_bulk_action" value="delete" class="nf-button nf-button--outline nf-button--sm" style="color:#ef4444;" onclick="return confirm('<?php esc_attr_e('Delete selected submissions?', 'nebula-forge-addons-for-elementor'); ?>');">
                                     <span class="dashicons dashicons-trash"></span>
@@ -244,10 +245,10 @@ final class Submissions_Page
                         </div>
                     </form>
                 <?php else : ?>
-                    <div class="nf-card" style="text-align:center;padding:48px;">
-                        <span class="dashicons dashicons-email-alt" style="font-size:48px;color:#cbd5e1;margin-bottom:16px;"></span>
-                        <h3><?php esc_html_e('No submissions yet', 'nebula-forge-addons-for-elementor'); ?></h3>
-                        <p style="color:#64748b;"><?php esc_html_e('Form submissions will appear here once visitors start submitting your forms.', 'nebula-forge-addons-for-elementor'); ?></p>
+                    <div class="nf-card" style="text-align:center;padding:56px 28px;">
+                        <span class="dashicons dashicons-email-alt" style="font-size:52px;width:52px;height:52px;color:var(--nf-text-3);margin-bottom:16px;display:inline-block;"></span>
+                        <h3 style="margin:0 0 8px;font-size:18px;font-weight:800;letter-spacing:-.3px;"><?php esc_html_e('No submissions yet', 'nebula-forge-addons-for-elementor'); ?></h3>
+                        <p style="color:var(--nf-text-2);margin:0;font-size:14px;"><?php esc_html_e('Form submissions will appear here once visitors start submitting your forms.', 'nebula-forge-addons-for-elementor'); ?></p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -308,17 +309,17 @@ final class Submissions_Page
             <?php endif; ?>
 
             <div class="nf-admin-content">
-                <div class="nf-card">
-                    <h2 style="margin-top:0;">
-                        <span class="dashicons dashicons-editor-table" style="margin-right:8px;"></span>
+                <div class="nf-submission-detail">
+                    <h2 class="nf-card__title">
+                        <span class="dashicons dashicons-editor-table"></span>
                         <?php esc_html_e('Form Data', 'nebula-forge-addons-for-elementor'); ?>
                     </h2>
                     <?php if (is_array($data) && !empty($data)) : ?>
-                        <table class="widefat" style="border-radius:8px;overflow:hidden;">
+                        <table class="widefat nf-submissions-table">
                             <tbody>
                                 <?php foreach ($data as $i => $d) : ?>
-                                    <tr class="<?php echo $i % 2 === 0 ? 'alternate' : ''; ?>">
-                                        <td style="font-weight:600;width:200px;"><?php echo esc_html($d['label']); ?></td>
+                                    <tr>
+                                        <td style="font-weight:700;width:200px;"><?php echo esc_html($d['label']); ?></td>
                                         <td><?php echo nl2br(esc_html($d['value'])); ?></td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -329,12 +330,12 @@ final class Submissions_Page
                     <?php endif; ?>
                 </div>
 
-                <div class="nf-card" style="margin-top:16px;">
-                    <h2 style="margin-top:0;">
-                        <span class="dashicons dashicons-info-outline" style="margin-right:8px;"></span>
+                <div class="nf-submission-detail" style="margin-top:18px;">
+                    <h2 class="nf-card__title">
+                        <span class="dashicons dashicons-info-outline"></span>
                         <?php esc_html_e('Metadata', 'nebula-forge-addons-for-elementor'); ?>
                     </h2>
-                    <table class="widefat" style="border-radius:8px;overflow:hidden;">
+                    <table class="widefat nf-submissions-table">
                         <tbody>
                             <tr>
                                 <td style="font-weight:600;width:200px;"><?php esc_html_e('Form', 'nebula-forge-addons-for-elementor'); ?></td>

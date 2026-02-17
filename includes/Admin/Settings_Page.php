@@ -218,15 +218,14 @@ final class Settings_Page
                     </div>
 
                     <!-- Extensions Section -->
-                    <div class="nf-card" style="margin-top: 32px;">
-                        <h2 style="margin-top:0;">
-                            <span class="dashicons dashicons-admin-plugins" style="margin-right:8px;"></span>
-                            <?php esc_html_e('Pro Extensions', 'nebula-forge-addons-for-elementor'); ?>
-                        </h2>
-                        <p style="color:#64748b;margin-bottom:16px;">
-                            <?php esc_html_e('Toggle professional extensions that add advanced capabilities to every Elementor element.', 'nebula-forge-addons-for-elementor'); ?>
-                        </p>
-                        <div class="nf-extensions-grid">
+                    <h2 class="nf-extensions-title">
+                        <span class="dashicons dashicons-admin-plugins"></span>
+                        <?php esc_html_e('Pro Extensions', 'nebula-forge-addons-for-elementor'); ?>
+                    </h2>
+                    <p class="nf-extensions-desc" style="color:var(--nf-text-2);margin:0 0 4px;font-size:13px;">
+                        <?php esc_html_e('Toggle professional extensions that add advanced capabilities to every Elementor element.', 'nebula-forge-addons-for-elementor'); ?>
+                    </p>
+                    <div class="nf-extensions-grid">
                             <?php foreach ($extensions as $ext_key => $ext) : ?>
                                 <?php $is_ext_enabled = in_array($ext_key, $enabled_extensions, true); ?>
                                 <div class="nf-extension-card">
@@ -246,7 +245,6 @@ final class Settings_Page
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                    </div>
 
                     <div class="nf-settings-footer">
                         <button type="submit" class="nf-button nf-button--primary">

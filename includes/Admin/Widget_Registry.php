@@ -219,6 +219,16 @@ final class Widget_Registry
                 'class'       => Widgets\Advanced_Form_Widget::class,
                 'icon'        => 'eicon-form-horizontal',
             ],
+            'numbered_cards' => [
+                'label'       => __('Numbered Cards', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Numbered feature/process cards with Grid and Carousel layout modes, icons or images.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Display services, features, or process steps as numbered cards in a grid or sliding carousel.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('CARDS', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#84cc16',
+                'category'    => 'content',
+                'class'       => Widgets\Numbered_Cards_Widget::class,
+                'icon'        => 'eicon-number-field',
+            ],
         ];
     }
 

@@ -90,9 +90,8 @@ class Faq_Accordion_Widget extends Widget_Base
             'answer',
             [
                 'label' => esc_html__('Answer', 'nebula-forge-addons-for-elementor'),
-                'type' => Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::WYSIWYG,
                 'default' => esc_html__('No. All widgets are built for the free Elementor plugin.', 'nebula-forge-addons-for-elementor'),
-                'rows' => 3,
             ]
         );
 
@@ -346,7 +345,7 @@ class Faq_Accordion_Widget extends Widget_Base
                             <?php endif; ?>
                             <?php if (!empty($item['answer'])) : ?>
                                 <div class="nfa-faq__answer">
-                                    <?php echo esc_html($item['answer']); ?>
+                                    <?php echo wp_kses_post($item['answer']); ?>
                                 </div>
                             <?php endif; ?>
                         </details>
