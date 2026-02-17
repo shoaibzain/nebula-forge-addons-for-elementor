@@ -2768,3 +2768,459 @@ a.nfa-areas__card:hover {
         font-size: 2.2rem;
     }
 }
+
+/* =====================================================================
+   VIDEO TESTIMONIALS WIDGET
+   ===================================================================== */
+
+.nfa-vtestimonials {
+    position: relative;
+}
+
+/* ── Grid Layout ─────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+    cursor: pointer;
+}
+
+/* Hover lift */
+.nfa-vtestimonials--lift .nfa-vtestimonials__card:hover {
+    transform: translateY(-6px);
+}
+
+/* ── Thumbnail ───────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__thumb {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.nfa-vtestimonials__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Thumbnail zoom on hover */
+.nfa-vtestimonials--thumb-zoom .nfa-vtestimonials__card:hover .nfa-vtestimonials__thumb img {
+    transform: scale(1.08);
+}
+
+/* Dark overlay */
+.nfa-vtestimonials__thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    transition: background 0.35s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nfa-vtestimonials__card:hover .nfa-vtestimonials__thumb::after {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* ── Play Button ─────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.35s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0;
+}
+
+.nfa-vtestimonials__play svg {
+    width: 20px;
+    height: 20px;
+    fill: #1a1a2e;
+    margin-left: 2px; /* optical center for play triangle */
+}
+
+.nfa-vtestimonials__card:hover .nfa-vtestimonials__play {
+    transform: translate(-50%, -50%) scale(1.15);
+    background-color: #ffffff;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Duration Badge ──────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__duration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+}
+
+/* ── Content ─────────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__content {
+    padding: 16px 16px 4px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rating */
+.nfa-vtestimonials__rating {
+    color: #fbbf24;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+/* Quote */
+.nfa-vtestimonials__quote {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #333333;
+    margin: 0 0 12px 0;
+    flex: 1;
+}
+
+/* Author Row */
+.nfa-vtestimonials__author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.nfa-vtestimonials__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.nfa-vtestimonials__author-info {
+    min-width: 0;
+}
+
+.nfa-vtestimonials__name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nfa-vtestimonials__role {
+    font-size: 0.8rem;
+    color: #888888;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Lightbox ────────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nfa-vtestimonials-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nfa-vtestimonials-lightbox__inner {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.35s ease;
+}
+
+.nfa-vtestimonials-lightbox.is-open .nfa-vtestimonials-lightbox__inner {
+    transform: scale(1);
+}
+
+.nfa-vtestimonials-lightbox__inner iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.nfa-vtestimonials-lightbox__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.nfa-vtestimonials-lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Inline video embed replace */
+.nfa-vtestimonials__thumb--playing {
+    position: relative;
+}
+
+.nfa-vtestimonials__thumb--playing iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 5;
+}
+
+/* ── Carousel Layout ─────────────────────────────────────────────────── */
+
+.nfa-vtestimonials--carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.nfa-vtestimonials__viewport {
+    overflow: hidden;
+}
+
+.nfa-vtestimonials__track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.nfa-vtestimonials--carousel.is-dragging .nfa-vtestimonials__track {
+    cursor: grabbing;
+}
+
+.nfa-vtestimonials--carousel .nfa-vtestimonials__card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-height: 0;
+}
+
+/* ── Nav Container (bottom positions) ────────────────────────────────── */
+
+.nfa-vtestimonials__nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.nfa-vtestimonials--nav-bottom-right .nfa-vtestimonials__nav {
+    justify-content: flex-end;
+}
+
+.nfa-vtestimonials--nav-bottom-left .nfa-vtestimonials__nav {
+    justify-content: flex-start;
+}
+
+.nfa-vtestimonials--nav-bottom-center .nfa-vtestimonials__nav {
+    justify-content: center;
+}
+
+.nfa-vtestimonials--nav-top-right .nfa-vtestimonials__nav,
+.nfa-vtestimonials--nav-top-left .nfa-vtestimonials__nav,
+.nfa-vtestimonials--nav-top-center .nfa-vtestimonials__nav {
+    margin-top: 0;
+    margin-bottom: 20px;
+    order: -1;
+}
+
+.nfa-vtestimonials--nav-top-right .nfa-vtestimonials__nav {
+    justify-content: flex-end;
+}
+
+.nfa-vtestimonials--nav-top-left .nfa-vtestimonials__nav {
+    justify-content: flex-start;
+}
+
+.nfa-vtestimonials--nav-top-center .nfa-vtestimonials__nav {
+    justify-content: center;
+}
+
+.nfa-vtestimonials--nav-top-right,
+.nfa-vtestimonials--nav-top-left,
+.nfa-vtestimonials--nav-top-center {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Sides (overlay) Nav ─────────────────────────────────────────────── */
+
+.nfa-vtestimonials--nav-sides {
+    position: relative;
+}
+
+.nfa-vtestimonials__arrow--side {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.nfa-vtestimonials__arrow--side.nfa-vtestimonials__arrow--prev {
+    left: -48px;
+}
+
+.nfa-vtestimonials__arrow--side.nfa-vtestimonials__arrow--next {
+    right: -48px;
+}
+
+@media (max-width: 1200px) {
+    .nfa-vtestimonials__arrow--side.nfa-vtestimonials__arrow--prev {
+        left: 8px;
+    }
+    .nfa-vtestimonials__arrow--side.nfa-vtestimonials__arrow--next {
+        right: 8px;
+    }
+}
+
+/* ── Arrow Buttons ───────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #e0e0e0;
+    background: #ffffff;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    padding: 0;
+}
+
+.nfa-vtestimonials__arrow:hover {
+    background-color: #1a1a2e;
+    border-color: #1a1a2e;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.nfa-vtestimonials__arrow--side:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+.nfa-vtestimonials__arrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ── Dots ─────────────────────────────────────────────────────────────── */
+
+.nfa-vtestimonials__dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 4px 0;
+}
+
+.nfa-vtestimonials__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d1d5db;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.nfa-vtestimonials__dot:hover {
+    transform: scale(1.3);
+}
+
+.nfa-vtestimonials__dot.is-active {
+    background-color: #1a1a2e;
+    transform: scale(1.2);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .nfa-vtestimonials__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .nfa-vtestimonials__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nfa-vtestimonials__thumb {
+        height: 180px;
+    }
+}

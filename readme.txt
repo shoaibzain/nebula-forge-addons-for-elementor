@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.8.0
+Stable tag: 0.9.0
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,21 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.0 =
+* Added Video Testimonials widget with Grid and Carousel layout modes.
+* Video thumbnail cards with play button overlay, duration badge, star rating, quote, avatar, name, and role.
+* Three video click actions: Lightbox, Inline Play, and Open in New Tab.
+* Carousel: slides per view (responsive), gap, arrows, dots, mouse/touch drag, infinite loop, transition speed, autoplay.
+* Arrow position: bottom-right/left/center, top-right/left/center, sides overlay.
+* Full hover effects: card lift (configurable amount), thumbnail zoom on hover, overlay darken, play button scale.
+* Dedicated Hover Effects style section with shadow, background, and border controls.
+* Play Button style section with size, colors, hover scale, and box shadow.
+* Thumbnail style section with height, border radius, overlay color, and duration badge styling.
+* Content style section with typography/color for quote, name, role, rating, and avatar sizing.
+* Navigation style section with arrow size, colors, hover states, dot size, and dot colors.
+* Lightbox with keyboard (ESC) and backdrop close, smooth open/close animations.
+* Bumped total widget count from 20 to 21.
+
 = 0.8.0 =
 * Added Numbered Cards widget with 3 layout modes: Grid, Steps, and Carousel.
 * Grid layout: configurable columns, gap, card background, padding, border radius, border, and box shadow.

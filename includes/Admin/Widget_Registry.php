@@ -229,6 +229,16 @@ final class Widget_Registry
                 'class'       => Widgets\Numbered_Cards_Widget::class,
                 'icon'        => 'eicon-number-field',
             ],
+            'video_testimonials' => [
+                'label'       => __('Video Testimonials', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Video-based testimonial cards with thumbnails, play buttons, quotes, and star ratings.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Showcase customer video reviews in a grid or carousel with lightbox, inline play, or new tab actions.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('VIDEO', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#ef4444',
+                'category'    => 'social',
+                'class'       => Widgets\Video_Testimonials_Widget::class,
+                'icon'        => 'eicon-video-playlist',
+            ],
         ];
     }
 

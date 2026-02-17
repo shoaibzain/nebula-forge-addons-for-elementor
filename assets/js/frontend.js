@@ -1037,6 +1037,249 @@
         });
     };
 
+    /* ==================================================================
+     * VIDEO TESTIMONIALS
+     * ================================================================*/
+    const initVideoTestimonials = (scope) => {
+        const $carousel = scope.find('.nfa-vtestimonials--carousel');
+
+        /* ── Carousel Logic ─────────────────────────── */
+        $carousel.each(function () {
+            const $el         = $(this);
+            const track       = $el.find('.nfa-vtestimonials__track').get(0);
+            const cards       = Array.from(track.children);
+            const totalSlides = cards.length;
+
+            if (!track || totalSlides === 0) return;
+            if ($el.data('vtesti-bound')) return;
+            $el.data('vtesti-bound', true);
+
+            const perViewDesktop = Math.max(1, parseInt($el.data('per-view'), 10) || 3);
+            const perViewTablet  = Math.max(1, parseInt($el.data('per-view-tablet'), 10) || 2);
+            const perViewMobile  = Math.max(1, parseInt($el.data('per-view-mobile'), 10) || 1);
+            const gap            = Math.max(0, parseInt($el.data('gap'), 10) || 24);
+            const doAutoplay     = $el.data('autoplay') === 'yes';
+            const autoplaySpeed  = Math.max(1000, parseInt($el.data('autoplay-speed'), 10) || 4000);
+            const pauseOnHover   = $el.data('pause-on-hover') === 'yes';
+            const enableDrag     = $el.data('mouse-drag') === 'yes';
+            const infiniteLoop   = $el.data('infinite') === 'yes';
+            const transSpeed     = Math.max(100, parseInt($el.data('speed'), 10) || 450);
+            const $dots          = $el.find('.nfa-vtestimonials__dots');
+
+            track.style.transition = 'transform ' + transSpeed + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+
+            let pos = 0;
+            let autoplayTimer = null;
+
+            function getPerView() {
+                const w = window.innerWidth;
+                if (w <= 767) return perViewMobile;
+                if (w <= 1024) return perViewTablet;
+                return perViewDesktop;
+            }
+
+            function getMaxPos() {
+                return Math.max(0, totalSlides - getPerView());
+            }
+
+            function buildDots() {
+                if (!$dots.length) return;
+                $dots.empty();
+                const maxPos = getMaxPos();
+                for (let i = 0; i <= maxPos; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'nfa-vtestimonials__dot' + (i === pos ? ' is-active' : '');
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.addEventListener('click', function () {
+                        pos = i;
+                        render();
+                        updateDots();
+                        resetAutoplay();
+                    });
+                    $dots.get(0).appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                if (!$dots.length) return;
+                $dots.find('.nfa-vtestimonials__dot').each(function (i) {
+                    $(this).toggleClass('is-active', i === pos);
+                });
+            }
+
+            function render() {
+                const pv = getPerView();
+                const cardWidth = 'calc((100% - ' + (gap * (pv - 1)) + 'px) / ' + pv + ')';
+                cards.forEach(function (card) {
+                    card.style.flex = '0 0 ' + cardWidth;
+                });
+                if (cards[0]) {
+                    const rect   = cards[0].getBoundingClientRect();
+                    const cardPx = rect.width + gap;
+                    track.style.transform = 'translateX(-' + (pos * cardPx) + 'px)';
+                }
+            }
+
+            function next() {
+                if (infiniteLoop) {
+                    pos = pos >= getMaxPos() ? 0 : pos + 1;
+                } else {
+                    pos = Math.min(pos + 1, getMaxPos());
+                }
+                render();
+                updateDots();
+            }
+
+            function prev() {
+                if (infiniteLoop) {
+                    pos = pos <= 0 ? getMaxPos() : pos - 1;
+                } else {
+                    pos = Math.max(pos - 1, 0);
+                }
+                render();
+                updateDots();
+            }
+
+            function startAutoplay() {
+                if (!doAutoplay) return;
+                stopAutoplay();
+                autoplayTimer = setInterval(next, autoplaySpeed);
+            }
+            function stopAutoplay() {
+                if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+            }
+            function resetAutoplay() {
+                if (!doAutoplay) return;
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            $el.find('.nfa-vtestimonials__arrow--prev').on('click', function () { prev(); resetAutoplay(); });
+            $el.find('.nfa-vtestimonials__arrow--next').on('click', function () { next(); resetAutoplay(); });
+
+            /* Drag */
+            if (enableDrag) {
+                let dragStartX = 0, dragDelta = 0, isDragging = false, startTransX = 0;
+                const threshold = 40;
+
+                function getTranslateX() {
+                    const st = window.getComputedStyle(track);
+                    const mx = new DOMMatrix(st.transform);
+                    return mx.m41;
+                }
+                function onDragStart(e) {
+                    isDragging = true;
+                    dragStartX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    startTransX = getTranslateX();
+                    track.style.transition = 'none';
+                    stopAutoplay();
+                    $el.addClass('is-dragging');
+                }
+                function onDragMove(e) {
+                    if (!isDragging) return;
+                    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    dragDelta = clientX - dragStartX;
+                    track.style.transform = 'translateX(' + (startTransX + dragDelta) + 'px)';
+                }
+                function onDragEnd() {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    $el.removeClass('is-dragging');
+                    track.style.transition = 'transform ' + transSpeed + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+                    if (Math.abs(dragDelta) > threshold) {
+                        dragDelta < 0 ? next() : prev();
+                    } else {
+                        render();
+                    }
+                    dragDelta = 0;
+                    resetAutoplay();
+                }
+
+                track.addEventListener('mousedown', onDragStart);
+                window.addEventListener('mousemove', onDragMove);
+                window.addEventListener('mouseup', onDragEnd);
+                track.addEventListener('touchstart', onDragStart, { passive: true });
+                track.addEventListener('touchmove', onDragMove, { passive: true });
+                track.addEventListener('touchend', onDragEnd);
+            }
+
+            if (pauseOnHover) {
+                $el.on('mouseenter', stopAutoplay);
+                $el.on('mouseleave', startAutoplay);
+            }
+
+            render();
+            buildDots();
+            startAutoplay();
+            $(window).on('resize', function () { render(); buildDots(); });
+        });
+
+        /* ── Video Play Actions (grid + carousel) ─────── */
+        scope.find('.nfa-vtestimonials__card[data-video-url]').each(function () {
+            const $card  = $(this);
+            const url    = $card.data('video-url');
+            const action = $card.data('action');
+
+            if (!url) return;
+
+            $card.find('.nfa-vtestimonials__play').on('click', function (e) {
+                e.stopPropagation();
+
+                if (action === 'new_tab') {
+                    window.open(url, '_blank', 'noopener');
+                    return;
+                }
+
+                if (action === 'inline') {
+                    const $thumb = $card.find('.nfa-vtestimonials__thumb');
+                    if ($thumb.hasClass('nfa-vtestimonials__thumb--playing')) return;
+                    $thumb.addClass('nfa-vtestimonials__thumb--playing');
+                    const iframe = document.createElement('iframe');
+                    iframe.src = url;
+                    iframe.setAttribute('allow', 'autoplay; encrypted-media');
+                    iframe.setAttribute('allowfullscreen', '');
+                    $thumb.append(iframe);
+                    $thumb.find('.nfa-vtestimonials__play, .nfa-vtestimonials__duration').hide();
+                    return;
+                }
+
+                /* Lightbox (default) */
+                let $lb = $('#nfa-vtestimonials-lightbox');
+                if (!$lb.length) {
+                    $lb = $('<div id="nfa-vtestimonials-lightbox" class="nfa-vtestimonials-lightbox">' +
+                        '<div class="nfa-vtestimonials-lightbox__inner">' +
+                        '<button class="nfa-vtestimonials-lightbox__close" aria-label="Close">&times;</button>' +
+                        '<iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>' +
+                        '</div>' +
+                        '</div>');
+                    $('body').append($lb);
+
+                    $lb.find('.nfa-vtestimonials-lightbox__close').on('click', function () {
+                        $lb.removeClass('is-open');
+                        setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
+                    });
+
+                    $lb.on('click', function (ev) {
+                        if ($(ev.target).hasClass('nfa-vtestimonials-lightbox')) {
+                            $lb.removeClass('is-open');
+                            setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
+                        }
+                    });
+
+                    $(document).on('keydown', function (ev) {
+                        if (ev.key === 'Escape' && $lb.hasClass('is-open')) {
+                            $lb.removeClass('is-open');
+                            setTimeout(function () { $lb.find('iframe').attr('src', ''); }, 350);
+                        }
+                    });
+                }
+
+                $lb.find('iframe').attr('src', url);
+                $lb.addClass('is-open');
+            });
+        });
+    };
+
     $(window).on('elementor/frontend/init', () => {
         if (!window.elementorFrontend || !elementorFrontend.hooks) {
             return;
@@ -1046,6 +1289,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-logo-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-showcase-carousel.default', initShowcaseCarousel);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-numbered-cards.default', initNumberedCards);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-video-testimonials.default', initVideoTestimonials);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-content-tabs.default', initContentTabs);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-image-comparison.default', initImageComparison);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-countdown-timer.default', initCountdownTimer);
