@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.2
+Stable tag: 0.9.3
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,9 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.3 =
+* Removed hardcoded font-size, font-weight, font-style, and line-height from `.nfa-ncards__step-title` to allow Elementor typography controls to take effect.
+
 = 0.9.1 =
 * Removed `.nfa-vtestimonials__reel-video` CSS positioning block from frontend styles.
 * Removed related reel video hover transform/transition rule from minified frontend CSS.
