@@ -344,7 +344,7 @@ class Numbered_Cards_Widget extends Widget_Base
             'tablet_default' => ['size' => 2, 'unit' => 'col'],
             'mobile_default' => ['size' => 1, 'unit' => 'col'],
             'selectors' => [
-                '{{WRAPPER}} .nfa-ncards__grid' => 'grid-template-columns: repeat({{SIZE}}, minmax(0, 1fr));',
+                '{{WRAPPER}} .nfa-ncards .nfa-ncards__grid' => 'grid-template-columns: repeat({{SIZE}}, minmax(0, 1fr));',
             ],
             'condition' => ['layout' => ['grid', 'steps']],
         ]);
@@ -355,7 +355,7 @@ class Numbered_Cards_Widget extends Widget_Base
             'range'   => ['px' => ['min' => 0, 'max' => 80]],
             'default' => ['size' => 20, 'unit' => 'px'],
             'selectors' => [
-                '{{WRAPPER}} .nfa-ncards__grid' => 'gap: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .nfa-ncards .nfa-ncards__grid' => 'gap: {{SIZE}}{{UNIT}};',
             ],
             'condition' => ['layout' => ['grid', 'steps']],
         ]);
@@ -363,7 +363,7 @@ class Numbered_Cards_Widget extends Widget_Base
         $this->add_group_control(Group_Control_Background::get_type(), [
             'name'     => 'card_background',
             'types'    => ['classic', 'gradient'],
-            'selector' => '{{WRAPPER}} .nfa-ncards__card',
+            'selector' => '{{WRAPPER}} .nfa-ncards .nfa-ncards__card',
             'fields_options' => [
                 'color' => ['default' => '#e8e4de'],
             ],
@@ -378,7 +378,7 @@ class Numbered_Cards_Widget extends Widget_Base
                 'unit' => 'px', 'isLinked' => true,
             ],
             'selectors' => [
-                '{{WRAPPER}} .nfa-ncards__card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .nfa-ncards .nfa-ncards__card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
         ]);
 
@@ -388,18 +388,18 @@ class Numbered_Cards_Widget extends Widget_Base
             'range'   => ['px' => ['min' => 0, 'max' => 60]],
             'default' => ['size' => 16, 'unit' => 'px'],
             'selectors' => [
-                '{{WRAPPER}} .nfa-ncards__card' => 'border-radius: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .nfa-ncards .nfa-ncards__card' => 'border-radius: {{SIZE}}{{UNIT}};',
             ],
         ]);
 
         $this->add_group_control(Group_Control_Border::get_type(), [
             'name'     => 'card_border',
-            'selector' => '{{WRAPPER}} .nfa-ncards__card',
+            'selector' => '{{WRAPPER}} .nfa-ncards .nfa-ncards__card',
         ]);
 
         $this->add_group_control(Group_Control_Box_Shadow::get_type(), [
             'name'     => 'card_shadow',
-            'selector' => '{{WRAPPER}} .nfa-ncards__card',
+            'selector' => '{{WRAPPER}} .nfa-ncards .nfa-ncards__card',
         ]);
 
         $this->end_controls_section();

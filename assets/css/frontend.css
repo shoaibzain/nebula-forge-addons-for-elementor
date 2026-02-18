@@ -2541,12 +2541,8 @@ a.nfa-areas__card:hover {
 
 /* Step title */
 .nfa-ncards__step-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    font-style: italic;
     color: #1e3a5f;
     margin: 0 0 14px 0;
-    line-height: 1.3;
 }
 
 /* Divider */
