@@ -462,8 +462,12 @@ class Hero_Cta_Widget extends Widget_Base
             <?php if (!empty($settings['kicker'])) : ?>
                 <p class="nfa-hero-cta__kicker"><?php echo esc_html($settings['kicker']); ?></p>
             <?php endif; ?>
+            <?php
+            $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+            $heading_tag = in_array($settings['heading_tag'], $allowed_tags, true) ? $settings['heading_tag'] : 'h2';
+            ?>
             <?php if (!empty($settings['headline'])) : ?>
-                <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-hero-cta__headline"><?php echo esc_html($settings['headline']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
+                <<?php echo esc_html($heading_tag); ?> class="nfa-hero-cta__headline"><?php echo esc_html($settings['headline']); ?></<?php echo esc_html($heading_tag); ?>>
             <?php endif; ?>
             <?php if (!empty($settings['body'])) : ?>
                 <p class="nfa-hero-cta__body"><?php echo esc_html($settings['body']); ?></p>

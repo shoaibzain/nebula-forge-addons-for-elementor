@@ -1392,9 +1392,19 @@
                 const $media = $lb.find('.nfa-vtestimonials-lightbox__media');
                 $media.empty();
                 if (isHosted) {
-                    $media.append('<video src="' + url + '" autoplay controls style="width:100%;height:100%;object-fit:contain;"></video>');
+                    var video = document.createElement('video');
+                    video.src = url;
+                    video.autoplay = true;
+                    video.controls = true;
+                    video.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+                    $media.append(video);
                 } else {
-                    $media.append('<iframe src="' + url + '" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:100%;border:0;"></iframe>');
+                    var iframe = document.createElement('iframe');
+                    iframe.src = url;
+                    iframe.allow = 'autoplay; encrypted-media';
+                    iframe.allowFullscreen = true;
+                    iframe.style.cssText = 'width:100%;height:100%;border:0;';
+                    $media.append(iframe);
                 }
                 $lb.addClass('is-open');
             });

@@ -644,8 +644,12 @@ class Pricing_Table_Widget extends Widget_Base
                 <span class="nfa-pricing-table__badge"><?php echo esc_html($settings['highlight_label']); ?></span>
             <?php endif; ?>
             <div class="nfa-pricing-table__header">
+                <?php
+                $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+                $heading_tag = in_array($settings['heading_tag'], $allowed_tags, true) ? $settings['heading_tag'] : 'h3';
+                ?>
                 <?php if (!empty($settings['plan_label'])) : ?>
-                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-pricing-table__label"><?php echo esc_html($settings['plan_label']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
+                    <<?php echo esc_html($heading_tag); ?> class="nfa-pricing-table__label"><?php echo esc_html($settings['plan_label']); ?></<?php echo esc_html($heading_tag); ?>>
                 <?php endif; ?>
                 <?php if (!empty($settings['plan_description'])) : ?>
                     <p class="nfa-pricing-table__description"><?php echo esc_html($settings['plan_description']); ?></p>

@@ -455,7 +455,7 @@ class Countdown_Timer_Widget extends Widget_Base
 
             <?php if ($expiry_data['action'] === 'message') : ?>
                 <div class="nfa-countdown__expiry" style="display:none;">
-                    <?php echo wp_kses_post($expiry_data['message']); ?>
+                    <?php echo esc_html($expiry_data['message']); ?>
                 </div>
             <?php endif; ?>
         </div>

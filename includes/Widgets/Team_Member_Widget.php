@@ -338,7 +338,8 @@ class Team_Member_Widget extends Widget_Base
         $settings  = $this->get_settings_for_display();
         $members   = $settings['members'] ?? [];
         $position  = $settings['image_position'] ?? 'top';
-        $tag       = $settings['heading_tag'] ?? 'h3';
+        $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+        $tag       = in_array($settings['heading_tag'] ?? 'h3', $allowed_tags, true) ? $settings['heading_tag'] : 'h3';
 
         if (empty($members)) {
             return;

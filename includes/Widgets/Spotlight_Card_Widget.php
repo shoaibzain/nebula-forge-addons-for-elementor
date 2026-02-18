@@ -518,8 +518,12 @@ class Spotlight_Card_Widget extends Widget_Base
                     <p class="nfa-spotlight-card__eyebrow"><?php echo esc_html($settings['eyebrow']); ?></p>
                 <?php endif; ?>
 
+                <?php
+                $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+                $heading_tag = in_array($settings['heading_tag'], $allowed_tags, true) ? $settings['heading_tag'] : 'h3';
+                ?>
                 <?php if (!empty($settings['title'])) : ?>
-                    <<?php echo esc_attr($settings['heading_tag']); ?> class="nfa-spotlight-card__title"><?php echo esc_html($settings['title']); ?></<?php echo esc_attr($settings['heading_tag']); ?>>
+                    <<?php echo esc_html($heading_tag); ?> class="nfa-spotlight-card__title"><?php echo esc_html($settings['title']); ?></<?php echo esc_html($heading_tag); ?>>
                 <?php endif; ?>
 
                 <?php if (!empty($settings['description'])) : ?>

@@ -1177,7 +1177,7 @@ class Video_Testimonials_Widget extends Widget_Base
             }
         }
         ?>
-        <div class="nfa-vtestimonials__card"<?php echo $card_attrs; ?>>
+        <div class="nfa-vtestimonials__card"<?php echo $card_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- individual attribute values pre-escaped with esc_attr() during construction ?>>
             <div class="nfa-vtestimonials__thumb">
                 <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy">
                 <?php if ($has_video) : ?>
@@ -1368,7 +1368,7 @@ class Video_Testimonials_Widget extends Widget_Base
             }
         }
         ?>
-        <div class="nfa-vtestimonials__reel-card nfa-vtestimonials__card"<?php echo $card_attrs . $card_style; ?>>
+        <div class="nfa-vtestimonials__reel-card nfa-vtestimonials__card"<?php echo $card_attrs . $card_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- individual attribute values pre-escaped with esc_attr() during construction ?>>
             <?php if ($is_hosted && $has_video) : ?>
                 <video class="nfa-vtestimonials__reel-video" loop playsinline preload="metadata" poster="<?php echo esc_url($thumb_url); ?>" aria-label="<?php echo esc_attr(
                     sprintf(__('Client testimonial: %s', 'nebula-forge-addons-for-elementor'), $name)

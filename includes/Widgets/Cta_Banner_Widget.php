@@ -318,7 +318,8 @@ class Cta_Banner_Widget extends Widget_Base
     {
         $s       = $this->get_settings_for_display();
         $layout  = $s['layout'] ?? 'centered';
-        $tag     = $s['heading_tag'] ?? 'h2';
+        $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+        $tag     = in_array($s['heading_tag'] ?? 'h2', $allowed_tags, true) ? $s['heading_tag'] : 'h2';
         $p_link  = $s['primary_link'] ?? [];
         $s_link  = $s['secondary_link'] ?? [];
         $p_tag   = !empty($p_link['url']) ? 'a' : 'span';

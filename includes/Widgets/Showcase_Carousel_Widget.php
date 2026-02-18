@@ -592,7 +592,7 @@ class Showcase_Carousel_Widget extends Widget_Base
                             }
                         }
                     ?>
-                    <<?php echo $tag_el; ?> class="nfa-showcase__card nfa-showcase__card--overlay-<?php echo esc_attr($overlay_variant); ?>"<?php echo $tag_attr; ?>>
+                    <<?php echo esc_html($tag_el); ?> class="nfa-showcase__card nfa-showcase__card--overlay-<?php echo esc_attr($overlay_variant); ?>"<?php echo $tag_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- attributes pre-escaped during construction ?>>
                         <?php if ($image_url) : ?>
                         <div class="nfa-showcase__img">
                             <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($slide['title'] ?? ''); ?>" loading="lazy">
@@ -623,7 +623,7 @@ class Showcase_Carousel_Widget extends Widget_Base
                             </div>
                             <?php endif; ?>
                         </div>
-                    </<?php echo $tag_el; ?>>
+                    </<?php echo esc_html($tag_el); ?>>
                     <?php endforeach; ?>
                 </div>
             </div>

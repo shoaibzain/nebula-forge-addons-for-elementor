@@ -508,7 +508,8 @@ class Areas_Grid_Widget extends Widget_Base
         $settings     = $this->get_settings_for_display();
         $cards        = $settings['cards'] ?? [];
         $featured     = $settings['featured_first'] === 'yes';
-        $tag          = $settings['title_tag'] ?? 'h4';
+        $allowed_tags = ['h1','h2','h3','h4','h5','h6','div','p'];
+        $tag          = in_array($settings['title_tag'] ?? 'h4', $allowed_tags, true) ? $settings['title_tag'] : 'h4';
         $shadow_class = '';
         $shadow_val   = $settings['card_shadow'] ?? 'small';
 
