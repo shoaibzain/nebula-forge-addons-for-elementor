@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.3
+Stable tag: 0.9.4
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,18 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.4 =
+* Security: removed email addresses from frontend form data attribute to prevent exposure.
+* Security: fixed IP spoofing in form handler — only trusts REMOTE_ADDR now.
+* Security: added rel="noopener noreferrer" to external links in Hamburger Menu widget.
+* Security: hardened Custom Fonts POST input with is_array check and wp_unslash.
+* Improvement: Display Conditions now removes hidden elements from DOM entirely instead of CSS display:none.
+* Improvement: removed Google Fonts CDN dependency from admin — uses system font stack.
+* Improvement: removed broken File Upload field type from Advanced Form widget.
+* Fix: corrected widget count from 19 to 21 in readme and description.
+* Fix: reordered changelog entries (0.6.0 and 0.5.0 now in correct position).
+* Added uninstall.php for clean plugin deletion.
+
 = 0.9.3 =
 * Removed hardcoded font-size, font-weight, font-style, and line-height from `.nfa-ncards__step-title` to allow Elementor typography controls to take effect.
 
@@ -259,6 +271,9 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
 
 == Upgrade Notice ==
+= 0.9.4 =
+Security hardening: email exposure fix, IP spoofing fix, DOM hiding for Display Conditions, and clean uninstall. Update recommended.
+
 = 0.7.0 =
 2 new widgets: Hamburger Menu and Advanced Form with submission storage. Update recommended.
 

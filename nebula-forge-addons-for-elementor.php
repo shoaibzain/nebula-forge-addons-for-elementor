@@ -3,7 +3,7 @@
  * Plugin Name:       Nebula Forge Addons for Elementor
  * Plugin URI:        https://wordpress.org/plugins/nebula-forge-addons-for-elementor/
  * Description:       Professional Elementor widgets for any WordPress page — blogs, portfolios, landing pages, WooCommerce, and beyond.
- * Version:           0.9.3
+ * Version:           0.9.4
  * Author:            Zainaster
  * Author URI:        https://profiles.wordpress.org/shoaibzain/
  * Requires Plugins:  elementor
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-define('NEBULA_FORGE_ADDON_VERSION', '0.9.3');
+define('NEBULA_FORGE_ADDON_VERSION', '0.9.4');
 define('NEBULA_FORGE_ADDON_FILE', __FILE__);
 define('NEBULA_FORGE_ADDON_BASENAME', plugin_basename(__FILE__));
 define('NEBULA_FORGE_ADDON_PATH', plugin_dir_path(__FILE__));
