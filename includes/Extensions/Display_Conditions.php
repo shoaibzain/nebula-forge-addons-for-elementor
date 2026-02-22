@@ -44,6 +44,12 @@ final class Display_Conditions
         add_action('elementor/frontend/section/before_render', [__CLASS__, 'apply_conditions']);
         add_action('elementor/frontend/column/before_render', [__CLASS__, 'apply_conditions']);
         add_action('elementor/frontend/container/before_render', [__CLASS__, 'apply_conditions']);
+
+        // Use after_render to discard buffered output for hidden elements.
+        add_action('elementor/frontend/widget/after_render', [__CLASS__, 'maybe_discard_output']);
+        add_action('elementor/frontend/section/after_render', [__CLASS__, 'maybe_discard_output']);
+        add_action('elementor/frontend/column/after_render', [__CLASS__, 'maybe_discard_output']);
+        add_action('elementor/frontend/container/after_render', [__CLASS__, 'maybe_discard_output']);
     }
 
     /**
@@ -222,7 +228,16 @@ final class Display_Conditions
     }
 
     /**
-     * Evaluate conditions and hide the element when they fail.
+     * Track element IDs that should be hidden (output discarded).
+     *
+     * @var array<string, bool>
+     */
+    private static array $hidden_elements = [];
+
+    /**
+     * Evaluate conditions and start output buffering for hidden elements.
+     * Instead of CSS display:none (which leaks HTML to the browser), we
+     * capture the output and discard it in the after_render hook.
      *
      * @param Element_Base $element The Elementor element.
      */
@@ -241,8 +256,21 @@ final class Display_Conditions
         $should_hide = ($action === 'show' && !$condition) || ($action === 'hide' && $condition);
 
         if ($should_hide) {
-            $element->add_render_attribute('_wrapper', 'style', 'display:none !important;');
-            $element->add_render_attribute('_wrapper', 'aria-hidden', 'true');
+            self::$hidden_elements[$element->get_id()] = true;
+            ob_start(); // Start buffering — output will be discarded in after_render.
+        }
+    }
+
+    /**
+     * Discard buffered output for hidden elements (called on after_render).
+     *
+     * @param Element_Base $element The Elementor element.
+     */
+    public static function maybe_discard_output(Element_Base $element): void
+    {
+        if (!empty(self::$hidden_elements[$element->get_id()])) {
+            ob_end_clean(); // Discard the buffered HTML entirely.
+            unset(self::$hidden_elements[$element->get_id()]);
         }
     }
 

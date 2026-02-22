@@ -194,19 +194,13 @@ final class Form_Handler
      */
     private static function get_client_ip(): string
     {
-        $keys = ['HTTP_CF_CONNECTING_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_REAL_IP', 'REMOTE_ADDR'];
+        // Only trust REMOTE_ADDR to prevent IP spoofing via proxy headers.
+        // If behind a trusted reverse proxy (e.g. Cloudflare), filter in your
+        // server config or WordPress constants instead.
+        $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
 
-        foreach ($keys as $key) {
-            if (!empty($_SERVER[$key])) {
-                $ip = sanitize_text_field(wp_unslash($_SERVER[$key]));
-                // Handle comma-separated (X-Forwarded-For).
-                if (strpos($ip, ',') !== false) {
-                    $ip = trim(explode(',', $ip)[0]);
-                }
-                if (filter_var($ip, FILTER_VALIDATE_IP)) {
-                    return $ip;
-                }
-            }
+        if (filter_var($ip, FILTER_VALIDATE_IP)) {
+            return $ip;
         }
 
         return '0.0.0.0';

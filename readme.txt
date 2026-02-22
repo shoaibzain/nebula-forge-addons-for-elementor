@@ -9,11 +9,11 @@ Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-19 free Elementor widgets + 4 pro extensions — hero sections, pricing tables, testimonials, FAQs, countdown timers, image comparisons, content tabs, team profiles, CTA banners, hamburger menus, advanced forms with submissions, display conditions, custom fonts, widget tooltips, wrapper links & more. No Elementor Pro required.
+21 free Elementor widgets + 4 pro extensions — hero sections, pricing tables, testimonials, FAQs, countdown timers, image comparisons, content tabs, team profiles, CTA banners, hamburger menus, advanced forms with submissions, display conditions, custom fonts, widget tooltips, wrapper links & more. No Elementor Pro required.
 
 == Description ==
 
-**Nebula Forge Addons for Elementor** is a free collection of 19 professionally designed Elementor widgets and 4 pro-level extensions. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousals, team member profiles, CTA banners, content tabs, image comparison sliders, countdown timers, hamburger menus, and advanced forms with saved submissions — all without Elementor Pro.
+**Nebula Forge Addons for Elementor** is a free collection of 21 professionally designed Elementor widgets and 4 pro-level extensions. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousals, team member profiles, CTA banners, content tabs, image comparison sliders, countdown timers, hamburger menus, and advanced forms with saved submissions — all without Elementor Pro.
 
 The plugin also includes powerful extensions that work across ALL Elementor elements: Display Conditions to show/hide content by user role, date, page type, browser, or device; Custom Fonts upload for use in Elementor typography controls; Widget Tooltips with hover/click triggers; and Wrapper Links to make any element fully clickable.
 
@@ -21,7 +21,7 @@ Works with any WordPress page: landing pages, blog posts, portfolios, WooCommerc
 
 = Highlights =
 * Built for the free Elementor plugin. No Elementor Pro required.
-* 19 professional widgets for hero sections, feature lists, spotlight cards, stats grids, pricing tables, testimonials, FAQs, logo grids, steps, teams, CTAs, tabs, comparisons, countdowns, hamburger menus, and advanced forms.
+* 21 professional widgets for hero sections, feature lists, spotlight cards, stats grids, pricing tables, testimonials, FAQs, logo grids, steps, teams, CTAs, tabs, comparisons, countdowns, hamburger menus, and advanced forms.
 * 4 pro extensions: Display Conditions, Custom Fonts, Widget Tooltips, and Wrapper Links.
 * Detailed style controls for typography, spacing, colors, borders, and hover states.
 * Lightweight assets that only load when the widgets are used.
@@ -170,6 +170,29 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 * Updated frontend JS with hamburger toggle/submenu accordion and form AJAX validation/submission handlers.
 * Bumped total widget count from 17 to 19.
 
+= 0.6.0 =
+* Added Display Conditions extension — show/hide any Elementor element by login status, user role, date range, day of week, page type, browser, or OS.
+* Added Custom Fonts extension — upload WOFF2/WOFF/TTF fonts with multiple variants and register them in Elementor's font picker.
+* Added Widget Tooltip extension — configurable tooltips (hover/click) with position, arrow, animation, background, and typography controls.
+* Added Wrapper Link extension — make any widget, column, section, or container fully clickable with external/nofollow support.
+* Added Custom Fonts admin page with font uploader, variant management, and font preview.
+* Added Pro Extensions toggle section to Settings page for enabling/disabling each extension.
+* Added Custom Fonts tab to admin navigation.
+* Updated frontend CSS with tooltip positioning, arrow styles, and wrapper link focus states.
+* Updated frontend JS with tooltip DOM creation, positioning, and wrapper link click/keyboard handlers.
+
+= 0.5.0 =
+* Added 5 new professional widgets: Team Member, CTA Banner, Content Tabs, Image Comparison, and Countdown Timer.
+* Team Member widget with photo, name, role, bio, and 4 social media links in grid layout.
+* CTA Banner widget with gradient backgrounds, icon, kicker, dual buttons, and 3 layout options.
+* Content Tabs widget with horizontal/vertical tabs, per-tab icons, and rich WYSIWYG content panels.
+* Image Comparison widget with before/after slider, draggable handle, labels, and hover controls.
+* Countdown Timer widget with blocks, inline, and circle display styles, plus expiry message/redirect actions.
+* Updated frontend CSS with styles for all 5 new widgets, hover effects, and responsive breakpoints.
+* Updated frontend JS with tab switching, image comparison drag logic, and countdown timer with circle progress.
+* Registered all 5 new widgets in Widget Registry with metadata, badges, and categories.
+* Bumped total widget count from 12 to 17.
+
 = 0.4.0 =
 * Switched frontend styles from dark theme (CSS custom properties) to light-mode defaults for broader compatibility.
 * Added mobile-responsive rules for Areas Grid featured card layout.
@@ -234,29 +257,6 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 
 = 0.1.0 =
 * Initial release with four widgets: Hero CTA, Feature List, Spotlight Card, Stats Grid.
-
-= 0.6.0 =
-* Added Display Conditions extension — show/hide any Elementor element by login status, user role, date range, day of week, page type, browser, or OS.
-* Added Custom Fonts extension — upload WOFF2/WOFF/TTF fonts with multiple variants and register them in Elementor's font picker.
-* Added Widget Tooltip extension — configurable tooltips (hover/click) with position, arrow, animation, background, and typography controls.
-* Added Wrapper Link extension — make any widget, column, section, or container fully clickable with external/nofollow support.
-* Added Custom Fonts admin page with font uploader, variant management, and font preview.
-* Added Pro Extensions toggle section to Settings page for enabling/disabling each extension.
-* Added Custom Fonts tab to admin navigation.
-* Updated frontend CSS with tooltip positioning, arrow styles, and wrapper link focus states.
-* Updated frontend JS with tooltip DOM creation, positioning, and wrapper link click/keyboard handlers.
-
-= 0.5.0 =
-* Added 5 new professional widgets: Team Member, CTA Banner, Content Tabs, Image Comparison, and Countdown Timer.
-* Team Member widget with photo, name, role, bio, and 4 social media links in grid layout.
-* CTA Banner widget with gradient backgrounds, icon, kicker, dual buttons, and 3 layout options.
-* Content Tabs widget with horizontal/vertical tabs, per-tab icons, and rich WYSIWYG content panels.
-* Image Comparison widget with before/after slider, draggable handle, labels, and hover controls.
-* Countdown Timer widget with blocks, inline, and circle display styles, plus expiry message/redirect actions.
-* Updated frontend CSS with styles for all 5 new widgets, hover effects, and responsive breakpoints.
-* Updated frontend JS with tab switching, image comparison drag logic, and countdown timer with circle progress.
-* Registered all 5 new widgets in Widget Registry with metadata, badges, and categories.
-* Bumped total widget count from 12 to 17.
 
 == Upgrade Notice ==
 = 0.7.0 =

@@ -201,7 +201,7 @@ final class Custom_Fonts
         }
 
         $files = [];
-        $raw_files = isset($_POST['font_files']) ? $_POST['font_files'] : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+        $raw_files = isset($_POST['font_files']) && is_array($_POST['font_files']) ? wp_unslash($_POST['font_files']) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 
         if (is_array($raw_files)) {
             foreach ($raw_files as $file_data) {

@@ -94,7 +94,6 @@ class Advanced_Form_Widget extends Widget_Base
                 'radio'    => esc_html__('Radio', 'nebula-forge-addons-for-elementor'),
                 'checkbox' => esc_html__('Checkbox', 'nebula-forge-addons-for-elementor'),
                 'date'     => esc_html__('Date', 'nebula-forge-addons-for-elementor'),
-                'file'     => esc_html__('File Upload', 'nebula-forge-addons-for-elementor'),
                 'hidden'   => esc_html__('Hidden', 'nebula-forge-addons-for-elementor'),
             ],
         ]);
@@ -521,10 +520,6 @@ class Advanced_Form_Widget extends Widget_Base
             'errorMessage'   => $s['error_message'] ?? '',
             'actionSave'     => $s['action_save'] === 'yes',
             'actionEmail'    => $s['action_email'] === 'yes',
-            'emailTo'        => $s['email_to'] ?? '',
-            'emailSubject'   => $s['email_subject'] ?? '',
-            'emailFromName'  => $s['email_from_name'] ?? '',
-            'emailReplyTo'   => $s['email_reply_to'] ?? '',
             'actionRedirect' => ($s['action_redirect'] ?? '') === 'yes',
             'redirectUrl'    => $s['redirect_url']['url'] ?? '',
             'nonce'          => wp_create_nonce('nfa_form_submit'),

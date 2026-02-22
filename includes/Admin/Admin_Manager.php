@@ -187,17 +187,11 @@ final class Admin_Manager
             return;
         }
 
-        wp_enqueue_style(
-            'nebula-forge-admin-inter',
-            'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
-            [],
-            null
-        );
-
+        // Use system font stack instead of external Google Fonts CDN for privacy and performance.
         wp_enqueue_style(
             'nebula-forge-admin',
             NEBULA_FORGE_ADDON_URL . 'assets/css/admin.css',
-            ['nebula-forge-admin-inter'],
+            [],
             NEBULA_FORGE_ADDON_VERSION
         );
 

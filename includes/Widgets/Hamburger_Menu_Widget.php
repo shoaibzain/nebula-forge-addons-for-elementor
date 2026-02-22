@@ -585,9 +585,12 @@ class Hamburger_Menu_Widget extends Widget_Base
 
                         $link_attrs = '';
                         if ($mi['external']) {
-                            $link_attrs .= ' target="_blank"';
-                        }
-                        if ($mi['nofollow']) {
+                            $link_attrs .= ' target="_blank" rel="noopener noreferrer';
+                            if ($mi['nofollow']) {
+                                $link_attrs .= ' nofollow';
+                            }
+                            $link_attrs .= '"';
+                        } elseif ($mi['nofollow']) {
                             $link_attrs .= ' rel="nofollow"';
                         }
                         ?>
