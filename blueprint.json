@@ -1,4 +1,5 @@
 {
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
 	"landingPage": "/wp-admin/admin.php?page=nebula-forge-addon-welcome",
 	"preferredVersions": {
 		"php": "8.0",
@@ -10,14 +11,14 @@
 	"steps": [
 		{
 			"step": "installPlugin",
-			"pluginData": {
+			"pluginZipFile": {
 				"resource": "wordpress.org/plugins",
 				"slug": "elementor"
 			}
 		},
 		{
 			"step": "installPlugin",
-			"pluginData": {
+			"pluginZipFile": {
 				"resource": "wordpress.org/plugins",
 				"slug": "nebula-forge-addons-for-elementor"
 			}
