@@ -1,0 +1,31 @@
+{
+	"landingPage": "/wp-admin/admin.php?page=nebula-forge-addon-welcome",
+	"preferredVersions": {
+		"php": "8.0",
+		"wp": "latest"
+	},
+	"phpExtensionBundles": [
+		"kitchen-sink"
+	],
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "elementor"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "nebula-forge-addons-for-elementor"
+			}
+		},
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		}
+	]
+}
