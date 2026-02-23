@@ -9,7 +9,7 @@ Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-21 free Elementor widgets + 4 pro extensions — hero sections, pricing tables, testimonials, FAQs, countdown timers, image comparisons, content tabs, team profiles, CTA banners, hamburger menus, advanced forms with submissions, display conditions, custom fonts, widget tooltips, wrapper links & more. No Elementor Pro required.
+21 free Elementor widgets and 4 pro-level extensions for heroes, pricing, FAQs, forms, and more. No Elementor Pro required.
 
 == Description ==
 
