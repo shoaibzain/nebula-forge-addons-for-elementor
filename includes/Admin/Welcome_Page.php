@@ -156,6 +156,33 @@ final class Welcome_Page
                 </div>
             </div>
 
+            <!-- ── What's New ── -->
+            <div class="nf-card">
+                <h2 class="nf-card__title">
+                    <span class="dashicons dashicons-megaphone"></span>
+                    <?php esc_html_e('What\'s New in 0.9.5', 'nebula-forge-addons-for-elementor'); ?>
+                </h2>
+                <p><?php esc_html_e('This release adds the new Services Showcase widget plus better style controls and more reliable frontend asset updates.', 'nebula-forge-addons-for-elementor'); ?></p>
+                <ul class="nf-status-list">
+                    <li>
+                        <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                        <span class="nf-status-list__text"><?php esc_html_e('New Services Showcase widget with hover-driven image swapping.', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </li>
+                    <li>
+                        <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                        <span class="nf-status-list__text"><?php esc_html_e('New style controls for box padding, content offsets, and top icon options.', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </li>
+                    <li>
+                        <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                        <span class="nf-status-list__text"><?php esc_html_e('Title rendering now supports intentional line breaks with br tags.', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </li>
+                    <li>
+                        <span class="nf-status-list__icon nf-status-list__icon--ok"><span class="dashicons dashicons-yes-alt"></span></span>
+                        <span class="nf-status-list__text"><?php esc_html_e('Improved CSS and JS cache-busting so updates appear faster.', 'nebula-forge-addons-for-elementor'); ?></span>
+                    </li>
+                </ul>
+            </div>
+
             <!-- ── At-A-Glance Summary ── -->
             <div class="nf-glance">
                 <div class="nf-glance__item">

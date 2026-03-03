@@ -281,25 +281,12 @@ final class Plugin
             return;
         }
 
-        $use_minified = !(\defined('SCRIPT_DEBUG') && \SCRIPT_DEBUG);
-
         $source_path = NEBULA_FORGE_ADDON_PATH . 'assets/css/frontend.css';
-        $minified_path = NEBULA_FORGE_ADDON_PATH . 'assets/css/frontend.min.css';
-
-        if (
-            $use_minified
-            && \file_exists($source_path)
-            && (!\file_exists($minified_path) || \filemtime($source_path) > \filemtime($minified_path))
-        ) {
-            $use_minified = false;
-        }
-
-        $suffix = $use_minified ? '.min' : '';
-        $asset_path = NEBULA_FORGE_ADDON_PATH . 'assets/css/frontend' . $suffix . '.css';
+        $asset_path = $source_path;
 
         \wp_register_style(
             'nebula-forge-elementor-addon-frontend',
-            NEBULA_FORGE_ADDON_URL . 'assets/css/frontend' . $suffix . '.css',
+            NEBULA_FORGE_ADDON_URL . 'assets/css/frontend.css',
             [],
             $this->get_asset_version($asset_path)
         );
@@ -314,25 +301,12 @@ final class Plugin
             return;
         }
 
-        $use_minified = !(\defined('SCRIPT_DEBUG') && \SCRIPT_DEBUG);
-
         $source_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend.js';
-        $minified_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend.min.js';
-
-        if (
-            $use_minified
-            && \file_exists($source_path)
-            && (!\file_exists($minified_path) || \filemtime($source_path) > \filemtime($minified_path))
-        ) {
-            $use_minified = false;
-        }
-
-        $suffix = $use_minified ? '.min' : '';
-        $asset_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend' . $suffix . '.js';
+        $asset_path = $source_path;
 
         \wp_register_script(
             'nebula-forge-elementor-addon-frontend',
-            NEBULA_FORGE_ADDON_URL . 'assets/js/frontend' . $suffix . '.js',
+            NEBULA_FORGE_ADDON_URL . 'assets/js/frontend.js',
             ['elementor-frontend', 'jquery'],
             $this->get_asset_version($asset_path),
             true

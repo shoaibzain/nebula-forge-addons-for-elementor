@@ -4,7 +4,7 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.5
+Stable tag: 0.9.6
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -130,6 +130,10 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.6 =
+* Fixed frontend asset loading to use the current non-minified CSS and JS files, ensuring the latest styles and scripts are applied reliably after updates.
+* Added the 0.9.5 release summary to the plugin welcome screen inside wp-admin.
+
 = 0.9.5 =
 * Added the new Services Showcase widget with hover-driven image swapping, flexible linking modes, and top icon options.
 * Added expanded style controls for Services Showcase, including box padding, content offsets, top icon positioning, arrow sizing, and custom image icons.
