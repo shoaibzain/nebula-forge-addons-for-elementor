@@ -89,28 +89,28 @@ class Showcase_Carousel_Widget extends Widget_Base
         $repeater->add_control('badge', [
             'label'       => esc_html__('Badge', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Premium', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem', 'nebula-forge-addons-for-elementor'),
             'label_block' => false,
         ]);
 
         $repeater->add_control('title', [
             'label'       => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Card Title', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
         $repeater->add_control('description', [
             'label'   => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('A short description for this card.', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
             'rows'    => 3,
         ]);
 
         $repeater->add_control('tags', [
             'label'       => esc_html__('Tags (comma-separated)', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Tag 1, Tag 2', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem, Ipsum', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
@@ -126,34 +126,34 @@ class Showcase_Carousel_Widget extends Widget_Base
             'fields'      => $repeater->get_controls(),
             'default'     => [
                 [
-                    'title'       => esc_html__('Emaar Properties', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Since 1997', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Master developer of Downtown Dubai and Dubai Hills Estate.', 'nebula-forge-addons-for-elementor'),
-                    'tags'        => 'Downtown Dubai, Dubai Hills',
+                    'title'       => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Lorem', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
+                    'tags'        => 'Lorem, Ipsum',
                 ],
                 [
-                    'title'       => esc_html__('Sobha Realty', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Premium', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Premium finishes and superior building longevity.', 'nebula-forge-addons-for-elementor'),
-                    'tags'        => 'Sobha Hartland, Luxury Villas',
+                    'title'       => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'nebula-forge-addons-for-elementor'),
+                    'tags'        => 'Dolor, Sit',
                 ],
                 [
-                    'title'       => esc_html__('DAMAC Properties', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Branded Living', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Branded luxury residences and master-planned communities.', 'nebula-forge-addons-for-elementor'),
-                    'tags'        => 'DAMAC Lagoons, Branded Residences',
+                    'title'       => esc_html__('Amet Elit', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Dolor', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'nebula-forge-addons-for-elementor'),
+                    'tags'        => 'Amet, Elit',
                 ],
                 [
-                    'title'       => esc_html__('Binghatti Developers', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Iconic Design', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Rapid project delivery and iconic architectural designs.', 'nebula-forge-addons-for-elementor'),
-                    'tags'        => 'Bugatti Residences, Mercedes-Benz',
+                    'title'       => esc_html__('Consectetur', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Amet', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'nebula-forge-addons-for-elementor'),
+                    'tags'        => 'Consectetur, Amet',
                 ],
                 [
-                    'title'       => esc_html__('Meraas', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Lifestyle', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Sophisticated lifestyle destinations integrated with retail and tourism.', 'nebula-forge-addons-for-elementor'),
-                    'tags'        => 'City Walk, Bluewaters',
+                    'title'       => esc_html__('Tempor Incididunt', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Elit', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.', 'nebula-forge-addons-for-elementor'),
+                    'tags'        => 'Tempor, Incididunt',
                 ],
             ],
             'title_field' => '{{{ title }}}',

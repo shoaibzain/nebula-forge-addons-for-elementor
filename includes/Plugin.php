@@ -62,6 +62,18 @@ final class Plugin
     private bool $is_ready = false;
 
     /**
+     * Get a cache-busting asset version from file modification time.
+     */
+    private function get_asset_version(string $path): string
+    {
+        if (\file_exists($path)) {
+            return (string) \filemtime($path);
+        }
+
+        return NEBULA_FORGE_ADDON_VERSION;
+    }
+
+    /**
      * Get singleton instance.
      *
      * @return self
@@ -283,12 +295,13 @@ final class Plugin
         }
 
         $suffix = $use_minified ? '.min' : '';
+        $asset_path = NEBULA_FORGE_ADDON_PATH . 'assets/css/frontend' . $suffix . '.css';
 
         \wp_register_style(
             'nebula-forge-elementor-addon-frontend',
             NEBULA_FORGE_ADDON_URL . 'assets/css/frontend' . $suffix . '.css',
             [],
-            NEBULA_FORGE_ADDON_VERSION
+            $this->get_asset_version($asset_path)
         );
     }
 
@@ -301,13 +314,27 @@ final class Plugin
             return;
         }
 
-        $suffix = \defined('SCRIPT_DEBUG') && \SCRIPT_DEBUG ? '' : '.min';
+        $use_minified = !(\defined('SCRIPT_DEBUG') && \SCRIPT_DEBUG);
+
+        $source_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend.js';
+        $minified_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend.min.js';
+
+        if (
+            $use_minified
+            && \file_exists($source_path)
+            && (!\file_exists($minified_path) || \filemtime($source_path) > \filemtime($minified_path))
+        ) {
+            $use_minified = false;
+        }
+
+        $suffix = $use_minified ? '.min' : '';
+        $asset_path = NEBULA_FORGE_ADDON_PATH . 'assets/js/frontend' . $suffix . '.js';
 
         \wp_register_script(
             'nebula-forge-elementor-addon-frontend',
             NEBULA_FORGE_ADDON_URL . 'assets/js/frontend' . $suffix . '.js',
             ['elementor-frontend', 'jquery'],
-            NEBULA_FORGE_ADDON_VERSION,
+            $this->get_asset_version($asset_path),
             true
         );
     }

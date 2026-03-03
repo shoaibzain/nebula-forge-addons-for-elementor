@@ -82,13 +82,13 @@ class Cta_Banner_Widget extends Widget_Base
         $this->add_control('kicker', [
             'label'   => esc_html__('Kicker / Label', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXT,
-            'default' => esc_html__('LIMITED TIME OFFER', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
         ]);
 
         $this->add_control('title', [
             'label'       => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Ready to get started?', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem ipsum dolor sit amet?', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
@@ -106,7 +106,7 @@ class Cta_Banner_Widget extends Widget_Base
         $this->add_control('description', [
             'label'   => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('Join thousands of creators building beautiful pages with our Elementor widgets. Start your free trial today.', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
         ]);
 
         $this->end_controls_section();
@@ -119,7 +119,7 @@ class Cta_Banner_Widget extends Widget_Base
         $this->add_control('primary_text', [
             'label'   => esc_html__('Primary Button', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXT,
-            'default' => esc_html__('Get Started Free', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
         ]);
 
         $this->add_control('primary_link', [
@@ -131,7 +131,7 @@ class Cta_Banner_Widget extends Widget_Base
         $this->add_control('secondary_text', [
             'label'   => esc_html__('Secondary Button', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXT,
-            'default' => esc_html__('Learn More', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
         ]);
 
         $this->add_control('secondary_link', [

@@ -236,6 +236,56 @@
     };
 
     /**
+     * Initialize Services Showcase hover state and media swapping.
+     *
+     * @param {jQuery} scope The widget wrapper element.
+     */
+    const initServicesShowcase = (scope) => {
+        const $showcases = scope.find('.nfa-services-showcase');
+        if (!$showcases.length) {
+            return;
+        }
+
+        $showcases.each(function () {
+            const $el = $(this);
+
+            if ($el.data('services-showcase-bound')) {
+                return;
+            }
+
+            $el.data('services-showcase-bound', true);
+
+            const $cards = $el.find('.nfa-services-showcase__card');
+            const $mediaItems = $el.find('.nfa-services-showcase__media-item');
+
+            if (!$cards.length || !$mediaItems.length) {
+                return;
+            }
+
+            const setActive = (index) => {
+                $cards.each(function () {
+                    const $card = $(this);
+                    $card.toggleClass('is-active', String($card.data('service-index')) === String(index));
+                });
+
+                $mediaItems.each(function () {
+                    const $item = $(this);
+                    $item.toggleClass('is-active', String($item.data('service-index')) === String(index));
+                });
+            };
+
+            const defaultIndex = parseInt($el.data('active-index'), 10);
+            if (!Number.isNaN(defaultIndex)) {
+                setActive(defaultIndex);
+            }
+
+            $cards.on('mouseenter focusin click', function () {
+                setActive($(this).data('service-index'));
+            });
+        });
+    };
+
+    /**
      * Initialize Numbered Cards carousel layout.
      *
      * @param {jQuery} scope The widget wrapper element.
@@ -1419,6 +1469,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-testimonial-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-logo-grid.default', initSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-showcase-carousel.default', initShowcaseCarousel);
+        elementorFrontend.hooks.addAction('frontend/element_ready/nfa-services-showcase.default', initServicesShowcase);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-numbered-cards.default', initNumberedCards);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-video-testimonials.default', initVideoTestimonials);
         elementorFrontend.hooks.addAction('frontend/element_ready/nfa-content-tabs.default', initContentTabs);

@@ -88,7 +88,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Quote', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('We shipped our landing page in a day and the layout feels premium.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 4,
             ]
         );
@@ -98,7 +98,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Name', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Jordan Lee', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -108,7 +108,7 @@ class Testimonial_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Role', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Growth Lead, Atlas', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -141,21 +141,21 @@ class Testimonial_Grid_Widget extends Widget_Base
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'quote' => esc_html__('We shipped our landing page in a day and the layout feels premium.', 'nebula-forge-addons-for-elementor'),
-                        'name' => esc_html__('Jordan Lee', 'nebula-forge-addons-for-elementor'),
-                        'role' => esc_html__('Growth Lead, Atlas', 'nebula-forge-addons-for-elementor'),
+                        'quote' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
+                        'name' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
+                        'role' => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
                         'rating' => 5,
                     ],
                     [
-                        'quote' => esc_html__('The widgets are clean, focused, and simple to customize.', 'nebula-forge-addons-for-elementor'),
-                        'name' => esc_html__('Priya Shah', 'nebula-forge-addons-for-elementor'),
-                        'role' => esc_html__('Marketing Manager, Nova', 'nebula-forge-addons-for-elementor'),
+                        'quote' => esc_html__('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'nebula-forge-addons-for-elementor'),
+                        'name' => esc_html__('Amet Elit', 'nebula-forge-addons-for-elementor'),
+                        'role' => esc_html__('Consectetur', 'nebula-forge-addons-for-elementor'),
                         'rating' => 5,
                     ],
                     [
-                        'quote' => esc_html__('Perfect for quick experiments and growth pages.', 'nebula-forge-addons-for-elementor'),
-                        'name' => esc_html__('Alex Kim', 'nebula-forge-addons-for-elementor'),
-                        'role' => esc_html__('Founder, Brightside', 'nebula-forge-addons-for-elementor'),
+                        'quote' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'nebula-forge-addons-for-elementor'),
+                        'name' => esc_html__('Tempor Incididunt', 'nebula-forge-addons-for-elementor'),
+                        'role' => esc_html__('Labore Magna', 'nebula-forge-addons-for-elementor'),
                         'rating' => 4,
                     ],
                 ],

@@ -96,21 +96,21 @@ class Team_Member_Widget extends Widget_Base
         $repeater->add_control('name', [
             'label'       => esc_html__('Name', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Jane Doe', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
         $repeater->add_control('role', [
             'label'       => esc_html__('Role / Position', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('CEO & Founder', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
         $repeater->add_control('bio', [
             'label'   => esc_html__('Short Bio', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('Passionate about building products that make a difference.', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
             'rows'    => 3,
         ]);
 
@@ -144,19 +144,19 @@ class Team_Member_Widget extends Widget_Base
             'fields'  => $repeater->get_controls(),
             'default' => [
                 [
-                    'name' => esc_html__('Jane Doe', 'nebula-forge-addons-for-elementor'),
-                    'role' => esc_html__('CEO & Founder', 'nebula-forge-addons-for-elementor'),
-                    'bio'  => esc_html__('Passionate about building products that make a difference.', 'nebula-forge-addons-for-elementor'),
+                    'name' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'role' => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
+                    'bio'  => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'name' => esc_html__('John Smith', 'nebula-forge-addons-for-elementor'),
-                    'role' => esc_html__('Lead Developer', 'nebula-forge-addons-for-elementor'),
-                    'bio'  => esc_html__('Full-stack engineer with a focus on scalable architectures.', 'nebula-forge-addons-for-elementor'),
+                    'name' => esc_html__('Amet Elit', 'nebula-forge-addons-for-elementor'),
+                    'role' => esc_html__('Consectetur', 'nebula-forge-addons-for-elementor'),
+                    'bio'  => esc_html__('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'name' => esc_html__('Sarah Chen', 'nebula-forge-addons-for-elementor'),
-                    'role' => esc_html__('Design Director', 'nebula-forge-addons-for-elementor'),
-                    'bio'  => esc_html__('Crafting beautiful experiences that users love.', 'nebula-forge-addons-for-elementor'),
+                    'name' => esc_html__('Tempor Magna', 'nebula-forge-addons-for-elementor'),
+                    'role' => esc_html__('Labore', 'nebula-forge-addons-for-elementor'),
+                    'bio'  => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'nebula-forge-addons-for-elementor'),
                 ],
             ],
             'title_field' => '{{{ name }}}',

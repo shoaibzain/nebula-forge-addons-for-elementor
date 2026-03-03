@@ -81,7 +81,7 @@ class Faq_Accordion_Widget extends Widget_Base
             [
                 'label' => esc_html__('Question', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Is Elementor Pro required?', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet?', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -91,7 +91,7 @@ class Faq_Accordion_Widget extends Widget_Base
             [
                 'label' => esc_html__('Answer', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => esc_html__('No. All widgets are built for the free Elementor plugin.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
             ]
         );
 
@@ -103,16 +103,16 @@ class Faq_Accordion_Widget extends Widget_Base
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'question' => esc_html__('Is Elementor Pro required?', 'nebula-forge-addons-for-elementor'),
-                        'answer' => esc_html__('No. All widgets are built for the free Elementor plugin.', 'nebula-forge-addons-for-elementor'),
+                        'question' => esc_html__('Lorem ipsum dolor sit amet?', 'nebula-forge-addons-for-elementor'),
+                        'answer' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
-                        'question' => esc_html__('Can I disable unused widgets?', 'nebula-forge-addons-for-elementor'),
-                        'answer' => esc_html__('Yes. Use the Widget Settings screen in wp-admin to toggle widgets on or off.', 'nebula-forge-addons-for-elementor'),
+                        'question' => esc_html__('Consectetur adipiscing elit?', 'nebula-forge-addons-for-elementor'),
+                        'answer' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
-                        'question' => esc_html__('Will this slow down my site?', 'nebula-forge-addons-for-elementor'),
-                        'answer' => esc_html__('Assets load only when the widgets are used, keeping pages fast.', 'nebula-forge-addons-for-elementor'),
+                        'question' => esc_html__('Sed do eiusmod tempor?', 'nebula-forge-addons-for-elementor'),
+                        'answer' => esc_html__('Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.', 'nebula-forge-addons-for-elementor'),
                     ],
                 ],
                 'title_field' => '{{{ question }}}',

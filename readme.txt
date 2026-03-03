@@ -4,37 +4,38 @@ Tags: elementor, elementor widgets, elementor addons, page builder, wordpress wi
 Requires at least: 6.2
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.4
+Stable tag: 0.9.5
 Requires Plugins: elementor
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-21 free Elementor widgets and 4 pro-level extensions for heroes, pricing, FAQs, forms, and more. No Elementor Pro required.
+22 free Elementor widgets and 4 professional-grade extensions for heroes, pricing, FAQs, forms, and more. No Elementor Pro required.
 
 == Description ==
 
-**Nebula Forge Addons for Elementor** is a free collection of 21 professionally designed Elementor widgets and 4 pro-level extensions. Create stunning hero sections, feature grids, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousals, team member profiles, CTA banners, content tabs, image comparison sliders, countdown timers, hamburger menus, and advanced forms with saved submissions — all without Elementor Pro.
+**Nebula Forge Addons for Elementor** is a free collection of 22 high-quality Elementor widgets and 4 professional-grade extensions. Build hero sections, feature grids, services showcases, pricing tables, testimonial sliders, FAQ accordions, stats counters, logo carousels, team sections, CTA banners, tabs, image comparisons, countdown timers, hamburger menus, advanced forms, and more without needing Elementor Pro.
 
-The plugin also includes powerful extensions that work across ALL Elementor elements: Display Conditions to show/hide content by user role, date, page type, browser, or device; Custom Fonts upload for use in Elementor typography controls; Widget Tooltips with hover/click triggers; and Wrapper Links to make any element fully clickable.
+The plugin also includes powerful extensions that work across Elementor elements: **Display Conditions** to show or hide content by user role, date, page type, browser, operating system, or device; **Custom Fonts** to upload your own font files for Elementor typography controls; **Widget Tooltips** for styled hover or click tooltips; and **Wrapper Links** to make any widget, section, column, or container fully clickable.
 
-Works with any WordPress page: landing pages, blog posts, portfolios, WooCommerce product pages, and beyond. Every widget ships with clean light-mode defaults and granular style controls for typography, spacing, colors, borders, and hover effects.
+It works with virtually any WordPress site, including landing pages, blog posts, portfolios, case studies, WooCommerce product pages, and marketing pages. Every widget ships with clean light-mode defaults and detailed style controls for typography, spacing, colors, borders, and hover effects.
 
 = Highlights =
-* Built for the free Elementor plugin. No Elementor Pro required.
-* 21 professional widgets for hero sections, feature lists, spotlight cards, stats grids, pricing tables, testimonials, FAQs, logo grids, steps, teams, CTAs, tabs, comparisons, countdowns, hamburger menus, and advanced forms.
+* Built specifically for the free Elementor plugin. No Elementor Pro required.
+* 22 professional widgets for hero sections, feature grids, services showcases, spotlight cards, stats counters, pricing tables, testimonials, FAQs, logo displays, process layouts, teams, CTAs, tabs, comparisons, countdowns, menus, and forms.
 * 4 pro extensions: Display Conditions, Custom Fonts, Widget Tooltips, and Wrapper Links.
-* Detailed style controls for typography, spacing, colors, borders, and hover states.
+* Detailed controls for typography, spacing, colors, borders, and hover states.
 * Lightweight assets that only load when the widgets are used.
-* Admin settings with tabs, tooltips, and inline guidance for a faster setup.
+* Admin settings with tabs, tooltips, and inline guidance for faster setup.
 * Built with capability checks, nonces, and sanitized settings.
-* Layout controls to switch between grid and slider displays.
-* Form submission storage with admin list, filters, and single-entry detail view.
+* Flexible layout options, including grid and slider modes where supported.
+* Form submission storage with admin list view, filters, and single-entry details.
 
 = Widgets =
 Nebula Forge Addons for Elementor delivers a curated set of professional widgets for any WordPress page:
 
 * Hero Section — full-width hero banner with kicker text, headline, sub-copy, and a powerful CTA button.
 * Feature Showcase — responsive grid of feature items with icons, titles, and descriptions.
+* Services Showcase — split-layout service section with hover-activated image switching and interactive content cards.
 * Content Spotlight — rich content card with eyebrow, title, body text, featured image, and CTA button.
 * Stats Counter — eye-catching number grid to showcase KPIs, metrics, and achievements.
 * Pricing Plans — professional pricing card with plan name, price, features checklist, and CTA button.
@@ -52,12 +53,14 @@ Nebula Forge Addons for Elementor delivers a curated set of professional widgets
 * Countdown Timer — countdown to a target date with blocks, inline, or circle styles, labels, and expiry actions.
 * Hamburger Menu — off-canvas mobile navigation with slide panel from left, right, or top, WP menus or custom items, submenu support, and three icon styles.
 * Advanced Form — drag-and-drop form builder with 12 field types, AJAX submission, email notifications, database storage, and redirect actions.
+* Numbered Cards — flexible numbered content cards with grid, steps, and carousel presentation modes.
+* Video Testimonials — video-based testimonial cards with grid or carousel layouts, lightbox/inline playback, and rating support.
 
 = Pro Extensions =
-* Display Conditions — show or hide ANY Elementor element based on login status, user role, date range, day of week, page type, browser, or operating system.
+* Display Conditions — show or hide any Elementor element based on login status, user role, date range, day of week, page type, browser, or operating system.
 * Custom Fonts — upload custom font files (WOFF2, WOFF, TTF) with multiple variants and use them in Elementor typography controls.
 * Widget Tooltip — add fully styled hover or click tooltips to any widget with position, arrow, animation, and color controls.
-* Wrapper Link — make any widget, column, section, or container fully clickable with external/nofollow link options.
+* Wrapper Link — make any widget, column, section, or container fully clickable with external and nofollow link options.
 
 = Great for =
 * Landing pages and product launches
@@ -127,6 +130,14 @@ Use the Welcome screen checklist to build a quick demo page in Elementor. Start 
 11. Steps Timeline widget example.
 
 == Changelog ==
+= 0.9.5 =
+* Added the new Services Showcase widget with hover-driven image swapping, flexible linking modes, and top icon options.
+* Added expanded style controls for Services Showcase, including box padding, content offsets, top icon positioning, arrow sizing, and custom image icons.
+* Improved Services Showcase title rendering to allow intentional line breaks with `<br>`.
+* Updated default placeholder content across multiple widgets to use cleaner lorem ipsum demo copy.
+* Improved frontend asset cache-busting by versioning CSS and JS with file modification times.
+* Refreshed plugin readme copy and widget list to reflect the current feature set.
+
 = 0.9.4 =
 * Security: removed email addresses from frontend form data attribute to prevent exposure.
 * Security: fixed IP spoofing in form handler — only trusts REMOTE_ADDR now.

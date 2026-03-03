@@ -83,7 +83,7 @@ class Feature_List_Widget extends Widget_Base
             [
                 'label' => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Fast setup', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -93,7 +93,7 @@ class Feature_List_Widget extends Widget_Base
             [
                 'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 2,
             ]
         );
@@ -106,24 +106,24 @@ class Feature_List_Widget extends Widget_Base
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'feature_title' => esc_html__('Fast setup', 'nebula-forge-addons-for-elementor'),
-                        'feature_text' => esc_html__('Launch campaigns without developer overhead.', 'nebula-forge-addons-for-elementor'),
+                        'feature_title' => esc_html__('Lorem ipsum', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'feature_title' => esc_html__('Scales with you', 'nebula-forge-addons-for-elementor'),
-                        'feature_text' => esc_html__('Performance-focused blocks for growing sites.', 'nebula-forge-addons-for-elementor'),
+                        'feature_title' => esc_html__('Dolor sit amet', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-rocket',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'feature_title' => esc_html__('Design ready', 'nebula-forge-addons-for-elementor'),
-                        'feature_text' => esc_html__('Modern defaults that stay on-brand.', 'nebula-forge-addons-for-elementor'),
+                        'feature_title' => esc_html__('Consectetur elit', 'nebula-forge-addons-for-elementor'),
+                        'feature_text' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', 'nebula-forge-addons-for-elementor'),
                         'feature_icon' => [
                             'value' => 'fas fa-palette',
                             'library' => 'fa-solid',

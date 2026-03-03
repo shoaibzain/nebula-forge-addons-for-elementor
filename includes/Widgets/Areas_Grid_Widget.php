@@ -86,21 +86,21 @@ class Areas_Grid_Widget extends Widget_Base
         $repeater->add_control('badge', [
             'label'       => esc_html__('Badge', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Premium', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem', 'nebula-forge-addons-for-elementor'),
             'label_block' => false,
         ]);
 
         $repeater->add_control('title', [
             'label'       => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Area Name', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
         $repeater->add_control('description', [
             'label'   => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('A short description about this area or location.', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
             'rows'    => 3,
         ]);
 
@@ -116,29 +116,29 @@ class Areas_Grid_Widget extends Widget_Base
             'fields'      => $repeater->get_controls(),
             'default'     => [
                 [
-                    'title'       => esc_html__('Downtown Dubai', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Premium', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('The epicentre of luxury, home to the Burj Khalifa and high-demand short-term rentals.', 'nebula-forge-addons-for-elementor'),
+                    'title'       => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Lorem', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'title'       => esc_html__('Dubai Marina', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Waterfront', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('A waterfront hub with consistently high occupancy rates and premium resale value.', 'nebula-forge-addons-for-elementor'),
+                    'title'       => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'title'       => esc_html__('Jumeirah Village Circle', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('High Yield', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('The top-performing area for affordable luxury with rental yields reaching up to 12%.', 'nebula-forge-addons-for-elementor'),
+                    'title'       => esc_html__('Amet Elit', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Dolor', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'title'       => esc_html__('Dubai Hills Estate', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Family', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('A family-focused master community providing stable long-term returns on villas.', 'nebula-forge-addons-for-elementor'),
+                    'title'       => esc_html__('Consectetur', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Amet', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'title'       => esc_html__('Dubai Creek Harbour', 'nebula-forge-addons-for-elementor'),
-                    'badge'       => esc_html__('Future Growth', 'nebula-forge-addons-for-elementor'),
-                    'description' => esc_html__('Massive capital appreciation potential in the next five years.', 'nebula-forge-addons-for-elementor'),
+                    'title'       => esc_html__('Tempor Incididunt', 'nebula-forge-addons-for-elementor'),
+                    'badge'       => esc_html__('Elit', 'nebula-forge-addons-for-elementor'),
+                    'description' => esc_html__('Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.', 'nebula-forge-addons-for-elementor'),
                 ],
             ],
             'title_field' => '{{{ title }}}',

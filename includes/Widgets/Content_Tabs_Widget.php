@@ -94,7 +94,7 @@ class Content_Tabs_Widget extends Widget_Base
         $repeater->add_control('tab_title', [
             'label'       => esc_html__('Tab Title', 'nebula-forge-addons-for-elementor'),
             'type'        => Controls_Manager::TEXT,
-            'default'     => esc_html__('Tab Title', 'nebula-forge-addons-for-elementor'),
+            'default'     => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             'label_block' => true,
         ]);
 
@@ -106,7 +106,7 @@ class Content_Tabs_Widget extends Widget_Base
         $repeater->add_control('tab_content', [
             'label'   => esc_html__('Content', 'nebula-forge-addons-for-elementor'),
             'type'    => Controls_Manager::WYSIWYG,
-            'default' => esc_html__('Tab content goes here. Click the edit button to change this text.', 'nebula-forge-addons-for-elementor'),
+            'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
         ]);
 
         $this->add_control('tabs', [
@@ -115,16 +115,16 @@ class Content_Tabs_Widget extends Widget_Base
             'fields'  => $repeater->get_controls(),
             'default' => [
                 [
-                    'tab_title'   => esc_html__('Features', 'nebula-forge-addons-for-elementor'),
-                    'tab_content' => esc_html__('Discover our powerful features designed to help you build beautiful pages faster than ever.', 'nebula-forge-addons-for-elementor'),
+                    'tab_title'   => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
+                    'tab_content' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'tab_title'   => esc_html__('How It Works', 'nebula-forge-addons-for-elementor'),
-                    'tab_content' => esc_html__('Simply drag and drop our widgets into your Elementor editor, customize the settings, and publish.', 'nebula-forge-addons-for-elementor'),
+                    'tab_title'   => esc_html__('Dolor Sit', 'nebula-forge-addons-for-elementor'),
+                    'tab_content' => esc_html__('Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.', 'nebula-forge-addons-for-elementor'),
                 ],
                 [
-                    'tab_title'   => esc_html__('Pricing', 'nebula-forge-addons-for-elementor'),
-                    'tab_content' => esc_html__('All widgets are completely free. No hidden fees, no premium locks.', 'nebula-forge-addons-for-elementor'),
+                    'tab_title'   => esc_html__('Amet Elit', 'nebula-forge-addons-for-elementor'),
+                    'tab_content' => esc_html__('Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.', 'nebula-forge-addons-for-elementor'),
                 ],
             ],
             'title_field' => '{{{ tab_title }}}',

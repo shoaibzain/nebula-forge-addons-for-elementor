@@ -70,7 +70,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Eyebrow', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Spotlight', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -80,7 +80,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Title', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Ship polished pages faster.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet.', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -109,7 +109,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Description', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Reusable patterns, bold visuals, and sensible defaults that keep teams moving.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -119,7 +119,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Meta Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('No code handoff required', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -129,7 +129,7 @@ class Spotlight_Card_Widget extends Widget_Base
             [
                 'label' => esc_html__('Button Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('See how it works', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             ]
         );
 

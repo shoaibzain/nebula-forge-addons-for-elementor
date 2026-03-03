@@ -68,7 +68,7 @@ class Hero_Cta_Widget extends Widget_Base
             [
                 'label' => esc_html__('Kicker', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('New Release', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -78,7 +78,7 @@ class Hero_Cta_Widget extends Widget_Base
             [
                 'label' => esc_html__('Headline', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Design expressive hero sections faster.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet.', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -107,7 +107,7 @@ class Hero_Cta_Widget extends Widget_Base
             [
                 'label' => esc_html__('Body Copy', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Pair bold typography with a focused call-to-action optimized for Elementor workflows.', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.', 'nebula-forge-addons-for-elementor'),
                 'rows' => 3,
             ]
         );
@@ -117,7 +117,7 @@ class Hero_Cta_Widget extends Widget_Base
             [
                 'label' => esc_html__('Primary Button Label', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Explore Playbook', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem Ipsum', 'nebula-forge-addons-for-elementor'),
             ]
         );
 

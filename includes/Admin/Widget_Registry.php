@@ -59,6 +59,16 @@ final class Widget_Registry
                 'class'       => Widgets\Spotlight_Card_Widget::class,
                 'icon'        => 'eicon-info-box',
             ],
+            'services_showcase' => [
+                'label'       => __('Services Showcase', 'nebula-forge-addons-for-elementor'),
+                'description' => __('Split services layout with a changing left image and interactive cards on the right.', 'nebula-forge-addons-for-elementor'),
+                'tooltip'     => __('Best for service pages and home sections where each card should swap the feature image on hover.', 'nebula-forge-addons-for-elementor'),
+                'badge'       => __('HOVER', 'nebula-forge-addons-for-elementor'),
+                'badge_color' => '#2146f3',
+                'category'    => 'content',
+                'class'       => Widgets\Services_Showcase_Widget::class,
+                'icon'        => 'eicon-flip-box',
+            ],
             'stats_grid' => [
                 'label'       => __('Stats Counter', 'nebula-forge-addons-for-elementor'),
                 'description' => __('Eye-catching number grid to showcase KPIs, metrics, and achievements.', 'nebula-forge-addons-for-elementor'),

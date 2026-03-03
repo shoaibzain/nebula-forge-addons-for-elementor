@@ -70,7 +70,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Value', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => '99.9%',
+                'default' => '01',
                 'label_block' => true,
             ]
         );
@@ -80,7 +80,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Label', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Uptime', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Lorem ipsum', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -90,7 +90,7 @@ class Stats_Grid_Widget extends Widget_Base
             [
                 'label' => esc_html__('Helper Text', 'nebula-forge-addons-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Past 12 months', 'nebula-forge-addons-for-elementor'),
+                'default' => esc_html__('Dolor sit amet', 'nebula-forge-addons-for-elementor'),
                 'label_block' => true,
             ]
         );
@@ -103,24 +103,24 @@ class Stats_Grid_Widget extends Widget_Base
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'stat_value' => '99.9%',
-                        'stat_label' => esc_html__('Uptime', 'nebula-forge-addons-for-elementor'),
-                        'stat_helper' => esc_html__('Past 12 months', 'nebula-forge-addons-for-elementor'),
+                        'stat_value' => '01',
+                        'stat_label' => esc_html__('Lorem ipsum', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Dolor sit amet', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
-                        'stat_value' => '4.8',
-                        'stat_label' => esc_html__('CSAT', 'nebula-forge-addons-for-elementor'),
-                        'stat_helper' => esc_html__('Avg. app store rating', 'nebula-forge-addons-for-elementor'),
+                        'stat_value' => '02',
+                        'stat_label' => esc_html__('Consectetur', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Adipiscing elit', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
-                        'stat_value' => '320%',
-                        'stat_label' => esc_html__('ROI', 'nebula-forge-addons-for-elementor'),
-                        'stat_helper' => esc_html__('After 6 months', 'nebula-forge-addons-for-elementor'),
+                        'stat_value' => '03',
+                        'stat_label' => esc_html__('Eiusmod tempor', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Incididunt ut labore', 'nebula-forge-addons-for-elementor'),
                     ],
                     [
-                        'stat_value' => '24/7',
-                        'stat_label' => esc_html__('Support', 'nebula-forge-addons-for-elementor'),
-                        'stat_helper' => esc_html__('Global coverage', 'nebula-forge-addons-for-elementor'),
+                        'stat_value' => '04',
+                        'stat_label' => esc_html__('Magna aliqua', 'nebula-forge-addons-for-elementor'),
+                        'stat_helper' => esc_html__('Ut enim ad minim', 'nebula-forge-addons-for-elementor'),
                     ],
                 ],
                 'title_field' => '{{{ stat_value }}} — {{{ stat_label }}}',
